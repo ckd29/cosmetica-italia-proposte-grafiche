@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Proposta 8 · Bianco e blu in movimento — Centro Studi</title>
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.p8{container:site/inline-size;position:relative;font-family:"Plus Jakarta Sans","Segoe UI",Arial,sans-serif;font-size:16.5px;line-height:1.6;color:#374055;background:#FFFFFF;-webkit-font-smoothing:antialiased;overflow:clip}
+.p8 *{box-sizing:border-box}
+.p8 a{color:#2B5D6E;text-underline-offset:3px}
+.p8 a:hover{color:#1F2951}
+.p8 :focus-visible{outline:2px solid #1F2951;outline-offset:3px;border-radius:4px}
+:where(.p8) :where(h1,h2,h3){margin:0;font-weight:600;color:#1F2951;line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
+:where(.p8) p{margin:0}
+:where(.p8) :where(ul,ol){list-style:none;margin:0;padding:0}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-80px;z-index:90;background:#fff;color:#1F2951!important;padding:10px 14px;border-radius:8px}
+.skip:focus{top:12px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.mono{font-variant-numeric:tabular-nums;font-size:14px;letter-spacing:.01em}
+.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic-s{width:15px;height:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 18px;border-radius:9px;border:1px solid transparent;font:inherit;font-size:15px;font-weight:500;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s,box-shadow .15s}
+.btn-navy{background:#1F2951;color:#fff!important;box-shadow:0 0 0 1px #1F2951,0 1px 0 rgba(255,255,255,.2) inset,0 8px 18px -10px rgba(31,41,81,.7)}
+.btn-navy:hover{background:#2A3666}
+.btn-line{background:#fff;border-color:#DCDFDA;color:#1F2951!important;box-shadow:0 1px 2px rgba(31,41,81,.05)}
+.btn-line:hover{border-color:#1F2951}
+.tag{display:inline-flex;align-items:center;gap:5px;min-height:24px;padding:0 8px;border-radius:6px;font-size:12px;line-height:1;white-space:nowrap;border:1px solid #E1E4DF;background:#fff;color:#3F4656}
+.tg-lock{background:#EEF1F7;border-color:#DCE2EF;color:#2E3A63}
+.tg-soci{background:#FBEFD2;border-color:#F1DFB0;color:#6E4A00}
+.tg-aqua{background:#E9F3F0;border-color:#CFE3DD;color:#24524F}
+.tg-warn{background:#FBE7DE;border-color:#F2CDBC;color:#8A3413}
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid #E6E8E4}
+.top-in{position:relative;display:flex;align-items:center;gap:28px;height:76px}
+.brand{display:block;flex:none}
+.brand img{display:block;height:38px;width:auto}
+.navwrap{display:flex;align-items:center;flex:1;min-width:0}
+.nav{display:flex;gap:2px}
+.navbtn{display:flex;align-items:center;gap:4px;height:40px;padding:0 10px;border:0;border-radius:8px;background:none;font:inherit;font-size:16px;font-weight:500;color:#3F4656;cursor:pointer;white-space:nowrap}
+.navbtn:hover,.navbtn.is-open{color:#1F2951;background:#F0F2EE}
+.navbtn .ic{width:14px;height:14px;opacity:.6;transition:transform .2s}
+.navbtn.is-open .ic{transform:rotate(180deg)}
+.tools{margin-left:auto;display:flex;align-items:center;gap:8px;flex:none}
+.sfake{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 14px;border:1px solid #E1E4DF;border-radius:9px;background:#fff;font:inherit;font-size:14px;color:#6A7180;cursor:pointer;box-shadow:0 1px 2px rgba(31,41,81,.04)}
+.sfake:hover{border-color:#C7CCC5;color:#1F2951}
+.sfake .lbl{font-weight:500;color:#1F2951}
+.top .btn{min-height:40px;padding:0 16px;font-size:15px}
+.burger{display:none}
+.mobile-only{display:none}
+.mega{position:absolute;left:0;right:0;top:100%;z-index:70;margin-top:1px;background:#fff;border:1px solid #E6E8E4;border-top:0;border-radius:0 0 14px 14px;box-shadow:0 30px 50px -30px rgba(31,41,81,.35);padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:28px}
+.mega h2{font-size:20px;letter-spacing:-.02em}
+.mega p{margin-top:6px;font-size:14px;color:#5F6677}
+.mlinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 12px}
+.mlinks a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:42px;padding:0 10px;border-radius:8px;color:#1F2951;font-size:15px;font-weight:500;text-decoration:none}
+.mlinks a:hover{background:#F3F5F1}
+.mlinks .ic{color:#8A90A0}
+.scrim{position:fixed;inset:0;z-index:80;border:0;padding:0;margin:0;background:rgba(31,41,81,.14);cursor:default}
+.modal{position:fixed;top:88px;left:50%;transform:translateX(-50%);z-index:85;width:min(660px,calc(100% - 32px));background:#fff;border:1px solid #E1E4DF;border-radius:14px;box-shadow:0 40px 80px -30px rgba(31,41,81,.45);overflow:hidden}
+.pal-top{display:flex;align-items:center;gap:10px;padding:0 14px;height:54px;border-bottom:1px solid #EEF0EC;color:#8A90A0}
+.pal-top input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:#1F2951}
+.pal-body{max-height:420px;overflow:auto;padding:6px}
+.pal-h{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8A90A0;padding:10px 10px 6px}
+.pal-row{display:grid;grid-template-columns:96px minmax(0,1fr) auto;align-items:center;gap:12px;padding:9px 10px;border-radius:8px;text-decoration:none;color:#1F2951!important}
+.pal-row:hover{background:#F3F5F1}
+.pal-row .t{font-weight:500;line-height:1.35}
+.pal-row .d{font-size:12px;color:#8A90A0;white-space:nowrap}
+.pal-chips{display:flex;flex-wrap:wrap;gap:6px;padding:2px 10px 10px}
+.pal-chip{min-height:30px;padding:0 10px;border:1px solid #E1E4DF;border-radius:7px;background:#fff;font:inherit;font-size:13px;color:#1F2951;cursor:pointer}
+.pal-chip:hover{border-color:#1F2951}
+.pal-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 14px;border-top:1px solid #EEF0EC;font-size:12px;color:#8A90A0}
+.demo-tag{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:5px;background:#1F2951;color:#fff;font-size:11px;letter-spacing:.04em;text-transform:uppercase;margin-right:6px}
+.mclose{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:0;border-radius:8px;background:transparent;color:#6A7180;cursor:pointer}
+.mclose:hover{background:#F3F5F1;color:#1F2951}
+.login-body{padding:22px 22px 24px}
+.login-body h2{font-size:24px}
+.login-body p{margin-top:8px}
+.login-body .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.demo-note{margin-top:14px;padding:12px 14px;border:1px dashed #C7CCC5;border-radius:10px;font-size:14px;background:#FAFBF9}
+.foot{border-top:1px solid #E6E8E4;background:#F7F7F4;font-size:14px;color:#4A5160}
+.foot a{color:#3F4656;text-decoration:none}
+.foot a:hover{color:#1F2951;text-decoration:underline}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(5,minmax(0,1fr));gap:28px;padding:56px 0 40px}
+.fgrid img{display:block;height:30px;width:auto}
+.fgrid h2{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6A7180;margin-bottom:12px}
+.fgrid li{margin:7px 0;line-height:1.35}
+.addr{font-style:normal;margin-top:16px;line-height:1.6}
+.nlf{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.nlf input{flex:1;min-width:170px;height:38px;padding:0 12px;border:1px solid #DCDFDA;border-radius:9px;font:inherit;font-size:14px;background:#fff;color:#1F2951}
+.nlf .btn{min-height:38px}
+.nlf .msg{flex-basis:100%;font-size:13px}
+.fbase{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding:18px 0 26px;border-top:1px solid #E6E8E4;font-size:13px;color:#5F6677}
+.fbase ul{display:flex;flex-wrap:wrap;gap:6px 18px}
+@container site (max-width: 1240px){
+.fgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.fgrid > div:first-child{grid-column:1/-1}
+}
+@container site (max-width: 1320px){
+.hide-m{display:none!important}
+.burger{display:inline-flex}
+.navwrap{display:none}
+.top.is-open .navwrap{display:block;position:absolute;left:0;right:0;top:100%;z-index:70;margin-top:1px;background:#fff;border:1px solid #E6E8E4;border-radius:0 0 14px 14px;box-shadow:0 30px 50px -30px rgba(31,41,81,.35);padding:8px}
+.nav{flex-direction:column;gap:2px}
+.navbtn{width:100%;justify-content:space-between;height:46px;font-size:16px}
+.mega{position:static;box-shadow:none;border:0;border-radius:10px;background:#F6F7F4;padding:6px;margin:2px 0 6px;display:block}
+.mega > div:first-child{display:none}
+.mlinks{grid-template-columns:1fr}
+.top.is-open .mobile-only{display:flex;flex-direction:column;gap:8px;padding:10px 4px 4px}
+}
+@container site (max-width: 640px){
+.wrap{padding:0 18px}
+.sfake .lbl{display:none}
+.sfake{width:40px;padding:0}
+.top-in{height:62px;gap:10px}
+.brand img{height:30px}
+
+.fgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px;padding-top:40px}
+.pal-row{grid-template-columns:minmax(0,1fr)}
+.pal-row .d{white-space:normal}
+.modal{top:70px}
+}
+@media (prefers-reduced-motion: reduce){.p8 *,.p8 *::before,.p8 *::after{animation:none!important;transition:none!important}}
+
+/* === base bianco e blu === */
+.p8 a{color:#1F59A1}
+.p8 a:hover{color:#203262}
+.p8 :focus-visible{outline:2px solid #1F59A1;outline-offset:3px}
+:where(.p8) :where(h1,h2,h3){color:#203262;font-weight:700;letter-spacing:-.025em}
+.btn-navy{background:#203262;box-shadow:none}
+.btn-navy:hover{background:#1F59A1}
+.btn-line{border-color:#CAD5E3;color:#203262!important}
+.btn-line:hover{border-color:#203262}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.55);color:#fff!important}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-white{background:#fff;color:#203262!important;border:1px solid #fff}
+.btn-white:hover{background:#EAF2FA}
+.top{background:#1A2252;border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:none;-webkit-backdrop-filter:none}
+.top-in{height:80px;gap:20px}
+.brand img{height:34px}
+.navbtn{color:#fff;font-weight:600;font-size:15px;height:42px;padding:0 8px;text-decoration:none}
+.navbtn:hover,.navbtn.is-open{color:#fff;background:rgba(255,255,255,.1)}
+.navbtn .ic{opacity:.8}
+.navlink{display:flex;align-items:center}
+.p8 a.navbtn{color:#fff}
+.sfake{width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.35);border-radius:10px;background:transparent;color:#fff;box-shadow:none}
+.sfake:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
+.top .btn{min-height:42px;padding:0 14px}
+.mega{border-color:#E1E7EF;box-shadow:0 30px 60px -30px rgba(20,27,69,.55)}
+.mega h2{color:#203262}
+.mlinks a{color:#203262}
+.mlinks a:hover{background:#F0F5FB}
+.tag{border-color:#DCE4EE;color:#374055}
+.tg-lock{background:#EAF1F9;border-color:#D3E1F1;color:#1A3F73}
+.foot{background:#1A2252;border-top:0;color:#C9D6E8}
+.foot a{color:#E6EDF6}
+.foot a:hover{color:#fff}
+.fgrid h2{color:#95C1DE}
+.nlf input{border-color:rgba(255,255,255,.3);background:#fff}
+.nlf .btn-navy{background:#1F59A1}
+.nlf .btn-navy:hover{background:#2D6DBA}
+.fbase{border-top-color:rgba(255,255,255,.16);color:#AFC0D8}
+.foot .demo-tag{background:#95C1DE;color:#1A2252}
+.foot .addr a{color:#E6EDF6}
+@container site (max-width: 1320px){
+.top.is-open .navwrap{background:#fff}
+.top.is-open .navbtn,.top.is-open a.navbtn{color:#203262}
+.top.is-open .navbtn:hover{background:#F0F5FB}
+}
+@container site (max-width: 640px){
+.top-in{height:66px}
+.brand img{height:32px}
+.burger{padding:0 12px}
+}
+/* === P8: bianco e blu in movimento === */
+.p8{--navy:#141B45;--navy2:#1A2252;--blu:#203262;--mid:#1F59A1;--az:#95C1DE;--az2:#7BB2D6;--ink:#203262;--txt:#374055;--muted:#5B6578;--line:#E1E7EF;--bg2:#F4F8FC;color:var(--txt)}
+:where(.p8) :where(h1,h2,h3){color:var(--ink);font-weight:800;letter-spacing:-.03em}
+.p8 :focus-visible{outline:2px solid #1F59A1;outline-offset:3px}
+.btn{border-radius:12px;font-weight:600}
+.btn-lg{min-height:54px;padding:0 24px;font-size:16px}
+.btn-white{background:#fff;color:#203262!important;border:1px solid #fff}
+.btn-white:hover{background:#EAF2FA}
+.btn-glass{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-glass:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.6)}
+.btn-navy{background:#203262;color:#fff!important;box-shadow:none}
+.btn-navy:hover{background:#1F59A1}
+.btn-line{background:#fff;border:1px solid #CAD5E3;color:#203262!important;box-shadow:none}
+.btn-line:hover{border-color:#203262}
+.btn .go{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-right:-8px;border-radius:999px;background:#203262;color:#fff;transition:transform .25s ease}
+.btn:hover .go{transform:translateX(3px)}
+.btn .go .ic{width:15px;height:15px}
+/* testata trasparente: capsula di navigazione, diventa vetro chiaro allo scorrimento */
+.top{position:sticky;top:0;z-index:60;margin:0;border-radius:0;background:transparent;border:0;border-bottom:1px solid transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;transition:background .3s,border-color .3s,box-shadow .3s}
+.top .wrap{max-width:none;padding:0 28px}
+.top-in{height:76px;gap:24px}
+.brand img{height:30px}
+.brand .lg-n{display:none}
+.navwrap{justify-content:center}
+.nav{gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .3s,border-color .3s}
+.navbtn{color:rgba(255,255,255,.92);font-weight:500;font-size:14.5px;height:36px;padding:0 13px;border-radius:999px;text-decoration:none;letter-spacing:-.005em}
+.navbtn:hover,.navbtn.is-open{color:#fff;background:rgba(255,255,255,.12)}
+.navbtn .ic{opacity:.7;width:13px;height:13px}
+.p8 a.navbtn{color:rgba(255,255,255,.92)}
+.navlink{display:flex;align-items:center}
+.sfake{width:40px;height:40px;padding:0;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.06);color:#fff;box-shadow:none}
+.sfake:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.12)}
+.top .btn{min-height:40px;padding:0 16px;font-size:14.5px;border-radius:999px}
+.top .btn.hide-m{background:#fff;border-color:#fff;color:#203262!important}
+.top .btn.hide-m:hover{background:#EAF2FA}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff!important}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+/* allo scorrimento: vetro bianco come prima, senza bordi (barra, capsula del menu e lente) */
+.top.is-sc{background:rgba(255,255,255,.78);border-bottom-color:transparent;backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);box-shadow:0 10px 30px -26px rgba(20,27,69,.4)}
+.top.is-sc .brand .lg-w{display:none}
+.top.is-sc .brand .lg-n{display:block}
+.top.is-sc .nav{background:rgba(32,50,98,.05);border-color:transparent}
+.top.is-sc .navbtn,.top.is-sc a.navbtn{color:#203262}
+.top.is-sc .navbtn:hover,.top.is-sc .navbtn.is-open{background:rgba(32,50,98,.08)}
+.top.is-sc .sfake{border-color:transparent;background:rgba(32,50,98,.05);color:#203262}
+.top.is-sc .sfake:hover{border-color:transparent;background:rgba(32,50,98,.1)}
+.top.is-sc .btn.hide-m{background:#203262;border-color:#203262;color:#fff!important}
+.top.is-sc .btn.hide-m:hover{background:#1F59A1;border-color:#1F59A1}
+.top.is-sc .btn-ghost{border-color:transparent;background:rgba(32,50,98,.05);color:#203262!important}
+.mega{left:50%;right:auto;width:min(960px,calc(100cqw - 56px));translate:-50% 0;top:calc(100% + 8px);margin-top:0;border:1px solid rgba(225,231,239,.9);border-radius:18px;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 40px 70px -40px rgba(20,27,69,.6);padding:24px 26px;animation:p8drop .22s ease-out}
+@keyframes p8drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mega h2{font-size:22px;color:#203262}
+.mlinks a{color:#203262;border-radius:10px}
+.mlinks a:hover{background:#EEF4FB}
+.tag{border-color:#DCE4EE;color:#374055}
+.p8 .tag{border-color:transparent}
+.p8 .tag:not([class*="tg-"]){background:#EEF3F9}
+.tg-lock{background:#EAF1F9;border-color:#D3E1F1;color:#1A3F73}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1F59A1}
+.eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:currentColor}
+/* ===== footer: impaginazione originale (logo a sinistra, newsletter a destra) con i colori della prima sezione, bordo superiore dritto ===== */
+.f8{position:relative;overflow:hidden;isolation:isolate;color:#DCE6F2;font-size:15px}
+.f8-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(118deg,#121845 0%,#1A2252 38%,#203262 66%,#1F59A1 118%)}
+.f8-glow{position:absolute;border-radius:50%;filter:blur(80px)}
+.f8-g1{width:620px;height:620px;left:-180px;top:-200px;background:#1F59A1;opacity:.7}
+.f8-g2{width:560px;height:560px;right:4%;top:-80px;background:#7BB2D6;opacity:.32}
+.f8 a{color:#fff;text-decoration:none}
+.f8-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px;align-items:center;padding:80px 0 56px}
+.f8-id img{display:block;height:46px;width:auto}
+.f8-addr{margin-top:18px;font-style:normal;line-height:1.7;color:#DCE6F2}
+.f8-addr a{color:#BFE0F4;font-weight:600}
+.f8-addr a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.f8-soc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.f8-soc a{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:14px;font-weight:700;color:#fff;transition:background .3s,color .3s}
+.f8-soc .ic{width:16px;height:16px}
+.f8-soc a:hover{background:#fff;color:#203262}
+.f8-h{font-size:36px;line-height:1.1;font-weight:800;letter-spacing:-.035em;color:#fff}
+.f8-h .hl{background:linear-gradient(92deg,#BFE0F4 0%,#95C1DE 30%,#FFFFFF 55%,#95C1DE 80%,#BFE0F4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.f8-form{display:flex;align-items:center;gap:8px;margin-top:22px;padding:6px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.f8-form:focus-within{border-color:#BFE0F4;box-shadow:0 0 0 2px #BFE0F4}
+.f8-form input{flex:1;min-width:0;height:48px;padding:0 18px;border:0;border-radius:999px;background:transparent;font:inherit;font-size:16px;color:#fff;outline:none}
+.f8-form input::placeholder{color:#C3D0E6}
+.f8-sub{display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 6px 0 22px;border:0;border-radius:999px;background:#fff;color:#203262;font:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:background .3s}
+.f8-sub .go{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#203262;color:#fff;flex:none}
+.f8-sub .ic{width:17px;height:17px}
+.f8-sub:hover{background:#EAF3FC}
+.f8-msg{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13.5px;color:#DCE6F2}
+.f8 .demo-tag{background:#95C1DE;color:#0E1440}
+.f8-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:32px;padding:44px 0;border-top:1px solid rgba(255,255,255,.14)}
+.f8-grid h2{font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#95C1DE;margin-bottom:12px}
+.f8-grid li{margin:8px 0;line-height:1.35}
+.f8-grid a{color:#DCE6F2;font-size:15px;transition:color .25s}
+.f8-grid a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.f8-base{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px 28px;padding:22px 0 30px;border-top:1px solid rgba(255,255,255,.14);font-size:13.5px;color:#A9BCD6}
+.f8-legal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.f8-legal a{color:#DCE6F2}
+.f8-legal a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.f8-base .mono{font-size:12.5px;color:#A9BCD6;text-align:center}
+.f8-up{display:inline-flex;align-items:center;gap:12px;padding:0;border:0;background:none;color:#fff;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.f8-pr{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;transition:background .3s,color .3s}
+.f8-pr .ic{width:18px;height:18px}
+.f8-up:hover .f8-pr{background:#fff;color:#203262}
+.f8 :focus-visible{outline:2px solid #BFE0F4;outline-offset:3px}
+.f8-form input:focus-visible{outline:none}
+@media (prefers-reduced-motion: reduce){.f8-sub,.f8-soc a,.f8-grid a,.f8-pr{transition:none}}
+@container site (max-width: 1080px){
+.f8-top{grid-template-columns:minmax(0,1fr);gap:36px;padding-top:64px}
+.f8-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}
+.f8-base{grid-template-columns:minmax(0,1fr) auto}
+.f8-base .mono{grid-column:1/-1;grid-row:2;text-align:left}
+}
+@container site (max-width: 640px){
+.f8-top{padding:52px 0 36px}
+.f8-h{font-size:28px}
+.f8-form{flex-direction:column;align-items:stretch;border-radius:24px}
+.f8-sub{justify-content:space-between}
+.f8-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 18px;padding-top:32px}
+.f8-base{grid-template-columns:minmax(0,1fr)}
+.f8-base .mono{grid-row:auto}
+.f8-g1{width:420px;height:420px}
+.f8-g2{display:none}
+}
+@container site (max-width: 1320px){
+.mega{width:auto;translate:none;animation:none}
+.top.is-open .navwrap{top:calc(100% + 6px);left:12px;right:12px;border-radius:18px;background:#fff;border:1px solid #E1E7EF;padding:10px}
+.top.is-open .nav{background:none;border:0;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.top.is-open .navbtn{border-radius:10px;font-size:16px}
+.top.is-open .navbtn,.top.is-open a.navbtn{color:#203262}
+.top.is-open .navbtn:hover{background:#EEF4FB}
+}
+@container site (max-width: 640px){
+.top .wrap{padding:0 14px 0 18px}
+.top-in{height:64px}
+.brand img{height:28px}
+.burger{padding:0 12px}
+}
+
+.eyebrow{font-size:13.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1F59A1}
+.eyebrow-l{color:#95C1DE}
+.k{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1F59A1}
+.btn{border-radius:10px;font-weight:600}
+.btn-lg{min-height:52px;padding:0 24px;font-size:16px}
+.src{font-size:13px;line-height:1.5;color:#5B6578}
+.lead{font-size:19px;line-height:1.55;color:#374055}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.sec{padding:104px 0}
+.sec-blue-l{background:#F2F6FB}
+.shead{max-width:820px;margin-bottom:40px}
+.shead h2{font-size:44px;margin-top:10px;line-height:1.1}
+.shead-row{max-width:none;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.more{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:#1F59A1!important;text-decoration:none}
+.more:hover{text-decoration:underline}
+.tag{font-size:12.5px;font-family:inherit}
+.tg-dark{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+/* banner */
+.banner{position:relative;overflow:hidden;color:#fff;background:linear-gradient(118deg,#141B45 0%,#1A2252 38%,#203262 62%,#1F59A1 100%)}
+.b-visual{position:absolute;top:0;bottom:0;right:0;width:58%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%);mask-image:linear-gradient(90deg,transparent 0,#000 34%)}
+.b-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;display:block}
+.b-mob{display:none}
+.b-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,27,69,.85) 0%,rgba(20,27,69,.55) 42%,rgba(20,27,69,0) 62%)}
+.b-in{position:relative;min-height:600px;display:flex;flex-direction:column;justify-content:center;padding-top:72px;padding-bottom:72px}
+.b-copy{max-width:680px}
+.b-eye{font-size:13.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#95C1DE}
+.banner h1{margin-top:18px;font-size:66px;line-height:1.04;font-weight:800;letter-spacing:-.035em;color:#fff}
+.b-lead{margin-top:22px;font-size:19.5px;line-height:1.55;color:#DCE6F2;max-width:34em}
+.insights{position:relative;background:rgba(10,16,48,.55);border-top:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ins-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.ins{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0}
+.ins div{padding:26px 24px 26px 0;min-width:0}
+.ins div+div{padding-left:24px;border-left:1px solid rgba(255,255,255,.16)}
+.ins dt{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff}
+.ins dt small{font-size:18px;font-weight:600;letter-spacing:0;color:#95C1DE;margin-left:2px}
+.ins dd{margin:10px 0 0;font-size:14.5px;line-height:1.45;color:#DCE6F2}
+.ins dd span{display:block;margin-top:8px;font-size:12.5px;color:#A9BCD6}
+.ins-more{display:inline-flex;align-items:center;gap:8px;max-width:170px;padding:14px 0 14px 24px;border-left:1px solid rgba(255,255,255,.16);font-weight:700;font-size:15px;line-height:1.35;color:#fff!important;text-decoration:none}
+.ins-more:hover{text-decoration:underline}
+/* in evidenza */
+.ev-in{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:48px;align-items:start}
+.ev-intro h2{margin-top:12px;font-size:38px;line-height:1.12}
+.ev-intro .more{margin-top:22px}
+.ev-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.ev{display:flex;flex-direction:column;height:100%;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #E1E7EF;text-decoration:none;color:#203262!important;transition:box-shadow .2s,transform .2s}
+.ev:hover{box-shadow:0 26px 50px -32px rgba(20,27,69,.55);transform:translateY(-2px)}
+.ev-img{position:relative;display:block;aspect-ratio:16/10;overflow:hidden}
+.ev-img{background:#EAF2FA}
+.ev-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.ev:hover .ev-img img{transform:scale(1.03)}
+.ev-tib img{object-position:30% 30%}
+.ev-b{display:flex;flex-direction:column;gap:8px;padding:20px 22px 24px}
+.ev-k{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1F59A1}
+.ev-t{font-size:19px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.ev:hover .ev-t{text-decoration:underline}
+.ev-d{margin-top:auto;font-size:14px;color:#5B6578}
+/* servizi */
+.serv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.serv a{display:grid;grid-template-columns:52px minmax(0,1fr) 20px;grid-template-rows:auto auto;column-gap:16px;row-gap:4px;align-items:start;padding:24px;border-radius:16px;background:#fff;border:1px solid #E1E7EF;text-decoration:none;color:#203262!important;transition:border-color .2s,box-shadow .2s}
+.serv a::after{content:"→";grid-column:3;grid-row:1;color:#1F59A1;font-weight:700}
+.serv a:hover{border-color:#1F59A1;box-shadow:0 20px 40px -32px rgba(20,27,69,.6)}
+.s-ic{grid-row:1/span 2;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:#EAF2FA}
+.s-ic svg{width:26px;height:26px;fill:none;stroke:#1F59A1;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.s-t{font-size:18px;font-weight:700}
+.s-d{grid-column:2/span 2;font-size:15px;color:#4B5568;line-height:1.45}
+/* aggiornamenti */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.panel{padding:24px 24px 10px;border-radius:16px;border:1px solid #E1E7EF;background:#fff;min-width:0}
+.p-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:2px solid #203262}
+.p-h h3{font-size:22px}
+.p-h a{font-size:14.5px;font-weight:700}
+.lst li+li,.ag li+li{border-top:1px solid #EDF1F6}
+.lst a{display:flex;flex-direction:column;gap:6px;padding:15px 2px;text-decoration:none;color:#203262!important}
+.lst a:hover .l-t{text-decoration:underline}
+.l-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:14px;color:#5B6578;font-variant-numeric:tabular-nums}
+.l-meta b{color:#1F59A1}
+.l-t{font-size:16.5px;font-weight:600;line-height:1.4}
+.ag a{display:flex;gap:14px;padding:15px 2px;text-decoration:none;color:#203262!important}
+.ag a:hover .t{text-decoration:underline}
+.cal{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;width:54px;height:58px;border-radius:10px;background:#203262;color:#95C1DE;font-size:12px;font-weight:700;text-transform:uppercase;line-height:1.1}
+.cal b{font-size:21px;font-weight:800;color:#fff}
+.ag-t{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.ag-t .t{font-size:16px;font-weight:600;line-height:1.4}
+/* centro studi band */
+.cs-band{background:linear-gradient(118deg,#1A2252,#203262 55%,#1F59A1);color:#DCE6F2}
+.csb-in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:center;padding-top:88px;padding-bottom:88px}
+.cs-band h2{margin-top:12px;font-size:40px;color:#fff}
+.csb-copy > p:not(.eyebrow):not(.csb-acc){margin-top:16px;font-size:17.5px;line-height:1.6}
+.csb-acc{margin-top:18px}
+.csb-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.csb-k li{padding:18px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.csb-k span{display:block;font-size:13.5px;color:#C9D6E8}
+.csb-k b{display:block;margin-top:6px;font-size:28px;font-weight:800;letter-spacing:-.02em;color:#fff;white-space:nowrap}
+.csb-k small{font-size:14px;font-weight:600;color:#95C1DE}
+.csb-k em{display:block;margin-top:4px;font-style:normal;font-size:13.5px;font-weight:600;color:#95C1DE}
+.csb-k li.csb-src{grid-column:1/-1;padding:0;background:none;border:0;font-size:13px;color:#A9BCD6}
+/* socio */
+.socio{display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:40px;align-items:center;padding:52px 56px;border-radius:22px;background:#EAF2FA;border:1px solid #D3E1F1}
+.socio h2{margin-top:10px;font-size:40px}
+.socio-l{margin-top:14px;font-size:17.5px;color:#374055;max-width:44em}
+.socio .ctas{margin-top:0}
+/* kpis per Centro Studi */
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kpis li{padding:16px;border:1px solid #E1E7EF;border-radius:12px;background:#F7FAFD}
+.kpis span{display:block;font-size:13.5px;color:#5B6578}
+.kpis b{display:block;margin-top:4px;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1;color:#203262;white-space:nowrap}
+.kpis small{font-size:14px;font-weight:600;color:#5B6578;letter-spacing:0}
+.kpis em{display:block;margin-top:4px;font-style:normal;font-size:13.5px;font-weight:700;color:#1F59A1}
+@container site (max-width: 1240px){
+.banner h1{font-size:56px}
+.b-visual{width:62%}
+.b-shade{background:linear-gradient(90deg,rgba(20,27,69,.9) 0%,rgba(20,27,69,.7) 45%,rgba(20,27,69,.15) 72%,rgba(20,27,69,0) 100%)}
+.ins dt{font-size:34px}
+.ev-in{grid-template-columns:minmax(0,1fr);gap:28px}
+.ev-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ev-intro .more{margin-top:0}
+}
+@container site (max-width: 1080px){
+.ins-in{grid-template-columns:minmax(0,1fr);gap:0}
+.ins{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ins div:nth-child(3){padding-left:0;border-left:0}
+.ins div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
+.ins-more{max-width:none;padding:16px 0 20px;border-left:0;border-top:1px solid rgba(255,255,255,.16)}
+.serv{grid-template-columns:repeat(2,minmax(0,1fr))}
+.two{grid-template-columns:minmax(0,1fr)}
+.csb-in{grid-template-columns:minmax(0,1fr);gap:32px}
+.socio{grid-template-columns:minmax(0,1fr)}
+.b-visual{display:none}
+.b-shade{background:none}
+.b-mob{display:block;position:relative;width:100%;max-width:780px;margin:0 -32px -72px auto;aspect-ratio:1280/800;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(180deg,transparent 0,#000 14%,#000 84%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(180deg,transparent 0,#000 14%,#000 84%,transparent 100%);mask-composite:intersect}
+.b-mob img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:96% 50%;display:block}
+}
+@container site (max-width: 760px){
+.ev-cards{grid-template-columns:minmax(0,1fr)}
+}
+@container site (max-width: 640px){
+.sec{padding:68px 0}
+.shead{margin-bottom:26px}
+.shead h2,.ev-intro h2,.cs-band h2,.socio h2{font-size:30px}
+.b-mob{width:auto;max-width:none;margin:24px -18px -48px;aspect-ratio:780/753;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 84%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 84%,transparent 100%)}
+.b-in{min-height:0;padding-top:48px;padding-bottom:48px}
+.banner h1{font-size:38px}
+.b-lead{font-size:17px}
+.btn-lg{min-height:48px;padding:0 18px;font-size:15.5px}
+.ins{grid-template-columns:minmax(0,1fr)}
+.ins div,.ins div+div{padding:18px 0;border-left:0}
+.ins div+div{border-top:1px solid rgba(255,255,255,.16)}
+.ins dt{font-size:32px}
+.serv{grid-template-columns:minmax(0,1fr)}
+.serv a{padding:18px;grid-template-columns:44px minmax(0,1fr) 18px}
+.s-ic{width:44px;height:44px}
+.panel{padding:18px 16px 6px}
+.csb-in{padding-top:60px;padding-bottom:60px}
+.csb-k{grid-template-columns:minmax(0,1fr)}
+.socio{padding:28px 22px}
+}
+@media (prefers-reduced-motion: reduce){.ev:hover .ev-img img{transform:none}}
+.cs-hero{position:relative;padding:56px 0 64px;border-bottom:1px solid #EEF0EC}
+.cs-hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:56px;align-items:end}
+.cs-hero-in > *{min-width:0}
+.crumbs ol{display:flex;flex-wrap:wrap;gap:6px;font-size:14.5px;color:#5A6273}
+.crumbs li+li::before{content:"/";margin-right:6px;color:#A6ACB8}
+.cs-hero h1{margin-top:20px;font-size:58px;line-height:1.05;letter-spacing:-.035em}
+.cs-hero h1 .l1,.cs-hero h1 .l2{display:block}
+.cs-hero h1 .l2{background:linear-gradient(90deg,#2B5D6E,#3F8C86 55%,#4E9A8F);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
+.rel{position:relative;display:flex;flex-direction:column;gap:12px;padding-left:22px}
+.rel::before{content:"";position:absolute;left:5px;top:14px;bottom:14px;width:1px;background:#CFD5D0}
+.rel li{position:relative;display:flex;flex-direction:column;gap:2px;padding:16px 18px;border:1px solid #E1E4DF;border-radius:12px;background:#fff;box-shadow:0 12px 24px -20px rgba(31,41,81,.45)}
+.rel li::before{content:"";position:absolute;left:-21px;top:22px;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid #4E9A8F}
+.rel b{font-size:21px;font-weight:600;letter-spacing:-.025em;color:#1F2951}
+.rel li > span:last-child{font-size:14px;color:#5F6677;line-height:1.45}
+.feat5{padding-top:56px}
+.fcard{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;padding:36px;border:1px solid #E1E4DF;border-radius:20px;background:#fff;box-shadow:0 40px 80px -60px rgba(31,41,81,.55);overflow:hidden}
+.fcard::before{content:"";position:absolute;right:-120px;top:-160px;width:520px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(243,225,165,.55),transparent 65%);pointer-events:none}
+.fc-l,.fc-r{position:relative;min-width:0}
+.fcard h2{margin-top:12px;font-size:36px;letter-spacing:-.03em}
+.fcard h2 a{color:#1F2951;text-decoration:none}
+.fcard h2 a:hover{text-decoration:underline}
+.fc-l > p:not(.kicker){margin-top:14px;color:#4A5160;font-size:16.5px}
+.fc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.fc-l .ctas{margin-top:24px}
+.fc-r .kpis{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}
+.fc-r .kpis li{padding:18px 18px 16px;background:#FCFCFA}
+.fc-r .kpis b{font-size:34px}
+.lib5{padding-top:96px}
+.lib-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid #E1E4DF}
+.lib-head h2{margin-top:10px;font-size:40px}
+.count{font-size:15px;color:#4A5262}
+.lib-grid{display:grid;grid-template-columns:minmax(0,270px) minmax(0,1fr);gap:40px;align-items:start;padding-top:28px}
+.filters{position:sticky;top:96px;display:flex;flex-direction:column;gap:22px}
+.fsearch{display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border:1px solid #DCDFDA;border-radius:10px;background:#fff;color:#6A7180}
+.fsearch:focus-within{border-color:#1F2951;box-shadow:0 0 0 3px rgba(157,202,193,.55)}
+.fsearch input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:14.5px;color:#1F2951}
+.fgroup{display:flex;flex-direction:column;gap:4px}
+.fh{display:block;margin-bottom:6px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4A5262}
+.fopt{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:38px;padding:0 10px;border:1px solid transparent;border-radius:8px;background:none;font:inherit;font-size:15px;color:#3F4656;cursor:pointer;text-align:left}
+.fopt:hover{background:#F0F2EE}
+.fopt.is-on{background:#fff;border-color:#E1E4DF;color:#1F2951;font-weight:500;box-shadow:0 1px 2px rgba(31,41,81,.05)}
+.fc-n{min-width:28px;padding:2px 7px;border-radius:6px;background:#F0F2EE;font-size:13px;font-variant-numeric:tabular-nums;text-align:center;color:#4A5160}
+.fopt.is-on .fc-n{background:#1F2951;color:#fff}
+.fsel{height:40px;padding:0 10px;border:1px solid #DCDFDA;border-radius:10px;background:#fff;font:inherit;font-size:15px;color:#1F2951}
+.sorts{display:flex;padding:3px;border:1px solid #E1E4DF;border-radius:10px;background:#F3F4F1}
+.sopt{flex:1;min-height:34px;padding:0 10px;border:0;border-radius:7px;background:none;font:inherit;font-size:14px;color:#4A5160;cursor:pointer;white-space:nowrap}
+.sopt.is-on{background:#fff;color:#1F2951;font-weight:500;box-shadow:0 1px 3px rgba(31,41,81,.12)}
+.freset{align-self:flex-start;padding:0;border:0;background:none;font:inherit;font-size:14px;color:#2B5D6E;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.freset:hover{color:#1F2951}
+.areas{padding-top:18px;border-top:1px solid #E6E8E4}
+.areas li{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:14.5px;color:#3F4656}
+.areas li::before{content:"";width:6px;height:6px;border-radius:2px;background:linear-gradient(135deg,#F3E1A5,#9DCAC1)}
+.results{min-width:0}
+.rhead{display:grid;grid-template-columns:130px minmax(0,1fr) 170px 24px;gap:20px;padding:0 16px 10px;font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#4A5262}
+.rows{border:1px solid #E1E4DF;border-radius:14px;background:#fff;overflow:hidden}
+.rows li+li{border-top:1px solid #EEF0EC}
+.row{display:grid;grid-template-columns:130px minmax(0,1fr) 170px 24px;gap:20px;align-items:center;padding:16px;color:#1F2951!important;text-decoration:none;transition:background .15s}
+.row:hover{background:#F7F8F5}
+.row:hover .r-go{color:#1F2951;transform:translateX(2px)}
+.r-d{font-size:14.5px;color:#4A5262;font-variant-numeric:tabular-nums}
+.r-t{display:flex;flex-direction:column;gap:3px;min-width:0}
+.r-t b{font-size:16.5px;font-weight:500;line-height:1.35}
+.r-m{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.r-s{font-size:14px;font-weight:600;color:#2B5D6E}
+.r-f{font-size:14px;color:#5A6273}
+.r-f::before{content:"·";margin-right:10px;color:#A6ACB8}
+.r-a{display:flex;flex-wrap:wrap;gap:6px}
+.r-go{color:#A6ACB8;transition:transform .15s,color .15s}
+.empty5{padding:36px;border:1px dashed #C7CCC5;border-radius:14px;text-align:center;background:#fff}
+.empty5 p+p{margin-top:8px}
+.rnote{margin-top:14px;font-size:13.5px;color:#5A6273}
+.cs-cta{padding-top:110px;padding-bottom:120px}
+.cs-cta .cta h2{font-size:44px}
+@container site (max-width: 1240px){
+.rhead,.row{grid-template-columns:110px minmax(0,1fr) 150px 24px;gap:16px}
+}
+@container site (max-width: 1080px){
+.cs-hero-in{grid-template-columns:minmax(0,1fr);align-items:start;gap:32px}
+.fcard{grid-template-columns:minmax(0,1fr)}
+.lib-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+.filters{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px}
+.fsearch{grid-column:1/-1}
+.areas{display:none}
+.freset{grid-column:1/-1}
+}
+@container site (max-width: 760px){
+.cta-in{padding:28px 22px}
+.cta h2{font-size:30px}
+.cs-hero{padding:40px 0 44px}
+.cs-hero h1{font-size:40px}
+.feat5{padding-top:32px}
+.fcard{padding:22px;gap:24px}
+.fcard h2{font-size:28px}
+.fc-r .kpis b{font-size:26px}
+.lib5{padding-top:64px}
+.lib-head h2{font-size:30px}
+.filters{grid-template-columns:minmax(0,1fr)}
+.rhead{display:none}
+.row{grid-template-columns:minmax(0,1fr) 24px;gap:8px 12px;padding:14px}
+.r-d{grid-column:1;grid-row:1}
+.r-t{grid-column:1;grid-row:2}
+.r-a{grid-column:1;grid-row:3}
+.r-a:empty{display:none}
+.r-go{grid-column:2;grid-row:1/span 3;align-self:center}
+.cs-cta{padding-top:72px;padding-bottom:80px}
+.cs-cta .cta h2{font-size:30px}
+}
+
+.cs-hero{overflow:hidden}
+.fc-r .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+.fc-r .kpis b{font-size:32px}
+.cta{position:relative;border-radius:24px;border:1px solid #DCE7E3;background:linear-gradient(120deg,#FBF6E2,#EEF6F2 60%,#E2F0EC);overflow:hidden}
+.cta-in{position:relative;padding:56px;max-width:860px}
+.cta h2{margin-top:10px;font-size:44px}
+.cs-hero .lead{font-size:19px}
+.rel b{font-size:22px}
+
+/* P7 overrides */
+.cs-hero{background:linear-gradient(118deg,#141B45,#1A2252 40%,#203262 70%,#1F59A1);border-bottom:0;color:#DCE6F2}
+.cs-hero h1{color:#fff;font-weight:800}
+.cs-hero h1 .l2{background:none;-webkit-text-fill-color:#95C1DE;color:#95C1DE}
+.cs-hero .crumbs ol{color:#C9D6E8}
+.cs-hero .crumbs a{color:#fff}
+.cs-hero .crumbs li+li::before{color:#7F93B3}
+.cs-hero .lead{color:#DCE6F2}
+.rel::before{background:rgba(255,255,255,.3)}
+.rel li{border-color:rgba(255,255,255,.2);box-shadow:none}
+.rel li::before{background:#1A2252;border-color:#95C1DE}
+.fcard{border-color:#E1E7EF;box-shadow:0 40px 80px -60px rgba(20,27,69,.6)}
+.fcard::before{background:radial-gradient(circle,rgba(149,193,222,.45),transparent 65%)}
+.fcard h2 a{color:#203262}
+.fc-r .kpis li{background:#F7FAFD}
+.hl{color:#1F59A1}
+.fopt.is-on{border-color:#C9D6E8;color:#203262}
+.fopt.is-on .fc-n{background:#203262}
+.fsearch:focus-within{border-color:#203262;box-shadow:0 0 0 3px rgba(149,193,222,.6)}
+.sopt.is-on{color:#203262}
+.areas li::before{background:#1F59A1}
+.r-s{color:#1F59A1}
+.cta{background:#EAF2FA;border-color:#D3E1F1}
+/* P8 · Centro Studi */
+.btn{border-radius:12px}
+.cs-hero{position:relative;isolation:isolate;margin-top:-76px;padding:132px 0 72px;background:linear-gradient(118deg,#121845 0%,#1A2252 40%,#203262 70%,#1F59A1 120%)}
+.cs-hero::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(149,193,222,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(149,193,222,.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 60% 90% at 25% 30%,#000,transparent 75%);mask-image:radial-gradient(ellipse 60% 90% at 25% 30%,#000,transparent 75%)}
+.cs-hero::after{content:"";position:absolute;z-index:-1;right:-120px;top:-160px;width:620px;height:620px;border-radius:50%;background:radial-gradient(closest-side,rgba(123,178,214,.35),transparent);animation:p8drift2 22s ease-in-out infinite alternate}
+@keyframes p8drift2{to{transform:translate(-140px,60px) scale(.9)}}
+.cs-hero h1{margin-top:22px;font-size:72px;letter-spacing:-.045em}
+.cs-hero h1 .l1{animation:p8word .9s cubic-bezier(.2,.7,.2,1) both .1s}
+.cs-hero h1 .l2{-webkit-text-fill-color:transparent;color:transparent;background:linear-gradient(92deg,#BFE0F4,#95C1DE 45%,#7BB2D6);-webkit-background-clip:text;background-clip:text;animation:p8word .9s cubic-bezier(.2,.7,.2,1) both .25s;padding-bottom:.06em}
+@keyframes p8word{from{opacity:0;transform:translateY(.35em);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.cs-hero .lead{margin-top:22px;animation:p8word 1s ease both .45s;max-width:36em}
+.rel li{background:rgba(255,255,255,.09);border-color:transparent;box-shadow:none;border-radius:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:p8word 1s ease both}
+.rel li:nth-child(1){animation-delay:.55s}.rel li:nth-child(2){animation-delay:.7s}
+.rel b{color:#fff}
+.rel li > span:last-child{color:#C9D6E8}
+.rel .k{color:#95C1DE}
+.feat5{padding-top:0;margin-top:-28px;position:relative}
+.fcard{border:0;border-radius:26px;background:#EDF3FA;box-shadow:none}
+.fcard::before{background:radial-gradient(circle,rgba(149,193,222,.4),transparent 65%)}
+.fcard h2{font-size:38px;font-weight:800}
+.fc-r .kpis li{position:relative;overflow:hidden;border-radius:16px;background:#fff;border-color:transparent}
+.fc-r .kpis li::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:var(--v,0);background:linear-gradient(90deg,#1F59A1,#95C1DE);transform-origin:left;animation:p8bar 1.4s cubic-bezier(.2,.7,.2,1) both .4s}
+@keyframes p8bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.fc-r .kpis b{font-weight:800;letter-spacing:-.035em}
+.lib-head h2{font-weight:800}
+.rows{border-radius:18px;border-color:transparent}
+.rows li+li{border-top-color:transparent}
+.row{transition:background .2s,padding .2s}
+.row:hover{background:#F4F8FC}
+.cta{border:0;border-radius:28px;background:radial-gradient(600px circle at 90% 0%,rgba(31,89,161,.6),transparent 60%),linear-gradient(140deg,#141B45,#1A2252 55%,#203262)}
+.cta .eyebrow{color:#95C1DE}
+.cta h2{color:#fff}
+.cta .hl{color:#95C1DE}
+.cta .btn-navy{background:#fff;color:#203262!important}
+.cta .btn-navy:hover{background:#EAF2FA}
+.cta .btn-line{background:transparent;border-color:rgba(255,255,255,.4);color:#fff!important}
+.cta .btn-line:hover{border-color:#fff}
+/* niente bordi marcati: superfici separate da ombre morbide e fondi tonali */
+.cs-hero,.lib-head{border-bottom-color:transparent}
+.areas{border-top-color:transparent}
+.fsearch,.fsel{border-color:#D3E1F1;background:#fff}
+.sorts{border-color:transparent;background:#EDF3FA}
+.sopt.is-on{box-shadow:none}
+.fopt.is-on{border-color:transparent;background:#EDF3FA;box-shadow:none}
+.empty5{border-color:transparent;background:#F4F8FC}
+@container site (max-width: 760px){
+.cs-hero{padding:130px 0 56px}
+.cs-hero h1{font-size:44px}
+.feat5{margin-top:-20px}
+.fcard h2{font-size:28px}
+}
+@container site (max-width: 640px){
+.cs-hero{margin-top:-64px;padding-top:100px}
+}
+
+</style>
+</helmet>
+<div class="p8">
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+
+<header class="{{ topCls }}">
+<div class="wrap top-in">
+<a class="brand" href="P8-Home.dc.html"><img class="lg-w" src="./assets/55d12bf129c50be99b5544c07787cf95.png" alt="Cosmetica Italia — Associazione Nazionale Imprese Cosmetiche, vai alla homepage"><img class="lg-n" src="./assets/36177f9c5a71babc9e46fe5220b0b522.png" alt="Cosmetica Italia — Associazione Nazionale Imprese Cosmetiche, vai alla homepage"></a>
+<div class="navwrap" id="p8-nav">
+<nav aria-label="Navigazione principale">
+<ul class="nav">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+<li>
+<sc-if value="{{ n.isLink }}" hint-placeholder-val="{{ false }}"><a class="navbtn navlink" href="{{ n.href }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.hasMenu }}" hint-placeholder-val="{{ true }}"><button class="{{ n.cls }}" type="button" aria-expanded="{{ n.expanded }}" onClick="{{ n.toggle }}">{{ n.label }}<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></sc-if>
+<sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}">
+<div class="mega">
+<div><h2>{{ n.label }}</h2><p>{{ n.intro }}</p></div>
+<ul class="mlinks">
+<sc-for list="{{ n.links }}" as="l" hint-placeholder-count="4"><li><a href="{{ l.href }}"><span>{{ l.label }}<span class="sr">{{ l.srExt }}</span></span><sc-if value="{{ l.ext }}" hint-placeholder-val="{{ false }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></sc-if></a></li></sc-for>
+</ul>
+</div>
+</sc-if>
+</li>
+</sc-for>
+</ul>
+</nav>
+<div class="mobile-only">
+<button class="btn btn-line" type="button" onClick="{{ toggleLogin }}">Area riservata</button>
+<a class="btn btn-navy" href="#socio">Diventa socio</a>
+<a class="btn btn-line" href="https://www.cosmeticaitalia.it/press-area-r.html">Press Area</a>
+</div>
+</div>
+<div class="tools">
+<button class="sfake" type="button" aria-haspopup="dialog" aria-expanded="{{ searchExp }}" onClick="{{ toggleSearch }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><span class="sr">Cerca nel sito</span></button>
+<button class="btn btn-ghost hide-m" type="button" aria-haspopup="dialog" aria-expanded="{{ loginExp }}" onClick="{{ toggleLogin }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Area riservata</button>
+<button class="btn btn-ghost burger" type="button" aria-expanded="{{ menuExp }}" aria-controls="p8-nav" onClick="{{ toggleMenu }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg>Menu</button>
+</div>
+</div>
+</header>
+<sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+<button class="scrim" type="button" aria-label="Chiudi la ricerca" onClick="{{ toggleSearch }}"></button>
+<div class="modal" role="dialog" aria-modal="true" aria-label="Cerca nel sito">
+<div class="pal-top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><label class="sr" for="p8-q">Cerca circolari, studi, appuntamenti</label><input id="p8-q" type="search" autocomplete="off" placeholder="Cerca circolari, studi, appuntamenti…" value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onPalKey }}" ref="{{ setQRef }}"><button class="mclose" type="button" onClick="{{ toggleSearch }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr">Chiudi</span></button></div>
+<div class="pal-body">
+<sc-if value="{{ showChips }}" hint-placeholder-val="{{ true }}">
+<p class="pal-h">Ricerche frequenti</p>
+<div class="pal-chips"><sc-for list="{{ chips }}" as="c" hint-placeholder-count="5"><button class="pal-chip" type="button" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for></div>
+<p class="pal-h">Suggeriti</p>
+<sc-for list="{{ suggested }}" as="r" hint-placeholder-count="4"><a class="pal-row" href="{{ r.href }}"><span class="tag">{{ r.type }}</span><span class="t">{{ r.title }}</span><span class="d">{{ r.date }}</span></a></sc-for>
+</sc-if>
+<sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
+<p class="pal-h" aria-live="polite">{{ resultsLabel }}</p>
+<sc-for list="{{ results }}" as="r" hint-placeholder-count="4"><a class="pal-row" href="{{ r.href }}"><span class="tag">{{ r.type }}</span><span class="t">{{ r.title }}</span><span class="d">{{ r.date }}</span></a></sc-for>
+</sc-if>
+<sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}"><p class="pal-h" aria-live="polite">Nessun risultato per «{{ q }}»</p></sc-if>
+</div>
+<div class="pal-foot"><span><span class="demo-tag">Demo</span>{{ indexCount }} contenuti di esempio tratti dal sito attuale</span><span class="mono">esc</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}">
+<button class="scrim" type="button" aria-label="Chiudi" onClick="{{ toggleLogin }}"></button>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="p8-login-t">
+<div class="login-body">
+<div style="display: flex; justify-content: space-between; gap: 12px; align-items: flex-start"><h2 id="p8-login-t">Area riservata</h2><button class="mclose" type="button" onClick="{{ toggleLogin }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr">Chiudi</span></button></div>
+<p>Circolari, report integrali del Centro Studi e documenti dedicati sono consultabili dopo l’accesso.</p>
+<p class="demo-note"><span class="demo-tag">Prototipo</span>L’accesso non è attivo in questa demo: nessuna credenziale viene richiesta o verificata.</p>
+<div class="row"><a class="btn btn-navy" href="https://www.cosmeticaitalia.it/associazione/area-riservata/">Area riservata del sito attuale</a><a class="btn btn-line" href="https://www.cosmeticaitalia.it/associazione/area-riservata/registrazione/">Registrazione</a></div>
+</div>
+</div>
+</sc-if>
+<main id="contenuto">
+<section class="cs-hero" aria-labelledby="p8cs-h1">
+<div class="wrap cs-hero-in">
+<div>
+<nav class="crumbs" aria-label="Percorso"><ol><li><a href="P8-Home.dc.html">Home</a></li><li>Temi e servizi</li><li><span aria-current="page">Centro Studi</span></li></ol></nav>
+<h1 id="p8cs-h1"><span class="l1">Centro Studi</span> <span class="l2">Dati e analisi per l’industria cosmetica</span></h1>
+<p class="lead">Contesto macroeconomico, scenari internazionali, settore in Italia e trend di consumo: due report di riferimento ogni anno e gli studi dei partner sul settore.</p>
+</div>
+<ol class="rel">
+<li><span class="k">Marzo</span><b>Outlook</b><span>Contesto macro e commercio estero · presentato a Cosmoprof Worldwide Bologna</span></li>
+<li><span class="k">Settembre</span><b>Scenario economico</b><span>Il settore in Italia e i consumi · presentato alla Milano Beauty Week</span></li>
+</ol>
+</div>
+</section>
+
+<section class="wrap feat5" aria-labelledby="p8cs-feat">
+<article class="fcard">
+<div class="fc-l">
+<p class="eyebrow">Ultima pubblicazione · 16.09.2026</p>
+<h2 id="p8cs-feat"><a href="https://www.cosmeticaitalia.it/centro-studi/Scenario-economico-della-cosmetica-2026/">Scenario economico della cosmetica 2026</a></h2>
+<p>Nel 2026 il settore cresce soprattutto grazie al mercato interno, trainato da canali digitali e farmacia, mentre l’export rallenta e la crescita globale si sposta verso Medio Oriente e Africa.</p>
+<div class="fc-tags"><span class="tag tg-soci"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Report integrale riservato alle imprese associate</span><span class="tag">Convegno di presentazione · PDF pubblico</span></div>
+<div class="ctas"><a class="btn btn-navy" href="https://www.cosmeticaitalia.it/centro-studi/Scenario-economico-della-cosmetica-2026/">Leggi la sintesi</a><button class="btn btn-line" type="button" onClick="{{ toggleLogin }}">Accedi al report</button></div>
+</div>
+<div class="fc-r">
+<ul class="kpis">
+<li style="--v:11.1%"><span>Fatturato industria</span><b>18,1 <small>mld €</small></b><em>+1,0%</em></li>
+<li style="--v:25.6%"><span>Mercato interno</span><b>13,1 <small>mld €</small></b><em>+2,3%</em></li>
+<li style="--v:100%"><span>E-commerce</span><b>+9,0%</b><em>canale più dinamico</em></li>
+<li style="--v:5.6%"><span>Export</span><b>+0,5%</b><em>in rallentamento</em></li>
+</ul>
+<p class="src">Stime di chiusura 2026 · Fonte: Centro Studi, Scenario economico della cosmetica 2026</p>
+</div>
+</article>
+</section>
+
+<section class="wrap lib5" aria-labelledby="p8cs-lib">
+<div class="lib-head"><div><p class="eyebrow">Archivio</p><h2 id="p8cs-lib">Pubblicazioni e contributi</h2></div><p class="count" aria-live="polite">{{ countLabel }}</p></div>
+<div class="lib-grid">
+<aside class="filters" aria-label="Filtri">
+<div class="fsearch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><label class="sr" for="p8cs-q">Cerca tra le pubblicazioni</label><input id="p8cs-q" type="search" autocomplete="off" placeholder="Cerca per titolo o autore" value="{{ q2 }}" onChange="{{ onQ2 }}"></div>
+<div class="fgroup" role="group" aria-labelledby="p8cs-fa"><p class="fh" id="p8cs-fa">Autore</p>
+<sc-for list="{{ segs5 }}" as="g" hint-placeholder-count="3"><button class="{{ g.cls }}" type="button" aria-pressed="{{ g.pressed }}" onClick="{{ g.pick }}"><span>{{ g.label }}</span><span class="mono fc-n">{{ g.count }}</span></button></sc-for>
+</div>
+<div class="fgroup"><label class="fh" for="p8cs-y">Anno</label>
+<select id="p8cs-y" class="fsel" value="{{ year }}" onChange="{{ onYear }}"><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option></select>
+</div>
+<div class="fgroup" role="group" aria-labelledby="p8cs-fs"><p class="fh" id="p8cs-fs">Ordina</p>
+<div class="sorts"><sc-for list="{{ sorts }}" as="o" hint-placeholder-count="2"><button class="{{ o.cls }}" type="button" aria-pressed="{{ o.pressed }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for></div>
+</div>
+<button class="freset" type="button" onClick="{{ resetFilters }}">Azzera i filtri</button>
+<div class="areas"><p class="fh">Aree di analisi</p><ul><li>Contesto macroeconomico</li><li>Scenari internazionali</li><li>Settore in Italia</li><li>Trend di consumo</li></ul></div>
+</aside>
+<div class="results">
+<div class="rhead" aria-hidden="true"><span>Data</span><span>Titolo · autore · formato</span><span>Accesso</span></div>
+<sc-if value="{{ hasItems }}" hint-placeholder-val="{{ true }}">
+<ul class="rows">
+<sc-for list="{{ items }}" as="p" hint-placeholder-count="8"><li><a class="row" href="{{ p.href }}"><span class="mono r-d">{{ p.date }}</span><span class="r-t"><b>{{ p.title }}</b><span class="r-m"><span class="mono r-s">{{ p.src }}</span><span class="mono r-f">{{ p.fmt }}</span></span></span><span class="r-a"><sc-if value="{{ p.isSoci }}" hint-placeholder-val="{{ false }}"><span class="tag tg-soci">Riservato ai soci</span></sc-if><sc-if value="{{ p.isLogin }}" hint-placeholder-val="{{ false }}"><span class="tag tg-lock">Con login</span></sc-if></span><svg class="ic r-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></li></sc-for>
+</ul>
+</sc-if>
+<sc-if value="{{ noItems }}" hint-placeholder-val="{{ false }}"><div class="empty5"><p>{{ emptyText }}</p><sc-if value="{{ showArchive }}" hint-placeholder-val="{{ false }}"><p><a href="{{ archiveHref }}">Apri l’archivio {{ year }} sul sito attuale</a></p></sc-if></div></sc-if>
+<p class="rnote">Archivio del prototipo: 12 pubblicazioni 2026 tratte dal sito attuale. Gli altri anni rimandano all’archivio esistente.</p>
+</div>
+</div>
+</section>
+
+<section class="wrap cs-cta" aria-labelledby="p8cs-cta">
+<div class="cta">
+<div class="cta-in">
+<p class="eyebrow">Per le imprese associate</p>
+<h2 id="p8cs-cta">Report integrali e dati di dettaglio <span class="hl">nell’area riservata</span></h2>
+<div class="ctas"><button class="btn btn-navy btn-lg" type="button" onClick="{{ toggleLogin }}">Area riservata</button><a class="btn btn-line btn-lg" href="https://www.cosmeticaitalia.it/diventa-socio/per-quali-ragioni-conviene-associarsi-a-cosmetica-italia/">Diventa socio</a></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="f8" ref="{{ setFootRef }}">
+<div class="f8-bg" aria-hidden="true"><span class="f8-glow f8-g1"></span><span class="f8-glow f8-g2"></span></div>
+<div class="wrap">
+<div class="f8-top">
+<div class="f8-id">
+<img src="./assets/55d12bf129c50be99b5544c07787cf95.png" alt="Cosmetica Italia — Associazione Nazionale Imprese Cosmetiche">
+<address class="f8-addr">Via Accademia, 33 – 20131 Milano<br>C.F. 05901970151 · PEC <a href="mailto:cosmetica_italia@pec.it">cosmetica_italia@pec.it</a></address>
+<ul class="f8-soc"><li><a href="https://www.linkedin.com/company/cosmetica-italia">LinkedIn<span class="sr"> (sito esterno)</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li><li><a href="https://www.instagram.com/associazionecosmeticaitalia/">Instagram<span class="sr"> (sito esterno)</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li></ul>
+</div>
+<div class="f8-news">
+<h2 class="f8-h">Resta aggiornato con la <span class="hl">newsletter</span></h2>
+<form class="f8-form" onSubmit="{{ onNews }}"><label class="sr" for="p8-mail">Email per la newsletter</label><input id="p8-mail" type="email" autocomplete="email" placeholder="La tua email"><button class="f8-sub" type="submit">Iscriviti<span class="go"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button></form>
+<sc-if value="{{ newsSent }}" hint-placeholder-val="{{ false }}"><p class="f8-msg" role="status"><span class="demo-tag">Demo</span>Nessuna iscrizione è stata inviata.</p></sc-if>
+</div>
+</div>
+<nav class="f8-grid" aria-label="Mappa del sito"><sc-for list="{{ navMenus }}" as="n" hint-placeholder-count="5"><div><h2>{{ n.label }}</h2><ul><sc-for list="{{ n.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}">{{ l.label }}<span class="sr">{{ l.srExt }}</span></a></li></sc-for></ul></div></sc-for></nav>
+<div class="f8-base">
+<ul class="f8-legal"><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/index.html">Privacy policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/cookie/index.html">Cookie policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/credits/index.html">Credits</a></li><li><a href="https://www.cosmeticaitalia.it/press-area-r.html">Press Area</a></li><li><a href="https://www.cosmeticaitalia.it/thisisbellezza/">This is Bellezza</a></li></ul>
+<p class="mono">Prototipo di restyling — Proposta 8 · direzione non definitiva · contenuti dal sito pubblico al 17/11/2026</p>
+<button class="f8-up" type="button" onClick="{{ toTop }}">Torna su<span class="f8-pr"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></span></button>
+</div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3674}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: null, menu: false, search: false, login: false, q: '', newsSent: false, tab: 'c', seg: 'all', year: '2026', q2: '', feat: 'reg', sort: 'date', svc: 'reg', scrolled: false };
+    this.qEl = null;
+  }
+  services() {
+    const S = 'https://www.cosmeticaitalia.it';
+    return [
+      { id: 'reg', title: 'Tecnico regolatorio', short: 'Linee guida e documentazione per applicare le norme.', desc: 'Linee guida e documentazione per applicare le norme sul prodotto cosmetico, a partire dal Regolamento 1223/2009.', icon: 'M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5', links: [['Tecnico regolatorio', S + '/tecnico-regolatorio/'], ['Regolamento 1223/2009', S + '/pubblicazioni/documentazione-su-regolamento-1223-2009/'], ['Linee guida', S + '/pubblicazioni/linee-guida/'], ['Certificati di libera vendita', S + '/tecnico-regolatorio/clv/'], ['Etichettatura ambientale degli imballaggi', S + '/etichettatura-ambientale/etichettatura2023/index.html']] },
+      { id: 'int', title: 'Attività internazionali', short: 'Fiere Cosmoprof nel mondo e mercati esteri.', desc: 'Partecipazione alle fiere Cosmoprof nel mondo e informazioni sui mercati esteri per le imprese che esportano.', icon: 'M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0zM3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18', links: [['Servizi per l’internazionalizzazione', S + '/servizi-per-linternazionalizzazione/'], ['Schede Paesi', S + '/servizi-per-linternazionalizzazione/paesi/'], ['Cosmoprof', S + '/appuntamenti/cosmoprof/'], ['Buy Italian Excellence', S + '/buy-excellence/']] },
+      { id: 'form', title: 'Formazione', short: 'Corsi di Cosmetica Italia Servizi.', desc: 'Corsi, webinar e Information Day; con Cosmetica Italia Servizi anche consulenze e testing, a condizioni dedicate alle imprese associate.', icon: 'M3 9l9-5 9 5-9 5zM7 11v5c3 2 7 2 10 0v-5', links: [['Corsi di Cosmetica Italia Servizi', 'https://www.cosmeticaitaliaservizi.it/corsi/'], ['Webinar', S + '/pubblicazioni/webinar/'], ['Information Day', S + '/appuntamenti/information-day/']] },
+      { id: 'sus', title: 'Sostenibilità', short: 'Osservatorio, percorsi e strumenti per le imprese.', desc: 'L’Osservatorio sulla sostenibilità del settore, percorsi e strumenti per le imprese.', icon: 'M12 21c-5-3-8-7-8-11a8 8 0 0 1 16 0c0 4-3 8-8 11zM12 7v9', links: [['Cosmetica Italia per la sostenibilità', S + '/sostenibilita/cosmetica-italia-per-la-sostenibilita/'], ['Osservatorio sulla sostenibilità', S + '/sostenibilita/osservatorio-sulla-sostenibilita/']] }
+    ];
+  }
+  _glow(box) {
+    if (!box || typeof window === 'undefined') return;
+    const cards = Array.prototype.slice.call(box.querySelectorAll('.evd-card, .gx, .c8x, .pc8'));
+    const rm = this._rm;
+    let raf = null, ev = null;
+    const apply = () => {
+      raf = null; if (!ev) return;
+      cards.forEach((c) => {
+        const r = c.getBoundingClientRect();
+        const x = ev.clientX - r.left, y = ev.clientY - r.top;
+        c.style.setProperty('--x', x.toFixed(0) + 'px');
+        c.style.setProperty('--y', y.toFixed(0) + 'px');
+        const inside = x >= 0 && y >= 0 && x <= r.width && y <= r.height;
+        if (!rm && inside && (c.classList.contains('evd-card') || c.classList.contains('pc8'))) {
+          c.style.setProperty('--rx', ((x / r.width - 0.5) * 5).toFixed(2) + 'deg');
+          c.style.setProperty('--ry', ((0.5 - y / r.height) * 4).toFixed(2) + 'deg');
+        } else {
+          c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg');
+        }
+      });
+    };
+    box.addEventListener('pointermove', (e) => { if (e.pointerType && e.pointerType !== 'mouse') return; ev = e; if (!raf) raf = requestAnimationFrame(apply); });
+    box.addEventListener('pointerleave', () => { ev = null; cards.forEach((c) => { c.style.setProperty('--x', '-999px'); c.style.setProperty('--y', '-999px'); c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); }); });
+  }
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      this._rm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      this._sc = () => {
+        const v = window.scrollY > 24; if (v !== this.state.scrolled) this.setState({ scrolled: v });
+        if (!this._rm && this.heroEl) this.heroEl.style.setProperty('--sc', (Math.min(window.scrollY, 900) / 100).toFixed(2));
+      };
+      window.addEventListener('scroll', this._sc, { passive: true });
+      this._sc();
+      this._fit = () => {
+        const el = this.heroEl; if (!el) return;
+        const h = window.innerHeight;
+        if (h >= 520 && h <= 1400) el.style.setProperty('--hv', h + 'px'); else el.style.removeProperty('--hv');
+      };
+      this._fit();
+      window.addEventListener('resize', this._fit);
+      const _root = this.heroEl && this.heroEl.closest ? this.heroEl.closest('.p8') : null;
+      if (_root && typeof IntersectionObserver !== 'undefined') {
+        const _els = Array.prototype.slice.call(_root.querySelectorAll('.evh, .evd, .c8x, .sx, .gx, .so8-txt, .so8-orb, .f8-top, .f8-grid, .f8-base'));
+        _els.forEach((el) => el.style.setProperty('--play', 'paused'));
+        const _io = new IntersectionObserver((list) => {
+          list.forEach((e) => { if (e.isIntersecting) { e.target.style.setProperty('--play', 'running'); _io.unobserve(e.target); } });
+        }, { threshold: 0.18 });
+        let _t = 0, _armed = false;
+        this._rvarm = () => {
+          clearTimeout(_t);
+          _t = setTimeout(() => {
+            if (_armed) return;
+            _armed = true;
+            window.removeEventListener('resize', this._rvarm);
+            _els.forEach((el) => _io.observe(el));
+          }, 500);
+        };
+        this._rvstop = () => { clearTimeout(_t); window.removeEventListener('resize', this._rvarm); _io.disconnect(); };
+        window.addEventListener('resize', this._rvarm);
+        this._rvarm();
+      }
+    }
+    this._glow(this.evEl);
+    this._glow(this.updEl);
+    this._glow(this.numEl);
+    this._glow(this.svEl);
+    if (this.calEl) {
+      const t = new Date();
+      const dim = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate();
+      this.calEl.style.setProperty('--m', (t.getMonth() + (t.getDate() - 0.5) / dim).toFixed(3));
+      this.calEl.style.setProperty('--on', '1');
+    }
+    const rm = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (rm) return;
+    const h = this.heroEl;
+    if (h) {
+      this._mv = (e) => {
+        const r = h.getBoundingClientRect();
+        const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+        const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+        h.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        h.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+        h.style.setProperty('--so', '1');
+        h.style.setProperty('--px', ((x - 0.5) * 2).toFixed(3));
+        h.style.setProperty('--py', ((y - 0.5) * 2).toFixed(3));
+      };
+      this._ml = () => { h.style.setProperty('--px', '0'); h.style.setProperty('--py', '0'); h.style.setProperty('--so', '0'); };
+      h.addEventListener('pointermove', this._mv);
+      h.addEventListener('pointerleave', this._ml);
+    }
+    const els = this.cnt || [];
+    if (!els.length) return;
+    const tg = [[18.1, 1], [48, 0], [500, 0], [650, 0]];
+    const fmt = (v, d) => (d ? v.toFixed(d).replace('.', ',') : String(Math.round(v)));
+    els.forEach((el, i) => { if (el && tg[i]) el.textContent = fmt(0, tg[i][1]); });
+    this._to = setTimeout(() => {
+      const t0 = performance.now();
+      const step = (t) => {
+        const p = Math.min(1, (t - t0) / 1700);
+        const e = 1 - Math.pow(1 - p, 3);
+        els.forEach((el, i) => { if (el && tg[i]) el.textContent = fmt(tg[i][0] * e, tg[i][1]); });
+        if (p < 1) this._raf = requestAnimationFrame(step);
+      };
+      this._raf = requestAnimationFrame(step);
+    }, 1000);
+  }
+  componentWillUnmount() {
+    if (this._sc) window.removeEventListener('scroll', this._sc);
+    if (this._fit) window.removeEventListener('resize', this._fit);
+    if (this._rvstop) this._rvstop();
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._to) clearTimeout(this._to);
+    if (this._hv) clearTimeout(this._hv);
+    if (this.heroEl && this._mv) this.heroEl.removeEventListener('pointermove', this._mv);
+  }
+  data() {
+    if (this._d) return this._d;
+    const S = 'https://www.cosmeticaitalia.it';
+    const CS = 'P8-CentroStudi.dc.html';
+    this._d = {
+      nav: [
+        { id: 'ass', label: 'L’associazione', intro: 'Chi siamo, come siamo organizzati, notizie e appuntamenti.', links: [['Chi siamo', S + '/associazione/chi-siamo/storia/'], ['Organismi associativi', S + '/associazione/Organismi-associativi/governance/'], ['Imprese associate', S + '/associazione/Organismi-associativi/imprese-associate/'], ['Gruppi', S + '/Gruppi/'], ['Struttura organizzativa', S + '/associazione/struttura-organizzativa-e-operativa/struttura-organizzativa/'], ['Enti correlati', S + '/associazione/enti-correlati/cosmetica-italia-servizi-srl/'], ['Notizie', S + '/elenco-notizie/'], ['Appuntamenti', S + '/appuntamenti/elenco-completo/'], ['Press Area', S + '/press-area-r.html']] },
+        { id: 'set', label: 'Il settore', intro: 'L’industria cosmetica italiana: numeri, filiera e cultura del prodotto.', links: [['La cosmetica italiana', S + '/conoscere-lindustria-cosmetica/La-cosmetica-italiana/'], ['I numeri della cosmetica', CS], ['ABC Cosmetici', S + '/abc-cosmetici/Conoscere-i-cosmetici/cose-un-cosmetico/'], ['Domande e risposte', S + '/abc-cosmetici/qa/'], ['Education', S + '/education/progetto/'], ['Milano Beauty Week', S + '/appuntamenti/milano-beauty-week/']] },
+        { id: 'serv', label: 'Servizi agli associati', intro: 'Assistenza, informazione e strumenti per le imprese associate.', links: [['Tecnico regolatorio', S + '/tecnico-regolatorio/'], ['Circolari', S + '/circolari/'], ['Attività internazionali', S + '/servizi-per-linternazionalizzazione/'], ['Corsi di Cosmetica Italia Servizi', 'https://www.cosmeticaitaliaservizi.it/corsi/'], ['Webinar', S + '/pubblicazioni/webinar/'], ['Information Day', S + '/appuntamenti/information-day/'], ['Cosmoprof', S + '/appuntamenti/cosmoprof/'], ['Newsletter', S + '/newsletter/iscrizione/']] },
+        { id: 'temi', label: 'Temi e posizioni', intro: 'Le priorità dell’associazione e la documentazione di riferimento.', links: [['Sostenibilità', S + '/sostenibilita/cosmetica-italia-per-la-sostenibilita/'], ['Osservatorio sulla sostenibilità', S + '/sostenibilita/osservatorio-sulla-sostenibilita/'], ['Regolamento 1223/2009', S + '/pubblicazioni/documentazione-su-regolamento-1223-2009/'], ['Linee guida', S + '/pubblicazioni/linee-guida/'], ['Quaderni', S + '/pubblicazioni/quaderni/'], ['Statuto e normativa', S + '/associazione/chi-siamo/statuto-e-normativa/']] },
+        { id: 'cs', label: 'Centro Studi', intro: 'Analisi economiche, scenari e studi sul settore.', links: [['Tutte le pubblicazioni', CS], ['Scenario economico 2026', S + '/centro-studi/Scenario-economico-della-cosmetica-2026/'], ['Outlook 2025', S + '/centro-studi/Outlook-2025/'], ['Studi dei partner', CS]] },
+        { id: 'tib', label: 'This is Bellezza', intro: '', href: S + '/thisisbellezza/', links: [] }
+      ],
+      circolari: [
+        { num: '2026/100', title: 'Ultime novità sul PPWR', date: '10/11/2026', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { num: '2026/99', title: 'Normativa Cybersecurity: aggiornamenti su registrazione e verifiche di coerenza', date: '05/11/2026', href: S + '/circolari/dettaglio/Normativa-Cybersecurity-aggiornamenti-su-registrazione-e-verifiche-di-coerenza/' },
+        { num: '2026/98', title: 'Fiera Cosmoprof North America Miami 2027: iniziative e modalità di partecipazione', date: '28/10/2026', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-NORTH-AMERICA-MIAMI-2027-iniziative-e-modalita-di-partecipazione/' },
+        { num: '2026/97', title: 'Fiera Cosmoprof India 2026: iniziative e modalità di partecipazione', date: '22/10/2026', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-INDIA-2026-iniziative-e-modalita-di-partecipazione/' }
+      ],
+      notizie: [
+        { title: 'Corsi di formazione IAP', date: '12/11/2026', href: S + '/elenco-notizie/Corsi-di-formazione-IAP/' },
+        { title: 'Regolamento imballaggi e rifiuti di imballaggio (PPWR): Q&A', date: '11/11/2026', href: S + '/elenco-notizie/Regolamento-imballaggi-e-rifiuti-di-imballaggio-PPWR-QA-00001/' },
+        { title: 'Cosmoprof North America Miami: le opportunità del mercato beauty negli Stati Uniti, scenario normativo e prospettive di crescita', date: '06/11/2026', href: S + '/elenco-notizie/Cosmoprof-North-America-MIAMI-le-opportunita-del-mercato-beauty-negli-Stati-Uniti-scenario-normativo-e-prospettive-di-crescita-00001/' },
+        { title: 'La bellezza si prende cura di Milano: al via il restauro del Pozzo del Broletto', date: '03/11/2026', href: S + '/elenco-notizie/La-bellezza-si-prende-cura-di-Milano-al-via-il-restauro-del-Pozzo-del-Broletto/' }
+      ],
+      agenda: [
+        { d: '19', m: 'nov', type: 'Webinar', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna e al suo network internazionale con il sostegno degli incentivi', when: '19/11/2026 · 11:30–12:30', flag: '', href: S + '/appuntamenti/elenco-completo/' },
+        { d: '24', m: 'nov', type: 'Sostenibilità', title: 'Dalle iniziative alle scelte d’impresa – Osservatorio sulla sostenibilità del settore cosmetico in Italia 2026', when: '24/11/2026 · ore 15', flag: '', href: S + '/appuntamenti/elenco-completo/' },
+        { d: '10–12', m: 'dic', type: 'Fiera', title: 'Cosmoprof India, Mumbai', when: '10–12/12/2026', flag: '', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-INDIA-2026-iniziative-e-modalita-di-partecipazione/' },
+        { d: '17', m: 'dic', type: 'Progetto Sostenibilità', title: 'L’economia circolare e la sua declinazione per le aziende cosmetiche', when: '17/12/2026', flag: 'Posticipato', href: S + '/appuntamenti/elenco-completo/' }
+      ],
+      corsi: [
+        { date: '17/11/2026', title: 'Il contratto internazionale di agenzia e di distribuzione' },
+        { date: '18/01/2027', title: 'AI@Beauty: come orientarsi in modo pratico tra nuovi strumenti e prompt' },
+        { date: '21/01/2027', title: 'Basi teoriche della formulazione cosmetica' },
+        { date: '02/02/2027', title: 'Diritto doganale, origine e misure restrittive: le nuove sfide del commercio internazionale' }
+      ],
+      iniziative: [
+        { kind: 'Evento', title: 'Milano Beauty Week', desc: 'L’evento che porta la bellezza in città e racconta il cosmetico al grande pubblico.', href: S + '/appuntamenti/milano-beauty-week/' },
+        { kind: 'Progetto', title: 'This is Bellezza', desc: 'Il movimento per raccontare la bellezza italiana e il valore del settore.', href: S + '/thisisbellezza/' },
+        { kind: 'Responsabilità sociale', title: 'La forza e il sorriso E.T.S.', desc: 'Laboratori di bellezza gratuiti per le persone in terapia oncologica, con il patrocinio dal 2006.', href: S + '/associazione/enti-correlati/la-forza-e-il-sorriso/' },
+        { kind: 'Education', title: 'i Cosmetic BRO', desc: 'Progetto educativo per le classi dalla terza alla quinta della scuola primaria.', href: 'https://www.icosmeticbro.it' },
+        { kind: 'Ente correlato', title: 'Cosmetica Italia Servizi', desc: 'Consulenze, formazione, testing e corsi, con condizioni dedicate alle imprese associate.', href: 'https://www.cosmeticaitaliaservizi.it/corsi/' },
+        { kind: 'Internazionalizzazione', title: 'Buy Italian Excellence', desc: 'Il programma collegato alle attività internazionali dell’associazione.', href: S + '/buy-excellence/' },
+        { kind: 'Ente correlato', title: 'Camera Italiana dell’Acconciatura', desc: 'Ente del sistema associativo dedicato al mondo dell’acconciatura.', href: S + '/associazione/enti-correlati/camera-italiana-dellacconciatura/' },
+        { kind: 'Ente correlato', title: 'Accademia del Profumo', desc: 'Ente correlato del sistema Cosmetica Italia dedicato al profumo.', href: 'https://www.accademiadelprofumo.it' }
+      ],
+      cultura: [
+        { kind: 'Evento', title: 'Milano Beauty Week', desc: 'La bellezza dialoga con la città e racconta il cosmetico al grande pubblico.', cover: 'cv-mbw', href: S + '/appuntamenti/milano-beauty-week/' },
+        { kind: 'Movimento', title: 'This is Bellezza', desc: 'Il movimento per valorizzare il sistema cosmetico italiano.', cover: 'cv-tib', href: S + '/thisisbellezza/' },
+        { kind: 'Responsabilità sociale', title: 'La forza e il sorriso E.T.S.', desc: 'Laboratori di bellezza gratuiti per persone in terapia oncologica.', cover: 'cv-lfs', href: S + '/associazione/enti-correlati/la-forza-e-il-sorriso/' },
+        { kind: 'Education', title: 'i Cosmetic BRO', desc: 'Progetto educativo per la scuola primaria, classi III–V.', cover: 'cv-bro', href: 'https://www.icosmeticbro.it' }
+      ],
+      sistema: [
+        { title: 'Cosmetica Italia Servizi', href: 'https://www.cosmeticaitaliaservizi.it/corsi/' },
+        { title: 'Accademia del Profumo', href: 'https://www.accademiadelprofumo.it' },
+        { title: 'Camera Italiana dell’Acconciatura', href: S + '/associazione/enti-correlati/camera-italiana-dellacconciatura/' },
+        { title: 'Buy Italian Excellence', href: S + '/buy-excellence/' }
+      ],
+      suggested: [
+        { type: 'Circolare', title: '2026/100 · Ultime novità sul PPWR', date: '10/11/2026', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { type: 'Studio', title: 'Scenario economico della cosmetica 2026', date: '16/09/2026', href: CS },
+        { type: 'Webinar', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna', date: '19/11/2026', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Servizio', title: 'Certificati di libera vendita', date: '', href: S + '/tecnico-regolatorio/clv/' }
+      ],
+      index: [
+        { type: 'Circolare', title: '2026/100 Ultime novità sul PPWR', date: '10/11/2026', k: 'imballaggi packaging', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { type: 'Circolare', title: '2026/99 Normativa Cybersecurity: registrazione e verifiche di coerenza', date: '05/11/2026', k: 'nis', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/98 Cosmoprof North America Miami 2027: modalità di partecipazione', date: '28/10/2026', k: 'fiera usa', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/97 Cosmoprof India 2026: modalità di partecipazione', date: '22/10/2026', k: 'fiera mumbai', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/96 Indonesia: proroga per la certificazione Halal dei cosmetici', date: '19/10/2026', k: 'export', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/95 Criticità nell’esportazione verso l’Arabia Saudita', date: '08/10/2026', k: 'export', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/94 Greenwashing: FAQ MIMIT sul D.Lgs. 30/2026', date: '07/10/2026', k: 'green claim ambientali', href: S + '/circolari/' },
+        { type: 'Notizia', title: 'Regolamento imballaggi e rifiuti di imballaggio (PPWR): Q&A', date: '11/11/2026', k: 'packaging webinar', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Corsi di formazione IAP', date: '12/11/2026', k: 'autodisciplina pubblicitaria', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Cosmoprof North America Miami: le opportunità del mercato beauty negli Stati Uniti', date: '06/11/2026', k: 'usa export', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Information Day 2026: disponibili i materiali', date: '22/10/2026', k: 'tecnico regolatorio', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Webinar EUDR: regolamento prodotti a deforestazione zero', date: '28/10/2026', k: 'deforestazione', href: S + '/elenco-notizie/' },
+        { type: 'Studio', title: 'Scenario economico della cosmetica 2026', date: '16/09/2026', k: 'centro studi report fatturato', href: CS },
+        { type: 'Studio', title: 'Outlook 2025', date: '26/03/2026', k: 'centro studi export', href: CS },
+        { type: 'Studio', title: 'Mappe del beauty contemporaneo', date: '31/03/2026', k: 'consumi trend', href: CS },
+        { type: 'Studio', title: 'L’e-commerce di cosmetica in Italia nel 2025', date: 'marzo 2026', k: 'online consumi', href: CS },
+        { type: 'Studio', title: 'I trend della cosmetica online', date: 'luglio 2026', k: 'e-commerce', href: CS },
+        { type: 'Appuntamento', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna con gli incentivi', date: '19/11/2026', k: 'fiera webinar', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Appuntamento', title: 'Osservatorio sulla sostenibilità del settore cosmetico in Italia 2026', date: '24/11/2026', k: 'sostenibilita', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Appuntamento', title: 'L’economia circolare e la sua declinazione per le aziende cosmetiche', date: '17/12/2026', k: 'sostenibilita circolare', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Pagina', title: 'Certificati di libera vendita', date: '', k: 'clv export tecnico regolatorio', href: S + '/tecnico-regolatorio/clv/' },
+        { type: 'Pagina', title: 'Etichettatura ambientale degli imballaggi', date: '', k: 'packaging sostenibilita', href: S + '/etichettatura-ambientale/etichettatura2023/index.html' },
+        { type: 'Pagina', title: 'Perché associarsi a Cosmetica Italia', date: '', k: 'diventa socio adesione', href: S + '/diventa-socio/per-quali-ragioni-conviene-associarsi-a-cosmetica-italia/' },
+        { type: 'Pagina', title: 'Schede Paesi per l’internazionalizzazione', date: '', k: 'export mercati esteri', href: S + '/servizi-per-linternazionalizzazione/paesi/' }
+      ],
+      cs: [
+        { title: 'Fronteggiare gli shock internazionali e rafforzare le imprese', src: 'Confindustria', kind: 'partner', date: 'Ottobre 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Per-far-crescere-lItalia-fronteggiare-gli-shock-internazionali-e-rafforzare-le-imprese-ottobre-2026/' },
+        { title: 'Evoluzioni del settore e nuove leve per attrarre i talenti di oggi e di domani', src: 'Gi Group', kind: 'partner', date: 'Ottobre 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Gi-Group-La-cosmetica-italiana-evoluzioni-del-settore-e-nuove-leve-per-attrarre-i-talenti-di-oggi-e-di-domani/' },
+        { title: 'Scenario economico della cosmetica 2026', src: 'Centro Studi', kind: 'cs', date: '16 settembre 2026', fmt: 'Pagina web + report', access: 'Report integrale riservato alle imprese associate', href: S + '/centro-studi/Scenario-economico-della-cosmetica-2026/' },
+        { title: 'I trend della cosmetica online', src: 'Witailer', kind: 'partner', date: 'Luglio 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Witailer-I-trend-della-cosmetica-online/' },
+        { title: 'Le priorità d’azione per la competitività dell’industria cosmetica in Italia', src: 'TEHA', kind: 'partner', date: 'Luglio 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Osservatorio-TEHA-Le-priorita-dazione-per-la-competitivita-dellindustria-cosmetica-in-Italia/' },
+        { title: 'Consumer trends: cura e protezione', src: 'Centro Studi', kind: 'cs', date: 'Maggio 2026', fmt: 'PDF', access: '', href: S + '/documenti/a_centrostudi/BTW/BTW2021/Cura-e-protezione-evoluzione-dei-solari.pdf' },
+        { title: 'Mappe del beauty contemporaneo', src: 'Circana e YouGov', kind: 'partner', date: '31 marzo 2026', fmt: 'Pagina web', access: 'Testo completo per utenti registrati', href: S + '/centro-studi/Mappe-del-beauty-contemporaneo-profili-abitudini-e-trend-emergenti/' },
+        { title: 'Outlook 2025', src: 'Centro Studi', kind: 'cs', date: '26 marzo 2026', fmt: 'Pagina web + report', access: 'Report consultabile dopo l’accesso', href: S + '/centro-studi/Outlook-2025/' },
+        { title: 'L’e-commerce di cosmetica in Italia nel 2025', src: 'Human Highway', kind: 'partner', date: 'Marzo 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Le-commerce-di-cosmetica-in-Italia-nel-2025/' },
+        { title: 'Evoluzione della professione acconciatore (edizione 2026)', src: 'Centro Studi', kind: 'cs', date: 'Marzo 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Levoluzione-della-professione-acconciatore-edizione-2026/' },
+        { title: 'Macro Movements 2026', src: 'Beautystreams', kind: 'partner', date: 'Febbraio 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Beautystreams-Macro-Movements-2026/' },
+        { title: 'Anti-aging: canali, mercati e profilo dei consumatori in farmacia', src: 'New Line', kind: 'partner', date: 'Febbraio 2026', fmt: 'PDF', access: '', href: S + '/documenti/Gruppi/gcf/2026/Presentazione-New-Line_webinar-04-03-2026.pdf' }
+      ],
+      chips: ['PPWR', 'Greenwashing', 'Cosmoprof', 'Scenario economico', 'Export']
+    };
+    return this._d;
+  }
+  renderVals() {
+    const s = this.state;
+    const d = this.data();
+    const isExt = (h) => /^https?:/.test(h) && h.indexOf('https://www.cosmeticaitalia.it') !== 0;
+    const nav = d.nav.map((n) => ({
+      label: n.label, intro: n.intro, href: n.href || '', isLink: !!n.href, hasMenu: !n.href,
+      open: s.open === n.id,
+      expanded: s.open === n.id ? 'true' : 'false',
+      cls: 'navbtn' + (s.open === n.id ? ' is-open' : ''),
+      toggle: () => this.setState({ open: s.open === n.id ? null : n.id, search: false, login: false }),
+      links: n.links.map((l) => ({ label: l[0], href: l[1], ext: isExt(l[1]), int: !isExt(l[1]), srExt: isExt(l[1]) ? ' (sito esterno)' : '' }))
+    }));
+    const norm = (t) => (t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const words = norm(s.q).split(/\s+/).filter(Boolean);
+    const isExt2 = isExt;
+    const csItems = s.year !== '2026' ? [] : d.cs.filter((x) => (s.seg === 'all' || x.kind === s.seg) && norm(s.q2).split(/\s+/).filter(Boolean).every((w) => norm(x.title + ' ' + x.src).indexOf(w) !== -1));
+    const results = words.length ? d.index.filter((it) => { const h = norm(it.title + ' ' + it.type + ' ' + it.k); return words.every((w) => h.indexOf(w) !== -1); }) : [];
+    const svList = this.services();
+    const _t0 = new Date(); _t0.setHours(0, 0, 0, 0);
+    const _ag = d.agenda.map((a) => {
+      const m = /(\d{1,2})(?:–(\d{1,2}))?\/(\d{2})\/(\d{4})/.exec(a.when) || [];
+      const y = +m[4], mo = +m[3] - 1;
+      const st = new Date(y, mo, +m[1]), en = new Date(y, mo, +(m[2] || m[1]));
+      const dd = Math.round((st - _t0) / 864e5);
+      const rel = st <= _t0 && en >= _t0 ? 'In corso' : (dd === 1 ? 'Domani' : 'Tra ' + dd + ' giorni');
+      return Object.assign({}, a, { end: en, rel: rel, year: String(y) });
+    }).filter((a) => a.end >= _t0);
+    const sv = svList.find((v) => v.id === s.svc) || svList[0];
+    return {
+      nav,
+      topCls: 'top' + (s.menu ? ' is-open' : '') + (s.scrolled ? ' is-sc' : ''),
+      menuExp: s.menu ? 'true' : 'false',
+      searchExp: s.search ? 'true' : 'false',
+      loginExp: s.login ? 'true' : 'false',
+      searchOpen: s.search,
+      loginOpen: s.login,
+      toggleMenu: () => this.setState({ menu: !s.menu, open: null }),
+      toggleSearch: () => this.setState({ search: !s.search, login: false, open: null }, () => { if (this.state.search && this.qEl) this.qEl.focus(); }),
+      toggleLogin: () => this.setState({ login: !s.login, search: false, open: null }),
+      setQRef: (el) => { this.qEl = el; },
+      q: s.q,
+      onQ: (e) => this.setState({ q: e.target.value }),
+      indexCount: d.index.length,
+      showChips: words.length === 0,
+      chips: d.chips.map((c) => ({ label: c, pick: () => this.setState({ q: c }) })),
+      results: results.slice(0, 8),
+      hasResults: results.length > 0,
+      noResults: words.length > 0 && results.length === 0,
+      resultsLabel: results.length === 1 ? '1 risultato' : results.length + ' risultati' + (results.length > 8 ? ' (mostrati i primi 8)' : ''),
+      circolari: d.circolari,
+      notizie: d.notizie,
+      agenda: d.agenda,
+      corsi: d.corsi,
+      iniziative: d.iniziative.map((i) => ({ ...i, ext: isExt(i.href), go: isExt(i.href) ? 'Sito dedicato' : 'Scopri' })),
+      utabs: [['c', 'Circolari'], ['n', 'Notizie'], ['a', 'Agenda']].map((t) => ({ label: t[1], cls: 'utab' + (s.tab === t[0] ? ' is-on' : ''), sel: s.tab === t[0] ? 'true' : 'false', pick: () => this.setState({ tab: t[0] }) })),
+      ucolC: 'ucol' + (s.tab === 'c' ? ' is-active' : ''),
+      ucolN: 'ucol' + (s.tab === 'n' ? ' is-active' : ''),
+      ucolA: 'ucol' + (s.tab === 'a' ? ' is-active' : ''),
+      onPalKey: (e) => { if (e.key === 'Escape') this.setState({ search: false }); },
+      suggested: d.suggested,
+      resultsShort: results.slice(0, 5),
+      corsi3: d.corsi.slice(0, 3),
+      cultura: d.cultura.map((i) => ({ ...i, ext: isExt2(i.href), coverCls: 'cover ' + i.cover, swCls: 'sw ' + i.cover.replace('cv-', 'sw-'), phCls: 'ph ' + i.cover.replace('cv-', 'ph-') })),
+      sistema: d.sistema.map((i) => ({ ...i, ext: isExt2(i.href) })),
+      footNav: nav.filter((n) => ['Associazione', 'Temi e servizi', 'Notizie e agenda', 'Pubblicazioni'].indexOf(n.label) !== -1),
+      segs: [['all', 'Tutti'], ['cs', 'Centro Studi'], ['partner', 'Partner']].map((g) => ({ label: g[1], cls: 'utab' + (s.seg === g[0] ? ' is-on' : ''), pressed: s.seg === g[0] ? 'true' : 'false', pick: () => this.setState({ seg: g[0] }) })),
+      items: (s.sort === 'az' ? csItems.slice().sort((a, b) => a.title.localeCompare(b.title, 'it')) : csItems).map((x) => ({ ...x, isSoci: x.access.indexOf('imprese associate') !== -1, isLogin: !!x.access && x.access.indexOf('imprese associate') === -1 })),
+      hasItems: csItems.length > 0,
+      noItems: csItems.length === 0,
+      countLabel: s.year !== '2026' ? 'Anno ' + s.year : (csItems.length === 1 ? '1 pubblicazione' : csItems.length + ' pubblicazioni') + ' · 2026',
+      year: s.year,
+      onYear: (e) => this.setState({ year: e.target.value }),
+      q2: s.q2,
+      onQ2: (e) => this.setState({ q2: e.target.value }),
+      showArchive: s.year !== '2026',
+      emptyText: s.year !== '2026' ? 'Nel prototipo sono caricate solo le pubblicazioni del 2026.' : 'Nessuna pubblicazione corrisponde alla ricerca.',
+      archiveHref: 'https://www.cosmeticaitalia.it/centro-studi/?anno=' + s.year,
+      feats: [['reg', '01', 'Normativa', 'Circolari, linee guida, Regolamento 1223/2009'], ['dati', '02', 'Dati e analisi', 'Outlook, Scenario economico, studi dei partner'], ['est', '03', 'Mercati esteri', 'Fiere Cosmoprof e approfondimenti'], ['form', '04', 'Formazione', 'Corsi di Cosmetica Italia Servizi']].map((f) => ({ n: f[1], label: f[2], hint: f[3], tid: 'p8-t-' + f[0], cls: 'ftab' + (s.feat === f[0] ? ' is-on' : ''), sel: s.feat === f[0] ? 'true' : 'false', pick: () => this.setState({ feat: f[0] }) })),
+      featTid: 'p8-t-' + s.feat,
+      featReg: s.feat === 'reg',
+      featDati: s.feat === 'dati',
+      featEst: s.feat === 'est',
+      featForm: s.feat === 'form',
+      feed: d.circolari.map((c) => ({ kind: 'Circolare ' + c.num, title: c.title, date: c.date, href: c.href, isCirc: true, tagCls: 'tag tg-aqua' })).concat(d.notizie.map((n) => ({ kind: 'Notizia', title: n.title, date: n.date, href: n.href, isCirc: false, tagCls: 'tag' }))).sort((a, b) => b.date.split('/').reverse().join('').localeCompare(a.date.split('/').reverse().join(''))),
+      segs5: [['all', 'Tutti gli autori'], ['cs', 'Centro Studi'], ['partner', 'Studi dei partner']].map((g) => ({ label: g[1], count: g[0] === 'all' ? d.cs.length : d.cs.filter((x) => x.kind === g[0]).length, cls: 'fopt' + (s.seg === g[0] ? ' is-on' : ''), pressed: s.seg === g[0] ? 'true' : 'false', pick: () => this.setState({ seg: g[0] }) })),
+      sorts: [['date', 'Più recenti'], ['az', 'Titolo A–Z']].map((g) => ({ label: g[1], cls: 'sopt' + (s.sort === g[0] ? ' is-on' : ''), pressed: s.sort === g[0] ? 'true' : 'false', pick: () => this.setState({ sort: g[0] }) })),
+      resetFilters: () => this.setState({ seg: 'all', q2: '', year: '2026', sort: 'date' }),
+      heroResults: words.length > 0,
+      onHeroSearch: (e) => { e.preventDefault(); },
+      setHeroRef: (el) => { this.heroEl = el; },
+      setEvRef: (el) => { this.evEl = el; },
+      setUpdRef: (el) => { this.updEl = el; },
+      setNumRef: (el) => { this.numEl = el; },
+      setCalRef: (el) => { this.calEl = el; },
+      updHasNext: _ag.length > 0,
+      updNext: _ag[0] || {},
+      updRest: _ag.slice(1),
+      updCount: String(_ag.length),
+      cntRef0: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[0] = el; },
+      cntRef1: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[1] = el; },
+      cntRef2: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[2] = el; },
+      cntRef3: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[3] = el; },
+      pubs3: d.cs.slice(0, 3).map((x) => ({ title: x.title, date: x.date, src: x.src, href: x.href })),
+      pubs4: d.cs.slice(0, 4).map((x) => ({ title: x.title, date: x.date, src: x.src, href: x.href, fmt: x.fmt, kind: x.kind === 'cs' ? 'Centro Studi' : 'Studi dei partner', cls: 'pc8 pc8-' + (x.kind === 'cs' ? 'cs' : 'partner') })),
+      circ3: d.circolari.slice(0, 3),
+      setSvRef: (el) => { this.svEl = el; },
+      setSoRef: (el) => { this.soEl = el; },
+      setFootRef: (el) => { this.footEl = el; },
+      toTop: () => { const r = this.footEl && this.footEl.closest('.p8'); if (r) r.scrollIntoView({ behavior: this._rm ? 'auto' : 'smooth', block: 'start' }); },
+      svcs: svList.map((v, i) => ({
+        title: v.title, short: v.short, icon: v.icon, desc: v.desc,
+        num: String(i + 1).padStart(2, '0'),
+        tid: 'p8-sx-' + v.id, pid: 'p8-sxp-' + v.id,
+        cls: 'sx-p ' + (() => { const k = svList.indexOf(sv); if (i === k) return 'is-on'; if ((i >> 1) === (k >> 1)) return 'is-tall'; if ((i & 1) === (k & 1)) return 'is-wide'; return 'is-small'; })(),
+        on: sv.id === v.id,
+        sel: sv.id === v.id ? 'true' : 'false',
+        links: v.links.map((l) => ({ label: l[0], href: l[1], srExt: isExt(l[1]) ? ' (sito esterno)' : '', cls: 'btn btn-glass sx-cta' + (isExt(l[1]) ? ' is-ext' : '') })),
+        tags: (() => { const r = v.links.slice(1).map((l) => ({ label: l[0] })); return r.length > 3 ? r.slice(0, 2).concat([{ label: '+' + (r.length - 2) }]) : r; })(),
+        pick: () => { if (this._hv) clearTimeout(this._hv); if (s.svc !== v.id) this.setState({ svc: v.id }); },
+        hov: () => { if (this._hv) clearTimeout(this._hv); this._hv = setTimeout(() => { if (this.state.svc !== v.id) this.setState({ svc: v.id }); }, 140); },
+        unhov: () => { if (this._hv) clearTimeout(this._hv); },
+        key: (e) => {
+          const n = svList.length;
+          let j = -1;
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') j = (i + 1) % n;
+          else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') j = (i - 1 + n) % n;
+          else if (e.key === 'Home') j = 0;
+          else if (e.key === 'End') j = n - 1;
+          if (j < 0) return;
+          e.preventDefault();
+          const bs = this.svEl ? this.svEl.querySelectorAll('.sx-b') : [];
+          if (bs[j]) bs[j].focus();
+        }
+      })),
+      svTid: 'p8-sv-' + sv.id,
+      svStyle: '--i:' + svList.indexOf(sv),
+      svGrid: 'sx a' + svList.indexOf(sv),
+      svNum: String(svList.indexOf(sv) + 1).padStart(2, '0'),
+      svTitle: sv.title,
+      svDesc: sv.desc,
+      svHasCirc: !!sv.circ,
+      svLinks: sv.links.map((l) => ({ label: l[0], href: l[1], srExt: isExt(l[1]) ? ' (sito esterno)' : '' })),
+      navMenus: nav.filter((n) => n.hasMenu),
+      newsSent: s.newsSent,
+      onNews: (e) => { e.preventDefault(); this.setState({ newsSent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

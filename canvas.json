@@ -1,0 +1,220 @@
+{
+  "artboards": [
+    {
+      "file": "P9-Home.dc.html",
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 7591,
+      "title": "P9 · Luminosa — Homepage desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P9-Home-mobile.dc.html",
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 6019,
+      "title": "P9 · Homepage mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P9-Home-mobile-2.dc.html",
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 6198,
+      "title": "P9 · Homepage mobile 390 (2/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home.dc.html",
+      "x": 0,
+      "y": 8540,
+      "w": 1440,
+      "h": 7104,
+      "title": "P8 · Bianco e blu in movimento — Homepage desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-bianco.dc.html",
+      "x": 5730,
+      "y": 8540,
+      "w": 1440,
+      "h": 7104,
+      "title": "P8 · Bianco e blu in movimento — Homepage desktop, versione bianca",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-v12.dc.html",
+      "x": 7250,
+      "y": 8540,
+      "w": 1440,
+      "h": 7063,
+      "title": "P8 · Versione 1.2 — Homepage desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-v12-mobile.dc.html",
+      "x": 8770,
+      "y": 8540,
+      "w": 390,
+      "h": 5452,
+      "title": "P8 · Versione 1.2 — Homepage mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-v12-mobile-2.dc.html",
+      "x": 9240,
+      "y": 8540,
+      "w": 390,
+      "h": 5637,
+      "title": "P8 · Versione 1.2 — Homepage mobile 390 (2/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-v12-bianco.dc.html",
+      "x": 9710,
+      "y": 8540,
+      "w": 1440,
+      "h": 7060,
+      "title": "P8 · Versione 1.2 bianca — Homepage desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-v12-bianco-mobile.dc.html",
+      "x": 11230,
+      "y": 8540,
+      "w": 390,
+      "h": 5453,
+      "title": "P8 · Versione 1.2 bianca — Homepage mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-v12-bianco-mobile-2.dc.html",
+      "x": 11700,
+      "y": 8540,
+      "w": 390,
+      "h": 5657,
+      "title": "P8 · Versione 1.2 bianca — Homepage mobile 390 (2/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-v12-Circolari-B.dc.html",
+      "x": 12170,
+      "y": 12888,
+      "w": 1440,
+      "h": 1040,
+      "title": "P8 · Versione 1.2 — Circolari e appuntamenti, proposta B (due card) — desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-v12-Circolari-B-mobile.dc.html",
+      "x": 13690,
+      "y": 12888,
+      "w": 390,
+      "h": 1781,
+      "title": "P8 · Versione 1.2 — Circolari e appuntamenti, proposta B (due card) — mobile 390",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-CentroStudi.dc.html",
+      "x": 1520,
+      "y": 8540,
+      "w": 1440,
+      "h": 3674,
+      "title": "P8 · Bianco e blu in movimento — Centro Studi desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-mobile.dc.html",
+      "x": 3040,
+      "y": 8540,
+      "w": 390,
+      "h": 5567,
+      "title": "P8 · Homepage mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Home-mobile-2.dc.html",
+      "x": 3510,
+      "y": 8540,
+      "w": 390,
+      "h": 5591,
+      "title": "P8 · Homepage mobile 390 (2/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-CentroStudi-mobile.dc.html",
+      "x": 3980,
+      "y": 8540,
+      "w": 390,
+      "h": 6249,
+      "title": "P8 · Centro Studi mobile 390",
+      "is_interactive": true
+    },
+    {
+      "file": "P8-Scheda.dc.html",
+      "x": 4450,
+      "y": 8540,
+      "w": 1200,
+      "h": 1640,
+      "title": "P8 · Scheda di progetto"
+    },
+    {
+      "file": "P8-Home-v12-circolari-b.dc.html",
+      "x": 14160,
+      "y": 0,
+      "w": 1440,
+      "h": 6939
+    }
+  ],
+  "annotations": [
+    {
+      "id": "tP8",
+      "x": 0,
+      "y": 8240,
+      "w": 240,
+      "maxW": 7170,
+      "text": "Proposta 8 · Bianco e blu in movimento — evoluzione della 7 con effetto «wow»",
+      "kind": "title1"
+    },
+    {
+      "id": "tP9",
+      "x": 1520,
+      "y": -300,
+      "w": 240,
+      "maxW": 2380,
+      "text": "Proposta 9 · Luminosa — bianco, blu e immagini reali in primo piano",
+      "kind": "title1"
+    },
+    {
+      "id": "tP8v12",
+      "x": 7250,
+      "y": 8240,
+      "w": 240,
+      "maxW": 2380,
+      "text": "Versione 1.2 · banner blu con i cosmetici che cadono e poi girano su un piedistallo con luce blu (video); titoli, tessere scure e footer in nero inchiostro",
+      "kind": "title1"
+    },
+    {
+      "id": "tP8v12w",
+      "x": 9710,
+      "y": 8240,
+      "w": 240,
+      "maxW": 2380,
+      "text": "Versione 1.2 bianca · stesso banner su fondo bianco, con la stessa foto realistica dei cosmetici e la stessa caduta; resto come la 1.2",
+      "kind": "title1"
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
