@@ -1086,6 +1086,10 @@ class Component extends DCLogic {
       'uniform vec4 uK;',
       'uniform vec3 uDim;',
       'uniform vec4 uQ;',
+      'uniform vec3 uIa;',
+      'uniform vec3 uIb;',
+      'uniform vec4 uIw;',
+      'uniform vec4 uSw;',
       'float hash(vec2 p){ vec3 q = fract(vec3(p.xyx) * 0.1031); q += dot(q, q.yzx + 33.33); return fract((q.x + q.y) * q.z); }',
       'float noise(vec2 p){',
       '  vec2 i = floor(p); vec2 f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);',
@@ -1100,11 +1104,19 @@ class Component extends DCLogic {
       '  vec2 uv = (p - off) / size;',
       '  return uC + (uv - uC) / uZoom;',
       '}',
+      'float prof(float x){ float x2 = x + 1.9; return -x * exp(-x * x) + 0.45 * x2 * exp(-x2 * x2); }',
+      'float ring(float age, float amp, float r){',
+      '  if (age <= 0.0 || age >= uIw.x) return 0.0;',
+      '  float p = age / uIw.x;',
+      '  float R = 0.16 + (uW.x - 0.16) * (1.0 - pow(1.0 - p, 1.25));',
+      '  return prof((r - R) / uIw.y) * amp * pow(1.0 - p, 1.3) * smoothstep(0.0, 0.12, p);',
+      '}',
       'void main(){',
       '  vec2 uv = cover(gl_FragCoord.xy);',
       '  vec2 suv = uv;',
       '  float asp = uImg.x / uImg.y;',
       '  float rise = 0.0;',
+      '  float glint = 0.0;',
       '  float gm = texture2D(uMaskL, uv).r;',
       '  if (gm > 0.02){',
       '    float gw = smoothstep(0.5, 0.92, gm);',
@@ -1119,18 +1131,36 @@ class Component extends DCLogic {
       '      float r = length(dv);',
       '      d += dv / max(r, 1e-4) * sin(r * 70.0 - uT * 2.4) * exp(-r * 4.0) * uRip.z;',
       '    }',
+      '    vec2 dw = (uv - uO.xy) * vec2(asp, mix(uW.w, uW.z, smoothstep(-0.02, 0.05, uO.y - uv.y)));',
+      '    float r = length(dw);',
+      '    vec2 n = dw / max(r, 1e-4);',
+      '    vec2 nd = vec2(n.x * uQ.x / asp, n.y);',
+      '    float fa = smoothstep(0.08, 0.22, r) * (0.12 + 0.88 * pow(depth, 1.4));',
       '    float pw = clamp((uS - uK.x) / uK.y, 0.0, 1.0);',
       '    if (pw > 0.0 && pw < 1.0){',
-      '      vec2 dw = (uv - uO.xy) * vec2(asp, mix(uW.w, uW.z, smoothstep(-0.02, 0.05, uO.y - uv.y)));',
-      '      float r = length(dw);',
       '      float R = uW.x * (1.0 - pow(1.0 - pw, 1.7));',
-      '      float x = (r - R) / uK.z;',
-      '      float x2 = x + 1.9;',
-      '      float sl = -x * exp(-x * x) + 0.45 * x2 * exp(-x2 * x2);',
-      '      float a = uK.w * pow(1.0 - pw, uQ.z) * smoothstep(0.0, 0.05, pw) * smoothstep(0.08, 0.22, r) * (0.12 + 0.88 * pow(depth, 1.4));',
-      '      vec2 n = dw / max(r, 1e-4);',
-      '      d += vec2(n.x * uQ.x / asp, n.y) * sl * a;',
+      '      float sl = prof((r - R) / uK.z);',
+      '      float a = uK.w * pow(1.0 - pw, uQ.z) * smoothstep(0.0, 0.05, pw) * fa;',
+      '      d += nd * sl * a;',
       '      rise = sl * a * gw;',
+      '    }',
+      '    float fi = smoothstep(0.14, 0.34, r) * (0.12 + 0.88 * pow(depth, 1.4));',
+      '    if (uIw.z > 0.0){',
+      '      float si = (ring(uIa.x, uIb.x, r) + ring(uIa.y, uIb.y, r) + ring(uIa.z, uIb.z, r)) * uIw.z * fi;',
+      '      d += nd * si;',
+      '      glint += si * gw;',
+      '    }',
+      '    if (uSw.x > 0.0){',
+      '      float v = uv.y - uHz + uSw.w;',
+      '      float Z = 1.0 / max(v, 0.001);',
+      '      float X = (uv.x - uO.x) * asp * Z;',
+      '      float k = 6.2832 / uSw.y;',
+      '      float p1 = k * (0.97 * Z + 0.24 * X) + uT * uSw.z;',
+      '      float p2 = k * 1.31 * (0.93 * Z - 0.37 * X) + uT * uSw.z * 0.77 + 2.1;',
+      '      vec2 g = vec2(0.24, 0.97) * cos(p1) + 0.55 * vec2(-0.37, 0.93) * cos(p2);',
+      '      float fs = uSw.x * smoothstep(0.0, 0.45, depth) * (0.25 + 0.75 * depth) * smoothstep(0.1, 0.3, r);',
+      '      d += vec2(g.x * 0.5 / asp, g.y) * fs;',
+      '      glint += g.y * fs * gw;',
       '    }',
       '    d *= gw;',
       '    suv = uv + d * smoothstep(0.35, 0.75, texture2D(uMaskL, uv + d).r);',
@@ -1149,6 +1179,7 @@ class Component extends DCLogic {
       '    float L = mix(lg, max(lg, lo), ob);',
       '    col = mix(col * uDim, col, L) * (1.0 + rise * uQ.y * L);',
       '  }',
+      '  col *= 1.0 + glint * uIw.w;',
       '  float gr = hash(gl_FragCoord.xy) - 0.5;',
       '  col += gr * 0.02 * (0.35 + 0.65 * (1.0 - dot(col, vec3(0.33))));',
       '  gl_FragColor = vec4(col, 1.0);',
@@ -1168,8 +1199,8 @@ class Component extends DCLogic {
     gl.enableVertexAttribArray(al);
     gl.vertexAttribPointer(al, 2, gl.FLOAT, false, 0, 0);
     const U = {};
-    ['uOn', 'uOff', 'uMaskL', 'uRes', 'uImg', 'uPos', 'uC', 'uHz', 'uT', 'uLit', 'uZoom', 'uRip', 'uS', 'uO', 'uW', 'uK', 'uDim', 'uQ'].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
-    const st = this._hg = { raf: 0, vis: true, on: !document.hidden, t0: 0, s0: 0, tb: 0, ratio: Math.min(window.devicePixelRatio || 1, 1.5), w: 0, h: 0, zoom: 1, ready: false, kick: () => {} };
+    ['uOn', 'uOff', 'uMaskL', 'uRes', 'uImg', 'uPos', 'uC', 'uHz', 'uT', 'uLit', 'uZoom', 'uRip', 'uS', 'uO', 'uW', 'uK', 'uDim', 'uQ', 'uIa', 'uIb', 'uIw', 'uSw'].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
+    const st = this._hg = { raf: 0, vis: true, on: !document.hidden, t0: 0, s0: 0, tb: 0, i0: 0, ratio: Math.min(window.devicePixelRatio || 1, 1.5), w: 0, h: 0, zoom: 1, ready: false, kick: () => {} };
     const A = this._art();
     // l'onda corre sul piano del gel: più schiacciata verso l'orizzonte, più larga verso di noi; la luce si allarga dalla base dell'oggetto
     const asp = A.w / A.h, SF = 7, SN = 3;
@@ -1177,6 +1208,11 @@ class Component extends DCLogic {
     const ml = (x, y) => Math.hypot((x - A.ox) * asp, (y - A.oy) * 1.25);
     const RW = Math.max(mw(0, A.hz), mw(1, A.hz), mw(0, 1), mw(1, 1)) + 0.1;
     const RL = Math.max(ml(0, 0), ml(1, 0), ml(0, 1), ml(1, 1)) + 0.5;
+    // finito l'ingresso il gel non si ferma: ogni IP secondi circa un'onda morbida parte dalla base dell'oggetto
+    // (vita, larghezza della cresta, ampiezza, chiaroscuro in IW), con ritmo e forza che variano appena;
+    // SW: onda lunga dall'orizzonte (ampiezza, lunghezza, velocità, compressione verso l'orizzonte), 0 = spenta
+    const IW = [7.5, 0.26, 0.032, 6], SW = [0, 0.7, 0.9, 0.12], IP = 4.8;
+    const hr = (k) => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
     const tex = (img, unit, nearest) => {
       const t = gl.createTexture();
       gl.activeTexture(gl.TEXTURE0 + unit);
@@ -1263,6 +1299,19 @@ class Component extends DCLogic {
       gl.uniform4f(U.uK, 0.2, 2.2, 0.2, 0.06);
       gl.uniform4f(U.uQ, 1, 7, 0.8, 0);
       gl.uniform3f(U.uDim, 87 / 255, 97 / 255, 128 / 255);
+      const it = t - st.i0, k0 = Math.floor(it / IP), ia = [-1, -1, -1], ib = [0, 0, 0];
+      // candidati: l'onda in corso, la precedente e la prossima (che può partire un po' prima del suo turno)
+      for (let j = 0; j < 3; j++) {
+        const k = k0 + 1 - j;
+        if (k < 0) continue;
+        ia[j] = it - k * IP - (k ? (hr(k) - 0.5) * 0.3 * IP : 0);
+        ib[j] = 0.85 + 0.3 * hr(k + 17);
+      }
+      gl.uniform3f(U.uIa, ia[0], ia[1], ia[2]);
+      gl.uniform3f(U.uIb, ib[0], ib[1], ib[2]);
+      gl.uniform4f(U.uIw, IW[0], IW[1], IW[2], IW[3]);
+      const e = Math.min(1, Math.max(0, (it + 1) / 3));
+      gl.uniform4f(U.uSw, SW[0] * e * e * (3 - 2 * e), SW[1], SW[2], SW[3]);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
     // orologio della pagina (come i contatori), non quello del fotogramma: stessi tempi delle animazioni CSS
@@ -1280,6 +1329,7 @@ class Component extends DCLogic {
       size();
       st.t0 = performance.now(); st.ready = true;
       if (this._hxGo()) { st.s0 = st.t0; st.tb = 2.6; }
+      st.i0 = st.s0 ? 3 : 0.6;
       draw(st.t0);
       // arrivato tardi, mentre la luce sale col velo: la tela compare a ingresso finito
       const show = () => {
