@@ -470,6 +470,23 @@ body{margin:0;background:#020A18}
   .p11[data-rv-on] :is(.hx-nt,.hx-bm){display:none}
 }
 
+/* ===== apertura: «Riflesso che passa» (2026-11-27) =====
+   Finito l'ingresso, ogni 7s una fascia di luce attraversa l'apertura da sinistra a destra in 3s, ma accende solo cromo,
+   vetro e vasetto nero e, più deboli, i loro riflessi nel piano: la maschera p11-collezione-luce.webp viene dal path tracer
+   (stessa camera dell'immagine). Due strati: «overlay» largo che fa brillare il cromo e un filo «screen» che si legge come il
+   riflesso che scorre. Si muove solo la fascia (translate); fermo fuori schermo; senza data-rv-on non c'è. */
+.p11 .hx-gl{display:none}
+.p11[data-rv-on] .hx-gl{display:block;position:absolute;inset:0;overflow:hidden;pointer-events:none;-webkit-mask:url(./assets/p11-collezione-luce.webp) 0 0/100% 100% no-repeat;mask:url(./assets/p11-collezione-luce.webp) 0 0/100% 100% no-repeat}
+.p11 .hx-gl-o{mix-blend-mode:overlay}
+.p11 .hx-gl-s{mix-blend-mode:screen}
+.p11 .hx-gl>i{position:absolute;top:0;bottom:0;left:-50%;width:50%;will-change:transform;animation:p11gl 7s cubic-bezier(.3,.08,.5,.95) infinite;animation-play-state:paused}
+.p11 .hx-gl-o>i{background:linear-gradient(90deg,rgba(215,228,255,0.000) 16.0%,rgba(215,228,255,0.111) 22.8%,rgba(215,228,255,0.274) 29.6%,rgba(215,228,255,0.464) 36.4%,rgba(215,228,255,0.673) 43.2%,rgba(215,228,255,0.900) 50.0%,rgba(215,228,255,0.673) 56.8%,rgba(215,228,255,0.464) 63.6%,rgba(215,228,255,0.274) 70.4%,rgba(215,228,255,0.111) 77.2%,rgba(215,228,255,0.000) 84.0%)}
+.p11 .hx-gl-s>i{background:linear-gradient(90deg,rgba(215,228,255,0.000) 43.0%,rgba(215,228,255,0.092) 44.4%,rgba(215,228,255,0.228) 45.8%,rgba(215,228,255,0.386) 47.2%,rgba(215,228,255,0.561) 48.6%,rgba(215,228,255,0.750) 50.0%,rgba(215,228,255,0.561) 51.4%,rgba(215,228,255,0.386) 52.8%,rgba(215,228,255,0.228) 54.2%,rgba(215,228,255,0.092) 55.6%,rgba(215,228,255,0.000) 57.0%)}
+.p11 .hx[data-gl] .hx-gl>i{animation-play-state:running}
+.p11 .hx[data-gl][data-gl-off] .hx-gl>i{animation-play-state:paused}
+@keyframes p11gl{0%{translate:0 0}42.86%{translate:300% 0}100%{translate:300% 0}}
+@media (prefers-reduced-motion: reduce){.p11 .hx-gl{display:none}}
+
 /* ricerca e area riservata */
 .p11 .scrim{position:fixed;inset:0;z-index:80;margin:0;padding:0;border:0;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:default}
 .p11 .modal{position:fixed;top:96px;left:50%;z-index:85;width:min(680px,calc(100% - 32px));transform:translateX(-50%);overflow:hidden;border-radius:24px;background:rgba(9,11,18,.97);border:1px solid var(--line2);color:#fff;box-shadow:0 50px 100px -40px rgba(0,0,0,.9);animation:p11-pop .4s var(--ease)}
@@ -635,6 +652,7 @@ body{margin:0;background:#020A18}
 <section class="hx" aria-labelledby="p11-h1" ref="{{ setHxRef }}">
 <div class="hx-obj" aria-hidden="true" ref="{{ setObjRef }}">
 <img class="hx-img" src="./assets/p11-collezione.webp" alt="" width="1600" height="1800" fetchpriority="high" decoding="async">
+<div class="hx-gl hx-gl-o" aria-hidden="true"><i></i></div><div class="hx-gl hx-gl-s" aria-hidden="true"><i></i></div>
 </div>
 <span class="hx-nt" aria-hidden="true"></span><span class="hx-bm" aria-hidden="true"></span>
 <div class="wrap hx-in">
@@ -1036,11 +1054,22 @@ class Component extends DCLogic {
       clearTimeout(this._hxT);
       this._hxR = requestAnimationFrame(() => {
         hx.setAttribute('data-in', '');
-        this._hxT = setTimeout(() => hx.setAttribute('data-done', ''), 1500);
+        this._hxT = setTimeout(() => { hx.setAttribute('data-done', ''); this._glT = setTimeout(() => this._glGo(), 2500); }, 1500);
       });
     };
     this._hxT = setTimeout(go, 900);
     if (img && img.decode) img.decode().then(go, go); else go();
+  }
+  // «Riflesso che passa»: a ingresso finito parte il giro della fascia di luce; fermo quando l'apertura è fuori dallo schermo
+  _glGo() {
+    const hx = this.hxEl;
+    if (!hx || !this.rootEl || !this.rootEl.hasAttribute('data-rv-on')) return;
+    hx.setAttribute('data-gl', '');
+    if (typeof IntersectionObserver === 'undefined' || this._glio) return;
+    this._glio = new IntersectionObserver((l) => {
+      if (l[l.length - 1].isIntersecting) hx.removeAttribute('data-gl-off'); else hx.setAttribute('data-gl-off', '');
+    });
+    this._glio.observe(hx);
   }
   _rvIn(el) {
     if (el.hasAttribute('data-in')) return;
@@ -1124,6 +1153,8 @@ class Component extends DCLogic {
     if (this._rvc) clearTimeout(this._rvc);
     if (this._hxT) clearTimeout(this._hxT);
     if (this._hxR) cancelAnimationFrame(this._hxR);
+    if (this._glT) clearTimeout(this._glT);
+    if (this._glio) this._glio.disconnect();
     if (this._rmq && this._rmq.removeEventListener) this._rmq.removeEventListener('change', this._rmc);
     if (this._raf) cancelAnimationFrame(this._raf);
   }
