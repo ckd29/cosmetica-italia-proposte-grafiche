@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta 13 · Scheda di progetto</title>
+<link rel="icon" href="data:,">
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Inter+Tight:wght@300..700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FCFCFD}
+.p13s{width:1200px;box-sizing:border-box;background:#FCFCFD;color:#0B0D12;font-family:"DM Sans","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.p13s *{box-sizing:border-box}
+.p13s h1,.p13s h2,.p13s h3{margin:0;font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;font-weight:300;letter-spacing:-.045em;line-height:1.02}
+.p13s p{margin:0}
+.p13s ul,.p13s ol{list-style:none;margin:0;padding:0}
+.p13s .lab{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#0062D6}
+.p13s .hd{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:40px;align-items:center;margin:24px 24px 0;padding:44px 40px 44px 44px;border-radius:32px;background:#F2F5FA}
+.p13s .hd h1{margin-top:18px;font-size:64px}
+.p13s .hd p{margin-top:18px;font-size:17px;line-height:1.55;color:#535D6E}
+.p13s .hd p i{font-style:normal;color:#0B0D12}
+.p13s .shot{position:relative;margin:0;aspect-ratio:16/10;overflow:hidden;border-radius:24px;background:#DCE5F2;box-shadow:0 30px 60px -36px rgba(11,25,60,.5)}
+.p13s .shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.p13s .shot figcaption{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.8);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:13px;font-weight:500;color:#0B0D12}
+.p13s .bd{display:flex;flex-direction:column;gap:48px;padding:48px 52px 40px}
+.p13s h2{margin-top:12px;font-size:38px}
+.p13s .two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px}
+.p13s .vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);margin-top:20px;border-top:1px solid #E2E7EF}
+.p13s .vs li{display:contents}
+.p13s .vs span{padding:11px 0;border-bottom:1px solid #E2E7EF;font-size:15px;line-height:1.45}
+.p13s .vs span:first-child{padding-right:22px;color:#535D6E}
+.p13s .vs .th{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#0062D6}
+.p13s .warm{display:grid;gap:8px;margin-top:20px}
+.p13s .warm li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:12px;align-items:baseline;padding:12px 16px;border-radius:16px;background:#fff;border:1px solid #E2E7EF;font-size:15px;line-height:1.45}
+.p13s .warm li::before{content:"";width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#F2C29C,#D98E62);transform:translateY(-1px)}
+.p13s .fx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.p13s .fx li{padding:20px 22px 22px;border-radius:22px;background:#F2F5FA;font-size:15px;line-height:1.45;color:#535D6E}
+.p13s .fx li:nth-child(2){background:#0062D6;color:rgba(255,255,255,.92)}
+.p13s .fx b{display:block;margin-bottom:6px;font-family:"Inter Tight",Arial,sans-serif;font-size:20px;font-weight:400;letter-spacing:-.02em;color:#0B0D12}
+.p13s .fx li:nth-child(2) b{color:#fff}
+.p13s .fx i{display:block;margin-bottom:12px;font-size:12px;font-style:normal;font-weight:600;letter-spacing:.16em;color:#0062D6}
+.p13s .fx li:nth-child(2) i{color:#fff}
+.p13s .pal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 16px;margin-top:20px}
+.p13s .sw{display:flex;flex-direction:column;gap:4px}
+.p13s .sw i{display:flex;align-items:flex-end;height:84px;padding:10px 12px;border-radius:18px;border:1px solid #E2E7EF;font-style:normal;font-size:13px;font-weight:500}
+.p13s .sw b{margin-top:6px;font-size:15px;font-weight:600}
+.p13s .sw code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:#535D6E}
+.p13s .sw span{font-size:13.5px;line-height:1.4;color:#535D6E}
+.p13s .ty{margin-top:20px;padding:26px 28px;border-radius:24px;background:#fff;border:1px solid #E2E7EF}
+.p13s .ty .t{font-family:"Inter Tight",Arial,sans-serif;font-size:48px;font-weight:300;line-height:1;letter-spacing:-.05em}
+.p13s .ty .m{margin-top:14px;font-size:16px;color:#535D6E}
+.p13s .sc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 18px;margin-top:16px;border-top:1px solid #E2E7EF}
+.p13s .sc span{padding:9px 0;border-bottom:1px solid #E2E7EF;font-size:14.5px}
+.p13s .sc span:nth-child(odd){font-size:13px;font-weight:600;color:#0062D6;white-space:nowrap}
+.p13s .ok{display:grid;gap:10px;margin-top:20px}
+.p13s .ok li{position:relative;padding:0 0 10px 24px;border-bottom:1px solid #E2E7EF;font-size:15px;line-height:1.45}
+.p13s .ok li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:5px;border-left:1.6px solid #0062D6;border-bottom:1.6px solid #0062D6;transform:rotate(-45deg)}
+.p13s .ph{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
+.p13s .ph figure{margin:0}
+.p13s .ph img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+.p13s .ph figcaption{margin-top:8px;font-size:13.5px;line-height:1.4;color:#535D6E}
+.p13s .ph figcaption b{display:block;font-size:14.5px;font-weight:600;color:#0B0D12}
+.p13s .note{margin-top:12px;font-size:13.5px;color:#535D6E}
+.p13s .ft{margin:0 52px;padding:18px 0 34px;border-top:1px solid #E2E7EF;font-size:13.5px;color:#535D6E}
+</style>
+</helmet>
+<div class="p13s">
+<header class="hd">
+<div>
+<p class="lab">Proposta 13 · Luce mediterranea</p>
+<h1>Scheda di progetto</h1>
+<p>Una homepage chiara costruita sul concept <i>NOVA</i>, un sito di moda inventato da una designer e pubblicato su Instagram da uiux.amina: grandi riquadri fotografici arrotondati, card che si incastrano, un solo blu deciso usato poco, tanto spazio. Per un’associazione di imprese il calore viene dalle persone vere sotto la luce del Mediterraneo.</p>
+</div>
+<figure class="shot"><img src="./assets/p13-apertura.webp" alt="L’apertura della proposta: una ragazza al sole sul mare blu, il titolo sottile «La bellezza che l’Italia sa fare.» e la card dei prossimi appuntamenti incastrata nell’angolo" width="1200" height="750"><figcaption>Apertura · tre slide con persone vere al sole</figcaption></figure>
+</header>
+<div class="bd">
+<div class="two">
+<section aria-labelledby="s-ref">
+<p class="lab">Riferimento</p>
+<h2 id="s-ref">Da NOVA a Cosmetica Italia</h2>
+<ul class="vs">
+<li><span class="th">In NOVA</span><span class="th">Nella proposta</span></li>
+<li><span>Riquadro foto arrotondato, modella in denim sul cielo, indicatore 1-2-3</span><span>Riquadro foto arrotondato con persone vere al sole, su cielo e mare blu: tre slide e, al posto dei numeri, una barra in vetro con pausa e tre voci («La bellezza», «I numeri», «Le regole»)</span></li>
+<li><span>Titolo nero e pesante «Wear Your Own Story.»</span><span>Titolo sottile «La bellezza che l’Italia sa fare.», come chiesto dopo la prima prova (peso 300, alla VAEL)</span></li>
+<li><span>Card «Discover More» incastrata nell’angolo, con miniature rotonde</span><span>Card «Prossimi appuntamenti» a incastro, con angoli rovesciati e il prossimo evento calcolato dalla data</span></li>
+<li><span>Striscia di loghi con «Follow»</span><span>«Seguici» e la rete reale: Confindustria, Federchimica, Cosmetics Europe, Cosmoprof, This is Bellezza, Milano Beauty Week, in testo senza imitare loghi</span></li>
+<li><span>Tre card foto con etichette blu</span><span>«In evidenza»: iniziative e analisi in card foto con etichette blu, carosello trascinabile</span></li>
+<li><span>Passi in tre card, la centrale blu con foto</span><span>«Associarsi è semplice»: tre passi, il secondo in blu con la foto</span></li>
+<li><span>«DEFINE YOUR / WEAR YOUR / OWN STORY.»</span><span>«Dalla formula / al gesto / quotidiano.»: la filiera, con i testi piccoli intrecciati e il pulsante col cielo</span></li>
+<li><span>About e numeri in card azzurrine</span><span>L’associazione e i numeri del Centro Studi, ognuno con la sua fonte</span></li>
+<li><span>Caratteristiche con icone</span><span>«Cosa facciamo per le imprese»: sei servizi con icone</span></li>
+<li><span>Recensioni, la card centrale in blu</span><span>Agenda e circolari: al centro Cosmoprof Worldwide Bologna con i giorni all’apertura</span></li>
+<li><span>Invito con foto rotonde e bollino</span><span>«Entra nella comunità» con bollino rotante «Diventa socio»</span></li>
+</ul>
+</section>
+<section aria-labelledby="s-warm">
+<p class="lab">Calore</p>
+<h2 id="s-warm">Perché non è fredda</h2>
+<ul class="warm">
+<li>Le foto sono di persone vere al sole: pelle dorata, luce naturale, nessun camice e nessun prodotto su fondo bianco.</li>
+<li>Il blu viene soprattutto dal cielo e dal mare delle foto, non da superfici piatte.</li>
+<li>Il blu pieno è usato poco: un pulsante per schermata e una card per sezione.</li>
+<li>Angoli morbidi da 32 px e card che si incastrano, invece di griglie rigide.</li>
+<li>Titoli grandi e sottili, come nelle aperture premiate, al posto del grassetto istituzionale.</li>
+<li>Le stesse persone tornano in tutta la pagina (passi, filiera, invito), come la modella in NOVA.</li>
+</ul>
+</section>
+</div>
+
+<section aria-labelledby="s-fx">
+<p class="lab">Movimento</p>
+<h2 id="s-fx">Cosa si muove</h2>
+<ol class="fx">
+<li><i>01 · APERTURA</i><b>Le slide</b>Ogni 7 secondi la foto sfuma con uno zoom lento, il titolo sale riga per riga e la linea blu della voce attiva si riempie. Tutto si ferma col mouse sopra, con il focus o con la pausa.</li>
+<li><i>02 · TESTATA</i><b>Il vetro</b>Scorrendo, la testata si accorcia e diventa una lastra di vetro chiaro.</li>
+<li><i>03 · IN EVIDENZA</i><b>Il carosello</b>Si trascina col mouse o si sfoglia con le frecce; le foto si avvicinano al passaggio.</li>
+<li><i>04 · CENTRO STUDI</i><b>I numeri</b>Fatturato, export, lavoratori e imprese contano fino al valore quando entrano nello schermo.</li>
+<li><i>05 · AGENDA</i><b>Il conto alla rovescia</b>I giorni a Cosmoprof e il prossimo appuntamento si calcolano dalla data di oggi.</li>
+<li><i>06 · ASSOCIARSI</i><b>Il bollino</b>«Diventa socio» gira lentamente; le sezioni salgono con dolcezza mentre si scorre.</li>
+</ol>
+</section>
+
+<section aria-labelledby="s-pal">
+<p class="lab">Colore</p>
+<h2 id="s-pal">Palette e contrasti</h2>
+<div class="pal">
+<div class="sw"><i style="background:#0062D6;color:#fff;border-color:#0062D6">Aa 5,65:1</i><b>Blu royal</b><code>#0062D6</code><span>Pulsanti, card evidenziate, numeri: la tinta del blu Confindustria (257° in OKLCH), più accesa</span></div>
+<div class="sw"><i style="background:#1F59A1;color:#fff;border-color:#1F59A1">Aa 7,0:1</i><b>Blu Confindustria</b><code>#1F59A1</code><span>Il riferimento del marchio da cui nasce il blu royal</span></div>
+<div class="sw"><i style="background:#0B0D12;color:#fff;border-color:#0B0D12">Aa 19,0:1</i><b>Inchiostro</b><code>#0B0D12</code><span>Titoli, testi e pulsante «Diventa socio»</span></div>
+<div class="sw"><i style="background:#535D6E;color:#fff;border-color:#535D6E">6,5:1 su carta</i><b>Grigio testo</b><code>#535D6E</code><span>Testi secondari, date e fonti</span></div>
+<div class="sw"><i style="background:#FCFCFD;color:#0B0D12">carta</i><b>Carta</b><code>#FCFCFD</code><span>Fondo della pagina e delle cornici a incastro</span></div>
+<div class="sw"><i style="background:#F2F5FA;color:#0062D6">blu 5,2:1</i><b>Nebbia</b><code>#F2F5FA</code><span>Card dei passi, dei numeri e footer</span></div>
+<div class="sw"><i style="background:#E8F0FC;color:#0050B3">6,5:1</i><b>Blu chiaro</b><code>#E8F0FC</code><span>Date dell’agenda, con il blu scuro #0050B3</span></div>
+<div class="sw"><i style="background:linear-gradient(135deg,#F2C29C,#D98E62);color:#0B0D12;border-color:#F2C29C">solo foto</i><b>Pelle e sole</b><code>dalle foto</code><span>Il caldo non è un colore dell’interfaccia: viene dalle immagini</span></div>
+</div>
+<p class="note">Contrasti calcolati con la formula WCAG 2.2: tutti i testi superano il livello AA (4,5:1); il bianco sul blu royal è 5,65:1.</p>
+</section>
+
+<div class="two">
+<section aria-labelledby="s-ty">
+<p class="lab">Tipografia</p>
+<h2 id="s-ty">Inter Tight e DM Sans</h2>
+<div class="ty"><p class="t">La bellezza che l’Italia sa fare.</p><p class="m">DM Sans per testi, pulsanti ed etichette in maiuscolo spaziato.</p></div>
+<div class="sc">
+<span>98 px · 300</span><span>Titolo dell’apertura (a 1440 px)</span>
+<span>68 px · 300</span><span>Titoli di sezione e blocco della filiera</span>
+<span>32 px · 300</span><span>Titoli delle card</span>
+<span>16–20 px · 400</span><span>Testi da leggere</span>
+<span>12–13 px · 600</span><span>Occhielli in maiuscolo, etichette blu e fonti</span>
+</div>
+<p class="note">Rispettate le soglie: 16 px per il testo da leggere, 12 px per tutto il resto.</p>
+</section>
+<section aria-labelledby="s-ok">
+<p class="lab">Qualità</p>
+<h2 id="s-ok">Accessibilità e prestazioni</h2>
+<ul class="ok">
+<li>Le slide si mettono in pausa col pulsante, col mouse e col focus; con «riduci movimento» e nel canvas restano ferme.</li>
+<li>Le voci della barra e la pausa hanno nomi leggibili dai lettori di schermo; le slide nascoste non ricevono il focus.</li>
+<li>Foto in WebP da 2400 px, tra 50 e 180 KB l’una: tutta l’apertura pesa meno di 400 KB.</li>
+<li>Nessun errore in console, nemmeno al primo caricamento del modello.</li>
+<li>Su mobile la card a incastro resta, i passi e i servizi diventano righe compatte.</li>
+</ul>
+</section>
+</div>
+
+<section aria-labelledby="s-ph">
+<p class="lab">Immagini</p>
+<h2 id="s-ph">Foto e licenze</h2>
+<div class="ph">
+<figure><img src="./assets/p13-hero-ritratto.webp" alt="" style="object-position:70% 30%"><figcaption><b>İlkin Efendiyev</b>Pexels 20718267 · apertura, invito</figcaption></figure>
+<figure><img src="./assets/p13-hero-ragazzo.webp" alt="" style="object-position:40% 30%"><figcaption><b>Ruslan Alekso</b>Pexels 2410053 · apertura, invito</figcaption></figure>
+<figure><img src="./assets/p13-hero-solare.webp" alt="" style="object-position:55% 50%"><figcaption><b>Mikhail Nilov</b>Pexels 8157145 · apertura, filiera</figcaption></figure>
+<figure><img src="./assets/p13-capelli.webp" alt="" style="object-position:35% 35%"><figcaption><b>Roma Durkin</b>Pexels 10075009 · passi per associarsi</figcaption></figure>
+</div>
+<p class="note">Licenza Pexels: uso gratuito anche commerciale, attribuzione non obbligatoria (indicata comunque nel footer del prototipo). Le altre immagini sono quelle già presenti nel progetto.</p>
+</section>
+</div>
+<p class="ft">Comune a tutte le proposte: logo ufficiale nelle proporzioni originali, contenuti di esempio dal sito pubblico al 25/11/2026, ricerca, area riservata e newsletter dimostrative. NOVA è un concept, non un sito reale.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":3790}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

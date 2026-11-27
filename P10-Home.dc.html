@@ -1,0 +1,1543 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta 10 · Blu profondo — Homepage</title>
+<link rel="icon" href="data:,">
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050A22}
+.p10{position:relative;overflow:clip;
+  --night:#050A22;--night2:#0A1438;--navy:#0E1F57;--blue:#1F59A1;--electric:#6A9BFF;
+  --paper:#F3F1EC;--paper2:#E7E3DA;--card:#FFFFFF;--ink:#0A1230;--muted:#545A6E;--line:#DAD5CB;
+  --fg2:rgba(255,255,255,.76);--fg3:rgba(255,255,255,.6);--lined:rgba(255,255,255,.13);
+  --sans:"Geist","Helvetica Neue",Arial,sans-serif;--mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --ease:cubic-bezier(.22,.8,.2,1);
+  font-family:var(--sans);font-size:16px;line-height:1.55;color:#fff;background:var(--night);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.p10c{container:site/inline-size;position:relative;--gut:clamp(20px,3.1cqi,48px)}
+.p10 *,.p10 *::before,.p10 *::after{box-sizing:border-box}
+.p10 a{color:inherit;text-underline-offset:3px}
+.p10 :focus-visible{outline:2px solid var(--electric);outline-offset:3px;border-radius:8px}
+:where(.p10) :where(h1,h2,h3){margin:0;font-weight:300;line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+:where(.p10) p{margin:0}
+:where(.p10) :where(ul,ol,dl,dd){list-style:none;margin:0;padding:0}
+.p10 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.p10 .skip{position:absolute;left:12px;top:-80px;z-index:90;background:#fff;color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:500;text-decoration:none}
+.p10 .skip:focus{top:12px}
+.p10 .wrap{width:100%;max-width:1560px;margin-left:auto;margin-right:auto;padding-left:var(--gut);padding-right:var(--gut)}
+.p10 .ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.p10 .ic-s{width:15px;height:15px}
+.p10 .ic .i-ax,.p10 .ic.is-ext .i-ar,.p10 .burger .bg-x,.p10 .burger[aria-expanded="true"] .bg-o{display:none}
+.p10 .ic.is-ext .i-ax,.p10 .burger[aria-expanded="true"] .bg-x{display:inline}
+.p10 .lab{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-weight:400;line-height:1.35;letter-spacing:.08em;text-transform:uppercase;color:var(--fg2)}
+.p10 .lab::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:currentColor}
+.p10 .h1{font-size:clamp(42px,5cqi,80px);line-height:.98;letter-spacing:-.045em}
+.p10 .h2{font-size:clamp(32px,3.35cqi,52px)}
+.p10 .demo-tag{display:inline-flex;align-items:center;min-height:20px;margin-right:8px;padding:0 8px;border-radius:999px;background:rgba(255,255,255,.1);font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+
+/* pulsanti e link */
+.p10 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:0 20px;border-radius:999px;border:1px solid transparent;font:inherit;font-size:15px;font-weight:500;letter-spacing:-.01em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .3s,color .3s,border-color .3s,box-shadow .3s}
+.p10 .btn-go{padding:0 6px 0 20px}
+.p10 .btn .go{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;transition:transform .5s var(--ease)}
+.p10 .btn:hover .go{transform:rotate(-45deg)}
+.p10 .btn-glass{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff;-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
+.p10 .btn-glass:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.34)}
+.p10 .btn-glass .go{background:#fff;color:var(--ink)}
+.p10 .btn-white{background:#fff;color:var(--ink)}
+.p10 .btn-white:hover{background:#E9EEFF}
+.p10 .btn-white .go{background:var(--ink);color:#fff}
+.p10 .btn-ink{background:var(--ink);color:#fff}
+.p10 .btn-ink:hover{background:var(--navy)}
+.p10 .btn-ink .go{background:#fff;color:var(--ink)}
+.p10 .mag{will-change:transform;transition:background .3s,color .3s,border-color .3s,box-shadow .3s,transform .5s var(--ease)}
+.p10 .tlink{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap}
+.p10 .tlink::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;opacity:.45;transform-origin:0 50%;transition:transform .5s var(--ease),opacity .3s}
+.p10 .tlink:hover::after{opacity:1;animation:p10-line .7s var(--ease)}
+@keyframes p10-line{0%{transform:scaleX(1);transform-origin:100% 50%}49%{transform:scaleX(0);transform-origin:100% 50%}50%{transform:scaleX(0);transform-origin:0 50%}100%{transform:scaleX(1);transform-origin:0 50%}}
+
+/* testata */
+.p10 .top{position:sticky;top:0;z-index:60;height:76px;margin-bottom:-76px;pointer-events:none}
+.p10 .top-in{position:relative;pointer-events:auto;display:flex;align-items:center;gap:14px;height:76px;max-width:1560px;margin:0 auto;padding:0 var(--gut);border:1px solid transparent;border-radius:0;transition:max-width .6s var(--ease),height .5s var(--ease),margin .5s var(--ease),padding .5s var(--ease),background .4s,border-color .4s,border-radius .5s var(--ease),box-shadow .4s}
+.p10 .top.is-solid .top-in{max-width:min(1320px,calc(100cqi - 2*var(--gut)));height:60px;margin-top:10px;padding:0 9px 0 22px;border-radius:999px;background:rgba(7,13,40,.7);border-color:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);box-shadow:0 24px 50px -26px rgba(0,0,0,.7)}
+.p10 .brand{display:block;flex:none}
+.p10 .brand img{display:block;height:30px;width:auto;filter:brightness(0) invert(1);transition:height .5s var(--ease)}
+.p10 .top.is-solid .brand img{height:26px}
+.p10 .nav{display:flex;justify-content:center;flex:1;min-width:0}
+.p10 .nav-ul{display:flex;gap:2px}
+.p10 .navbtn{display:flex;align-items:center;gap:5px;height:38px;padding:0 12px;border:0;border-radius:999px;background:none;font:inherit;font-size:14px;font-weight:450;color:rgba(255,255,255,.88);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background .2s,color .2s}
+.p10 .navbtn:hover{color:#fff;background:rgba(255,255,255,.08)}
+.p10 .navbtn.is-open{background:#fff;color:var(--ink)}
+.p10 .navbtn .ic{width:12px;height:12px;opacity:.7;transition:transform .3s}
+.p10 .navbtn.is-open .ic{transform:rotate(180deg)}
+.p10 .nav-m{display:none}
+.p10 .tools{display:flex;align-items:center;gap:8px;flex:none;margin-left:auto}
+.p10 .icbtn{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;transition:background .25s,border-color .25s}
+.p10 .icbtn:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.32)}
+.p10 .top .btn{min-height:42px;padding:0 18px;font-size:14px}
+.p10 .burger{display:none}
+.p10 .mega{position:absolute;top:calc(100% + 10px);left:50%;translate:-50% 0;z-index:70;width:min(1320px,calc(100cqi - 2*var(--gut)));border-radius:28px;background:rgba(8,15,44,.94);border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(24px) saturate(1.5);backdrop-filter:blur(24px) saturate(1.5);box-shadow:0 40px 80px -30px rgba(0,0,0,.75);animation:p10-drop .45s var(--ease)}
+.p10 .mega-in{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;padding:30px 30px 30px 34px}
+.p10 .mega h2{margin-top:16px;font-size:30px;color:#fff}
+.p10 .mega-p{margin-top:10px;max-width:320px;font-size:16px;color:var(--fg2)}
+.p10 .mlinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;align-content:start}
+.p10 .mlinks a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding:0 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);font-size:15px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+.p10 .mlinks a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
+@keyframes p10-drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* apertura: la goccia */
+.p10 .hx{position:relative;height:var(--hv,860px);min-height:620px;overflow:hidden;background:radial-gradient(48% 62% at 60% 46%,#163FA8 0%,#0B2266 38%,#050A22 78%)}
+.p10 .hx::after{content:"";position:absolute;left:0;right:0;top:0;height:150px;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,8,28,.62),rgba(4,8,28,0))}
+.p10 .hx-gl{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;transition:opacity 1.8s var(--ease)}
+.p10 .hx[data-gl] .hx-gl{opacity:1}
+.p10 .hx-fb{position:absolute;inset:0;background:radial-gradient(30% 38% at 62% 46%,rgba(120,170,255,.28),rgba(120,170,255,0) 70%);transition:opacity 1.2s}
+.p10 .hx[data-nogl] .hx-fb{background:url(./assets/p10-goccia.webp) 66% 50%/cover no-repeat}
+.p10 .hx[data-gl] .hx-fb{opacity:0}
+.p10 .hx-in{position:relative;z-index:1;height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);align-items:end;align-content:end;gap:40px;padding-top:120px;padding-bottom:clamp(36px,4.6cqi,60px)}
+.p10 .hx-h .lab{animation:p10-fade 1s .1s var(--ease) both}
+.p10 .h1{margin-top:22px}
+.p10 .h1 .ln{display:block;overflow:hidden;padding:0 .05em .12em 0;margin-bottom:-.12em}
+.p10 .h1 .ln>span{display:inline-block;animation:p10-up 1.25s var(--ease) both;animation-delay:calc(.25s + var(--i)*.1s)}
+.p10 .hx-side{padding-bottom:6px;animation:p10-fade 1.1s .8s var(--ease) both}
+.p10 .hx-side p{font-size:16px;color:var(--fg2)}
+.p10 .hx-cta{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:24px}
+.p10 .hx-cue{position:absolute;left:50%;bottom:20px;z-index:1;translate:-50% 0;display:none;flex-direction:column;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+.p10 .hx-cue i{position:relative;width:1px;height:38px;overflow:hidden;background:rgba(255,255,255,.18)}
+.p10 .hx-cue i::after{content:"";position:absolute;left:0;top:0;width:1px;height:16px;background:#fff;animation:p10-cue 2s var(--ease) infinite}
+@keyframes p10-cue{from{transform:translateY(-16px)}to{transform:translateY(38px)}}
+.p10 .hx[data-live] .hx-cue{display:flex}
+.p10 .hx[data-live] .hx-in,.p10 .hx[data-live] .hx-cue{opacity:calc(1 - var(--hs,0)*1.6)}
+.p10 .hx[data-live] .hx-in{transform:translate3d(0,calc(var(--hs,0)*-56px),0)}
+@keyframes p10-up{from{transform:translateY(112%)}to{transform:none}}
+@keyframes p10-fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* sezioni */
+.p10 .sec{position:relative;padding:clamp(84px,8.6cqi,128px) 0}
+.p10 .sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);align-items:end;gap:40px;margin-bottom:clamp(36px,3.6cqi,52px)}
+.p10 .sh .h2{margin-top:18px}
+.p10 .sh-p{font-size:16px;color:var(--fg2)}
+.p10 .sh-p .tlink{margin-top:16px}
+
+/* principi attivi */
+.p10 .pa{background:var(--night)}
+.p10 .pa-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.4cqi,22px)}
+.p10 .pa-it{display:flex;flex-direction:column;min-width:0}
+.p10 .pa-card{display:flex;flex-direction:column;color:inherit;text-decoration:none}
+.p10 .pa-img{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;border-radius:20px;background:var(--night2)}
+.p10 .pa-img img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.3s var(--ease)}
+.p10 .pa-card:hover .pa-img img{transform:scale(1.08)}
+.p10 .pa-pill{position:absolute;left:50%;top:50%;translate:-50% -50%;display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border-radius:999px;background:rgba(8,14,40,.3);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);font-size:15px;font-weight:450;color:#fff;white-space:nowrap;box-shadow:0 10px 30px -12px rgba(0,0,0,.35);transition:background .4s,transform .7s var(--ease)}
+.p10 .pa-card:hover .pa-pill{background:rgba(8,14,40,.46);transform:translateY(-4px)}
+.p10 .pa-k{margin-top:22px}
+.p10 .pa-t{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:22px;font-weight:400;line-height:1.2;letter-spacing:-.02em;color:#fff}
+.p10 .pa-t .ic{opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .5s var(--ease)}
+.p10 .pa-card:hover .pa-t .ic{opacity:1;transform:none}
+.p10 .pa-p{display:block;margin-top:8px;font-size:16px;line-height:1.5;color:var(--fg2)}
+.p10 .pa-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.p10 .pa-links a{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 13px;border-radius:999px;border:1px solid var(--lined);font-size:13px;color:var(--fg2);text-decoration:none;transition:border-color .25s,color .25s,background .25s}
+.p10 .pa-links a:hover{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.05)}
+.p10 .pa-links .ic{width:13px;height:13px}
+
+/* la filiera */
+.p10 .fl{position:relative;background:var(--night);padding:0 12px}
+.p10 .fl-stage{position:relative;height:var(--hv,860px);min-height:620px;overflow:hidden;border-radius:28px;isolation:isolate;background:#0A1647}
+.p10 .fl-media{position:absolute;inset:0;z-index:-1}
+.p10 .fl-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:72% 50%;transform:scale(calc(1.16 - var(--fp,1)*.16));transform-origin:66% 46%}
+.p10 .fl-cv{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen}
+.p10 .fl-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,10,34,.82) 0%,rgba(5,10,34,.42) 42%,rgba(5,10,34,0) 68%),linear-gradient(0deg,rgba(5,10,34,.66) 0%,rgba(5,10,34,0) 36%),radial-gradient(40% 50% at 66% 44%,rgba(255,170,110,.16),rgba(255,170,110,0) 70%)}
+.p10 .fl-in{position:relative;height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr auto;padding-top:clamp(44px,4.6cqi,72px);padding-bottom:clamp(36px,4cqi,56px)}
+.p10 .fl-a{grid-column:1;grid-row:1}
+.p10 .fl-a .h2{margin-top:18px}
+.p10 .fl-b{grid-column:2;grid-row:3;align-self:end;justify-self:end;max-width:400px;text-align:right;font-size:clamp(22px,2cqi,30px);font-weight:300;line-height:1.18;letter-spacing:-.025em;color:#fff}
+.p10 .fl-c{grid-column:1;grid-row:3;align-self:end;justify-self:start}
+
+/* numeri */
+.p10 .nu{background:var(--night)}
+.p10 .nu-stage{position:relative;height:clamp(440px,42cqi,620px)}
+.p10 .nu-img{position:absolute;left:50%;top:0;bottom:0;width:min(80%,1120px);translate:-50% 0;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0%,#000 26%,#000 74%,rgba(0,0,0,0) 100%),linear-gradient(0deg,rgba(0,0,0,0) 0%,#000 26%,#000 84%,rgba(0,0,0,0) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0%,#000 26%,#000 74%,rgba(0,0,0,0) 100%),linear-gradient(0deg,rgba(0,0,0,0) 0%,#000 26%,#000 84%,rgba(0,0,0,0) 100%);mask-composite:intersect}
+.p10 .nu-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:52% 36%}
+.p10 .nu-cv{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen}
+.p10 .nu-sts{position:absolute;inset:0;pointer-events:none}
+.p10 .nu-st{position:absolute;max-width:230px}
+.p10 .nu-st dt{font-size:clamp(34px,3cqi,46px);font-weight:300;line-height:1;letter-spacing:-.045em;color:#fff;font-variant-numeric:tabular-nums}
+.p10 .nu-st dt small{margin-left:6px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--fg2)}
+.p10 .nu-st dd{margin-top:10px;font-family:var(--mono);font-size:12px;line-height:1.45;letter-spacing:.06em;text-transform:uppercase;color:var(--fg2)}
+.p10 .nu-st .src{display:block;margin-top:6px;text-transform:none;letter-spacing:.02em;color:var(--fg3)}
+.p10 .s1{left:0;top:16%}
+.p10 .s2{left:7%;top:60%}
+.p10 .s3{right:0;top:22%;text-align:right}
+.p10 .s4{right:6%;top:64%;text-align:right}
+.p10 .xm{position:absolute;width:11px;height:11px;opacity:.75}
+.p10 .xm::before,.p10 .xm::after{content:"";position:absolute;background:#fff}
+.p10 .xm::before{left:5px;top:0;width:1px;height:11px}
+.p10 .xm::after{left:0;top:5px;width:11px;height:1px}
+.p10 .dt{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.7)}
+.p10 .nu-pubs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:clamp(24px,2.6cqi,40px)}
+.p10 .pb{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;height:100%;min-height:104px;padding:18px 16px 18px 22px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid var(--lined);text-decoration:none;transition:background .3s,border-color .3s}
+.p10 .pb:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26)}
+.p10 .pb-k{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg3)}
+.p10 .pb-t{display:block;margin-top:6px;font-size:16px;line-height:1.35;color:#fff}
+.p10 .pb-go{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);transition:background .3s,color .3s,transform .5s var(--ease)}
+.p10 .pb:hover .pb-go{background:#fff;color:var(--ink);transform:rotate(-45deg)}
+
+/* in evidenza: indice con anteprima, agenda, circolari */
+.p10 .ev{overflow:hidden;background:var(--night);padding-bottom:clamp(48px,4.6cqi,72px)}
+.p10 .ev-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(40% 30% at 26% 42%,rgba(31,89,161,.34),transparent 72%),radial-gradient(34% 22% at 84% 90%,rgba(244,180,140,.09),transparent 72%)}
+.p10 .ev .wrap{position:relative}
+.p10 .ix{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,4cqi,64px);align-items:stretch}
+.p10 .ix-media{position:relative;display:block;overflow:hidden;isolation:isolate;aspect-ratio:5/4;border-radius:28px;background:var(--night2);color:#fff;text-decoration:none;box-shadow:0 60px 120px -60px rgba(31,89,161,.75),0 0 0 1px rgba(255,255,255,.08)}
+.p10 .ix-m{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease)}
+.p10 .ix-m img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 2.4s var(--ease)}
+.p10 .ix-m.is-on{z-index:1;opacity:1}
+.p10 .ix-m.is-on img{transform:scale(1)}
+.p10 .ix-media:hover .ix-m.is-on img{transform:scale(1.03)}
+.p10 .ix-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(5,10,34,.34) 0%,rgba(5,10,34,0) 26%,rgba(5,10,34,0) 54%,rgba(5,10,34,.74) 100%)}
+.p10 .ix-pill{position:absolute;z-index:3;left:22px;top:22px;display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border-radius:999px;background:rgba(8,14,40,.34);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);font-size:14px;font-weight:450}
+.p10 .ix-num{position:absolute;z-index:3;right:26px;top:31px;font-family:var(--mono);font-size:12px;letter-spacing:.08em}
+.p10 .ix-num small{margin-left:6px;font-size:12px;color:var(--fg2)}
+.p10 .ix-cta{position:absolute;z-index:3;left:22px;bottom:22px;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 22px 0 8px;border-radius:999px;background:rgba(8,14,40,.34);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);font-size:16px;font-weight:500}
+.p10 .ix-cta i{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);transition:transform .5s var(--ease)}
+.p10 .ix-media:hover .ix-cta i{transform:rotate(-45deg)}
+.p10 .ix-list{display:flex;flex-direction:column;margin:0;padding:0;list-style:none;border-top:1px solid var(--lined)}
+.p10 .ix-list li{flex:1;display:flex}
+.p10 .ix-row{position:relative;flex:1;display:grid;grid-template-columns:34px minmax(0,1fr) 44px;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid var(--lined);color:#fff;text-decoration:none}
+.p10 .ix-th{display:none}
+.p10 .ix-n{align-self:start;padding-top:2px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--fg3);transition:color .4s}
+.p10 .ix-k{display:flex;flex-wrap:wrap;gap:4px 12px;font-family:var(--mono);font-size:12px;line-height:1.35;letter-spacing:.06em;text-transform:uppercase;color:var(--fg3);transition:color .4s}
+.p10 .ix-k em{display:inline-flex;align-items:center;gap:12px;font-style:normal}
+.p10 .ix-k em::before{content:"";width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.7}
+.p10 .ix-t{display:block;margin-top:8px;font-size:clamp(19px,1.55cqi,24px);font-weight:300;line-height:1.22;letter-spacing:-.025em;color:var(--fg2);text-wrap:pretty;transition:color .4s}
+.p10 .ix-go{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--lined);color:#fff;opacity:.55;transition:background .35s,color .35s,border-color .35s,opacity .35s,transform .5s var(--ease)}
+.p10 .ix-bar{position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,var(--electric),#fff);transform:scaleX(0);transform-origin:0 50%}
+.p10 .ix-row.is-on .ix-n{color:#fff}
+.p10 .ix-row.is-on .ix-k{color:var(--electric)}
+.p10 .ix-row.is-on .ix-t{color:#fff}
+.p10 .ix-row.is-on .ix-go{opacity:1;background:#fff;border-color:#fff;color:var(--ink);transform:rotate(-45deg)}
+.p10 .ix.is-auto .ix-row.is-on .ix-bar{animation:p10-ixb 6.5s linear forwards}
+.p10 .ix:hover .ix-bar,.p10 .ix:focus-within .ix-bar{animation-play-state:paused}
+@keyframes p10-ixb{to{transform:scaleX(1)}}
+.p10 .tl{margin-top:clamp(84px,8cqi,120px)}
+.p10 .tl-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 20px;margin-bottom:clamp(28px,3cqi,40px)}
+.p10 .tl-ti{font-size:clamp(26px,2.2cqi,34px);line-height:1.1;letter-spacing:-.035em;color:#fff}
+.p10 .tl-h .tlink{margin-left:auto}
+.p10 .up-k{display:inline-flex;align-items:center;gap:8px;margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg3);white-space:nowrap}
+.p10 .up-k .ic{width:14px;height:14px}
+.p10 .tl-list{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;padding:0;list-style:none}
+.p10 .tl-list::before{content:"";position:absolute;left:0;right:0;top:91px;height:1px;background:linear-gradient(90deg,rgba(106,155,255,.9),rgba(255,255,255,.14) 55%,rgba(255,255,255,.05))}
+.p10 .tl-list li{display:flex}
+.p10 .tl-list a{position:relative;flex:1;display:flex;flex-direction:column;padding:0 28px 6px 0;color:#fff;text-decoration:none}
+.p10 .tl-d{display:flex;align-items:baseline;gap:10px;height:72px}
+.p10 .tl-d b{font-size:clamp(44px,4cqi,60px);font-weight:300;line-height:1;letter-spacing:-.05em;white-space:nowrap}
+.p10 .tl-d small{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg2)}
+.p10 .tl-dot{position:relative;display:block;width:11px;height:11px;margin:14px 0 22px;border-radius:50%;background:var(--night);border:1px solid var(--electric);transition:transform .4s var(--ease),background .3s,border-color .3s}
+.p10 .tl-list li:first-child .tl-dot{background:var(--electric);box-shadow:0 0 0 6px rgba(106,155,255,.16),0 0 24px rgba(106,155,255,.8)}
+.p10 .tl-list a:hover .tl-dot{transform:scale(1.45);background:#fff;border-color:#fff}
+.p10 .tl-k{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--electric)}
+.p10 .tl-t{display:block;margin-top:10px;font-size:16px;line-height:1.45;color:var(--fg2);text-wrap:pretty;transition:color .3s}
+.p10 .tl-list a:hover .tl-t{color:#fff}
+.p10 .rel{display:inline-flex;align-items:center;min-height:22px;padding:0 9px;border-radius:999px;background:#fff;color:var(--ink);letter-spacing:.04em}
+.p10 .flag{display:inline-flex;align-items:center;min-height:22px;padding:0 9px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);color:#fff;letter-spacing:.04em}
+.p10 .ag-none{margin:0;padding:18px 0;color:var(--fg2)}
+.p10 .rs{position:relative;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,4cqi,64px);margin-top:clamp(72px,7cqi,104px);padding:clamp(28px,3cqi,44px);overflow:hidden;isolation:isolate;border-radius:32px;background:linear-gradient(140deg,rgba(255,255,255,.075),rgba(255,255,255,.02) 62%);border:1px solid rgba(255,255,255,.12)}
+.p10 .rs::before{content:"";position:absolute;z-index:-1;right:-10%;top:-60%;width:56%;height:150%;background:radial-gradient(closest-side,rgba(244,180,140,.13),transparent);pointer-events:none}
+.p10 .rs-a{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.p10 .rs-a .tl-ti{margin-top:4px}
+.p10 .rs-p{margin:0;max-width:36ch;font-size:16px;line-height:1.5;color:var(--fg2)}
+.p10 .rs-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:auto;padding-top:12px}
+.p10 .rs-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin:0;padding:0;list-style:none;align-content:start}
+.p10 .rs-list li{display:flex;border-bottom:1px solid var(--lined)}
+.p10 .rs-list li:nth-child(-n+2){border-top:1px solid var(--lined)}
+.p10 .rs-list a{flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;align-content:start;gap:6px 16px;padding:18px 0;color:#fff;text-decoration:none}
+.p10 .rs-k{grid-column:1;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--electric)}
+.p10 .rs-t{grid-column:1;font-size:16px;line-height:1.4;color:var(--fg2);text-wrap:pretty;transition:color .3s}
+.p10 .rs-list .row-go{grid-column:2;grid-row:1/span 2;align-self:center}
+.p10 .rs-list a:hover .rs-t{color:#fff}
+.p10 .row-go{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--lined);color:#fff;transition:background .3s,color .3s,border-color .3s,transform .5s var(--ease)}
+.p10 .rs-list a:hover .row-go{background:#fff;border-color:#fff;color:var(--ink);transform:rotate(-45deg)}
+
+/* associarsi */
+.p10 .so{background:var(--night)}
+.p10 .so-in{position:relative;overflow:hidden;isolation:isolate;background:var(--night);border-radius:36px 36px 0 0;padding:clamp(130px,12cqi,184px) 0 clamp(72px,6cqi,96px)}
+.p10 .so-light{position:absolute;inset:0;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 16%,#000 52%,rgba(0,0,0,0) 96%);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 16%,#000 52%,rgba(0,0,0,0) 96%)}
+.p10 .so-light i{position:absolute;left:50%;top:-8%;width:160%;height:118%;translate:-50% 0;transform-origin:50% 0}
+.p10 .pr1{background:radial-gradient(34% 44% at 50% 0%,rgba(236,244,255,.92) 0%,rgba(150,186,255,.5) 22%,rgba(70,120,255,.16) 50%,rgba(70,120,255,0) 72%)}
+.p10 .pr2{background:conic-gradient(from 150deg at 50% 0%,rgba(255,96,70,0) 0deg,rgba(255,122,80,.34) 13deg,rgba(255,206,120,.3) 23deg,rgba(130,255,200,.24) 33deg,rgba(96,170,255,.42) 44deg,rgba(176,120,255,.32) 54deg,rgba(255,110,210,0) 66deg);filter:blur(26px);mix-blend-mode:screen;animation:p10-sway 16s ease-in-out infinite alternate}
+.p10 .pr3{background:repeating-conic-gradient(from 150deg at 50% 0%,rgba(255,255,255,.18) 0deg .5deg,rgba(255,255,255,0) .5deg 4deg);-webkit-mask-image:radial-gradient(52% 70% at 50% 0%,#000 0%,rgba(0,0,0,0) 78%);mask-image:radial-gradient(52% 70% at 50% 0%,#000 0%,rgba(0,0,0,0) 78%);filter:blur(1.2px);mix-blend-mode:screen;animation:p10-sway 22s ease-in-out infinite alternate-reverse}
+@keyframes p10-sway{from{transform:rotate(-3.5deg)}to{transform:rotate(3.5deg)}}
+.p10 .so-cv{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen}
+.p10 .so-c{display:flex;flex-direction:column;align-items:center;text-align:center}
+.p10 .so-t{margin-top:22px;font-size:clamp(36px,3.8cqi,58px)}
+.p10 .so-p{margin-top:18px;max-width:560px;font-size:16px;color:var(--fg2)}
+.p10 .so-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
+.p10 .so-perks{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;margin-top:52px}
+.p10 .so-perks li{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg2)}
+.p10 .so-perks li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--electric);box-shadow:0 0 10px var(--electric)}
+
+/* footer */
+.p10 .ft{position:relative;overflow:hidden;background:var(--night);padding:clamp(40px,3.6cqi,56px) 0 26px;color:var(--fg2)}
+.p10 .ft-nav ul{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-bottom:26px;border-bottom:1px solid var(--lined)}
+.p10 .ft-nav a{font-size:14px;color:#fff;text-decoration:none}
+.p10 .ft-nav a:hover{text-decoration:underline}
+.p10 .ft-mid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;padding:44px 0 40px}
+.p10 .ft-h{font-size:clamp(26px,2.3cqi,34px);color:#fff}
+.p10 .ft-form{display:flex;gap:6px;max-width:560px;margin-top:22px;padding:6px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.p10 .ft-form:focus-within{border-color:rgba(255,255,255,.5)}
+.p10 .ft-form input{flex:1;min-width:0;height:46px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#fff;font:inherit;font-size:16px;outline:0}
+.p10 .ft-form input::placeholder{color:rgba(255,255,255,.58)}
+.p10 .ft-form .btn{min-height:46px}
+.p10 .ft-msg{margin-top:14px;font-size:14px}
+.p10 .ft-info{justify-self:end;max-width:400px;font-size:14px;line-height:1.7}
+.p10 .ft-info address{font-style:normal}
+.p10 .ft-info a{color:#fff}
+.p10 .ft-soc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.p10 .ft-soc a{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 15px;border-radius:999px;border:1px solid rgba(255,255,255,.18);font-size:13px;color:#fff;text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.p10 .ft-soc a:hover{background:#fff;border-color:#fff;color:var(--ink)}
+.p10 .ft-base{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;margin-top:22px;padding-top:24px;border-top:1px solid var(--lined);font-size:13px}
+.p10 .ft-legal{display:flex;flex-wrap:wrap;gap:6px 22px}
+.p10 .ft-legal a{display:inline-flex;align-items:center;gap:8px;color:var(--fg2);text-decoration:none}
+.p10 .ft-legal a::before{content:"";width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6)}
+.p10 .ft-legal a:hover{color:#fff;text-decoration:underline}
+.p10 .ft-up{display:inline-flex;align-items:center;gap:10px;border:0;background:none;color:#fff;font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.p10 .ft-up .go{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.26);transition:background .3s,color .3s,transform .4s var(--ease)}
+.p10 .ft-up:hover .go{background:#fff;color:var(--ink);transform:translateY(-3px)}
+.p10 .ft-note{width:100%;color:var(--fg3)}
+
+/* ricerca e area riservata */
+.p10 .scrim{position:fixed;inset:0;z-index:80;margin:0;padding:0;border:0;background:rgba(3,6,20,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:default}
+.p10 .modal{position:fixed;top:96px;left:50%;z-index:85;width:min(680px,calc(100% - 32px));transform:translateX(-50%);overflow:hidden;border-radius:26px;background:rgba(10,18,52,.96);border:1px solid rgba(255,255,255,.12);color:#fff;box-shadow:0 50px 100px -40px rgba(0,0,0,.8);animation:p10-pop .4s var(--ease)}
+@keyframes p10-pop{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
+.p10 .pal-top{display:flex;align-items:center;gap:12px;height:64px;padding:0 14px 0 20px;border-bottom:1px solid var(--lined);color:var(--fg3)}
+.p10 .pal-top input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:17px;color:#fff}
+.p10 .pal-top input::placeholder{color:rgba(255,255,255,.55)}
+.p10 .mclose{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;cursor:pointer}
+.p10 .mclose:hover{background:rgba(255,255,255,.1)}
+.p10 .pal-body{max-height:min(440px,60vh);overflow:auto;padding:8px}
+.p10 .pal-h{padding:12px 12px 6px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg3)}
+.p10 .pal-chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 12px 8px}
+.p10 .pal-chip{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);font:inherit;font-size:14px;color:#fff;cursor:pointer}
+.p10 .pal-chip:hover{border-color:rgba(255,255,255,.4)}
+.p10 .pal-row{display:grid;grid-template-columns:104px minmax(0,1fr) auto;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;color:#fff;text-decoration:none}
+.p10 .pal-row:hover{background:rgba(255,255,255,.07)}
+.p10 .pal-type{justify-self:start;display:inline-flex;align-items:center;min-height:24px;padding:0 9px;border-radius:999px;background:rgba(255,255,255,.08);font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--fg2)}
+.p10 .pal-t{line-height:1.35}
+.p10 .pal-d{font-family:var(--mono);font-size:12px;color:var(--fg3);white-space:nowrap}
+.p10 .pal-foot{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid var(--lined);font-size:13px;color:var(--fg3)}
+.p10 .kbd{padding:1px 7px;border-radius:6px;border:1px solid rgba(255,255,255,.2);font-family:var(--mono);font-size:12px}
+.p10 .login-b{padding:30px 32px 32px}
+.p10 .login-b h2{font-size:32px}
+.p10 .login-b p{margin-top:12px;color:var(--fg2)}
+.p10 .login-b .note{margin-top:16px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.06);font-size:14px}
+.p10 .login-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.p10 .login-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+
+/* rv:inizio */
+/* ===== ingressi allo scorrimento: ogni sezione entra a modo suo quando arriva in vista =====
+   Lo script mette data-rv-on sulla radice solo con l'animazione attiva (non nel canvas statico né con «riduci movimento»)
+   e osserva i blocchi [data-rb] con un solo IntersectionObserver (il valore è la quota da vedere prima di partire).
+   Quando un blocco entra riceve data-in="a" (anima) oppure data-in="s" (scavalcato da un salto: stato finale subito).
+   Le animazioni restano ferme sul primo fotogramma finché il blocco non entra; senza script la pagina è completa. */
+.p10{--rv-e:cubic-bezier(.2,.7,.2,1);--rv-y:30px;--rv-x:20px;--rv-st:.12s}
+.p10[data-rv-on] [data-rb]{--rv-play:paused}
+.p10[data-rv-on] [data-rb][data-in]{--rv-play:running;--rv-k:0s}
+.p10[data-rv-on] [data-rb][data-in="s"]{--rv-k:-9s}
+@container site (max-width:640px){.p10 .p10c>*{--rv-y:18px;--rv-x:12px;--rv-st:.08s}}
+@keyframes p10rvUp{from{opacity:0;translate:0 var(--rv-y)}}
+@keyframes p10rvUpS{from{opacity:0;translate:0 calc(var(--rv-y)*.5)}}
+@keyframes p10rvLeft{from{opacity:0;translate:calc(var(--rv-x)*-1) 0}}
+@keyframes p10rvRight{from{opacity:0;translate:var(--rv-x) 0}}
+@keyframes p10rvFade{from{opacity:0}}
+@keyframes p10rvFocus{from{opacity:0;translate:0 .32em;filter:blur(8px)}}
+@keyframes p10rvDot{from{opacity:0;translate:0 -9px;scale:.2}}
+@keyframes p10rvDrop{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(72% at 50% 50%)}}
+@keyframes p10rvSettle{from{scale:1.24}}
+@keyframes p10rvRing{0%{scale:0;opacity:1}55%{opacity:1}100%{scale:1;opacity:0}}
+@keyframes p10rvBubble{from{opacity:0;scale:.86}}
+@keyframes p10rvOpen{from{clip-path:inset(4.5% 3.5% round var(--rv-r,28px))}to{clip-path:inset(0 round var(--rv-r,28px))}}
+@keyframes p10rvLight{from{filter:brightness(.3);scale:var(--rv-z,1.12)}}
+@keyframes p10rvSurface{from{opacity:0;scale:1.12;translate:0 3%}}
+@keyframes p10rvRise{from{opacity:0;translate:0 calc(var(--rv-y)*1.5);scale:.9}}
+@keyframes p10rvTwinkle{from{opacity:0;scale:.2;rotate:-45deg}}
+@keyframes p10rvPop{from{opacity:0;scale:0}}
+@keyframes p10rvGlass{from{opacity:0;translate:0 var(--rv-y);scale:.985}}
+@keyframes p10rvMask{from,to{clip-path:inset(-40% -50% 0 -10%)}}
+@keyframes p10rvLine{from{translate:0 var(--rv-ln,112%)}}
+@keyframes p10rvSweep{from{translate:-120% 0;opacity:1}to{translate:120% 0;opacity:1}}
+@keyframes p10rvBeam{from{opacity:0;scale:.14 .7}}
+@keyframes p10rvForm{from{opacity:0;scale:.97;translate:0 10px}}
+/* indice per le cascate */
+.p10 :is(.pa-links,.ix-list,.tl-list,.rs-list,.nu-pubs,.so-perks,.ft-nav ul)>li:nth-child(2){--i:1}
+.p10 :is(.pa-links,.ix-list,.tl-list,.rs-list,.nu-pubs,.so-perks,.ft-nav ul)>li:nth-child(3){--i:2}
+.p10 :is(.pa-links,.ix-list,.tl-list,.rs-list,.nu-pubs,.so-perks,.ft-nav ul)>li:nth-child(4){--i:3}
+.p10 :is(.pa-links,.ix-list,.tl-list,.rs-list,.nu-pubs,.so-perks,.ft-nav ul)>li:nth-child(5){--i:4}
+
+/* testate: occhiello da sinistra (il pallino cade come una goccia), titolo che si mette a fuoco, testo a seguire */
+.p10[data-rv-on] .sh .lab{animation:p10rvLeft .7s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .sh .lab::before{animation:p10rvDot .8s var(--rv-e) calc(.14s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .sh .h2{animation:p10rvFocus 1.05s var(--rv-e) calc(.08s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .sh .sh-p{animation:p10rvUpS .85s var(--rv-e) calc(.24s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+/* principi attivi: in ogni card cade una goccia che si allarga e scopre l'ingrediente, poi l'etichetta di vetro e i testi */
+.p10[data-rv-on] .pa-img{animation:p10rvDrop 1.2s cubic-bezier(.25,.65,.2,1) calc(var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-img img{animation:p10rvSettle 1.3s var(--rv-e) calc(var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-img::after{animation:p10rvRing 1.2s cubic-bezier(.25,.65,.2,1) calc(var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-pill{animation:p10rvBubble .8s var(--rv-e) calc(.55s + var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-k{animation:p10rvLeft .7s var(--rv-e) calc(.5s + var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-k::before{animation:p10rvDot .7s var(--rv-e) calc(.62s + var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-t{animation:p10rvUpS .8s var(--rv-e) calc(.58s + var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-p{animation:p10rvUpS .8s var(--rv-e) calc(.66s + var(--c,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .pa-links li{animation:p10rvUpS .7s var(--rv-e) calc(.74s + var(--c,0)*var(--rv-st) + var(--i,0)*.06s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10 .fl{--rv-z:1.12;--rv-r:28px}
+.p10 .fl[data-live]{--rv-z:1}
+@container site (max-width:860px){.p10 .fl{--rv-r:22px}}
+/* filiera: il palco si apre e la linea si accende (le scintille partono dallo script con uno sbuffo), poi i testi */
+.p10[data-rv-on] .fl-stage{animation:p10rvOpen 1.3s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .fl-media img{animation:p10rvLight 1.3s var(--rv-e) calc(.05s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .fl-a .lab{animation:p10rvLeft .7s var(--rv-e) calc(.35s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .fl-a .lab::before{animation:p10rvDot .8s var(--rv-e) calc(.48s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .fl-a .h2{animation:p10rvFocus 1.05s var(--rv-e) calc(.42s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .fl-b{animation:p10rvFocus 1.1s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .fl-c{animation:p10rvUpS .85s var(--rv-e) calc(.1s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+/* numeri: il volto emerge dal buio, i segni si accendono intorno; ogni cifra sale come una bolla e conta quando entra */
+.p10[data-rv-on] .nu-img img{animation:p10rvSurface 1.3s cubic-bezier(.25,.6,.2,1) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .nu-stage>.xm{animation:p10rvTwinkle .8s var(--rv-e) calc(.6s + var(--j,0s) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .nu-stage>.dt{animation:p10rvPop .7s var(--rv-e) calc(.75s + var(--j,0s) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .nu-st dt{animation:p10rvRise 1.1s var(--rv-e) calc(var(--d,0s) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .nu-st dd{animation:p10rvUpS .85s var(--rv-e) calc(.2s + var(--d,0s) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .nu-pubs li{animation:p10rvGlass .95s var(--rv-e) calc(var(--i,0)*.1s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10 .nu-stage>span:nth-of-type(2){--j:.12s}.p10 .nu-stage>span:nth-of-type(3){--j:.24s}.p10 .nu-stage>span:nth-of-type(4){--j:.36s}.p10 .nu-stage>span:nth-of-type(6){--j:.1s}.p10 .nu-stage>span:nth-of-type(7){--j:.2s}.p10 .nu-stage>span:nth-of-type(8){--j:.3s}.p10 .nu-stage>span:nth-of-type(9){--j:.4s}
+/* in evidenza, indice: le voci arrivano da destra; l'anteprima si forma e dentro cade una goccia grande; il giro automatico parte dopo */
+.p10[data-rv-on] .ix-list{animation:p10rvFade .6s var(--rv-e) calc(.1s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-list li{animation:p10rvRight .8s var(--rv-e) calc(.2s + var(--i,0)*.08s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-th{animation:p10rvDrop .9s cubic-bezier(.25,.65,.2,1) calc(.3s + var(--i,0)*.08s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-media{animation:p10rvFade .9s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-m{animation:p10rvDrop 1.3s cubic-bezier(.25,.65,.2,1) calc(.15s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-m::after{animation:p10rvRing 1.3s cubic-bezier(.25,.65,.2,1) calc(.15s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-m img{animation:p10rvSettle 1.3s var(--rv-e) calc(.15s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-shade{animation:p10rvFade 1s var(--rv-e) calc(.3s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-pill{animation:p10rvBubble .8s var(--rv-e) calc(.75s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-num{animation:p10rvFade .8s var(--rv-e) calc(.85s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ix-cta{animation:p10rvBubble .8s var(--rv-e) calc(.9s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+/* in evidenza, agenda: le date grandi salgono da sotto una maschera come il titolo dell'apertura, i punti si accendono uno dopo l'altro */
+.p10[data-rv-on] .tl-ti{animation:p10rvFocus 1s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-h .up-k{animation:p10rvFade .8s var(--rv-e) calc(.2s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-h .tlink{animation:p10rvUpS .8s var(--rv-e) calc(.25s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-list::before{animation:p10rvFade 1s var(--rv-e) calc(.2s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-d{animation:p10rvMask 1.1s var(--rv-e) calc(.25s + var(--i,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-d b{animation:p10rvLine 1.1s var(--rv-e) calc(.25s + var(--i,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-d small{animation:p10rvFade .7s var(--rv-e) calc(.55s + var(--i,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-dot{animation:p10rvPop .7s var(--rv-e) calc(.45s + var(--i,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-k{animation:p10rvUpS .8s var(--rv-e) calc(.55s + var(--i,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .tl-t{animation:p10rvUpS .8s var(--rv-e) calc(.62s + var(--i,0)*var(--rv-st) + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+/* in evidenza, circolari: la fascia di vetro si forma e un riflesso rame la attraversa una volta, poi l'elenco */
+.p10[data-rv-on] .rs{animation:p10rvGlass 1.1s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .rs::after{animation:p10rvSweep 1.3s cubic-bezier(.45,.05,.25,1) calc(.45s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .rs-a .up-k{animation:p10rvFade .8s var(--rv-e) calc(.2s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .rs-a .tl-ti{animation:p10rvFocus 1s var(--rv-e) calc(.25s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .rs-p{animation:p10rvUpS .8s var(--rv-e) calc(.38s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .rs-ctl{animation:p10rvUpS .8s var(--rv-e) calc(.48s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .rs-list li{animation:p10rvUpS .7s var(--rv-e) calc(.5s + var(--i,0)*.08s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .rs::after{content:"";position:absolute;z-index:-1;left:-30%;right:-30%;top:-10%;bottom:-10%;pointer-events:none;opacity:0;background:linear-gradient(105deg,rgba(244,170,128,0) 36%,rgba(244,170,128,.12) 45%,rgba(255,224,204,.24) 50%,rgba(244,170,128,.12) 55%,rgba(244,170,128,0) 64%)}
+.p10[data-rv-on] :is(.pa-img,.ix-m)::after{content:"";position:absolute;left:50%;top:50%;width:144%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;pointer-events:none;opacity:0;background:radial-gradient(closest-side,rgba(255,255,255,0) 80%,rgba(226,236,255,.62) 95%,rgba(255,255,255,0) 100%)}
+.p10[data-rv-on] .ix-m::after{width:130.4%}
+@container site (max-width:1020px){.p10 .tl{--rv-ln:175%}}
+.p10[data-rv-on] .so-light{transform-origin:50% 0}
+/* associarsi: la luce prismatica si apre a ventaglio dall'alto, poi il titolo; i vantaggi si accendono uno a uno */
+.p10[data-rv-on] .so-light{animation:p10rvBeam 1.3s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .so-c .lab{animation:p10rvLeft .7s var(--rv-e) calc(.3s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .so-c .lab::before{animation:p10rvDot .8s var(--rv-e) calc(.42s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .so-t{animation:p10rvFocus 1.1s var(--rv-e) calc(.38s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .so-p{animation:p10rvUpS .85s var(--rv-e) calc(.52s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .so-cta .btn{animation:p10rvUpS .8s var(--rv-e) calc(.62s + var(--i,0)*.08s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .so-perks li{animation:p10rvUpS .7s var(--rv-e) calc(.8s + var(--i,0)*.07s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .so-perks li::before{animation:p10rvPop .6s var(--rv-e) calc(.88s + var(--i,0)*.07s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10 .so-cta .btn+.btn{--i:1}
+/* footer: ingresso sobrio a cascata, il modulo della newsletter si forma */
+.p10[data-rv-on] .ft-nav{animation:p10rvFade .7s var(--rv-e) calc(0s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ft-nav li{animation:p10rvUpS .7s var(--rv-e) calc(var(--i,0)*.06s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ft-h{animation:p10rvFocus 1s var(--rv-e) calc(.12s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ft-form{animation:p10rvForm .9s var(--rv-e) calc(.26s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ft-info{animation:p10rvUpS .85s var(--rv-e) calc(.3s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+.p10[data-rv-on] .ft-base{animation:p10rvFade .9s var(--rv-e) calc(.45s + var(--rv-k,0s)) backwards;animation-play-state:var(--rv-play,paused)}
+/* rv:fine */
+
+/* adattamento */
+@container site (max-width:1400px){
+  .p10 .navbtn{padding:0 9px;font-size:13.5px}
+  .p10 .top .btn{padding:0 15px}
+}
+@container site (max-width:1300px){
+  .p10 .burger{display:inline-grid}
+  .p10 .hide-s{display:none}
+  .p10 .nav{display:none}
+  .p10 .top.is-menu .nav{position:absolute;top:calc(100% + 10px);left:0;right:0;display:block;max-height:calc(100svh - 96px);overflow:auto;padding:14px 18px 24px;border-radius:28px;background:rgba(8,15,44,.97);border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 80px -30px rgba(0,0,0,.75)}
+  .p10 .top.is-menu .nav-ul{flex-direction:column;gap:2px}
+  .p10 .top.is-menu .navbtn{width:100%;justify-content:space-between;height:56px;padding:0 8px;border-radius:14px;font-size:22px;font-weight:300;letter-spacing:-.02em}
+  .p10 .top.is-menu .navbtn.is-open{background:rgba(255,255,255,.08);color:#fff}
+  .p10 .top.is-menu .mega{position:static;translate:none;width:auto;border:0;border-radius:0;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;animation:none}
+  .p10 .top.is-menu .mega-in{display:block;padding:4px 0 10px}
+  .p10 .top.is-menu .mega-in>div:first-child{display:none}
+  .p10 .top.is-menu .mlinks{grid-template-columns:1fr;gap:4px}
+  .p10 .top.is-menu .nav-m{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+}
+@container site (max-width:1180px){
+  .p10 .pa-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 18px}
+}
+@container site (max-width:1020px){
+  .p10 .nu-stage{height:auto;padding-bottom:0}
+  .p10 .nu-img{position:relative;left:auto;translate:none;width:100%;aspect-ratio:16/10;margin:0 auto}
+  .p10 .nu-sts{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 20px;margin-top:8px}
+  .p10 .nu-st{position:static;max-width:none;text-align:left!important}
+  .p10 .xm,.p10 .dt{display:none}
+  .p10 .nu-pubs{grid-template-columns:1fr}
+  .p10 .ix{grid-template-columns:1fr}
+  .p10 .ix-media{aspect-ratio:16/10}
+  .p10 .tl-list{grid-template-columns:1fr;padding-left:30px}
+  .p10 .tl-list::before{left:5px;right:auto;top:10px;bottom:16px;width:1px;height:auto;background:linear-gradient(180deg,rgba(106,155,255,.9),rgba(255,255,255,.12))}
+  .p10 .tl-list a{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:20px;align-content:start;padding:0 0 28px}
+  .p10 .tl-d{grid-row:1/span 2;flex-direction:column;align-items:flex-start;gap:6px;height:auto}
+  .p10 .tl-d b{font-size:40px}
+  .p10 .tl-dot{position:absolute;left:-30px;top:12px;margin:0}
+  .p10 .tl-k{grid-column:2}
+  .p10 .tl-t{grid-column:2;margin-top:6px}
+  .p10 .rs{grid-template-columns:1fr}
+}
+@container site (max-width:860px){
+  .p10 .hx-in{grid-template-columns:1fr;gap:24px;padding-bottom:40px}
+  .p10 .h1{font-size:clamp(38px,9.6cqi,64px)}
+  .p10 .sh{grid-template-columns:1fr;gap:16px}
+  .p10 .fl{padding:0 8px}
+  .p10 .fl-stage{border-radius:22px}
+  .p10 .fl-in{grid-template-columns:1fr;grid-template-rows:auto 1fr auto auto;gap:18px}
+  .p10 .fl-b{grid-column:1;grid-row:3;justify-self:start;text-align:left}
+  .p10 .fl-c{grid-row:4}
+  .p10 .fl-media img{object-position:76% 50%}
+  .p10 .ft-mid{grid-template-columns:1fr;gap:36px}
+  .p10 .ft-info{justify-self:start}
+  .p10 .ft-nav ul{justify-content:flex-start;gap:12px 22px}
+}
+@container site (max-width:640px){
+  .p10 .brand img{height:26px}
+  .p10 .top-in{gap:8px}
+  .p10 .hx{min-height:720px}
+  .p10 .hx-in{padding-top:96px}
+  .p10 .hx-cta .btn{width:100%;justify-content:space-between}
+  .p10 .pa-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:14px;margin:0 calc(var(--gut)*-1);padding:0 var(--gut);scroll-padding:0 var(--gut)}
+  .p10 .pa-grid::-webkit-scrollbar{display:none}
+  .p10 .pa-it{flex:none;width:78cqi;scroll-snap-align:start}
+  .p10 .so-in{border-radius:28px 28px 0 0}
+  .p10 .ix-media{display:none}
+  .p10 .ix-row{grid-template-columns:76px minmax(0,1fr);gap:16px;padding:16px 0}
+  .p10 .ix-th{display:block;width:76px;height:76px;overflow:hidden;border-radius:16px;background:var(--night2)}
+  .p10 .ix-th img{display:block;width:100%;height:100%;object-fit:cover}
+  .p10 .ix-n,.p10 .ix-go,.p10 .ix-bar{display:none}
+  .p10 .ix-row .ix-t{margin-top:6px;font-size:19px;color:#fff}
+  .p10 .ix-row .ix-k{color:var(--electric)}
+  .p10 .tl-h .tlink{margin-left:0}
+  .p10 .tl-list a{grid-template-columns:76px minmax(0,1fr);column-gap:16px}
+  .p10 .tl-d b{font-size:32px}
+  .p10 .rs{padding:26px 20px 22px;border-radius:24px}
+  .p10 .rs-list{grid-template-columns:1fr}
+  .p10 .rs-list li:nth-child(2){border-top:0}
+  .p10 .rs-ctl .btn{width:100%}
+  .p10 .so-cta .btn{width:100%}
+  .p10 .so-perks{flex-direction:column;align-items:center;gap:10px}
+  .p10 .ft-form{flex-direction:column;border-radius:24px}
+  .p10 .ft-form .btn{justify-content:space-between}
+  .p10 .pal-row{grid-template-columns:minmax(0,1fr)}
+  .p10 .pal-d{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .p10 *,.p10 *::before,.p10 *::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+}
+</style>
+</helmet>
+<div class="p10" ref="{{ setRootRef }}">
+<div class="p10c">
+<a class="skip" href="#p10-main">Vai al contenuto</a>
+
+<header class="{{ topCls }}">
+<div class="top-in">
+<a class="brand" href="P10-Home.dc.html"><img src="./assets/36177f9c5a71babc9e46fe5220b0b522.png" alt="Cosmetica Italia — Associazione Nazionale Imprese Cosmetiche, vai alla homepage" width="1006" height="212"></a>
+<nav class="nav" id="p10-nav" aria-label="Navigazione principale">
+<ul class="nav-ul">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+<li>
+<sc-if value="{{ n.isLink }}" hint-placeholder-val="{{ false }}"><a class="navbtn" href="{{ n.href }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.hasMenu }}" hint-placeholder-val="{{ true }}"><button class="{{ n.cls }}" type="button" aria-expanded="{{ n.expanded }}" onClick="{{ n.toggle }}">{{ n.label }}<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></sc-if>
+<sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}">
+<div class="mega">
+<div class="mega-in">
+<div><p class="lab">Esplora</p><h2>{{ n.label }}</h2><p class="mega-p">{{ n.intro }}</p></div>
+<ul class="mlinks"><sc-for list="{{ n.links }}" as="l" hint-placeholder-count="6"><li><a href="{{ l.href }}"><span>{{ l.label }}<span class="sr">{{ l.srExt }}</span></span><svg class="{{ l.icS }}" viewBox="0 0 24 24" aria-hidden="true"><path class="i-ar" d="M5 12h14M13 6l6 6-6 6"></path><path class="i-ax" d="M7 17L17 7M9 7h8v8"></path></svg></a></li></sc-for></ul>
+</div>
+</div>
+</sc-if>
+</li>
+</sc-for>
+</ul>
+<div class="nav-m">
+<button class="btn btn-glass" type="button" onClick="{{ toggleLogin }}">Area riservata</button>
+<a class="btn btn-white" href="#socio" onClick="{{ closeMenu }}">Diventa socio</a>
+</div>
+</nav>
+<div class="tools">
+<button class="icbtn" type="button" aria-haspopup="dialog" aria-expanded="{{ searchExp }}" onClick="{{ toggleSearch }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><span class="sr">Cerca nel sito</span></button>
+<button class="btn btn-glass hide-s" type="button" aria-haspopup="dialog" aria-expanded="{{ loginExp }}" onClick="{{ toggleLogin }}">Area riservata</button>
+<a class="btn btn-white hide-s" href="#socio">Diventa socio</a>
+<button class="icbtn burger" type="button" aria-expanded="{{ menuExp }}" aria-controls="p10-nav" onClick="{{ toggleMenu }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path class="bg-o" d="M4 8h16M4 16h16"></path><path class="bg-x" d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr">Menu</span></button>
+</div>
+</div>
+</header>
+
+<main id="p10-main">
+<section class="hx" aria-labelledby="p10-h1" ref="{{ setHxRef }}">
+<canvas class="hx-gl" aria-hidden="true" ref="{{ setGlRef }}"></canvas>
+<div class="hx-fb" aria-hidden="true"></div>
+<div class="wrap hx-in">
+<div class="hx-h">
+<p class="lab">Associazione Nazionale Imprese Cosmetiche</p>
+<h1 id="p10-h1" class="h1"><span class="ln"><span style="--i:0">Dove la bellezza</span></span> <span class="ln"><span style="--i:1">italiana diventa</span></span> <span class="ln"><span style="--i:2">impresa</span></span></h1>
+</div>
+<div class="hx-side">
+<p>Circa 650 imprese, dalle multinazionali alle PMI: una filiera che ricerca, produce ed esporta la cosmetica italiana in tutto il mondo.</p>
+<div class="hx-cta">
+<a class="btn btn-glass btn-go mag" href="https://www.cosmeticaitalia.it/conoscere-lindustria-cosmetica/La-cosmetica-italiana/">Scopri il settore<span class="go"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+<a class="tlink" href="#socio">Diventa socio</a>
+</div>
+</div>
+</div>
+<p class="hx-cue" aria-hidden="true"><i></i>Scorri</p>
+</section>
+
+<section class="sec pa" aria-labelledby="p10-pa">
+<div class="wrap">
+<div class="sh" data-rb="0">
+<div><p class="lab">Servizi agli associati</p><h2 id="p10-pa" class="h2">I principi attivi<br>dell’associazione</h2></div>
+<p class="sh-p">Quattro servizi pensati per le imprese associate: dall’assistenza normativa ai mercati esteri, dalla formazione alla sostenibilità.</p>
+</div>
+<ul class="pa-grid" data-rb="0">
+<sc-for list="{{ svcs }}" as="v" hint-placeholder-count="4"><li class="pa-it" style="{{ v.st }}">
+<a class="pa-card" href="{{ v.href }}">
+<span class="pa-img"><img src="{{ v.img }}" alt="" style="{{ v.pos }}" decoding="async" loading="lazy"><span class="pa-pill" aria-hidden="true">{{ v.pill }}</span></span>
+<span class="lab pa-k">{{ v.num }} · {{ v.kicker }}</span>
+<span class="pa-t">{{ v.title }}<span class="sr">{{ v.srExt }}</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+<span class="pa-p">{{ v.desc }}</span>
+</a>
+<ul class="pa-links"><sc-for list="{{ v.links }}" as="l" hint-placeholder-count="2"><li><a href="{{ l.href }}">{{ l.label }}<span class="sr">{{ l.srExt }}</span><svg class="{{ l.icM }}" viewBox="0 0 24 24" aria-hidden="true"><path class="i-ar" d="M5 12h14M13 6l6 6-6 6"></path><path class="i-ax" d="M7 17L17 7M9 7h8v8"></path></svg></a></li></sc-for></ul>
+</li></sc-for>
+</ul>
+</div>
+</section>
+
+<section class="fl" aria-labelledby="p10-fl" ref="{{ setFlRef }}">
+<div class="fl-stage" data-rb=".35">
+<div class="fl-media" aria-hidden="true"><img src="./assets/df7f61e314ac312827901b6180396595.jpg" alt="" decoding="async"><span class="fl-shade"></span><canvas class="fl-cv" ref="{{ setFlCvRef }}"></canvas></div>
+<div class="wrap fl-in">
+<div class="fl-a"><p class="lab">La filiera</p><h2 id="p10-fl" class="h2">Dalla formula al flacone,<br>una filiera che parla italiano</h2></div>
+<p class="fl-b" data-rb="0">Laboratori, stabilimenti, packaging e macchinari: ogni giorno prodotti che arrivano in tutto il mondo.</p>
+<a class="btn btn-glass btn-go fl-c mag" href="https://www.cosmeticaitalia.it/conoscere-lindustria-cosmetica/La-cosmetica-italiana/" data-rb="0">La cosmetica italiana<span class="go"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+</div>
+</section>
+
+<section class="sec nu" aria-labelledby="p10-nu" ref="{{ setNuRef }}">
+<div class="wrap">
+<div class="sh" data-rb="0">
+<div><p class="lab">Centro Studi</p><h2 id="p10-nu" class="h2">Numeri che raccontano<br>un settore</h2></div>
+<p class="sh-p">Stime e dati del Centro Studi sull’industria cosmetica italiana, aggiornati con i report di marzo e settembre.<br><a class="tlink" href="P8-CentroStudi.dc.html">Tutti i numeri del settore</a></p>
+</div>
+<div class="nu-stage" ref="{{ setStatsRef }}" data-rb=".25">
+<div class="nu-img" aria-hidden="true"><img src="./assets/p10-volto.webp" alt="" width="1400" height="875" decoding="async"><canvas class="nu-cv" ref="{{ setNuCvRef }}"></canvas></div>
+<dl class="nu-sts">
+<div class="nu-st s1" data-rb=".5"><dt><span class="sr">18,1 miliardi di euro</span><span aria-hidden="true"><span class="cnt" ref="{{ cntRef0 }}">18</span>,<span class="cnt" ref="{{ cntRef4 }}">1</span><small>MLD €</small></span></dt><dd>Fatturato dell’industria<br>stima 2026<span class="src">Scenario economico 2026</span></dd></div>
+<div class="nu-st s2" data-rb=".5" style="--d:.1s"><dt><span class="sr">48 per cento</span><span aria-hidden="true"><span class="cnt" ref="{{ cntRef1 }}">48</span>%</span></dt><dd>Quota dell’export<br>sul fatturato, 2025<span class="src">Outlook 2025</span></dd></div>
+<div class="nu-st s3" data-rb=".5" style="--d:.05s"><dt><span class="sr">500mila</span><span aria-hidden="true"><span class="cnt" ref="{{ cntRef2 }}">500</span><small>MILA</small></span></dt><dd>Lavoratori lungo la filiera<br>105mila diretti<span class="src">Osservatorio TEHA 2026</span></dd></div>
+<div class="nu-st s4" data-rb=".5" style="--d:.15s"><dt><span class="sr">circa 650</span><span aria-hidden="true">~<span class="cnt" ref="{{ cntRef3 }}">650</span></span></dt><dd>Imprese associate<br>dalle multinazionali alle PMI<span class="src">cosmeticaitalia.it</span></dd></div>
+</dl>
+<span class="xm" style="left:21%;top:12%" aria-hidden="true"></span><span class="xm" style="left:15%;top:84%" aria-hidden="true"></span><span class="xm" style="right:22%;top:46%" aria-hidden="true"></span><span class="xm" style="right:14%;top:90%" aria-hidden="true"></span>
+<span class="dt" style="left:29%;top:52%" aria-hidden="true"></span><span class="dt" style="left:4%;top:44%" aria-hidden="true"></span><span class="dt" style="right:30%;top:14%" aria-hidden="true"></span><span class="dt" style="right:3%;top:52%" aria-hidden="true"></span><span class="dt" style="left:50%;top:96%" aria-hidden="true"></span>
+</div>
+<ul class="nu-pubs" data-rb="0"><sc-for list="{{ pubs }}" as="p" hint-placeholder-count="3"><li><a class="pb" href="{{ p.href }}"><span><span class="pb-k">{{ p.kind }} · {{ p.date }}</span><span class="pb-t">{{ p.title }}</span></span><span class="pb-go" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></li></sc-for></ul>
+</div>
+</section>
+
+<section class="sec ev" aria-labelledby="p10-ev">
+<div class="ev-glow" aria-hidden="true"></div>
+<div class="wrap">
+<div class="sh" data-rb="0">
+<div><p class="lab">In evidenza</p><h2 id="p10-ev" class="h2">Iniziative, analisi<br>e progetti</h2></div>
+<p class="sh-p">Le analisi del Centro Studi, i progetti dell’associazione e le notizie per chi lavora nella cosmetica.<br><a class="tlink" href="https://www.cosmeticaitalia.it/elenco-notizie/">Tutte le notizie</a></p>
+</div>
+<div class="{{ ixCls }}" ref="{{ setIxRef }}" data-rb=".15">
+<a class="ix-media" href="{{ evHref }}" tabindex="-1" aria-hidden="true" draggable="false">
+<sc-for list="{{ evItems }}" as="e" hint-placeholder-count="5"><span class="{{ e.mCls }}"><img src="{{ e.img }}" alt="" style="{{ e.pos }}" decoding="async" loading="lazy" draggable="false"></span></sc-for>
+<span class="ix-shade"></span>
+<span class="ix-pill">{{ evKind }}</span>
+<span class="ix-num">{{ evNum }}<small>/ {{ evTot }}</small></span>
+<span class="ix-cta"><i><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></i>{{ evGo }}</span>
+</a>
+<ol class="ix-list">
+<sc-for list="{{ evItems }}" as="e" hint-placeholder-count="5"><li><a class="{{ e.cls }}" href="{{ e.href }}" data-i="{{ e.i }}"><span class="ix-th" aria-hidden="true"><img src="{{ e.img }}" alt="" style="{{ e.pos }}" decoding="async" loading="lazy"></span><span class="ix-n" aria-hidden="true">{{ e.n }}</span><span class="ix-b"><span class="ix-k">{{ e.kind }}<em>{{ e.date }}</em></span><span class="ix-t">{{ e.title }}<span class="sr">{{ e.srExt }}</span></span></span><span class="ix-go" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span><i class="ix-bar" aria-hidden="true"></i></a></li></sc-for>
+</ol>
+</div>
+<div class="tl" data-rb="0">
+<div class="tl-h"><h3 class="tl-ti">Prossimi appuntamenti</h3><span class="up-k">{{ agCount }}</span><a class="tlink" href="https://www.cosmeticaitalia.it/appuntamenti/elenco-completo/">Calendario completo</a></div>
+<sc-if value="{{ agNone }}" hint-placeholder-val="{{ false }}"><p class="ag-none">Nessun appuntamento in agenda: consulta il calendario completo.</p></sc-if>
+<ol class="tl-list"><sc-for list="{{ agList }}" as="a" hint-placeholder-count="4"><li><a href="{{ a.href }}"><span class="tl-d"><b>{{ a.d }}</b><small>{{ a.m }}</small></span><span class="tl-dot" aria-hidden="true"></span><span class="tl-k">{{ a.type }}<sc-if value="{{ a.isFirst }}" hint-placeholder-val="{{ false }}"><span class="rel">{{ a.rel }}</span></sc-if><sc-if value="{{ a.flag }}" hint-placeholder-val="{{ false }}"><span class="flag">{{ a.flag }}</span></sc-if></span><span class="tl-t">{{ a.title }}<span class="sr">{{ a.srExt }}</span></span></a></li></sc-for></ol>
+</div>
+<div class="rs" data-rb="0">
+<div class="rs-a">
+<p class="up-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Riservate agli associati</p>
+<h3 class="tl-ti">Ultime circolari</h3>
+<p class="rs-p">Normativa, fiere e iniziative: le comunicazioni dell’associazione per le imprese associate.</p>
+<div class="rs-ctl"><button class="btn btn-white" type="button" onClick="{{ toggleLogin }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Accedi all’area riservata</button><a class="tlink" href="https://www.cosmeticaitalia.it/circolari/">Tutte le circolari</a></div>
+</div>
+<ul class="rs-list"><sc-for list="{{ circolari }}" as="c" hint-placeholder-count="4"><li><a href="{{ c.href }}"><span class="rs-k">N. {{ c.num }} · {{ c.date }}</span><span class="rs-t">{{ c.title }}</span><span class="row-go" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></li></sc-for></ul>
+</div>
+</div>
+</section>
+
+<section class="so" id="socio" aria-labelledby="p10-so">
+<div class="so-in" ref="{{ setSoRef }}" data-rb=".3">
+<div class="so-light" aria-hidden="true"><i class="pr1"></i><i class="pr2"></i><i class="pr3"></i><canvas class="so-cv" ref="{{ setSoCvRef }}"></canvas></div>
+<div class="wrap so-c">
+<p class="lab">Associarsi</p>
+<h2 id="p10-so" class="h2 so-t">Entra nella comunità<br>della cosmetica italiana</h2>
+<p class="so-p">Rappresentanza, informazione e servizi per le imprese di tutta la filiera: scopri i requisiti e i vantaggi dell’adesione.</p>
+<div class="so-cta"><a class="btn btn-white btn-go mag" href="https://www.cosmeticaitalia.it/diventa-socio/per-quali-ragioni-conviene-associarsi-a-cosmetica-italia/">Diventa socio<span class="go"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a><a class="btn btn-glass" href="https://www.cosmeticaitalia.it/associazione/Organismi-associativi/imprese-associate/">Le imprese associate</a></div>
+<ul class="so-perks"><sc-for list="{{ perks }}" as="k" hint-placeholder-count="5"><li>{{ k }}</li></sc-for></ul>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="ft" data-rb="0">
+<div class="wrap">
+<nav class="ft-nav" aria-label="Sezioni del sito"><ul><sc-for list="{{ ftNav }}" as="n" hint-placeholder-count="5"><li><a href="{{ n.href }}">{{ n.label }}</a></li></sc-for></ul></nav>
+<div class="ft-mid">
+<div>
+<h2 class="ft-h">Resta aggiornato con la newsletter</h2>
+<form class="ft-form" onSubmit="{{ onNews }}"><label class="sr" for="p10-mail">Email per la newsletter</label><input id="p10-mail" type="email" autocomplete="email" placeholder="La tua email"><button class="btn btn-white btn-go" type="submit">Iscriviti<span class="go"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button></form>
+<sc-if value="{{ newsSent }}" hint-placeholder-val="{{ false }}"><p class="ft-msg" role="status"><span class="demo-tag">Demo</span>Nessuna iscrizione è stata inviata.</p></sc-if>
+</div>
+<div class="ft-info">
+<p>Cosmetica Italia rappresenta le imprese cosmetiche in Italia e in Europa. Aderisce a Federchimica e a Confindustria.</p>
+<address>Via Accademia, 33 – 20131 Milano<br>C.F. 05901970151 · PEC <a href="mailto:cosmetica_italia@pec.it">cosmetica_italia@pec.it</a></address>
+<ul class="ft-soc"><li><a href="https://www.linkedin.com/company/cosmetica-italia">LinkedIn<span class="sr"> (sito esterno)</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li><li><a href="https://www.instagram.com/associazionecosmeticaitalia/">Instagram<span class="sr"> (sito esterno)</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li></ul>
+</div>
+</div>
+<div class="ft-base">
+<ul class="ft-legal"><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/index.html">Privacy policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/cookie/index.html">Cookie policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/credits/index.html">Credits</a></li><li><a href="https://www.cosmeticaitalia.it/press-area-r.html">Press Area</a></li></ul>
+<button class="ft-up" type="button" onClick="{{ toTop }}">Torna su<span class="go"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></span></button>
+<p class="ft-note">Prototipo di restyling — Proposta 10 · direzione non definitiva · contenuti dal sito pubblico al 17/11/2026</p>
+</div>
+</div>
+</footer>
+</div>
+
+<sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+<button class="scrim" type="button" aria-label="Chiudi la ricerca" onClick="{{ toggleSearch }}"></button>
+<div class="modal" role="dialog" aria-modal="true" aria-label="Cerca nel sito">
+<div class="pal-top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><label class="sr" for="p10-q">Cerca circolari, studi, appuntamenti</label><input id="p10-q" type="search" autocomplete="off" placeholder="Cerca circolari, studi, appuntamenti…" value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onPalKey }}" ref="{{ setQRef }}"><button class="mclose" type="button" onClick="{{ toggleSearch }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr">Chiudi</span></button></div>
+<div class="pal-body">
+<sc-if value="{{ showChips }}" hint-placeholder-val="{{ true }}">
+<p class="pal-h">Ricerche frequenti</p>
+<div class="pal-chips"><sc-for list="{{ chips }}" as="c" hint-placeholder-count="5"><button class="pal-chip" type="button" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for></div>
+<p class="pal-h">Suggeriti</p>
+<sc-for list="{{ suggested }}" as="r" hint-placeholder-count="4"><a class="pal-row" href="{{ r.href }}"><span class="pal-type">{{ r.type }}</span><span class="pal-t">{{ r.title }}</span><span class="pal-d">{{ r.date }}</span></a></sc-for>
+</sc-if>
+<sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
+<p class="pal-h" aria-live="polite">{{ resultsLabel }}</p>
+<sc-for list="{{ results }}" as="r" hint-placeholder-count="4"><a class="pal-row" href="{{ r.href }}"><span class="pal-type">{{ r.type }}</span><span class="pal-t">{{ r.title }}</span><span class="pal-d">{{ r.date }}</span></a></sc-for>
+</sc-if>
+<sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}"><p class="pal-h" aria-live="polite">Nessun risultato per «{{ q }}»</p></sc-if>
+</div>
+<div class="pal-foot"><span><span class="demo-tag">Demo</span>{{ indexCount }} contenuti di esempio tratti dal sito attuale</span><span class="kbd">esc</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}">
+<button class="scrim" type="button" aria-label="Chiudi" onClick="{{ toggleLogin }}"></button>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="p10-login-t">
+<div class="login-b">
+<div class="login-hd"><h2 id="p10-login-t">Area riservata</h2><button class="mclose" type="button" onClick="{{ toggleLogin }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr">Chiudi</span></button></div>
+<p>Circolari, report integrali del Centro Studi e documenti dedicati sono consultabili dopo l’accesso.</p>
+<p class="note"><span class="demo-tag">Prototipo</span>L’accesso non è attivo in questa demo: nessuna credenziale viene richiesta o verificata.</p>
+<div class="login-row"><a class="btn btn-white" href="https://www.cosmeticaitalia.it/associazione/area-riservata/">Area riservata del sito attuale</a><a class="btn btn-glass" href="https://www.cosmeticaitalia.it/associazione/area-riservata/registrazione/">Registrazione</a></div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6806}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: null, menu: false, search: false, login: false, q: '', newsSent: false, scrolled: false, evI: 0, evAuto: false };
+    this.qEl = null;
+  }
+  services() {
+    const S = 'https://www.cosmeticaitalia.it';
+    const A = './assets/';
+    return [
+      { id: 'reg', pill: 'Regolamento 1223/2009', kicker: 'Tecnico regolatorio', title: 'Norme chiare, prodotti sicuri', desc: 'Linee guida, documenti e assistenza per applicare le regole sul prodotto cosmetico.', img: A + '388ec58efc25ad62b8caa828a9e2ac87.jpg', pos: 'object-position:62% 50%', href: S + '/tecnico-regolatorio/', links: [['Linee guida', S + '/pubblicazioni/linee-guida/'], ['Certificati di libera vendita', S + '/tecnico-regolatorio/clv/']] },
+      { id: 'int', pill: 'Cosmoprof nel mondo', kicker: 'Attività internazionali', title: 'Il made in Italy sui mercati esteri', desc: 'Fiere, missioni e schede Paese per accompagnare le imprese che esportano.', img: A + 'f3dd526a42e53908a2374d00e39291be.webp', pos: 'object-position:50% 50%', href: S + '/servizi-per-linternazionalizzazione/', links: [['Schede Paesi', S + '/servizi-per-linternazionalizzazione/paesi/'], ['Cosmoprof', S + '/appuntamenti/cosmoprof/']] },
+      { id: 'form', pill: 'Corsi e webinar', kicker: 'Formazione', title: 'Competenze che crescono', desc: 'Corsi, webinar e Information Day, anche con Cosmetica Italia Servizi.', img: A + '0e39439d5ed77c5fe777abb98b410081.webp', pos: 'object-position:58% 30%', href: 'https://www.cosmeticaitaliaservizi.it/corsi/', links: [['Webinar', S + '/pubblicazioni/webinar/'], ['Information Day', S + '/appuntamenti/information-day/']] },
+      { id: 'sus', pill: 'Osservatorio 2026', kicker: 'Sostenibilità', title: 'Una filiera più sostenibile', desc: 'L’Osservatorio di settore, percorsi e strumenti per misurare e migliorare.', img: A + '0d03e1556dedac7467ac16ef21405e42.jpg', pos: 'object-position:50% 70%', href: S + '/sostenibilita/osservatorio-sulla-sostenibilita/', links: [['Cosmetica Italia per la sostenibilità', S + '/sostenibilita/cosmetica-italia-per-la-sostenibilita/']] }
+    ];
+  }
+  data() {
+    if (this._d) return this._d;
+    const S = 'https://www.cosmeticaitalia.it';
+    const CS = 'P8-CentroStudi.dc.html';
+    const A = './assets/';
+    this._d = {
+      nav: [
+        { id: 'ass', label: 'L’associazione', intro: 'Chi siamo, come siamo organizzati, notizie e appuntamenti.', links: [['Chi siamo', S + '/associazione/chi-siamo/storia/'], ['Organismi associativi', S + '/associazione/Organismi-associativi/governance/'], ['Imprese associate', S + '/associazione/Organismi-associativi/imprese-associate/'], ['Gruppi', S + '/Gruppi/'], ['Struttura organizzativa', S + '/associazione/struttura-organizzativa-e-operativa/struttura-organizzativa/'], ['Enti correlati', S + '/associazione/enti-correlati/cosmetica-italia-servizi-srl/'], ['Notizie', S + '/elenco-notizie/'], ['Appuntamenti', S + '/appuntamenti/elenco-completo/'], ['Press Area', S + '/press-area-r.html']] },
+        { id: 'set', label: 'Il settore', intro: 'L’industria cosmetica italiana: numeri, filiera e cultura del prodotto.', links: [['La cosmetica italiana', S + '/conoscere-lindustria-cosmetica/La-cosmetica-italiana/'], ['I numeri della cosmetica', CS], ['ABC Cosmetici', S + '/abc-cosmetici/Conoscere-i-cosmetici/cose-un-cosmetico/'], ['Domande e risposte', S + '/abc-cosmetici/qa/'], ['Education', S + '/education/progetto/'], ['Milano Beauty Week', S + '/appuntamenti/milano-beauty-week/']] },
+        { id: 'serv', label: 'Servizi agli associati', intro: 'Assistenza, informazione e strumenti per le imprese associate.', links: [['Tecnico regolatorio', S + '/tecnico-regolatorio/'], ['Circolari', S + '/circolari/'], ['Attività internazionali', S + '/servizi-per-linternazionalizzazione/'], ['Corsi di Cosmetica Italia Servizi', 'https://www.cosmeticaitaliaservizi.it/corsi/'], ['Webinar', S + '/pubblicazioni/webinar/'], ['Information Day', S + '/appuntamenti/information-day/'], ['Cosmoprof', S + '/appuntamenti/cosmoprof/'], ['Newsletter', S + '/newsletter/iscrizione/']] },
+        { id: 'temi', label: 'Temi e posizioni', intro: 'Le priorità dell’associazione e la documentazione di riferimento.', links: [['Sostenibilità', S + '/sostenibilita/cosmetica-italia-per-la-sostenibilita/'], ['Osservatorio sulla sostenibilità', S + '/sostenibilita/osservatorio-sulla-sostenibilita/'], ['Regolamento 1223/2009', S + '/pubblicazioni/documentazione-su-regolamento-1223-2009/'], ['Linee guida', S + '/pubblicazioni/linee-guida/'], ['Quaderni', S + '/pubblicazioni/quaderni/'], ['Statuto e normativa', S + '/associazione/chi-siamo/statuto-e-normativa/']] },
+        { id: 'cs', label: 'Centro Studi', intro: 'Analisi economiche, scenari e studi sul settore.', links: [['Tutte le pubblicazioni', CS], ['Scenario economico 2026', S + '/centro-studi/Scenario-economico-della-cosmetica-2026/'], ['Outlook 2025', S + '/centro-studi/Outlook-2025/'], ['Studi dei partner', CS]] },
+        { id: 'tib', label: 'This is Bellezza', intro: '', href: S + '/thisisbellezza/', links: [] }
+      ],
+      circolari: [
+        { num: '2026/100', title: 'Ultime novità sul PPWR', date: '10/11/2026', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { num: '2026/99', title: 'Normativa Cybersecurity: aggiornamenti su registrazione e verifiche di coerenza', date: '05/11/2026', href: S + '/circolari/dettaglio/Normativa-Cybersecurity-aggiornamenti-su-registrazione-e-verifiche-di-coerenza/' },
+        { num: '2026/98', title: 'Fiera Cosmoprof North America Miami 2027: iniziative e modalità di partecipazione', date: '28/10/2026', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-NORTH-AMERICA-MIAMI-2027-iniziative-e-modalita-di-partecipazione/' },
+        { num: '2026/97', title: 'Fiera Cosmoprof India 2026: iniziative e modalità di partecipazione', date: '22/10/2026', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-INDIA-2026-iniziative-e-modalita-di-partecipazione/' }
+      ],
+      suggested: [
+        { type: 'Circolare', title: '2026/100 · Ultime novità sul PPWR', date: '10/11/2026', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { type: 'Studio', title: 'Scenario economico della cosmetica 2026', date: '16/09/2026', href: CS },
+        { type: 'Webinar', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna', date: '19/11/2026', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Servizio', title: 'Certificati di libera vendita', date: '', href: S + '/tecnico-regolatorio/clv/' }
+      ],
+      index: [
+        { type: 'Circolare', title: '2026/100 Ultime novità sul PPWR', date: '10/11/2026', k: 'imballaggi packaging', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { type: 'Circolare', title: '2026/99 Normativa Cybersecurity: registrazione e verifiche di coerenza', date: '05/11/2026', k: 'nis', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/98 Cosmoprof North America Miami 2027: modalità di partecipazione', date: '28/10/2026', k: 'fiera usa', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/97 Cosmoprof India 2026: modalità di partecipazione', date: '22/10/2026', k: 'fiera mumbai', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/96 Indonesia: proroga per la certificazione Halal dei cosmetici', date: '19/10/2026', k: 'export', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/95 Criticità nell’esportazione verso l’Arabia Saudita', date: '08/10/2026', k: 'export', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/94 Greenwashing: FAQ MIMIT sul D.Lgs. 30/2026', date: '07/10/2026', k: 'green claim ambientali', href: S + '/circolari/' },
+        { type: 'Notizia', title: 'Regolamento imballaggi e rifiuti di imballaggio (PPWR): Q&A', date: '11/11/2026', k: 'packaging webinar', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Corsi di formazione IAP', date: '12/11/2026', k: 'autodisciplina pubblicitaria', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Cosmoprof North America Miami: le opportunità del mercato beauty negli Stati Uniti', date: '06/11/2026', k: 'usa export', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Information Day 2026: disponibili i materiali', date: '22/10/2026', k: 'tecnico regolatorio', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Webinar EUDR: regolamento prodotti a deforestazione zero', date: '28/10/2026', k: 'deforestazione', href: S + '/elenco-notizie/' },
+        { type: 'Studio', title: 'Scenario economico della cosmetica 2026', date: '16/09/2026', k: 'centro studi report fatturato', href: CS },
+        { type: 'Studio', title: 'Outlook 2025', date: '26/03/2026', k: 'centro studi export', href: CS },
+        { type: 'Studio', title: 'Mappe del beauty contemporaneo', date: '31/03/2026', k: 'consumi trend', href: CS },
+        { type: 'Studio', title: 'L’e-commerce di cosmetica in Italia nel 2025', date: 'marzo 2026', k: 'online consumi', href: CS },
+        { type: 'Studio', title: 'I trend della cosmetica online', date: 'luglio 2026', k: 'e-commerce', href: CS },
+        { type: 'Appuntamento', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna con gli incentivi', date: '19/11/2026', k: 'fiera webinar', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Appuntamento', title: 'Osservatorio sulla sostenibilità del settore cosmetico in Italia 2026', date: '24/11/2026', k: 'sostenibilita', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Appuntamento', title: 'L’economia circolare e la sua declinazione per le aziende cosmetiche', date: '17/12/2026', k: 'sostenibilita circolare', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Pagina', title: 'Certificati di libera vendita', date: '', k: 'clv export tecnico regolatorio', href: S + '/tecnico-regolatorio/clv/' },
+        { type: 'Pagina', title: 'Etichettatura ambientale degli imballaggi', date: '', k: 'packaging sostenibilita', href: S + '/etichettatura-ambientale/etichettatura2023/index.html' },
+        { type: 'Pagina', title: 'Perché associarsi a Cosmetica Italia', date: '', k: 'diventa socio adesione', href: S + '/diventa-socio/per-quali-ragioni-conviene-associarsi-a-cosmetica-italia/' },
+        { type: 'Pagina', title: 'Schede Paesi per l’internazionalizzazione', date: '', k: 'export mercati esteri', href: S + '/servizi-per-linternazionalizzazione/paesi/' }
+      ],
+      cs: [
+        { title: 'Fronteggiare gli shock internazionali e rafforzare le imprese', src: 'Confindustria', kind: 'partner', date: 'Ottobre 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Per-far-crescere-lItalia-fronteggiare-gli-shock-internazionali-e-rafforzare-le-imprese-ottobre-2026/' },
+        { title: 'Evoluzioni del settore e nuove leve per attrarre i talenti di oggi e di domani', src: 'Gi Group', kind: 'partner', date: 'Ottobre 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Gi-Group-La-cosmetica-italiana-evoluzioni-del-settore-e-nuove-leve-per-attrarre-i-talenti-di-oggi-e-di-domani/' },
+        { title: 'Scenario economico della cosmetica 2026', src: 'Centro Studi', kind: 'cs', date: '16 settembre 2026', fmt: 'Pagina web + report', access: 'Report integrale riservato alle imprese associate', href: S + '/centro-studi/Scenario-economico-della-cosmetica-2026/' },
+        { title: 'I trend della cosmetica online', src: 'Witailer', kind: 'partner', date: 'Luglio 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Witailer-I-trend-della-cosmetica-online/' },
+        { title: 'Le priorità d’azione per la competitività dell’industria cosmetica in Italia', src: 'TEHA', kind: 'partner', date: 'Luglio 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Osservatorio-TEHA-Le-priorita-dazione-per-la-competitivita-dellindustria-cosmetica-in-Italia/' },
+        { title: 'Consumer trends: cura e protezione', src: 'Centro Studi', kind: 'cs', date: 'Maggio 2026', fmt: 'PDF', access: '', href: S + '/documenti/a_centrostudi/BTW/BTW2021/Cura-e-protezione-evoluzione-dei-solari.pdf' },
+        { title: 'Mappe del beauty contemporaneo', src: 'Circana e YouGov', kind: 'partner', date: '31 marzo 2026', fmt: 'Pagina web', access: 'Testo completo per utenti registrati', href: S + '/centro-studi/Mappe-del-beauty-contemporaneo-profili-abitudini-e-trend-emergenti/' },
+        { title: 'Outlook 2025', src: 'Centro Studi', kind: 'cs', date: '26 marzo 2026', fmt: 'Pagina web + report', access: 'Report consultabile dopo l’accesso', href: S + '/centro-studi/Outlook-2025/' },
+        { title: 'L’e-commerce di cosmetica in Italia nel 2025', src: 'Human Highway', kind: 'partner', date: 'Marzo 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Le-commerce-di-cosmetica-in-Italia-nel-2025/' },
+        { title: 'Evoluzione della professione acconciatore (edizione 2026)', src: 'Centro Studi', kind: 'cs', date: 'Marzo 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Levoluzione-della-professione-acconciatore-edizione-2026/' },
+        { title: 'Macro Movements 2026', src: 'Beautystreams', kind: 'partner', date: 'Febbraio 2026', fmt: 'Pagina web', access: '', href: S + '/centro-studi/Beautystreams-Macro-Movements-2026/' },
+        { title: 'Anti-aging: canali, mercati e profilo dei consumatori in farmacia', src: 'New Line', kind: 'partner', date: 'Febbraio 2026', fmt: 'PDF', access: '', href: S + '/documenti/Gruppi/gcf/2026/Presentazione-New-Line_webinar-04-03-2026.pdf' }
+      ],
+      chips: ['PPWR', 'Greenwashing', 'Cosmoprof', 'Scenario economico', 'Export'],
+      perks: ['Rappresentanza in Italia e in Europa', 'Informazione normativa tempestiva', 'Consulenza tecnica ed economica', 'Supporto all’export', 'Servizi a condizioni dedicate'],
+      ev: [
+        { kind: 'Sostenibilità', date: '24 novembre 2026', title: 'Osservatorio sulla sostenibilità del settore cosmetico 2026', go: 'Scopri l’Osservatorio', img: A + '845ea73da12aae0c8818fa7fb81dcd4a.webp', pos: 'object-position:56% 42%', href: S + '/sostenibilita/osservatorio-sulla-sostenibilita/' },
+        { kind: 'Centro Studi', date: '16 settembre 2026', title: 'Scenario economico della cosmetica 2026', go: 'Leggi l’analisi', img: A + '3b40ce070c61128525e52b46dd7598b5.webp', pos: 'object-position:64% 66%', href: S + '/centro-studi/Scenario-economico-della-cosmetica-2026/' },
+        { kind: 'This is Bellezza', date: 'Progetto dell’associazione', title: 'Il movimento che racconta il valore del sistema cosmetico italiano', go: 'Scopri il progetto', img: A + 'd6a0b69b93a60e013997fecd9fc9c753.webp', pos: 'object-position:42% 30%', href: S + '/thisisbellezza/' },
+        { kind: 'Notizia', date: '11 novembre 2026', title: 'Regolamento imballaggi e rifiuti di imballaggio (PPWR): Q&A', go: 'Leggi la notizia', img: A + '0e8be11a28915a17c47be899f6184cdb.jpg', pos: 'object-position:56% 62%', href: S + '/elenco-notizie/Regolamento-imballaggi-e-rifiuti-di-imballaggio-PPWR-QA-00001/' },
+        { kind: 'Fiera', date: '18–21 marzo 2027', title: 'Cosmoprof Worldwide Bologna 2027', go: 'Scopri la fiera', img: A + 'c21793f07f8069e5528cc15c14352b06.webp', pos: 'object-position:50% 60%', href: 'https://www.cosmoprof.com/' }
+      ],
+      agenda: [
+        { s: '2026-11-19', e: '2026-11-19', type: 'Webinar', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna e al suo network internazionale con il sostegno degli incentivi', flag: '', href: S + '/appuntamenti/elenco-completo/' },
+        { s: '2026-11-24', e: '2026-11-24', type: 'Sostenibilità', title: 'Dalle iniziative alle scelte d’impresa – Osservatorio sulla sostenibilità del settore cosmetico in Italia 2026', flag: '', href: S + '/appuntamenti/elenco-completo/' },
+        { s: '2026-12-10', e: '2026-12-12', type: 'Fiera', title: 'Cosmoprof India, Mumbai', flag: '', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-INDIA-2026-iniziative-e-modalita-di-partecipazione/' },
+        { s: '2026-12-17', e: '2026-12-17', type: 'Progetto Sostenibilità', title: 'L’economia circolare e la sua declinazione per le aziende cosmetiche', flag: 'Posticipato', href: S + '/appuntamenti/elenco-completo/' },
+        { s: '2027-01-18', e: '2027-01-18', type: 'Corso', title: 'AI@Beauty: come orientarsi in modo pratico tra nuovi strumenti e prompt', flag: '', href: 'https://www.cosmeticaitaliaservizi.it/corsi/' },
+        { s: '2027-01-21', e: '2027-01-21', type: 'Corso', title: 'Basi teoriche della formulazione cosmetica', flag: '', href: 'https://www.cosmeticaitaliaservizi.it/corsi/' },
+        { s: '2027-03-18', e: '2027-03-21', type: 'Fiera', title: 'Cosmoprof Worldwide Bologna 2027', flag: '', href: 'https://www.cosmoprof.com/' }
+      ]
+    };
+    return this._d;
+  }
+  _anim() {
+    if (typeof window === 'undefined' || this._rm) return false;
+    const h = window.innerHeight;
+    return h >= 360 && h <= 1400;
+  }
+  _countStat(k, ms) {
+    // una cifra del Centro Studi: parte da 0 quando la sua bolla sale (ms = ritardo), oppure va subito al valore finale (ms null)
+    const els = this.cnt || [];
+    const tg = [181, 48, 500, 650][k];
+    const put = (v) => {
+      if (k === 0) { if (els[0]) els[0].textContent = String(Math.floor(v / 10)); if (els[4]) els[4].textContent = String(v % 10); }
+      else if (els[k]) els[k].textContent = String(v);
+    };
+    const R = this._cntRaf = this._cntRaf || [];
+    if (R[k]) { cancelAnimationFrame(R[k]); R[k] = 0; }
+    if (ms == null || !this._anim()) { put(tg); return; }
+    const t0 = performance.now() + ms;
+    const step = (t) => {
+      const p = Math.min(1, Math.max(0, (t - t0) / 1700));
+      put(Math.round(tg * (1 - Math.pow(1 - p, 3))));
+      R[k] = p < 1 ? requestAnimationFrame(step) : 0;
+    };
+    R[k] = requestAnimationFrame(step);
+  }
+  _rvSetup() {
+    // ingressi: un solo IntersectionObserver sui blocchi [data-rb]. Un blocco parte quando supera la linea all'88% del viewport
+    // per la quota indicata in data-rb (del blocco, o del viewport se il blocco è più alto), oppure quando è tutto visibile
+    // (così partono anche gli elementi che a fine scorrimento restano nell'ultima fascia, come il pulsante in fondo alla filiera)
+    this._rvOn = false;
+    const root = this.rootEl;
+    if (!root || !this._anim() || typeof IntersectionObserver === 'undefined') return;
+    const bl = Array.prototype.slice.call(root.querySelectorAll('[data-rb]'));
+    if (!bl.length) return;
+    this._rvB = bl;
+    this._rvT = [];
+    this._rvOn = true;
+    root.setAttribute('data-rv-on', '');
+    const th = [];
+    for (let i = 0; i <= 20; i++) th.push(i / 20);
+    this._io = new IntersectionObserver((list) => {
+      list.forEach((e) => {
+        const el = e.target;
+        if (!e.isIntersecting || el.hasAttribute('data-in')) return;
+        const vh = e.rootBounds ? e.rootBounds.height : window.innerHeight;
+        const r = e.boundingClientRect, line = vh * .88;
+        const need = parseFloat(el.getAttribute('data-rb')) || 0;
+        const seen = Math.min(r.bottom, line) - Math.max(r.top, 0);
+        const full = r.top >= -1 && r.bottom <= vh + 1;
+        if (full || seen + 2 >= Math.max(1, need * Math.min(r.height, line))) this._rvIn(el, false);
+      });
+    }, { threshold: th });
+    bl.forEach((el) => this._io.observe(el));
+  }
+  _rvIn(el, skip) {
+    if (!el || el.hasAttribute('data-in')) return;
+    el.setAttribute('data-in', skip ? 's' : 'a');
+    if (this._io) this._io.unobserve(el);
+    if (!skip && this._rvB) {
+      // salto (ancora, ripristino dello scorrimento): i blocchi rimasti sopra il viewport compaiono già fermi
+      const i = this._rvB.indexOf(el);
+      for (let j = 0; j < i; j++) {
+        const b = this._rvB[j];
+        if (!b.hasAttribute('data-in') && b.getBoundingClientRect().bottom <= 0) this._rvIn(b, true);
+      }
+    }
+    const c = el.classList;
+    const later = (fn, ms) => { if (skip) fn(); else this._rvT.push(setTimeout(fn, ms)); };
+    if (c.contains('fl-stage')) later(() => { if (this._spFl) this._spFl.ignite(true, skip); }, 300);
+    else if (c.contains('nu-stage')) later(() => { if (this._spNu) this._spNu.ignite(false, skip); }, 550);
+    else if (c.contains('so-in')) later(() => { if (this._spSo) this._spSo.ignite(false, skip); }, 450);
+    else if (c.contains('ix')) later(() => { this._ixReady = true; this._ixSync(); }, 1500);
+    else if (c.contains('nu-st')) {
+      const k = ['s1', 's2', 's3', 's4'].findIndex((s) => c.contains(s));
+      if (k >= 0) this._countStat(k, skip ? null : (parseFloat(el.style.getPropertyValue('--d')) || 0) * 1000 + 80);
+    }
+  }
+  _rvAll() {
+    (this._rvB || []).forEach((b) => this._rvIn(b, true));
+  }
+  _ixSync() {
+    const on = !!(this._ixVis && this._ixReady);
+    if (on !== this.state.evAuto) this.setState({ evAuto: on });
+  }
+  _live() {
+    if (typeof window === 'undefined') return;
+    const w = this.rootEl ? this.rootEl.getBoundingClientRect().width : window.innerWidth;
+    const h = window.innerHeight;
+    this._liveOn = !this._rm && h >= 560 && h <= 1400 && w > 860;
+    [this.hxEl, this.flEl].forEach((el) => { if (!el) return; if (this._liveOn) el.setAttribute('data-live', ''); else el.removeAttribute('data-live'); });
+    if (!this._liveOn) {
+      if (this.flEl) this.flEl.style.removeProperty('--fp');
+      if (this.hxEl) this.hxEl.style.removeProperty('--hs');
+      if (this._spFl) this._spFl.setK(1);
+      if (this._hg) this._hg.s = 0;
+    }
+  }
+  _frame() {
+    this._fr = 0;
+    const vh = window.innerHeight;
+    const cl = (x) => Math.min(1, Math.max(0, x));
+    const v = window.scrollY > 24;
+    if (v !== this.state.scrolled) this.setState({ scrolled: v });
+    if (!this._liveOn) return;
+    const hx = this.hxEl;
+    if (hx) {
+      const r = hx.getBoundingClientRect();
+      const s = cl(-r.top / Math.max(1, r.height));
+      hx.style.setProperty('--hs', s.toFixed(4));
+      if (this._hg) { this._hg.s = s; if (this._hg.kick) this._hg.kick(); }
+    }
+    const fl = this.flEl;
+    if (fl) {
+      const r = fl.getBoundingClientRect();
+      const p = cl((vh - r.top) / (vh * .55 + r.height * .5));
+      fl.style.setProperty('--fp', p.toFixed(4));
+      if (this._spFl) this._spFl.setK(cl((p - .25) / .45));
+    }
+  }
+  _hero() {
+    const cv = this.glEl, host = this.hxEl;
+    if (!cv || !host || typeof window === 'undefined') return;
+    let gl = null;
+    try { gl = cv.getContext('webgl', { antialias: false, alpha: false, depth: false, stencil: false, premultipliedAlpha: false, preserveDrawingBuffer: false, powerPreference: 'high-performance' }); } catch (e) { gl = null; }
+    const fail = () => { host.setAttribute('data-nogl', ''); };
+    if (!gl) { fail(); return; }
+    const vs = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+    const fs = [
+      'precision highp float;',
+      'uniform vec2 uR;uniform float uT;uniform vec2 uM;uniform float uS;uniform vec3 uC;',
+      'const float F=1.85;const float ZB=2.2;const vec3 RO=vec3(0.0,0.0,3.6);',
+      'const float TILT=-0.38;const float LEAN=-0.22;',
+      'vec3 S1;vec3 S2;float MAT;',
+      'float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
+      'mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}',
+      'float sdRC(vec3 p,float r1,float r2,float h){float b=(r1-r2)/h;float a=sqrt(1.0-b*b);vec2 q=vec2(length(p.xz),p.y);float k=dot(q,vec2(-b,a));if(k<0.0)return length(q)-r1;if(k>a*h)return length(q-vec2(0.0,h))-r2;return dot(q,vec2(a,b))-r1;}',
+      'float smin(float a,float b,float k){float h=clamp(0.5+0.5*(b-a)/k,0.0,1.0);return mix(b,a,h)-k*h*(1.0-h);}',
+      'float fall(){return uS*1.25;}',
+      'float map(vec3 p){',
+      '  vec3 b=p;b.y+=0.22;',
+      '  b.xy=rot(TILT)*b.xy;b.yz=rot(LEAN)*b.yz;',
+      '  float tube=max(length(b.xz)-0.115,-(b.y-1.36));',
+      '  float tip=sdRC(b-vec3(0.0,1.02,0.0),0.032,0.115,0.34);',
+      '  float pip=min(tip,tube);',
+      '  vec3 q=p;q.y+=0.22+fall()+0.025*sin(uT*0.55);',
+      '  q.xy=rot(TILT+uM.x*0.10)*q.xy;q.yz=rot(LEAN+uM.y*0.08)*q.yz;',
+      '  q+=0.016*vec3(sin(q.y*6.0+uT*1.3),sin(q.z*6.0+uT*1.1),sin(q.x*6.0+uT*0.9));',
+      '  float d=sdRC(q,0.42,0.03,0.82);',
+      '  d=smin(d,length(p-S1)-0.085,0.04);',
+      '  d=smin(d,length(p-S2)-0.05,0.04);',
+      '  MAT=step(pip,d);',
+      '  return min(d,pip);',
+      '}',
+      'vec3 nrm(vec3 p){const vec2 e=vec2(1.0,-1.0)*0.0012;return normalize(e.xyy*map(p+e.xyy)+e.yyx*map(p+e.yyx)+e.yxy*map(p+e.yxy)+e.xxx*map(p+e.xxx));}',
+      'vec3 bgCol(vec2 uv){',
+      '  vec2 c=uC.xy;',
+      '  vec2 d=(uv-c)*vec2(0.8,1.0);',
+      '  float r=length(d);',
+      '  vec3 col=mix(vec3(0.010,0.045,0.24),vec3(0.002,0.005,0.024),smoothstep(0.0,0.78,r));',
+      '  vec2 bd=normalize(vec2(1.0,0.62));',
+      '  float bx=dot(uv-c+vec2(0.16,0.0),bd);',
+      '  float beam=exp(-bx*bx/0.010)+0.4*exp(-pow(bx-0.2,2.0)/0.003);',
+      '  col+=vec3(0.05,0.16,0.62)*beam*0.5*smoothstep(1.1,0.1,length(uv-c));',
+      '  vec2 w=uv-vec2(c.x+0.42,-0.46);',
+      '  col+=vec3(0.30,0.10,0.03)*exp(-dot(w,w)/0.05)*0.45;',
+      '  col*=1.0-0.6*smoothstep(0.45,1.25,length(uv*vec2(0.6,1.05)));',
+      '  return col;',
+      '}',
+      'float box(vec3 d,vec3 k,vec3 up,float w,float h,float soft){',
+      '  float dk=dot(d,k);if(dk<=0.0)return 0.0;',
+      '  vec3 u=normalize(cross(up,k));vec3 v=cross(k,u);',
+      '  float x=dot(d,u)/dk,y=dot(d,v)/dk;',
+      '  return smoothstep(w,w-soft,abs(x))*smoothstep(h,h-soft,abs(y));',
+      '}',
+      'vec3 envL(vec3 d){',
+      '  vec3 col=vec3(0.004,0.010,0.04)+vec3(0.03,0.09,0.32)*smoothstep(-0.2,1.0,d.y)*0.35;',
+      '  col+=vec3(0.82,0.91,1.0)*box(d,normalize(vec3(-0.6,0.62,0.5)),vec3(0.0,1.0,0.0),0.42,0.14,0.04)*5.0;',
+      '  col+=vec3(1.0,0.56,0.26)*box(d,normalize(vec3(0.96,-0.1,0.26)),vec3(0.0,1.0,0.0),0.07,0.55,0.03)*4.0;',
+      '  col+=vec3(0.55,0.72,1.0)*box(d,normalize(vec3(0.15,0.95,0.15)),vec3(0.0,0.0,1.0),0.5,0.06,0.03)*1.6;',
+      '  return col;',
+      '}',
+      'vec3 envB(vec3 d){',
+      '  vec3 col=vec3(0.0);',
+      '  col+=vec3(0.78,0.88,1.0)*box(d,normalize(vec3(0.42,0.18,-0.89)),vec3(0.0,1.0,0.0),0.12,0.7,0.09)*3.4;',
+      '  col+=vec3(0.55,0.70,1.0)*box(d,normalize(vec3(-0.5,0.55,-0.67)),vec3(0.0,1.0,0.0),0.6,0.07,0.06)*2.2;',
+      '  col+=vec3(1.0,0.62,0.34)*box(d,normalize(vec3(-0.25,-0.62,-0.74)),vec3(0.0,1.0,0.0),0.24,0.1,0.08)*2.8;',
+      '  return col;',
+      '}',
+      'vec3 bgRay(vec3 o,vec3 d){float t=(o.z+ZB)/max(-d.z,0.001);vec3 P=o+d*t;vec2 uv=uC.xy+uC.z*F*P.xy/(RO.z+ZB);return bgCol(uv);}',
+      'vec3 scene(vec3 o,vec3 d){vec3 c=envL(d)*smoothstep(-0.2,0.25,d.z);if(d.z<0.0)c+=bgRay(o,d)*0.6+envB(d);return c;}',
+      'vec3 spark(vec2 uv,vec2 dc){',
+      '  vec3 acc=vec3(0.0);',
+      '  vec2 rel=uv-dc;',
+      '  float burst=1.0+uS*1.6;',
+      '  float r=length(rel*vec2(1.0,0.86))/uC.z;',
+      '  for(int L=0;L<3;L++){',
+      '    float fl=float(L);',
+      '    float gs=34.0+fl*26.0;',
+      '    vec2 q=rot(uT*0.03*(fl+1.0)*(fl==1.0?-1.0:1.0))*(rel/burst);',
+      '    vec2 g=q*gs;vec2 id=floor(g);vec2 f=fract(g)-0.5;',
+      '    float h=hash(id+fl*13.7);',
+      '    vec2 o=(vec2(hash(id+2.3),hash(id+5.9))-0.5)*0.7;',
+      '    float d=length(f-o);',
+      '    float tw=0.5+0.5*sin(uT*(1.0+h*2.6)+h*60.0);',
+      '    float ring=exp(-pow((r/burst-0.36)/0.13,2.0));',
+      '    float keep=step(0.8,h)*ring+step(0.9985,h)*0.22;',
+      '    float sz=0.04+0.07*hash(id+9.1);',
+      '    float bb=keep*smoothstep(sz,0.0,d)*tw;',
+      '    float st=step(0.965,h)*ring*(smoothstep(0.018,0.0,abs(f.x-o.x))+smoothstep(0.018,0.0,abs(f.y-o.y)))*smoothstep(0.4,0.0,d)*tw*0.55;',
+      '    vec3 c=mix(vec3(0.66,0.82,1.0),vec3(1.0,0.74,0.48),step(0.78,hash(id+4.4)));',
+      '    acc+=c*(bb*1.4+st);',
+      '  }',
+      '  return acc;',
+      '}',
+      'vec3 aces(vec3 x){return clamp((x*(2.51*x+0.03))/(x*(2.43*x+0.59)+0.14),0.0,1.0);}',
+      'float capI(vec3 ro,vec3 rd,vec3 pa,vec3 pb,float r){',
+      '  vec3 ba=pb-pa;vec3 oa=ro-pa;',
+      '  float baba=dot(ba,ba);float bard=dot(ba,rd);float baoa=dot(ba,oa);float rdoa=dot(rd,oa);float oaoa=dot(oa,oa);',
+      '  float a=baba-bard*bard;float b=baba*rdoa-baoa*bard;float c=baba*oaoa-baoa*baoa-r*r*baba;',
+      '  float h=b*b-a*c;',
+      '  if(h>=0.0){float t=(-b-sqrt(h))/a;float y=baoa+t*bard;if(y>0.0&&y<baba)return t;',
+      '    vec3 oc=(y<=0.0)?oa:ro-pb;b=dot(rd,oc);c=dot(oc,oc)-r*r;h=b*b-c;if(h>0.0)return -b-sqrt(h);}',
+      '  return -1.0;',
+      '}',
+      'void main(){',
+      '  vec2 uv=(gl_FragCoord.xy-0.5*uR)/uR.y;',
+      '  S1=vec3(0.8+0.05*sin(uT*0.6),0.08-fall()*0.6+0.05*sin(uT*0.8),0.25);',
+      '  S2=vec3(-0.62+0.05*cos(uT*0.5),0.6-fall()*0.3+0.05*sin(uT*0.7+1.0),-0.2);',
+      '  vec2 sc=(uv-uC.xy)/uC.z;',
+      '  vec3 rd=normalize(vec3(sc,-F));',
+      '  vec3 ro=RO;',
+      '  vec3 col=bgCol(uv);',
+      '  vec3 ax=vec3(0.0,1.0,0.0);ax.yz=rot(-LEAN)*ax.yz;ax.xy=rot(-TILT)*ax.xy;',
+      '  vec3 pa=vec3(0.0,-0.22,0.0)+ax*0.95;vec3 pb=pa+ax*3.0;',
+      '  float t1=capI(ro,rd,pa,pb,0.17);',
+      '  vec3 dcen=vec3(0.0,-0.22-fall(),0.0)+ax*0.3;',
+      '  vec3 oc=ro-dcen;float b=dot(oc,rd);float c=dot(oc,oc)-1.3*1.3;float h=b*b-c;',
+      '  float t0=h>0.0?max(-b-sqrt(h),0.0):-1.0;',
+      '  float ts=-1.0;',
+      '  if(t0>=0.0)ts=t0;',
+      '  if(t1>=0.0)ts=ts<0.0?t1:min(ts,t1);',
+      '  if(ts>=0.0){',
+      '    float t=ts;bool hit=false;',
+      '    for(int i=0;i<110;i++){float d=map(ro+rd*t);if(d<0.0008){hit=true;break;}t+=d;if(t>7.5)break;}',
+      '    if(hit){',
+      '      vec3 p=ro+rd*t;map(p);float mt=MAT;vec3 n=nrm(p);',
+      '      float ci=clamp(dot(-rd,n),0.0,1.0);',
+      '      float fr=0.04+0.96*pow(1.0-ci,5.0);',
+      '      vec3 refl=envL(reflect(rd,n));',
+      '      float ior=mix(1.42,1.5,mt);',
+      '      vec3 ri=refract(rd,n,1.0/ior);',
+      '      float ti=0.012;',
+      '      for(int i=0;i<40;i++){float d=-map(p+ri*ti);if(d<0.0008)break;ti+=max(d,0.005);}',
+      '      vec3 pe=p+ri*ti;vec3 ne=nrm(pe);',
+      '      vec3 rr=refract(ri,-ne,ior-0.028);if(dot(rr,rr)<0.01)rr=reflect(ri,-ne);',
+      '      vec3 rg=refract(ri,-ne,ior);if(dot(rg,rg)<0.01)rg=reflect(ri,-ne);',
+      '      vec3 rb=refract(ri,-ne,ior+0.032);if(dot(rb,rb)<0.01)rb=reflect(ri,-ne);',
+      '      vec3 cr=vec3(scene(pe,rr).r,scene(pe,rg).g,scene(pe,rb).b);',
+      '      vec3 abD=vec3(1.1,0.55,0.16);',
+      '      vec3 ab=exp(-ti*mix(abD,vec3(0.25,0.18,0.1),mt));',
+      '      float caus=pow(max(dot(-ne,normalize(vec3(-0.2,-1.0,0.35))),0.0),6.0)*(1.0-mt);',
+      '      vec3 body=cr*ab+vec3(1.0,0.86,0.7)*caus*0.6+vec3(0.02,0.08,0.36)*(1.0-exp(-ti*1.2))*0.12;',
+      '      col=mix(body,refl,fr);',
+      '      col+=vec3(1.0,0.5,0.2)*pow(1.0-ci,2.5)*0.35*smoothstep(0.0,0.8,dot(n,normalize(vec3(0.9,-0.4,0.15))));',
+      '      col+=vec3(0.35,0.6,1.0)*pow(1.0-ci,3.0)*0.55*smoothstep(0.0,0.8,dot(n,normalize(vec3(-0.65,0.7,0.0))));',
+      '    }',
+      '  }',
+      '  vec2 dc=uC.xy+uC.z*F*vec2(dcen.x,dcen.y)/RO.z;',
+      '  float r2=length((uv-dc)*vec2(1.0,0.9))/uC.z;',
+      '  col+=vec3(0.03,0.12,0.55)*exp(-r2*r2*6.0)*0.16;',
+      '  col+=spark(uv,dc);',
+      '  col+=(hash(gl_FragCoord.xy+fract(uT*7.0))-0.5)*0.02;',
+      '  col=aces(col*1.15);',
+      '  col=pow(col,vec3(0.4545));',
+      '  gl_FragColor=vec4(col,1.0);',
+      '}'
+    ].join('\n');
+    const mk = (t, src) => { const o = gl.createShader(t); gl.shaderSource(o, src); gl.compileShader(o); return gl.getShaderParameter(o, gl.COMPILE_STATUS) ? o : null; };
+    const v = mk(gl.VERTEX_SHADER, vs), f = mk(gl.FRAGMENT_SHADER, fs);
+    if (!v || !f) { fail(); return; }
+    const pr = gl.createProgram();
+    gl.attachShader(pr, v); gl.attachShader(pr, f); gl.linkProgram(pr);
+    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { fail(); return; }
+    gl.useProgram(pr);
+    const b = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, b);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const al = gl.getAttribLocation(pr, 'a');
+    gl.enableVertexAttribArray(al);
+    gl.vertexAttribPointer(al, 2, gl.FLOAT, false, 0, 0);
+    const U = { r: gl.getUniformLocation(pr, 'uR'), t: gl.getUniformLocation(pr, 'uT'), m: gl.getUniformLocation(pr, 'uM'), s: gl.getUniformLocation(pr, 'uS'), c: gl.getUniformLocation(pr, 'uC') };
+    const st = this._hg = { raf: 0, vis: true, on: !document.hidden, mx: 0, my: 0, tx: 0, ty: 0, s: 0, ss: 0, t0: performance.now(), w: 0, h: 0, ratio: Math.min(window.devicePixelRatio || 1, 1.25), last: 0, acc: 0, n: 0 };
+    const size = () => {
+      const r = host.getBoundingClientRect();
+      const w = Math.max(2, Math.round(r.width * st.ratio)), h = Math.max(2, Math.round(r.height * st.ratio));
+      if (w !== st.w || h !== st.h) { st.w = w; st.h = h; cv.width = w; cv.height = h; }
+    };
+    const draw = (t) => {
+      const asp = cv.width / cv.height, wide = asp > 1.15;
+      gl.viewport(0, 0, cv.width, cv.height);
+      gl.uniform2f(U.r, cv.width, cv.height);
+      gl.uniform1f(U.t, t);
+      gl.uniform2f(U.m, st.mx, st.my);
+      gl.uniform1f(U.s, st.ss);
+      gl.uniform3f(U.c, wide ? Math.min(asp * .1, .26) : 0, wide ? .03 : .24, wide ? .92 : .56);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+    size();
+    const T0 = 7.2;
+    const loop = (now) => {
+      st.raf = 0;
+      if (!st.on || !st.vis || !this._anim()) return;
+      const dt = st.last ? now - st.last : 16; st.last = now;
+      st.acc += dt; st.n++;
+      if (st.n >= 45) {
+        const avg = st.acc / st.n; st.acc = 0; st.n = 0;
+        if (avg > 24 && st.ratio > .55) { st.ratio = Math.max(.55, st.ratio - .15); size(); }
+      }
+      st.mx += (st.tx - st.mx) * .05; st.my += (st.ty - st.my) * .05;
+      st.ss += (st.s - st.ss) * .12;
+      draw(T0 + (now - st.t0) / 1000);
+      st.raf = requestAnimationFrame(loop);
+    };
+    const kick = () => { if (!st.raf && st.on && st.vis && this._anim()) { st.last = 0; st.raf = requestAnimationFrame(loop); } };
+    st.kick = kick;
+    draw(T0);
+    host.setAttribute('data-gl', '');
+    kick();
+    if (typeof IntersectionObserver !== 'undefined') {
+      st.io = new IntersectionObserver((l) => { st.vis = l[0].isIntersecting; kick(); }, { threshold: 0 });
+      st.io.observe(host);
+    }
+    st.onVis = () => { st.on = !document.hidden; kick(); };
+    document.addEventListener('visibilitychange', st.onVis);
+    st.onRs = () => { size(); if (!this._anim()) draw(T0); else kick(); };
+    window.addEventListener('resize', st.onRs);
+    st.onMv = (e) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const r = host.getBoundingClientRect();
+      st.tx = Math.min(1, Math.max(-1, ((e.clientX - r.left) / r.width - .5) * 2));
+      st.ty = Math.min(1, Math.max(-1, ((e.clientY - r.top) / r.height - .5) * 2));
+    };
+    st.onLv = () => { st.tx = 0; st.ty = 0; };
+    host.addEventListener('pointermove', st.onMv);
+    host.addEventListener('pointerleave', st.onLv);
+  }
+  _sparks(cv, o) {
+    if (!cv || typeof window === 'undefined') return null;
+    let ctx = null;
+    try { ctx = cv.getContext('2d'); } catch (e) { ctx = null; }
+    if (!ctx) return null;
+    const mkSpr = (rgb) => {
+      const c = document.createElement('canvas'); c.width = c.height = 64;
+      const g = c.getContext('2d');
+      const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+      gr.addColorStop(0, 'rgba(' + rgb + ',1)'); gr.addColorStop(.14, 'rgba(' + rgb + ',.85)'); gr.addColorStop(.4, 'rgba(' + rgb + ',.16)'); gr.addColorStop(1, 'rgba(' + rgb + ',0)');
+      g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
+      g.globalCompositeOperation = 'lighter';
+      const lh = g.createLinearGradient(0, 0, 64, 0); lh.addColorStop(0, 'rgba(' + rgb + ',0)'); lh.addColorStop(.5, 'rgba(' + rgb + ',.5)'); lh.addColorStop(1, 'rgba(' + rgb + ',0)');
+      g.fillStyle = lh; g.fillRect(0, 31.3, 64, 1.4);
+      const lv = g.createLinearGradient(0, 0, 0, 64); lv.addColorStop(0, 'rgba(' + rgb + ',0)'); lv.addColorStop(.5, 'rgba(' + rgb + ',.5)'); lv.addColorStop(1, 'rgba(' + rgb + ',0)');
+      g.fillStyle = lv; g.fillRect(31.3, 0, 1.4, 64);
+      return c;
+    };
+    const spr = o.cols.map(mkSpr);
+    // r: intensità d'ingresso (0 finché il blocco non entra, poi sale in o.ramp ms); fl: bagliore dello sbuffo d'accensione
+    const st = { raf: 0, vis: false, on: !document.hidden, w: 0, h: 0, dpr: Math.min(window.devicePixelRatio || 1, 2), k: o.k == null ? 1 : o.k, r: o.r0 == null ? 1 : o.r0, ig: 0, burst: false, fl: 0, lit: false, P: [], last: 0, t: 0 };
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const pick = () => { const r = Math.random(); let a = 0; for (let i = 0; i < o.wts.length; i++) { a += o.wts[i]; if (r <= a) return i; } return 0; };
+    const spawn = (p, fresh) => {
+      p.c = pick(); p.s = rnd(o.size[0], o.size[1]); p.ph = Math.random() * 6.283; p.tw = rnd(1.2, 3.4);
+      p.life = rnd(o.life[0], o.life[1]); p.age = fresh ? Math.random() * p.life : 0;
+      if (o.mode === 'burst') {
+        const a = rnd(0, 6.283), sp = rnd(o.speed[0], o.speed[1]);
+        p.x = o.ex * st.w + rnd(-8, 8); p.y = o.ey * st.h + rnd(-8, 8);
+        p.vx = Math.cos(a) * sp; p.vy = Math.sin(a) * sp * .72;
+      } else {
+        p.x = rnd(o.area[0], o.area[2]) * st.w; p.y = rnd(o.area[1], o.area[3]) * st.h;
+        p.vx = rnd(-o.speed[0], o.speed[0]); p.vy = rnd(o.speed[1], o.speed[2]);
+      }
+    };
+    const stepP = (p, dt) => {
+      p.age += dt;
+      if (p.age > p.life) { spawn(p, false); return; }
+      if (o.drag) { const d = Math.pow(o.drag, dt); p.vx *= d; p.vy *= d; }
+      if (o.g) p.vy += o.g * dt;
+      p.x += p.vx * dt; p.y += p.vy * dt;
+    };
+    const step = (dt) => { for (let i = 0; i < st.P.length; i++) stepP(st.P[i], dt); };
+    const size = () => {
+      const r = cv.getBoundingClientRect();
+      const w = Math.max(2, Math.round(r.width)), h = Math.max(2, Math.round(r.height));
+      if (w === st.w && h === st.h) return false;
+      st.w = w; st.h = h; cv.width = Math.round(w * st.dpr); cv.height = Math.round(h * st.dpr);
+      st.P = [];
+      for (let i = 0; i < o.n; i++) { const p = {}; spawn(p, true); st.P.push(p); }
+      for (let i = 0; i < 80; i++) step(1 / 30);
+      return true;
+    };
+    const draw = () => {
+      ctx.setTransform(st.dpr, 0, 0, st.dpr, 0, 0);
+      ctx.clearRect(0, 0, st.w, st.h);
+      const K = st.k * st.r;
+      if (K <= .01) return;
+      ctx.globalCompositeOperation = 'lighter';
+      if (o.glow) {
+        const gx = o.ex * st.w, gy = o.ey * st.h, gr = o.glow[1] * (1 + .06 * Math.sin(st.t * 1.7)) * (1 + .35 * st.fl);
+        const rg = ctx.createRadialGradient(gx, gy, 0, gx, gy, gr);
+        rg.addColorStop(0, 'rgba(' + o.glow[0] + ',.55)'); rg.addColorStop(.3, 'rgba(' + o.glow[0] + ',.18)'); rg.addColorStop(1, 'rgba(' + o.glow[0] + ',0)');
+        ctx.globalAlpha = Math.min(1, K * (1 + .8 * st.fl)); ctx.fillStyle = rg; ctx.fillRect(gx - gr, gy - gr, gr * 2, gr * 2);
+      }
+      for (let i = 0; i < st.P.length; i++) {
+        const p = st.P[i];
+        const lf = p.age / p.life;
+        const env = Math.sin(Math.PI * Math.min(1, Math.max(0, lf)));
+        const tw = .55 + .45 * Math.sin(st.t * p.tw + p.ph);
+        const a = env * tw * K * (o.alpha || 1);
+        if (a < .02) continue;
+        ctx.globalAlpha = Math.min(1, a);
+        const s = p.s * 6 * (o.mode === 'burst' ? 1 - lf * .45 : 1);
+        ctx.drawImage(spr[p.c], p.x - s / 2, p.y - s / 2, s, s);
+      }
+      ctx.globalAlpha = 1;
+    };
+    const loop = (now) => {
+      st.raf = 0;
+      if (!st.on || !st.vis || !this._anim()) return;
+      const dt = Math.min(.05, st.last ? (now - st.last) / 1000 : 1 / 60); st.last = now; st.t += dt;
+      if (st.ig) {
+        const e = Math.max(0, now - st.ig) / (o.ramp || 1200);
+        st.r = e >= 1 ? 1 : 1 - Math.pow(1 - e, 3);
+        const f = st.burst ? Math.max(0, 1 - Math.max(0, now - st.ig) / 1500) : 0;
+        st.fl = f * f;
+        if (e >= 1 && !st.fl) st.ig = 0;
+      }
+      step(dt); draw();
+      st.raf = requestAnimationFrame(loop);
+    };
+    const kick = () => { if (!st.raf && st.on && st.vis && (st.r > 0 || st.ig) && this._anim()) { st.last = 0; st.raf = requestAnimationFrame(loop); } };
+    size(); st.t = 2.4; draw();
+    const io = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver((l) => { st.vis = l[0].isIntersecting; kick(); }, { rootMargin: '160px 0px' }) : null;
+    if (io) io.observe(cv); else { st.vis = true; kick(); }
+    const onVis = () => { st.on = !document.hidden; kick(); };
+    document.addEventListener('visibilitychange', onVis);
+    const onRs = () => { size(); draw(); kick(); };
+    window.addEventListener('resize', onRs);
+    return {
+      // accensione all'ingresso del blocco: burst = sbuffo dal beccuccio con bagliore; instant = subito a piena intensità (salto, canvas statico)
+      ignite: (burst, instant) => {
+        if (st.lit) return;
+        st.lit = true;
+        if (instant) { st.r = 1; st.ig = 0; st.fl = 0; draw(); kick(); return; }
+        st.ig = performance.now(); st.burst = !!burst;
+        if (burst && o.mode === 'burst') for (let i = 0; i < st.P.length; i++) { const p = st.P[i]; spawn(p, false); p.age = Math.random() * .3; }
+        kick();
+      },
+      setK: (k) => { st.k = k; if (!st.raf) draw(); },
+      destroy: () => { if (st.raf) cancelAnimationFrame(st.raf); if (io) io.disconnect(); document.removeEventListener('visibilitychange', onVis); window.removeEventListener('resize', onRs); }
+    };
+  }
+  _ix() {
+    const el = this.ixEl; if (!el) return;
+    const n = this.data().ev.length;
+    const pick = (t) => {
+      const r = t && t.closest ? t.closest('.ix-row') : null;
+      if (!r || !el.contains(r)) return;
+      const i = parseInt(r.getAttribute('data-i'), 10);
+      if (i >= 0 && i < n && i !== this.state.evI) this.setState({ evI: i });
+    };
+    this._ixOv = (e) => { if (e.pointerType === 'mouse') pick(e.target); };
+    this._ixFo = (e) => pick(e.target);
+    this._ixEnd = (e) => { if (e.animationName === 'p10-ixb') this.setState({ evI: (this.state.evI + 1) % n }); };
+    el.addEventListener('pointerover', this._ixOv);
+    el.addEventListener('focusin', this._ixFo);
+    el.addEventListener('animationend', this._ixEnd);
+    if (this._anim() && typeof IntersectionObserver !== 'undefined') {
+      // il giro automatico parte solo a ingresso dell'indice concluso (_ixReady) e si ferma fuori vista
+      this._ixIo = new IntersectionObserver((list) => list.forEach((x) => { this._ixVis = x.isIntersecting; this._ixSync(); }), { threshold: .35 });
+      this._ixIo.observe(el);
+    }
+  }
+  _mag() {
+    const root = this.rootEl; if (!root || this._rm) return;
+    this._mm = (e) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const b = e.target && e.target.closest ? e.target.closest('.mag') : null;
+      if (this._mt && this._mt !== b) { this._mt.style.transform = ''; this._mt = null; }
+      if (!b) return;
+      const r = b.getBoundingClientRect();
+      const x = (e.clientX - (r.left + r.width / 2)) * .2, y = (e.clientY - (r.top + r.height / 2)) * .28;
+      b.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)';
+      this._mt = b;
+    };
+    root.addEventListener('pointermove', this._mm);
+    this._ml = () => { if (this._mt) { this._mt.style.transform = ''; this._mt = null; } };
+    root.addEventListener('pointerleave', this._ml);
+  }
+  componentDidMount() {
+    if (typeof window === 'undefined') return;
+    this._rm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    this._fit = () => {
+      const h = window.innerHeight;
+      [this.hxEl, this.rootEl].forEach((el) => { if (!el) return; if (h >= 560 && h <= 1400) el.style.setProperty('--hv', h + 'px'); else el.style.removeProperty('--hv'); });
+      if (this._rvOn && !this._anim()) this._rvAll();
+      this._live();
+      this._frame();
+    };
+    this._fit();
+    window.addEventListener('resize', this._fit);
+    this._sc = () => { if (!this._fr) this._fr = requestAnimationFrame(() => this._frame()); };
+    window.addEventListener('scroll', this._sc, { passive: true });
+    this._key = (e) => {
+      if (e.key !== 'Escape') return;
+      const s = this.state;
+      if (s.search || s.login || s.open || s.menu) this.setState({ search: false, login: false, open: null, menu: false });
+    };
+    document.addEventListener('keydown', this._key);
+    this._down = (e) => {
+      if (!this.state.open || !this.rootEl) return;
+      const top = this.rootEl.querySelector('.top');
+      if (top && !top.contains(e.target)) this.setState({ open: null });
+    };
+    document.addEventListener('pointerdown', this._down);
+    this._rvSetup();
+    if (this._rvOn) {
+      // le cifre partono da 0 e contano quando la loro bolla sale; senza animazione restano i valori finali scritti nella pagina
+      const els = this.cnt || [];
+      if (els[0]) els[0].textContent = '0';
+      if (els[4]) els[4].textContent = '0';
+      for (let i = 1; i < 4; i++) if (els[i]) els[i].textContent = '0';
+    }
+    this._ixReady = !this._rvOn;
+    this._ix();
+    this._mag();
+    this._hero();
+    const r0 = this._rvOn ? 0 : 1;
+    this._spFl = this._sparks(this.flCvEl, { mode: 'burst', n: 360, ex: .664, ey: .35, speed: [30, 320], drag: .35, g: 10, life: [1, 3.4], size: [1.3, 4.4], alpha: 1, glow: ['255,186,130', 170], cols: ['255,196,148', '255,255,255', '160,196,255'], wts: [.48, .34, .18], k: 1, r0: r0, ramp: 900 });
+    this._spNu = this._sparks(this.nuCvEl, { mode: 'drift', n: 110, area: [.56, .04, .98, .96], speed: [6, -16, -3], life: [2.4, 6.5], size: [.7, 2.3], alpha: .9, cols: ['150,190,255', '255,255,255'], wts: [.72, .28], k: 1, r0: r0, ramp: 1600 });
+    this._spSo = this._sparks(this.soCvEl, { mode: 'drift', n: 130, area: [.26, 0, .74, .62], speed: [9, 4, 18], life: [2.6, 7], size: [.7, 2.6], alpha: .85, cols: ['255,255,255', '150,190,255', '255,200,160', '170,255,220'], wts: [.42, .3, .16, .12], k: 1, r0: r0, ramp: 1800 });
+    this._live();
+    this._frame();
+  }
+  componentWillUnmount() {
+    if (this._sc) window.removeEventListener('scroll', this._sc);
+    if (this._fit) window.removeEventListener('resize', this._fit);
+    if (this._key) document.removeEventListener('keydown', this._key);
+    if (this._down) document.removeEventListener('pointerdown', this._down);
+    if (this._io) this._io.disconnect();
+    (this._rvT || []).forEach((t) => clearTimeout(t));
+    (this._cntRaf || []).forEach((r) => { if (r) cancelAnimationFrame(r); });
+    if (this._fr) cancelAnimationFrame(this._fr);
+    if (this.ixEl) { this.ixEl.removeEventListener('pointerover', this._ixOv); this.ixEl.removeEventListener('focusin', this._ixFo); this.ixEl.removeEventListener('animationend', this._ixEnd); }
+    if (this._ixIo) this._ixIo.disconnect();
+    if (this.rootEl) { if (this._mm) this.rootEl.removeEventListener('pointermove', this._mm); if (this._ml) this.rootEl.removeEventListener('pointerleave', this._ml); }
+    const hg = this._hg;
+    if (hg) {
+      if (hg.raf) cancelAnimationFrame(hg.raf);
+      if (hg.io) hg.io.disconnect();
+      if (hg.onVis) document.removeEventListener('visibilitychange', hg.onVis);
+      if (hg.onRs) window.removeEventListener('resize', hg.onRs);
+      if (this.hxEl) { this.hxEl.removeEventListener('pointermove', hg.onMv); this.hxEl.removeEventListener('pointerleave', hg.onLv); }
+    }
+    [this._spFl, this._spNu, this._spSo].forEach((s) => { if (s) s.destroy(); });
+  }
+  renderVals() {
+    const s = this.state;
+    const d = this.data();
+    const isExt = (h) => /^https?:/.test(h) && h.indexOf('https://www.cosmeticaitalia.it') !== 0;
+    const lk = (l) => ({ label: l[0], href: l[1], icS: 'ic ic-s' + (isExt(l[1]) ? ' is-ext' : ''), icM: 'ic' + (isExt(l[1]) ? ' is-ext' : ''), srExt: isExt(l[1]) ? ' (sito esterno)' : '' });
+    const nav = d.nav.map((n) => ({
+      label: n.label, intro: n.intro, href: n.href || '', isLink: !!n.href, hasMenu: !n.href,
+      open: s.open === n.id,
+      expanded: s.open === n.id ? 'true' : 'false',
+      cls: 'navbtn' + (s.open === n.id ? ' is-open' : ''),
+      toggle: () => this.setState({ open: s.open === n.id ? null : n.id, search: false, login: false }),
+      links: n.links.map(lk)
+    }));
+    const norm = (t) => (t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const words = norm(s.q).split(/\s+/).filter(Boolean);
+    const results = words.length ? d.index.filter((it) => { const h = norm(it.title + ' ' + it.type + ' ' + it.k); return words.every((w) => h.indexOf(w) !== -1); }) : [];
+    const MS = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+    const t0 = new Date(); t0.setHours(0, 0, 0, 0);
+    const pd = (x) => { const m = x.split('-'); return new Date(+m[0], +m[1] - 1, +m[2]); };
+    const ag = d.agenda.map((a) => {
+      const st = pd(a.s), en = pd(a.e);
+      const dd = Math.round((st - t0) / 864e5);
+      const rel = st <= t0 && en >= t0 ? 'In corso' : (dd === 1 ? 'Domani' : (dd < 60 ? 'Tra ' + dd + ' giorni' : 'Tra ' + Math.round(dd / 30) + ' mesi'));
+      const day = st.getDate() === en.getDate() && st.getMonth() === en.getMonth() ? String(st.getDate()) : st.getDate() + '–' + en.getDate();
+      return Object.assign({}, a, { end: en, rel: rel, d: day, m: MS[st.getMonth()], srExt: isExt(a.href) ? ' (sito esterno)' : '' });
+    }).filter((a) => a.end >= t0);
+    const svList = this.services();
+    const firstLinks = d.nav.filter((n) => !n.href).map((n) => ({ label: n.label, href: n.links[0][1] }));
+    return {
+      setRootRef: (el) => { this.rootEl = el; },
+      setHxRef: (el) => { this.hxEl = el; },
+      setGlRef: (el) => { this.glEl = el; },
+      setFlRef: (el) => { this.flEl = el; },
+      setFlCvRef: (el) => { this.flCvEl = el; },
+      setNuRef: (el) => { this.nuEl = el; },
+      setNuCvRef: (el) => { this.nuCvEl = el; },
+      setSoRef: (el) => { this.soEl = el; },
+      setSoCvRef: (el) => { this.soCvEl = el; },
+      setStatsRef: (el) => { this.statsEl = el; },
+      setQRef: (el) => { this.qEl = el; },
+      cntRef0: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[0] = el; },
+      cntRef1: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[1] = el; },
+      cntRef2: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[2] = el; },
+      cntRef3: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[3] = el; },
+      cntRef4: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[4] = el; },
+      nav,
+      ftNav: firstLinks,
+      topCls: 'top' + (s.scrolled || s.open || s.menu ? ' is-solid' : '') + (s.menu ? ' is-menu' : ''),
+      menuExp: s.menu ? 'true' : 'false',
+      searchExp: s.search ? 'true' : 'false',
+      loginExp: s.login ? 'true' : 'false',
+      searchOpen: s.search,
+      loginOpen: s.login,
+      toggleMenu: () => this.setState({ menu: !s.menu, open: null }),
+      closeMenu: () => this.setState({ menu: false, open: null }),
+      toggleSearch: () => this.setState({ search: !s.search, login: false, open: null, menu: false }, () => { if (this.state.search && this.qEl) this.qEl.focus(); }),
+      toggleLogin: () => this.setState({ login: !s.login, search: false, open: null, menu: false }),
+      q: s.q,
+      onQ: (e) => this.setState({ q: e.target.value }),
+      onPalKey: (e) => { if (e.key === 'Escape') this.setState({ search: false }); },
+      indexCount: d.index.length,
+      showChips: words.length === 0,
+      chips: d.chips.map((c) => ({ label: c, pick: () => this.setState({ q: c }) })),
+      suggested: d.suggested,
+      results: results.slice(0, 8),
+      hasResults: results.length > 0,
+      noResults: words.length > 0 && results.length === 0,
+      resultsLabel: results.length === 1 ? '1 risultato' : results.length + ' risultati' + (results.length > 8 ? ' (mostrati i primi 8)' : ''),
+      svcs: svList.map((v, i) => ({
+        title: v.title, desc: v.desc, img: v.img, pos: v.pos, pill: v.pill, kicker: v.kicker, href: v.href,
+        num: String(i + 1).padStart(2, '0'),
+        srExt: isExt(v.href) ? ' (sito esterno)' : '',
+        st: '--c:' + i,
+        links: v.links.map(lk)
+      })),
+      pubs: d.cs.slice(0, 3).map((x) => ({ title: x.title, date: x.date, href: x.href, kind: x.kind === 'cs' ? 'Centro Studi' : x.src })),
+      evItems: d.ev.map((e, i) => ({ i: String(i), n: String(i + 1).padStart(2, '0'), cls: 'ix-row' + (i === s.evI ? ' is-on' : ''), mCls: 'ix-m' + (i === s.evI ? ' is-on' : ''), kind: e.kind, date: e.date, title: e.title, href: e.href, img: e.img, pos: e.pos, srExt: isExt(e.href) ? ' (sito esterno)' : '' })),
+      ixCls: 'ix' + (s.evAuto ? ' is-auto' : ''),
+      setIxRef: (el) => { this.ixEl = el; },
+      evKind: d.ev[s.evI].kind,
+      evGo: d.ev[s.evI].go,
+      evHref: d.ev[s.evI].href,
+      evNum: String(s.evI + 1).padStart(2, '0'),
+      evTot: String(d.ev.length).padStart(2, '0'),
+      agNone: ag.length === 0,
+      agList: ag.slice(0, 4).map((a, i) => Object.assign({}, a, { isFirst: i === 0 })),
+      agCount: ag.length === 1 ? '1 in agenda' : ag.length + ' in agenda',
+      circolari: d.circolari,
+      perks: d.perks,
+      newsSent: s.newsSent,
+      onNews: (e) => { e.preventDefault(); this.setState({ newsSent: true }); },
+      toTop: () => { const r = this.rootEl; if (r) r.scrollIntoView({ behavior: this._rm ? 'auto' : 'smooth', block: 'start' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

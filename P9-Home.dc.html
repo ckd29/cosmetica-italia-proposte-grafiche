@@ -316,6 +316,12 @@ body{margin:0}
 .h9-top{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
 .h9-copy{display:flex;flex-direction:column;align-items:center;max-width:1180px}
 .h9-eye{margin-bottom:28px;animation:h9fade .9s cubic-bezier(.2,.8,.2,1) .05s both}
+/* pulso dell'apertura, come nella P8 su fondo bianco; punto e anello nello stesso riquadro */
+.h9-eye{gap:12px}
+.h9-eye::before{display:none}
+.h9-pulse{--pc:#1F59A1;position:relative;box-sizing:border-box;width:16px;height:16px;margin:-4px;border-radius:50%;background:radial-gradient(circle closest-side,var(--pc) 47%,transparent 53%);flex:none}
+.h9-pulse::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--pc);animation:h9pulse 2.4s ease-out infinite}
+@keyframes h9pulse{from{transform:scale(.6);opacity:1}to{transform:scale(1.8);opacity:0}}
 .h9-t{font-size:clamp(44px,5vw,72px);line-height:1.02;letter-spacing:-.048em;font-weight:600;color:#16224D}
 .h9-t .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
 .h9-t .li{display:block;animation:h9up 1.15s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.14s + var(--i) * .11s)}
@@ -436,21 +442,18 @@ body{margin:0}
 .cs9-bl b{display:block;font-size:16.5px;font-weight:600;color:#16224D}
 .cs9-bl small{display:block;margin-top:2px;font-size:13.5px;color:#556178}
 .cs9-bt{position:relative;height:16px;border-radius:999px;background:#EEF3F9;overflow:hidden}
-.cs9-bt i{position:absolute;left:0;top:0;bottom:0;width:var(--v);border-radius:inherit;background:#95C1DE;transform-origin:left;animation:cs9bar 1.5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.35s + var(--k) * .14s)}
+.cs9-bt i{position:absolute;left:0;top:0;bottom:0;width:var(--v);border-radius:inherit;background:#95C1DE;transform-origin:left}
 .cs9-bars li.is-top .cs9-bt i{background:linear-gradient(90deg,#203262,#1F59A1)}
 .cs9-bv{font-size:26px;font-weight:600;letter-spacing:-.03em;color:#16224D;text-align:right;font-variant-numeric:tabular-nums}
 .cs9-bars li.is-top .cs9-bv{color:#1F59A1}
-@keyframes cs9bar{from{transform:scaleX(0)}to{transform:none}}
 .cs9-txt{margin-top:30px;max-width:620px;font-size:16.5px;color:#4A5770}
 .cs9-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .cs9-src{margin-top:18px;font-size:13px;color:#5E6B82}
 .cs9-months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;align-items:end;height:118px;margin-top:34px}
-.cs9-months li{display:flex;align-items:flex-end;justify-content:center;height:54px;padding-bottom:9px;border-radius:12px;background:#EEF3F9;font-size:12.5px;font-weight:600;color:#556178;transform-origin:bottom;animation:cs9grow .9s cubic-bezier(.2,.8,.2,1) both}
-.cs9-months li:nth-child(1){animation-delay:.30s}.cs9-months li:nth-child(2){animation-delay:.34s}.cs9-months li:nth-child(3){animation-delay:.38s}.cs9-months li:nth-child(4){animation-delay:.42s}.cs9-months li:nth-child(5){animation-delay:.46s}.cs9-months li:nth-child(6){animation-delay:.50s}.cs9-months li:nth-child(7){animation-delay:.54s}.cs9-months li:nth-child(8){animation-delay:.58s}.cs9-months li:nth-child(9){animation-delay:.62s}.cs9-months li:nth-child(10){animation-delay:.66s}.cs9-months li:nth-child(11){animation-delay:.70s}.cs9-months li:nth-child(12){animation-delay:.74s}
+.cs9-months li{display:flex;align-items:flex-end;justify-content:center;height:54px;padding-bottom:9px;border-radius:12px;background:#EEF3F9;font-size:12.5px;font-weight:600;color:#556178}
 .cs9-months li.is-rep{height:118px;background:linear-gradient(170deg,#203262,#1F59A1);color:#fff}
 .cs9-months li.is-now{position:relative;background:#D4E4F5;color:#16224D}
 .cs9-months li.is-now::before{content:"oggi";position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#1F59A1}
-@keyframes cs9grow{from{transform:scaleY(.2);opacity:0}to{transform:none;opacity:1}}
 .cs9-reps{display:flex;flex-direction:column;gap:18px;margin-top:30px}
 .cs9-reps li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:start}
 .cs9-rm{display:inline-flex;align-items:center;justify-content:center;height:30px;border-radius:999px;background:#EEF3F9;font-size:12.5px;font-weight:600;color:#203262}
@@ -513,7 +516,7 @@ body{margin:0}
 
 /* ===================== CIRCOLARI E APPUNTAMENTI ===================== */
 .up9{background:#F3F7FC}
-.up9-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.up9-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch}
 .up9-ag,.up9-ci{padding:36px 38px 30px;border-radius:30px;background:#fff}
 .up9-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin-bottom:14px}
 .up9-h h3{font-size:24px}
@@ -541,6 +544,9 @@ body{margin:0}
 .up9-cm b{display:block;font-weight:600;color:#1F59A1;font-size:14px}
 .up9-cm span{display:block;margin-top:2px;color:#556178;font-size:13px}
 .up9-ct{font-size:16px;font-weight:600;line-height:1.35;color:#16224D}
+.up9-ag,.up9-ci{display:flex;flex-direction:column}
+.up9-ag .up9-cta,.up9-ci .up9-cta{margin-top:auto}
+.up9-ag .up9-list,.up9-ci .up9-cir{margin-bottom:16px}
 .up9-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:16px;padding:18px 18px 18px 22px;border-radius:22px;background:#F3F7FC;font-size:14.5px;color:#4A5770}
 
 /* ===================== ASSOCIARSI ===================== */
@@ -560,48 +566,177 @@ body{margin:0}
 .so9-i{flex:none;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-top:-2px;border-radius:999px;background:#203262;color:#fff}
 .so9-i .ic{width:14px;height:14px;stroke-width:2.2}
 
-/* ===================== RIVELAZIONI ALLO SCORRIMENTO ===================== */
-@keyframes r9up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-@keyframes r9rise{from{opacity:0;transform:translateY(40px);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
-@keyframes r9img{from{clip-path:inset(100% 0 0 0 round 30px)}to{clip-path:inset(0 0 0 0 round 30px)}}
-@keyframes r9zoom{from{transform:scale(1.16)}to{transform:scale(1)}}
-@keyframes r9pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
-@keyframes r9left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
-.hd9 .ey9{animation:r9up .8s cubic-bezier(.2,.8,.2,1) both}
-.hd9 h2{animation:r9rise 1.1s cubic-bezier(.2,.8,.2,1) .08s both}
-.hd9-r > *{animation:r9up .9s cubic-bezier(.2,.8,.2,1) both}
-.hd9-r > *:nth-child(1){animation-delay:.22s}.hd9-r > *:nth-child(2){animation-delay:.32s}
-.ev9-f .ev9-im{animation:r9img 1.35s cubic-bezier(.7,0,.2,1) both}
-.ev9-f .ev9-im img{animation:r9zoom 1.8s cubic-bezier(.2,.7,.2,1) both}
-.ev9-f .ev9-im .ev9-chip,.ev9-f .ev9-im .ev9-badge{animation:r9pop .7s cubic-bezier(.2,.8,.2,1) 1s both}
-.ev9-f .ev9-fb{animation:r9up 1s cubic-bezier(.2,.8,.2,1) .45s both}
-.ev9-r{animation:r9left .9s cubic-bezier(.2,.8,.2,1) .2s both}
-.ev9-r + .ev9-r{animation-delay:.34s}
-.ev9-r .ev9-th{animation:r9img 1.1s cubic-bezier(.7,0,.2,1) .25s both}
-.ev9-news{animation:r9up .9s cubic-bezier(.2,.8,.2,1) .4s both}
-.ev9-news li{animation:r9up .7s cubic-bezier(.2,.8,.2,1) both}
-.ev9-news li:nth-child(1){animation-delay:.6s}.ev9-news li:nth-child(2){animation-delay:.7s}.ev9-news li:nth-child(3){animation-delay:.8s}
-.cs9-grow,.cs9-cal{animation:r9up 1s cubic-bezier(.2,.8,.2,1) both}
-.cs9-cal{animation-delay:.14s}
-.cs9-pubs{animation:r9up 1s cubic-bezier(.2,.8,.2,1) .1s both}
-.cs9-tab li{animation:r9up .7s cubic-bezier(.2,.8,.2,1) both}
-.cs9-tab li:nth-child(1){animation-delay:.25s}.cs9-tab li:nth-child(2){animation-delay:.33s}.cs9-tab li:nth-child(3){animation-delay:.41s}.cs9-tab li:nth-child(4){animation-delay:.49s}
-.sv9-box > .sv9-tabs{animation:r9pop .9s cubic-bezier(.2,.8,.2,1) both}
-.sv9-box .sv9-pan.is-on{animation:r9up 1s cubic-bezier(.2,.8,.2,1) .15s both}
-.up9-ag,.up9-ci{animation:r9up 1s cubic-bezier(.2,.8,.2,1) both}
-.up9-ci{animation-delay:.14s}
-.up9-list li,.up9-cir li{animation:r9up .7s cubic-bezier(.2,.8,.2,1) both}
-.up9-list li:nth-child(1),.up9-cir li:nth-child(1){animation-delay:.3s}.up9-list li:nth-child(2),.up9-cir li:nth-child(2){animation-delay:.38s}.up9-list li:nth-child(3),.up9-cir li:nth-child(3){animation-delay:.46s}.up9-list li:nth-child(4),.up9-cir li:nth-child(4){animation-delay:.54s}
-.so9-txt > *{animation:r9up .9s cubic-bezier(.2,.8,.2,1) both}
-.so9-txt > *:nth-child(2){animation:r9rise 1.1s cubic-bezier(.2,.8,.2,1) .08s both}
-.so9-txt > *:nth-child(3){animation-delay:.24s}.so9-txt > *:nth-child(4){animation-delay:.34s}
-.so9-vis{animation:r9img 1.4s cubic-bezier(.7,0,.2,1) .1s both}
-.so9-vis img{animation:r9zoom 2s cubic-bezier(.2,.7,.2,1) .1s both}
-.so9-card{animation:r9up 1s cubic-bezier(.2,.8,.2,1) .9s both}
-.so9-list li{animation:r9up .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(1.15s + var(--k) * .08s)}
-.f9-top,.f9-grid{animation:r9up 1s cubic-bezier(.2,.8,.2,1) both}
-.f9-grid{animation-delay:.12s}
-.rv,.rv *{animation-play-state:var(--play, running)}
+/* ===================== INGRESSI ALLO SCORRIMENTO (26/11/2026) =====================
+   Ogni sezione sotto l'apertura ha il suo ingresso, che parte quando il suo blocco (.rv) entra nel viewport.
+   Lo stato nascosto esiste solo con [data-rv-on] sulla radice: lo mette lo script prima del primo disegno e solo
+   in modalità viva (finestra alta 360-1400 px, senza «riduci movimento»). Senza script, nel canvas (modalità
+   statica, finestra più alta di 1400 px) e con «riduci movimento» la pagina è completa dal primo fotogramma.
+   Finché un blocco non ha [data-in] le sue animazioni restano ferme sul primo fotogramma; [data-done] arriva a
+   ingresso finito. Si animano solo translate/scale, opacity, clip-path, filter (senza sfocatura) e
+   stroke-dashoffset, sempre con fill backwards: a ingresso finito valgono gli stili di base.
+   Fra desktop e telefono cambiano solo custom property (distanze e cascate più brevi), mai le animazioni. */
+.p9{--rv-e:cubic-bezier(.2,.7,.2,1);--rv-w:cubic-bezier(.7,0,.2,1);--rv-y:30px;--rv-ys:16px;--rv-x:24px;--rv-k:1;--rv-sk:-25.6deg}
+.p9 .sv9-tabs,.p9 .f9-row,.p9 .f9-base{--rr:999px}
+.p9 .sv9-pan,.p9 .so9-vis{--rr:32px}
+.p9 .up9-ci{--o:.14s}
+.p9 .ev9-r + .ev9-r{--o:.15s}
+@container site (max-width: 1080px){
+.p9 .up9-ci{--o:0s}
+.p9 .f9-base{--rr:24px}
+}
+@container site (max-width: 860px){
+.p9 .sv9-tabs{--rr:24px}
+}
+@container site (max-width: 640px){
+.p9 main,.p9 .f9{--rv-y:18px;--rv-ys:10px;--rv-x:14px;--rv-k:.6;--rv-sk:-19.4deg}
+.p9 .sv9-pan{--rr:24px}
+.p9 .so9-vis{--rr:26px}
+.p9 .f9-row{--rr:22px}
+}
+/* indici per le cascate */
+.p9 :is(.ev9-news ul,.cs9-reps,.cs9-tab,.up9-list,.up9-cir,.sv9-links,.sv9-feat ul,.f9-soc) > li:nth-child(2){--n:1}
+.p9 :is(.ev9-news ul,.cs9-reps,.cs9-tab,.up9-list,.up9-cir,.sv9-links,.sv9-feat ul,.f9-soc) > li:nth-child(3){--n:2}
+.p9 :is(.ev9-news ul,.cs9-reps,.cs9-tab,.up9-list,.up9-cir,.sv9-links,.sv9-feat ul,.f9-soc) > li:nth-child(4){--n:3}
+.p9 :is(.ev9-news ul,.cs9-reps,.cs9-tab,.up9-list,.up9-cir,.sv9-links,.sv9-feat ul,.f9-soc) > li:nth-child(5){--n:4}
+.p9 .cs9-months li:nth-child(2){--m:1}.p9 .cs9-months li:nth-child(3){--m:2}.p9 .cs9-months li:nth-child(4){--m:3}.p9 .cs9-months li:nth-child(5){--m:4}.p9 .cs9-months li:nth-child(6){--m:5}.p9 .cs9-months li:nth-child(7){--m:6}.p9 .cs9-months li:nth-child(8){--m:7}.p9 .cs9-months li:nth-child(9){--m:8}.p9 .cs9-months li:nth-child(10){--m:9}.p9 .cs9-months li:nth-child(11){--m:10}.p9 .cs9-months li:nth-child(12){--m:11}
+.p9 .sv9-tab:nth-of-type(2){--t:1}.p9 .sv9-tab:nth-of-type(3){--t:2}.p9 .sv9-tab:nth-of-type(4){--t:3}
+.p9 .f9-grid > div:nth-child(2){--c:1}.p9 .f9-grid > div:nth-child(3){--c:2}.p9 .f9-grid > div:nth-child(4){--c:3}.p9 .f9-grid > div:nth-child(5){--c:4}
+.p9 .f9-grid li:nth-child(2){--j:1}.p9 .f9-grid li:nth-child(3){--j:2}.p9 .f9-grid li:nth-child(4){--j:3}.p9 .f9-grid li:nth-child(5){--j:4}.p9 .f9-grid li:nth-child(6){--j:5}.p9 .f9-grid li:nth-child(7){--j:6}.p9 .f9-grid li:nth-child(8){--j:7}.p9 .f9-grid li:nth-child(9){--j:8}
+@keyframes p9up{from{opacity:0;translate:0 var(--rv-y)}}
+@keyframes p9upS{from{opacity:0;translate:0 var(--rv-ys)}}
+@keyframes p9in{from{opacity:0}}
+@keyframes p9left{from{opacity:0;translate:calc(var(--rv-x) * -1) 0}}
+@keyframes p9right{from{opacity:0;translate:var(--rv-x) 0}}
+@keyframes p9land{from{opacity:0;translate:0 var(--rv-y);scale:.965}}
+@keyframes p9chip{from{opacity:0;translate:0 -6px;scale:.88}}
+@keyframes p9tile{from{opacity:0;scale:.78}}
+@keyframes p9pop{from{opacity:0;scale:.5}}
+@keyframes p9eye{from{opacity:0;translate:-10px 0;clip-path:inset(-6px 100% -6px -6px)}to{clip-path:inset(-6px -6px -6px -6px)}}
+@keyframes p9title{from{opacity:0;translate:0 .38em;clip-path:inset(-.15em -.15em 100% -.15em)}to{clip-path:inset(-.15em -.15em -.35em -.15em)}}
+@keyframes p9lit{from{filter:saturate(.55) brightness(.5)}}
+@keyframes p9blade{from{clip-path:polygon(-30% 0,0% 0,-30% 100%,-30% 100%)}to{clip-path:polygon(-30% 0,130% 0,100% 100%,-30% 100%)}}
+@keyframes p9glint{0%{opacity:0;transform:translateX(-107.7%) skewX(var(--rv-sk))}12%,80%{opacity:1}100%{opacity:0;transform:translateX(392.3%) skewX(var(--rv-sk))}}
+@keyframes p9zoom{from{scale:1.16}}
+@keyframes p9curtain{from{clip-path:inset(0 44% 0 44% round var(--rr));opacity:0}28%{opacity:1}to{clip-path:inset(0 0 0 0 round var(--rr))}}
+@keyframes p9wipe{from{clip-path:inset(0 88% 0 0 round var(--rr));opacity:0}28%{opacity:1}to{clip-path:inset(0 0 0 0 round var(--rr))}}
+@keyframes p9sheet{from{clip-path:inset(0 0 86% 0 round var(--rr));translate:0 -12px;opacity:0}28%{opacity:1}to{clip-path:inset(0 0 0 0 round var(--rr))}}
+@keyframes p9fill{from{opacity:0;scale:.12 1}}
+@keyframes p9bar{from{scale:0 1}}
+@keyframes p9sheen{0%{opacity:0;translate:-100% 0}15%,85%{opacity:1}100%{opacity:0;translate:340% 0}}
+@keyframes p9col{from{clip-path:inset(100% 0 0 0 round 12px 12px 0 0)}to{clip-path:inset(-40px 0 0 0 round 12px 12px 0 0)}}
+@keyframes p9off{from{opacity:1}to{opacity:0}}
+@keyframes p9draw{from{stroke-dasharray:var(--dg);stroke-dashoffset:var(--dl)}to{stroke-dasharray:var(--dg);stroke-dashoffset:0}}
+/* finché un blocco non entra nel viewport le sue animazioni (anche quelle già esistenti) restano ferme sul primo fotogramma */
+.p9[data-rv-on] .rv:not([data-in]),.p9[data-rv-on] .rv:not([data-in]) *,.p9[data-rv-on] .rv:not([data-in]) *::before,.p9[data-rv-on] .rv:not([data-in]) *::after{animation-play-state:paused!important}
+/* in modalità statica e senza script il pannello attivo dei servizi è già composto (sv9in resta per il cambio di scheda in modalità viva) */
+.p9:not([data-rv-on]) .sv9-pan.is-on :is(.sv9-main,.sv9-feat),.p9:not([data-rv-on]) .sv9-links li{animation:none}
+
+/* testate, uguali in tutta la pagina: l'occhiello scorre e il rombo si accende, il titolo sale svelandosi riga dopo riga,
+   le parole blu si accendono, poi testo e pulsanti */
+.p9[data-rv-on] :is(.hd9,.so9-txt) .ey9{animation:p9eye .8s var(--rv-e) backwards}
+.p9[data-rv-on] :is(.hd9,.so9-txt) .ey9::before{animation:p9pop .6s var(--rv-e) .22s backwards}
+.p9[data-rv-on] :is(.hd9,.so9-txt) h2{animation:p9title 1.05s var(--rv-e) .1s backwards}
+.p9[data-rv-on] :is(.hd9,.so9-txt) h2 .hl{animation:p9lit 1.1s ease-out .5s backwards}
+.p9[data-rv-on] :is(.hd9-r p,.so9-lead){animation:p9upS .85s var(--rv-e) .26s backwards}
+.p9[data-rv-on] :is(.hd9-r > .b9,.hd9-btns .b9,.so9-ctas .b9){animation:p9upS .85s var(--rv-e) .36s backwards}
+.p9[data-rv-on] :is(.hd9-btns,.so9-ctas) .b9 + .b9{animation-delay:.44s}
+.p9[data-rv-on] :is(.hd9-r,.so9-ctas) .b9 .go{animation:p9pop .6s var(--rv-e) .62s backwards}
+
+/* in evidenza: la foto si apre con una lama di luce in diagonale e si assesta con uno zoom leggero, i bollini si posano
+   e il testo segue; le miniature fanno lo stesso a cascata; il riquadro delle notizie si posa e le righe scorrono */
+.p9[data-rv-on] :is(.ev9-im,.ev9-th)::after{content:"";position:absolute;z-index:1;top:-4%;bottom:-4%;left:0;width:26%;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.22) 28%,rgba(255,255,255,.8) 50%,rgba(255,255,255,0) 54%);opacity:0;pointer-events:none}
+.p9[data-rv-on] .ev9-f .ev9-im{animation:p9blade 1.3s var(--rv-w) .05s backwards}
+.p9[data-rv-on] .ev9-f .ev9-im::after{animation:p9glint 1.3s var(--rv-w) .05s backwards}
+.p9[data-rv-on] .ev9-f .ev9-im img{animation:p9zoom 2s var(--rv-e) .05s backwards}
+.p9[data-rv-on] .ev9-f :is(.ev9-chip,.ev9-badge){animation:p9chip .7s var(--rv-e) 1s backwards}
+.p9[data-rv-on] .ev9-f .ev9-badge{animation-delay:1.1s}
+.p9[data-rv-on] .ev9-fb > *{animation:p9upS .85s var(--rv-e) .5s backwards}
+.p9[data-rv-on] .ev9-fb > :nth-child(2){animation-delay:.58s}
+.p9[data-rv-on] .ev9-fb > :nth-child(3){animation-delay:.66s}
+.p9[data-rv-on] .ev9-fb > :nth-child(4){animation-delay:.74s}
+.p9[data-rv-on] .ev9-r .ev9-th{animation:p9blade 1.1s var(--rv-w) backwards;animation-delay:calc(.1s + var(--o,0s))}
+.p9[data-rv-on] .ev9-r .ev9-th::after{--rv-sk:-21.8deg;animation:p9glint 1.1s var(--rv-w) backwards;animation-delay:calc(.1s + var(--o,0s))}
+.p9[data-rv-on] .ev9-r .ev9-th img{animation:p9zoom 1.7s var(--rv-e) backwards;animation-delay:calc(.1s + var(--o,0s))}
+.p9[data-rv-on] .ev9-rb > *{animation:p9right .8s var(--rv-e) backwards;animation-delay:calc(.42s + var(--o,0s))}
+.p9[data-rv-on] .ev9-rb > :nth-child(2){animation-delay:calc(.5s + var(--o,0s))}
+.p9[data-rv-on] .ev9-rb > :nth-child(3){animation-delay:calc(.58s + var(--o,0s))}
+.p9[data-rv-on] .ev9-news{animation:p9land 1s var(--rv-e) .1s backwards}
+.p9[data-rv-on] .ev9-news h3{animation:p9eye .8s var(--rv-e) .35s backwards}
+.p9[data-rv-on] .ev9-news li{animation:p9upS .8s var(--rv-e) backwards;animation-delay:calc(.45s + var(--n,0) * .1s * var(--rv-k))}
+.p9[data-rv-on] .ev9-news .ev9-na{animation:p9left .7s var(--rv-e) backwards;animation-delay:calc(.75s + var(--n,0) * .1s * var(--rv-k))}
+
+/* centro studi: le schede si posano, le barre crescono mentre le cifre contano fino al valore (script) e la barra
+   dell'e-commerce prende la luce; i mesi salgono in onda, i due mesi dei report si accendono di blu e «oggi» si posa */
+.p9[data-rv-on] :is(.cs9-grow,.cs9-cal,.cs9-pubs){animation:p9land 1s var(--rv-e) backwards}
+.p9[data-rv-on] .cs9-cal{animation-delay:.12s}
+.p9[data-rv-on] :is(.cs9-grow,.cs9-cal) .cs9-k{animation:p9eye .8s var(--rv-e) .22s backwards}
+.p9[data-rv-on] :is(.cs9-grow,.cs9-cal) h3{animation:p9upS .85s var(--rv-e) .3s backwards}
+.p9[data-rv-on] .cs9-bl{animation:p9left .75s var(--rv-e) backwards;animation-delay:calc(.4s + var(--k) * .14s * var(--rv-k))}
+.p9[data-rv-on] .cs9-bt{animation:p9in .6s ease backwards;animation-delay:calc(.4s + var(--k) * .14s * var(--rv-k))}
+.p9[data-rv-on] .cs9-bt i{animation:p9bar 1.3s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.5s + var(--k) * .16s * var(--rv-k))}
+.p9[data-rv-on] .cs9-bv{animation:p9in .5s ease backwards;animation-delay:calc(.5s + var(--k) * .16s * var(--rv-k))}
+.p9[data-rv-on] .cs9-bars li.is-top .cs9-bt::after{content:"";position:absolute;top:0;bottom:0;left:0;width:30%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.5) 50%,rgba(255,255,255,0));opacity:0;pointer-events:none;animation:p9sheen 1s ease-in-out 1.5s backwards}
+.p9[data-rv-on] .cs9-grow :is(.cs9-txt,.cs9-ctas,.cs9-src){animation:p9upS .85s var(--rv-e) 1s backwards}
+.p9[data-rv-on] .cs9-grow .cs9-ctas{animation-delay:1.08s}
+.p9[data-rv-on] .cs9-grow .cs9-src{animation-delay:1.16s}
+.p9[data-rv-on] .cs9-months li{animation:p9col .85s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.42s + var(--m,0) * .045s * var(--rv-k))}
+.p9[data-rv-on] .cs9-months li.is-rep{position:relative}
+.p9[data-rv-on] .cs9-months li.is-rep::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#EEF3F9;opacity:0;pointer-events:none;animation:p9off .75s ease-out backwards;animation-delay:calc(.42s + var(--m,0) * .045s * var(--rv-k) + .65s)}
+.p9[data-rv-on] .cs9-months li.is-now::before{animation:p9chip .6s var(--rv-e) backwards;animation-delay:calc(.42s + var(--m,0) * .045s * var(--rv-k) + .55s)}
+.p9[data-rv-on] .cs9-reps li{animation:p9right .8s var(--rv-e) backwards;animation-delay:calc(1.05s + var(--n,0) * .12s * var(--rv-k))}
+.p9[data-rv-on] .cs9-ph{animation:p9upS .85s var(--rv-e) .15s backwards}
+.p9[data-rv-on] .cs9-tab li{animation:p9upS .8s var(--rv-e) backwards;animation-delay:calc(.28s + var(--n,0) * .09s * var(--rv-k))}
+.p9[data-rv-on] .cs9-tab .cs9-kd{animation:p9chip .65s var(--rv-e) backwards;animation-delay:calc(.55s + var(--n,0) * .09s * var(--rv-k))}
+
+/* servizi: la barra delle schede si apre dal centro, l'indicatore blu si riempie e le icone si disegnano; poi il pannello
+   si srotola dalle schede e i contenuti si compongono (solo al primo ingresso: al cambio di scheda resta sv9in) */
+.p9[data-rv-on] .sv9-tabs{animation:p9curtain 1s var(--rv-w) .05s backwards}
+.p9[data-rv-on] .sv9-ind{transform-origin:0 50%;animation:p9fill .95s var(--rv-e) .5s backwards}
+.p9[data-rv-on] .sv9-tab{animation:p9upS .75s var(--rv-e) backwards;animation-delay:calc(.3s + var(--t,0) * .07s * var(--rv-k))}
+.p9[data-rv-on] .sv9-ic{animation:p9pop .6s var(--rv-e) backwards;animation-delay:calc(.38s + var(--t,0) * .07s * var(--rv-k))}
+.p9[data-rv-on] .sv9-ic path{--dg:130px 150px;--dl:140px;animation:p9draw 1.1s ease-in-out backwards;animation-delay:calc(.5s + var(--t,0) * .07s * var(--rv-k))}
+.p9[data-rv-on] .sv9-box:not([data-done]) .sv9-pan.is-on{animation:p9sheet 1.1s var(--rv-w) .55s backwards}
+.p9[data-rv-on] .sv9-box:not([data-done]) .sv9-pan.is-on .sv9-main{animation-delay:.95s}
+.p9[data-rv-on] .sv9-box:not([data-done]) .sv9-pan.is-on .sv9-feat{animation-delay:1.1s}
+.p9[data-rv-on] .sv9-box:not([data-done]) .sv9-pan.is-on .sv9-links li{animation-delay:calc(1.05s + var(--n,0) * .07s * var(--rv-k))}
+.p9[data-rv-on] .sv9-box:not([data-done]) .sv9-pan.is-on .sv9-feat li{animation:p9right .75s var(--rv-e) backwards;animation-delay:calc(1.25s + var(--n,0) * .09s * var(--rv-k))}
+
+/* circolari e appuntamenti: le due schede si posano una dopo l'altra, le date si posano in fila e la prima si accende
+   di blu; gli appuntamenti entrano da sinistra, le circolari da destra */
+.p9[data-rv-on] :is(.up9-ag,.up9-ci){animation:p9land 1s var(--rv-e) backwards}
+.p9[data-rv-on] .up9-ci{animation-delay:var(--o)}
+.p9[data-rv-on] .up9-h h3{animation:p9upS .85s var(--rv-e) backwards;animation-delay:calc(.2s + var(--o,0s))}
+.p9[data-rv-on] :is(.up9-c,.up9-lock){animation:p9chip .7s var(--rv-e) backwards;animation-delay:calc(.42s + var(--o,0s))}
+.p9[data-rv-on] .up9-list li{animation:p9left .85s var(--rv-e) backwards;animation-delay:calc(.34s + var(--n,0) * .11s * var(--rv-k))}
+.p9[data-rv-on] .up9-date{animation:p9tile .75s var(--rv-e) backwards;animation-delay:calc(.44s + var(--n,0) * .11s * var(--rv-k))}
+.p9[data-rv-on] .up9-list li.is-first .up9-date{position:relative}
+.p9[data-rv-on] .up9-list li.is-first .up9-date::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#EEF3F9;opacity:0;pointer-events:none;animation:p9off .8s ease-out 1s backwards}
+.p9[data-rv-on] :is(.up9-rel,.up9-flag){animation:p9chip .65s var(--rv-e) 1.2s backwards}
+.p9[data-rv-on] .up9-cir li{animation:p9right .85s var(--rv-e) backwards;animation-delay:calc(.36s + var(--o,0s) + var(--n,0) * .09s * var(--rv-k))}
+.p9[data-rv-on] .up9-cta{animation:p9upS .85s var(--rv-e) backwards;animation-delay:calc(.95s + var(--o,0s))}
+
+/* associarsi: la foto si apre a sipario dal centro, come lo stage dell'apertura, e si assesta; il vetro si posa,
+   i cerchi blu si accendono e le spunte si disegnano una dopo l'altra */
+.p9[data-rv-on] .so9-vis{animation:p9curtain 1.45s var(--rv-w) .05s backwards}
+.p9[data-rv-on] .so9-vis img{animation:p9zoom 2.1s var(--rv-e) .05s backwards}
+.p9[data-rv-on] .so9-card{animation:p9land 1s var(--rv-e) .8s backwards}
+.p9[data-rv-on] .so9-ck{animation:p9eye .8s var(--rv-e) .98s backwards}
+.p9[data-rv-on] .so9-list li{animation:p9upS .75s var(--rv-e) backwards;animation-delay:calc(1s + var(--k,0) * .09s * var(--rv-k))}
+.p9[data-rv-on] .so9-i{animation:p9pop .6s var(--rv-e) backwards;animation-delay:calc(1.06s + var(--k,0) * .09s * var(--rv-k))}
+.p9[data-rv-on] .so9-i path{--dg:22px 30px;--dl:24px;animation:p9draw .55s ease-out backwards;animation-delay:calc(1.24s + var(--k,0) * .09s * var(--rv-k))}
+
+/* footer: identità e social salgono, la barra della newsletter si apre, le colonne della mappa scorrono a cascata,
+   la barra finale si apre dal centro */
+.p9[data-rv-on] :is(.f9-id img,.f9-id address,.f9-news label){animation:p9upS .85s var(--rv-e) backwards}
+.p9[data-rv-on] .f9-id address{animation-delay:.08s}
+.p9[data-rv-on] .f9-news label{animation-delay:.12s}
+.p9[data-rv-on] .f9-soc li{animation:p9chip .65s var(--rv-e) backwards;animation-delay:calc(.2s + var(--n,0) * .08s)}
+.p9[data-rv-on] .f9-row{animation:p9wipe .95s var(--rv-w) .22s backwards}
+.p9[data-rv-on] .f9-row .b9{animation:p9chip .6s var(--rv-e) .75s backwards}
+.p9[data-rv-on] .f9-grid h2{animation:p9eye .8s var(--rv-e) backwards;animation-delay:calc(var(--c,0) * .08s * var(--rv-k))}
+.p9[data-rv-on] .f9-grid li{animation:p9upS .75s var(--rv-e) backwards;animation-delay:calc(.12s + var(--c,0) * .08s * var(--rv-k) + var(--j,0) * .035s * var(--rv-k))}
+.p9[data-rv-on] .f9-base{animation:p9curtain 1.05s var(--rv-w) backwards}
+.p9[data-rv-on] .f9-base > *{animation:p9in .7s ease .45s backwards}
 
 /* ===================== RESPONSIVE ===================== */
 @container site (max-width: 1240px){
@@ -723,6 +858,104 @@ body{margin:0}
 .so9-ctas .b9-line{justify-content:center}
 }
 
+/* ===== Scala desktop all'80% con testo leggibile (25/11/2026) =====
+   Da 1081 px di finestra in su la tavola è ridotta all'80%, come con lo zoom di Chrome
+   all'80%: spazi, colonna, immagini, pulsanti e titoli. Il testo non scende sotto le soglie
+   di leggibilità: 16 px a schermo per il testo da leggere (paragrafi, titoli di notizie e
+   circolari), 12 px per tutto il resto; menu, pulsanti e campi restano all'80% (almeno 12,8 px).
+   Le regole qui sotto ripetono i selettori originali con 20px (che all'80% fa 16) o 15px
+   (che all'80% fa 12). Sotto 1081 px (tablet e mobile) non cambia nulla. */
+@media (min-width: 1081px){
+.p9{zoom:.8}
+.p9{font-size:20px}
+.mono{font-size:15px}
+.tag{font-size:15px}
+.sfake{font-size:15px}
+.mega p{font-size:15px}
+.pal-h{font-size:15px}
+.pal-row .d{font-size:15px}
+.pal-chip{font-size:15px}
+.pal-foot{font-size:15px}
+.demo-tag{font-size:15px}
+.demo-note{font-size:15px}
+.foot{font-size:15px}
+.fgrid h2{font-size:15px}
+.nlf input{font-size:15px}
+.nlf .msg{font-size:15px}
+.fbase{font-size:15px}
+.p9{font-size:20px}
+.mono{font-size:15px}
+.ey9{font-size:15px}
+.hd9-r p{font-size:20px}
+.f9-soc a{font-size:15px}
+.f9-msg{font-size:15px}
+.f9-grid h2{font-size:15px}
+.f9-base{font-size:15px}
+/* con il testo a 15 px la barra in basso non stava più su una riga: spazi un po' più stretti */
+.f9-base{gap:14px 16px;padding-left:20px;padding-right:20px}
+.f9-legal{column-gap:16px}
+.f9-note{font-size:15px}
+.f9-up{font-size:15px}
+.h9-lead{font-size:20px}
+.h9-cap > span{font-size:15px}
+.h9-ik{font-size:15px}
+.h9-l{font-size:15px}
+.h9-s{font-size:15px}
+.h9-more{font-size:15px}
+.ev9-chip,.ev9-badge{font-size:15px}
+.ev9-meta{font-size:15px}
+.ev9-fd{font-size:20px}
+.ev9-r .ev9-go{font-size:15px}
+.ev9-news h3{font-size:15px}
+.ev9-nd{font-size:15px}
+.cs9-k{font-size:15px}
+.cs9-bl small{font-size:15px}
+.cs9-txt{font-size:20px}
+.cs9-src{font-size:15px}
+.cs9-months li{font-size:15px}
+.cs9-months li.is-now::before{font-size:15px}
+.cs9-rm{font-size:15px}
+.cs9-rb span{font-size:15px}
+.cs9-pd{font-size:15px}
+.cs9-pt b{font-size:20px}
+.cs9-pt small{font-size:15px}
+.cs9-kd{font-size:15px}
+.cs9-ps{font-size:15px}
+.sv9-d{font-size:20px}
+.sv9-k{font-size:15px}
+.sv9-fk{font-size:15px}
+.sv9-fd{font-size:15px}
+.sv9-ft{font-size:20px}
+.up9-c,.up9-lock{font-size:15px}
+.up9-date span{font-size:15px}
+.up9-type{font-size:15px}
+.up9-rel,.up9-flag{font-size:15px}
+.up9-t{font-size:20px}
+.up9-w{font-size:15px}
+.up9-cm b{font-size:15px}
+.up9-cm span{font-size:15px}
+.up9-ct{font-size:20px}
+.up9-cta{font-size:15px}
+.so9-lead{font-size:20px}
+.so9-ck{font-size:15px}
+/* hero: più compatto, il riquadro con l'immagine segue l'altezza della finestra (125svh = finestra intera con lo zoom all'80%) */
+.p9 .h9{padding-top:36px}
+.p9 .h9-eye{margin-bottom:18px}
+.p9 .h9-top{gap:20px}
+.p9 .h9-t{font-size:clamp(44px,4.4vw,64px)}
+.p9 .h9-lead{max-width:800px}
+.p9 .h9-ctas{margin-top:24px}
+.p9 .h9-sw{padding-top:28px}
+.p9 .h9-stage{height:clamp(480px,calc(125svh - 490px),640px)}
+.p9 .h9-ins{top:16px;bottom:16px;padding:18px 18px 14px}
+.p9 .h9-ih{padding-bottom:14px}
+/* card dei numeri più ariosa: margine sopra e sotto, barra staccata dal testo, colonna del numero più stretta */
+.p9 .h9-it{grid-template-columns:112px minmax(0,1fr);padding:8px 14px;transition:background .5s,color .5s,padding .5s}
+.p9 .h9-it.is-on{padding:14px 14px 24px}
+.p9 .h9-tx{gap:6px}
+.p9 .h9-bar{left:14px;right:14px;bottom:10px}
+.p9 .h9-more{margin-top:8px}
+}
 </style>
 </helmet>
 <div class="p9">
@@ -798,7 +1031,7 @@ body{margin:0}
 <section class="h9" aria-labelledby="p9-h1" ref="{{ setHeroRef }}">
 <div class="wrap h9-top">
 <div class="h9-copy">
-<p class="ey9 h9-eye"><span><span class="h9-e1">Associazione Nazionale Imprese Cosmetiche · </span>Federchimica – Confindustria</span></p>
+<p class="ey9 h9-eye"><span class="h9-pulse" aria-hidden="true"></span><span><span class="h9-e1">Associazione Nazionale Imprese Cosmetiche · </span>Federchimica – Confindustria</span></p>
 <h1 id="p9-h1" class="h9-t"><span class="ln" style="--i:0"><span class="li">La cosmetica italiana,</span></span> <span class="ln" style="--i:1"><span class="li">una filiera che <span class="hl">guarda al futuro</span></span></span></h1>
 </div>
 <div class="h9-side">
@@ -927,6 +1160,7 @@ body{margin:0}
 <div class="up9-ag rv">
 <div class="up9-h"><h3>Prossimi appuntamenti</h3><span class="up9-c">{{ updCount }} in agenda</span></div>
 <ol class="up9-list"><sc-for list="{{ ag9 }}" as="a" hint-placeholder-count="4"><li class="{{ a.cls }}"><a href="{{ a.href }}"><span class="up9-date" aria-hidden="true"><b>{{ a.d }}</b><span>{{ a.m }}</span></span><span class="up9-b"><span class="up9-top"><span class="up9-type">{{ a.type }}</span><sc-if value="{{ a.isFirst }}" hint-placeholder-val="{{ false }}"><span class="up9-rel">{{ a.rel }}</span></sc-if><sc-if value="{{ a.flag }}" hint-placeholder-val="{{ false }}"><span class="up9-flag">{{ a.flag }}</span></sc-if></span><span class="up9-t">{{ a.title }}</span><span class="up9-w mono">{{ a.when }}</span></span><span class="up9-ar" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></li></sc-for></ol>
+<div class="up9-cta up9-cta-ag"><p>Incontri, webinar e fiere dei prossimi mesi nel calendario dell’associazione.</p><a class="b9 b9-line b9-sm" href="https://www.cosmeticaitalia.it/appuntamenti/elenco-completo/">Vedi il calendario</a></div>
 </div>
 <div class="up9-ci rv">
 <div class="up9-h"><h3>Ultime circolari</h3><span class="up9-lock"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Riservate agli associati</span></div>
@@ -977,7 +1211,7 @@ body{margin:0}
 <form class="f9-news" onSubmit="{{ onNews }}"><label for="p9-mail">Newsletter dell’associazione</label><div class="f9-row"><input id="p9-mail" type="email" autocomplete="email" placeholder="La tua email"><button class="b9 b9-navy b9-sm" type="submit">Iscriviti</button></div><sc-if value="{{ newsSent }}" hint-placeholder-val="{{ false }}"><p class="f9-msg" role="status"><span class="demo-tag">Demo</span>Nessuna iscrizione è stata inviata.</p></sc-if></form>
 </div>
 <nav class="f9-grid rv" aria-label="Mappa del sito"><sc-for list="{{ navMenus }}" as="n" hint-placeholder-count="5"><div><h2>{{ n.label }}</h2><ul><sc-for list="{{ n.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}">{{ l.label }}<span class="sr">{{ l.srExt }}</span></a></li></sc-for></ul></div></sc-for></nav>
-<div class="f9-base">
+<div class="f9-base rv">
 <ul class="f9-legal"><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/index.html">Privacy policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/cookie/index.html">Cookie policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/credits/index.html">Credits</a></li><li><a href="https://www.cosmeticaitalia.it/press-area-r.html">Press Area</a></li></ul>
 <p class="f9-note">Prototipo di restyling — Proposta 9 · direzione non definitiva · contenuti dal sito pubblico al 17/11/2026</p>
 <button class="f9-up" type="button" onClick="{{ toTop }}">Torna su<span class="f9-pr"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></span></button>
@@ -986,7 +1220,7 @@ body{margin:0}
 </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7591}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6300}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1040,6 +1274,88 @@ class Component extends DCLogic {
     this.setState({ slide: i, tick: this.state.tick + 1 });
     this._arm(this.state.playing);
   }
+  _anim() {
+    // modalità viva: finestra alta 360-1400 px e senza «riduci movimento»; nel canvas (finestra più alta di 1400 px) la tavola è statica
+    if (typeof window === 'undefined' || this._rm) return false;
+    const h = window.innerHeight;
+    return h >= 360 && h <= 1400;
+  }
+  _rvGo(root) {
+    // ingressi allo scorrimento: un solo IntersectionObserver sui blocchi .rv, che scatta una volta per blocco.
+    // [data-rv-on] (lo stato nascosto) si mette qui, prima del primo disegno, e solo in modalità viva.
+    if (!root || !this._anim() || typeof IntersectionObserver === 'undefined') return;
+    const els = Array.prototype.slice.call(root.querySelectorAll('.rv'));
+    if (!els.length) return;
+    const pend = new Set(els);
+    const tms = [];
+    this._cnts = [];
+    root.setAttribute('data-rv-on', '');
+    let io = null;
+    const show = (el) => {
+      if (!pend.has(el)) return;
+      pend.delete(el);
+      io.unobserve(el);
+      el.setAttribute('data-in', '');
+      if (el.classList.contains('cs9-grow')) this._rvCount(el);
+      tms.push(setTimeout(() => el.setAttribute('data-done', ''), 2800));
+      if (!pend.size) window.removeEventListener('scroll', end);
+    };
+    // in fondo alla pagina i blocchi più bassi (la barra finale del footer) non arrivano alla linea di scatto: si scoprono quando la pagina è finita
+    const end = () => {
+      if (!pend.size || window.scrollY + window.innerHeight < document.documentElement.scrollHeight - 2) return;
+      pend.forEach((el) => { if (el.getBoundingClientRect().top < window.innerHeight) show(el); });
+    };
+    io = new IntersectionObserver((list) => {
+      let hit = false;
+      list.forEach((e) => { if (e.isIntersecting) { show(e.target); hit = true; } });
+      // dopo un salto (ancore, «Torna su») si scoprono anche i blocchi rimasti sopra il viewport
+      if (hit) pend.forEach((el) => { if (el.getBoundingClientRect().bottom < 0) show(el); });
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    const t = setTimeout(() => { els.forEach((el) => io.observe(el)); end(); }, 120);
+    window.addEventListener('scroll', end, { passive: true });
+    // se la finestra diventa statica (canvas) tutto torna visibile nello stato finale
+    const rs = () => { if (!this._anim()) this._rvStop(); };
+    this._rvStop = () => {
+      clearTimeout(t);
+      tms.forEach((x) => clearTimeout(x));
+      io.disconnect();
+      window.removeEventListener('resize', rs);
+      window.removeEventListener('scroll', end);
+      root.removeAttribute('data-rv-on');
+      (this._cnts || []).forEach((c) => { clearTimeout(c.to); cancelAnimationFrame(c.raf); c.tn.nodeValue = c.txt; });
+      this._cnts = [];
+    };
+    window.addEventListener('resize', rs);
+  }
+  _rvCount(el) {
+    // le cifre del Centro Studi contano fino al valore insieme alla loro barra (ritardo e durata letti dal CSS della barra)
+    const sec = (s) => { const x = parseFloat(s) || 0; return /ms$/.test(s) ? x : x * 1000; };
+    Array.prototype.slice.call(el.querySelectorAll('.cs9-bars li')).forEach((li) => {
+      const b = li.querySelector('.cs9-bv'), bar = li.querySelector('.cs9-bt i');
+      const tn = b && b.firstChild;
+      if (!tn || tn.nodeType !== 3 || !bar) return;
+      const txt = tn.nodeValue;
+      const m = /^(\+?)(\d+),(\d)%$/.exec(txt);
+      if (!m) return;
+      const v = parseFloat(m[2] + '.' + m[3]);
+      const cs = getComputedStyle(bar);
+      const d0 = sec(cs.animationDelay), du = sec(cs.animationDuration) || 1300;
+      const put = (x) => { tn.nodeValue = m[1] + x.toFixed(1).replace('.', ',') + '%'; };
+      const c = { tn: tn, txt: txt, to: 0, raf: 0 };
+      this._cnts.push(c);
+      put(0);
+      c.to = setTimeout(() => {
+        const t0 = performance.now();
+        const step = (t) => {
+          const p = Math.min(1, (t - t0) / du);
+          if (p >= 1) { tn.nodeValue = txt; return; }
+          put(v * (1 - Math.pow(1 - p, 3)));
+          c.raf = requestAnimationFrame(step);
+        };
+        c.raf = requestAnimationFrame(step);
+      }, d0);
+    });
+  }
   componentDidMount() {
     if (typeof window === 'undefined') return;
     this._rm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -1053,27 +1369,7 @@ class Component extends DCLogic {
     this._sc();
     if (this._rm) { if (this.state.playing) this.setState({ playing: false }); }
     else this._arm(true);
-    const root = this.heroEl && this.heroEl.closest ? this.heroEl.closest('.p9') : null;
-    if (root && typeof IntersectionObserver !== 'undefined') {
-      const els = Array.prototype.slice.call(root.querySelectorAll('.rv'));
-      els.forEach((el) => el.style.setProperty('--play', 'paused'));
-      const io = new IntersectionObserver((list) => {
-        list.forEach((e) => { if (e.isIntersecting) { e.target.style.setProperty('--play', 'running'); io.unobserve(e.target); } });
-      }, { threshold: 0.14 });
-      let t = 0, armed = false;
-      this._rvarm = () => {
-        clearTimeout(t);
-        t = setTimeout(() => {
-          if (armed) return;
-          armed = true;
-          window.removeEventListener('resize', this._rvarm);
-          els.forEach((el) => io.observe(el));
-        }, 500);
-      };
-      this._rvstop = () => { clearTimeout(t); window.removeEventListener('resize', this._rvarm); io.disconnect(); };
-      window.addEventListener('resize', this._rvarm);
-      this._rvarm();
-    }
+    this._rvGo(this.heroEl && this.heroEl.closest ? this.heroEl.closest('.p9') : null);
     const els = this.cnt || [];
     if (this._rm || !els.length) return;
     const tg = [[18.1, 1], [48, 0], [500, 0], [650, 0]];
@@ -1092,7 +1388,7 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     if (this._sc) window.removeEventListener('scroll', this._sc);
-    if (this._rvstop) this._rvstop();
+    if (this._rvStop) this._rvStop();
     clearTimeout(this._st);
     clearTimeout(this._to);
     if (this._raf) cancelAnimationFrame(this._raf);

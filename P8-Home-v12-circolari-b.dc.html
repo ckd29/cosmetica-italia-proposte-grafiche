@@ -367,8 +367,9 @@ body{margin:0}
 .h-in{position:relative;display:flex;align-items:center;width:100%;padding-top:40px;padding-bottom:0}
 .h-copy{max-width:720px;translate:0 calc(var(--sc,0) * -14px);opacity:calc(1 - var(--sc,0) * .09)}
 .h-eye{display:flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#FFFFFF}
-.pulse{position:relative;width:8px;height:8px;border-radius:50%;background:#95C1DE;flex:none}
-.pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #95C1DE;animation:p8pulse 2.4s ease-out infinite}
+/* punto e anello disegnati nello stesso riquadro: restano concentrici anche con lo zoom all'80% */
+.pulse{--pc:#95C1DE;position:relative;box-sizing:border-box;width:16px;height:16px;margin:-4px;border-radius:50%;background:radial-gradient(circle closest-side,var(--pc) 47%,transparent 53%);flex:none}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--pc);animation:p8pulse 2.4s ease-out infinite}
 @keyframes p8pulse{from{transform:scale(.6);opacity:1}to{transform:scale(1.8);opacity:0}}
 .h-title{margin-top:22px;max-width:9.8em;font-size:60px;line-height:1.04;font-weight:800;letter-spacing:-.042em;color:#fff}
 .h-title .w{display:inline-block;animation:p8word .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms + 150ms)}
@@ -877,7 +878,7 @@ body{margin:0}
 .hero{margin-top:-64px;padding-top:64px}
 .h-in{padding-top:36px}
 .h-eye{font-size:11.5px;letter-spacing:.09em;align-items:flex-start;line-height:1.5}
-.h-eye .pulse{margin-top:4px}
+.h-eye .pulse{margin-top:0}
 .h-title{margin-top:18px;max-width:none;font-size:40px;letter-spacing:-.04em}
 .h-lead{font-size:17px}
 .h-vis{margin-top:4px;aspect-ratio:780/640}
@@ -1052,7 +1053,7 @@ body{margin:0}
 .p8n .cs8-bg,.p8n .so8-bg{background:none}
 .p8n .cs8-bg::after,.p8n .so8-bg::after,.p8n .upd8-bg::after,.p8n .upd8-bg .au2,.p8n .upd8-bg .au3{display:none}
 
-/* === versione scura: i cosmetici girano su un piedistallo scanalato con linea luminosa blu (video in loop) === */
+/* === versione scura: in questa tavola la hero ha una foto ferma (flaconi su vassoio di gres, vedi in fondo); le regole dei video restano per le altre versioni === */
 .p8n.p8t .h-bg{background:linear-gradient(180deg,#11286A 0%,#0F2459 38%,#0C1A45 70%,#0A1233 100%)}
 .p8n.p8t .g1{opacity:.22}
 .p8n.p8t .h-bpar{background:#0E2152}
@@ -1203,8 +1204,9 @@ body{margin:0}
    italiana". Stesse card (c8x), stessa griglia 7 + 5 colonne, stesso occhiello blu e titolo. A sinistra l'agenda, al
    massimo quattro appuntamenti, come le righe di "Dove cresce il settore" senza il grafico: quadratino, titolo e
    sottotitolo, la data in grande a destra; quello in corso (o il prossimo) è la riga in evidenza in blu, gli altri col
-   quadratino rosa. A destra le circolari: il numero su un'etichetta rosa pieno e la data in grigio caldo sopra il titolo,
-   il lucchetto dell'occhiello in rosa: un po' di calore in una card altrimenti tutta blu e grigia.
+   quadratino azzurro. A destra le circolari: il numero su un'etichetta rosa pieno e la data in grigio caldo sopra il
+   titolo, il lucchetto dell'occhiello blu come la scritta. Dal 26/11 i numeri sono l'unico rosa della sezione, che non ha
+   foto (prima erano rosa anche lucchetto, quadratini e "Archivio circolari").
    Solo colori pieni, niente bordi, ombre o righe di divisione; pulsanti nel blu originale ===== */
 .p8n .upd8{background:#F7F6F6}
 .p8n .upd8-bg{display:none}
@@ -1217,7 +1219,7 @@ body{margin:0}
 
 /* --- l'agenda: titolo a sinistra, data in grande a destra, come i valori di "Dove cresce il settore" --- */
 .p8n .tl-rows{display:flex;flex-direction:column;gap:4px;margin-top:22px}
-.p8n .tl-r{--c:var(--c-a1);--wa:var(--w-a1)}
+.p8n .tl-r{--c:#95C1DE;--wa:rgba(149,193,222,.14)}
 .p8n .tl-r.is-top{--c:var(--c-blu);--wa:rgba(31,89,161,.07)}
 .p8n .tl-r a{position:relative;z-index:0;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:28px;align-items:center;min-height:84px;padding:14px 0;color:#0E1440!important;text-decoration:none}
 .p8n .tl-r a::before{content:"";position:absolute;inset:0 -14px;z-index:-1;border-radius:18px;background:var(--wa);opacity:0;transition:opacity .35s}
@@ -1246,7 +1248,7 @@ body{margin:0}
 .p8n .ci10-t{font-size:16px;font-weight:700;line-height:1.4;text-wrap:pretty}
 .p8n .w10-ci .ctas{margin-top:auto;padding-top:22px}
 .p8n .w10-ci .src{margin-top:14px;color:#7D706B}
-.p8n .w10-ci .c8-k .ic{color:var(--rosa,#CC6B85)}
+.p8n .w10-ci .c8-k .ic{color:#1F59A1}
 
 /* ingressi: le righe salgono una dopo l'altra */
 .p8n .tl-r{animation:rvUpS .6s cubic-bezier(.2,.7,.2,1) .35s backwards}
@@ -1281,27 +1283,16 @@ body{margin:0}
 }
 
 /* ===== v1.2 (24/11): il rosa come colore di accento, usato qua e là e mai per riempire. Il blu resta il colore
-   dell'identità; il rosa #CC6B85 (lo stesso dei grafici e dell'agenda) è un punto di calore e di contrasto, uno o al
-   massimo due tocchi per sezione, a colore pieno. Sui pulsanti con testo bianco si usa #B45672, appena più scuro, per
-   la leggibilità (4,65:1). Niente rosa chiaro.
-   Banner: parte evidenziata del titolo e "Diventa socio". In evidenza: l'etichetta "In agenda". Servizi: l'icona del
-   servizio aperto. Circolari e appuntamenti: "Archivio circolari" (e i quadratini dell'agenda). Associarsi: "Imprese
-   associate". I pulsanti principali restano blu. Footer tutto blu ===== */
-.p8n{--rosa:#CC6B85;--rosa-t:#B45672;--rosa-th:#A04F66}
-/* banner, in entrambe le versioni */
+   dell'identità; il rosa #CC6B85 (lo stesso dei grafici) è un punto di calore e di contrasto. Sulle etichette con testo
+   bianco si usa #B45672, appena più scuro, per la leggibilità (4,65:1). Niente rosa chiaro.
+   26/11: con le foto e i fondi più caldi il rosa resta solo in quattro punti, dove serve ancora: la parte evidenziata
+   del titolo nel banner, i grafici del Centro Studi (distingue i dati), i numeri delle circolari (sezione senza foto) e
+   gli impulsi dell'orbita di "Associarsi". Niente rosa sui pulsanti: "Diventa socio" è di nuovo di vetro, "Archivio
+   circolari" e "Imprese associate" sono pillole bianche come le altre, "In agenda" è bianca e l'icona del servizio
+   aperto è di vetro come le altre. Footer tutto blu ===== */
+.p8n{--rosa:#CC6B85;--rosa-t:#B45672}
+/* banner, in entrambe le versioni: solo la parte evidenziata del titolo */
 .p8n .h-title .hl,.p8n.p8l .h-title .hl{background:none;color:var(--rosa);-webkit-text-fill-color:currentColor;animation:none}
-.p8n .h-ctas .btn-glass,.p8n.p8l .h-ctas .btn-glass{background:var(--rosa-t);border-color:var(--rosa-t);color:#fff!important;-webkit-backdrop-filter:none;backdrop-filter:none}
-.p8n .h-ctas .btn-glass:hover,.p8n.p8l .h-ctas .btn-glass:hover{background:var(--rosa-th);border-color:var(--rosa-th)}
-/* in evidenza: l'etichetta "In agenda" sulla card dell'Osservatorio */
-.p8n .evd-badge{background:var(--rosa-t);border-color:var(--rosa-t);color:#fff}
-.p8n .evd-badge .evd-dot{background:#fff}
-/* servizi: l'icona del servizio aperto */
-.p8n.p8t .sx-p.has-img.is-on .sx-ic,.p8n.p8w .sx-p.has-img.is-on .sx-ic,.p8n .sx-p.is-on .sx-ic{background:var(--rosa);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-/* pulsanti secondari a pillola: "Archivio circolari" e "Imprese associate", pieni come "Calendario completo" ma in rosa */
-.p8n .upd8-links .gpill,.p8n .so8-cta .gpill{background:var(--rosa-t);border-color:var(--rosa-t);color:#fff!important}
-.p8n .upd8-links .gpill .go,.p8n .so8-cta .gpill .go{background:#fff;color:var(--rosa-t)}
-.p8n .upd8-links .gpill:hover,.p8n .so8-cta .gpill:hover{background:var(--rosa-th);border-color:var(--rosa-th);color:#fff!important}
-.p8n .upd8-links .gpill:hover .go,.p8n .so8-cta .gpill:hover .go{background:#fff;color:var(--rosa-th)}
 /* 25/11 "Cresci con l'associazione": torna lo sfondo della Proposta 8 dietro l'orbita, l'azzurrino che sfuma nel bianco e la griglia che svanisce (niente riquadro) */
 .p8n .so8-bg{background:radial-gradient(640px 560px at 72% 50%,rgba(149,193,222,.42),rgba(149,193,222,.12) 45%,transparent 72%),radial-gradient(500px 400px at 92% 10%,rgba(234,242,250,.9),transparent 70%)}
 .p8n .so8-bg::after{display:block;background-image:linear-gradient(rgba(31,89,161,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(31,89,161,.06) 1px,transparent 1px)}
@@ -1320,6 +1311,128 @@ body{margin:0}
 .p8n .so8-n{background:#E8F1FA}
 }
 .p8n{--c-a1:#CC6B85;--c-a1b:#DE8FA3;--c-a2:#B98A2E;--c-a2b:#CFA455;--w-a1:rgba(204,107,133,.09);--w-a1h:rgba(204,107,133,.14);--w-a2:rgba(185,138,46,.1);--l-a1:rgba(255,168,196,.42);--l-a2:rgba(255,208,128,.40);--glow:rgba(222,146,160,.15);--glow2:rgba(205,160,80,.11);--p1:#F7DFE6;--p2:#F7ECD9;--c-a1t:#B0516B;--c-a2t:#8F6A1C;--l1:#F0A7BB;--l2:#E6C47D}
+/* ===== Scala desktop all'80% con testo leggibile (25/11/2026) =====
+   Da 1081 px di finestra in su la tavola è ridotta all'80%, come con lo zoom di Chrome
+   all'80%: spazi, colonna, immagini, pulsanti e titoli. Il testo non scende sotto le soglie
+   di leggibilità: 16 px a schermo per il testo da leggere (paragrafi, titoli di notizie e
+   circolari), 12 px per tutto il resto; menu, pulsanti e campi restano all'80% (almeno 12,8 px).
+   Le regole qui sotto ripetono i selettori originali con 20px (che all'80% fa 16) o 15px
+   (che all'80% fa 12). Sotto 1081 px (tablet e mobile) non cambia nulla. */
+@media (min-width: 1081px){
+.p8{zoom:.8}
+.p8{font-size:20px}
+.mono{font-size:15px}
+.tag{font-size:15px}
+.sfake{font-size:15px}
+.mega p{font-size:15px}
+.pal-h{font-size:15px}
+.pal-row .d{font-size:15px}
+.pal-chip{font-size:15px}
+.pal-foot{font-size:15px}
+.demo-tag{font-size:15px}
+.demo-note{font-size:15px}
+.foot{font-size:15px}
+.fgrid h2{font-size:15px}
+.nlf input{font-size:15px}
+.nlf .msg{font-size:15px}
+.fbase{font-size:15px}
+.navbtn{font-size:15px}
+.top .btn{font-size:15px}
+.eyebrow{font-size:15px}
+.f8-soc a{font-size:15px}
+.f8-msg{font-size:15px}
+.f8-grid h2{font-size:15px}
+.f8-base{font-size:15px}
+.f8-base .mono{font-size:15px}
+.f8-up{font-size:15px}
+.k{font-size:15px}
+.src{font-size:15px}
+.tag{font-size:15px}
+.h-eye{font-size:15px}
+.h-lead{font-size:20px}
+.in-c dd{font-size:15px}
+.in-src{font-size:15px}
+.evh-r p{font-size:20px}
+.evd-chip,.evd-badge{font-size:15px}
+.evd-date{font-size:15px}
+.evd-d{font-size:20px}
+.c8-k{font-size:15px}
+.vb-g i{font-size:15px}
+.vb-lab small{font-size:15px}
+.c8-txt{font-size:20px}
+.dl-t{font-size:15px}
+.dial-c span{font-size:15px}
+.rep8-m{font-size:15px}
+.rep8-d{font-size:15px}
+.rep8-now{font-size:15px}
+.pc8-k{font-size:15px}
+.pc8-d{font-size:15px}
+.pc8-t{font-size:20px}
+.pc8-f{font-size:15px}
+.sx-tag{font-size:15px}
+.sx-d{font-size:20px}
+.so8-lead{font-size:20px}
+.so8-n{font-size:15px}
+.gx-count{font-size:15px}
+.gx-lock{font-size:15px}
+.agf-mon{font-size:15px}
+.agf-rel{font-size:15px}
+.agf-type{font-size:15px}
+.agf-t{font-size:20px}
+.agf-when{font-size:15px}
+.agl-k{font-size:15px}
+.agl-d{font-size:15px}
+.agl-k2{font-size:15px}
+.agl-flag{font-size:15px}
+.agl-t{font-size:20px}
+.agl-w{font-size:15px}
+.cir-m{font-size:15px}
+.cir-m b{font-size:15px}
+.cir-t{font-size:20px}
+.cir-cta p{font-size:15px}
+.p8n .gb-ax{font-size:15px}
+.p8n .gb-n small{font-size:15px}
+.p8n .yr-c{font-size:15px}
+.p8n .yr-c em{font-size:15px}
+.p8n .yr-now b{font-size:15px}
+.p8n .tl-n b{font-size:20px}
+.p8n .tl-n small{font-size:15px}
+.p8n .tl-flag{font-size:15px}
+.p8n .tl-val small{font-size:15px}
+.p8n .w10-empty{font-size:20px}
+.p8n .w10-all{font-size:15px}
+.p8n .ci10-m{font-size:15px}
+.p8n .ci10-m b{font-size:15px}
+.p8n .ci10-t{font-size:20px}
+/* hero: la fascia resta alta quanto la finestra; titolo (6% della fascia) e immagine (80-88%) la seguono */
+.p8 .hero{min-height:calc(var(--hv,0px) / .8)}
+.p8 .h-title{font-size:clamp(55px,calc(var(--hv,900px) * .075),85px)}
+.p8 .h-copy{max-width:840px}
+.p8 .h-stage{height:min(88cqh,1200px)}
+.p8.p8t .h-stage{height:min(80cqh,1125px)}
+/* lettere dei mesi nel grafico circolare: il disegno le rimpicciolisce, qui arrivano a 12 px a schermo */
+.p8 .dl-t{font-size:24px}
+}
+/* ===== hero con la foto dei flaconi (26/11): flacone con pompetta, contagocce con ghiera dorata e vasetto smerigliato
+   su un vassoio di gres, render fotografico su fondo blu notte (assets/p8cb-flaconi.webp, 1680x1400, prodotti tra il 23% e l'85% della larghezza).
+   Sul desktop il gruppo dei prodotti (dal flacone con pompetta, al 36% della larghezza, alla fine del vassoio, all'85%) sta al centro
+   dello spazio fra la fine del testo + 84px (il titolo è largo 8,9 volte il suo corpo, il paragrafo 612,5px) e il bordo della colonna
+   della hero + 36px (vedi «hero più larga» qui sotto). Così i prodotti non coprono mai titolo e paragrafo (prima a 1920x1080 il flacone
+   finiva sotto il titolo); l'immagine è alta fino al 92% della fascia e se lo spazio manca si rimpicciolisce (--S) ===== */
+@media (min-width:1081px){
+.p8.p8t .h-stage{--tw:max(calc(8.9 * clamp(55px, calc(var(--hv, 900px) * .075), 85px)), 612.5px);--x0:calc(50cqw - var(--hc, 608px) + var(--tw) + 84px);--x1:calc(50cqw + var(--hc, 608px) + 36px);--S:min(92cqh, 1300px, calc((var(--x1) - var(--x0)) / .588));height:var(--S);right:auto;left:calc((var(--x0) + var(--x1)) / 2 - .726 * var(--S));transform:translateY(-50%)}
+.p8.p8t .h-bpar{-webkit-mask-image:radial-gradient(ellipse 52% 54% at 55% 50%,#000 0%,#000 74%,transparent 100%),linear-gradient(90deg,#000 0%,#000 92%,transparent 100%);mask-image:radial-gradient(ellipse 52% 54% at 55% 50%,#000 0%,#000 74%,transparent 100%),linear-gradient(90deg,#000 0%,#000 92%,transparent 100%)}
+}
+/* ===== hero più larga (26/11/2026) =====
+   Sul desktop la hero esce dalla colonna delle sezioni (1280px, cioè 1024 a schermo con la scala all'80%): la sua colonna
+   arriva a 1800px (1440 a schermo), lascia almeno 150px (120 a schermo) per lato e non è mai più stretta delle sezioni.
+   Testo e card dei numeri seguono la colonna; --hc è metà della colonna senza il padding della .wrap (608px nelle sezioni).
+   Sezioni sotto, testata, tablet e mobile non cambiano. */
+@media (min-width:1081px){
+.p8 .hero{--hw:max(1280px, min(1800px, 100cqw - 300px));--hc:calc(var(--hw) / 2 - 32px)}
+.p8 .hero .h-main{max-width:none}
+.p8 .hero .wrap{max-width:var(--hw)}
+}
 </style>
 </helmet>
 <div class="p8 p8n p8t">
@@ -1396,7 +1509,7 @@ body{margin:0}
 <div class="h-bg" aria-hidden="true"><span class="h-grid"></span><span class="h-glow g1"></span><span class="h-glow g2"></span><span class="h-spot"></span></div>
 <div class="h-main">
 <div class="h-vis" aria-hidden="true"><div class="h-stage">
-<span class="h-par h-bpar" style="--z:4"><img class="h-base" src="./assets/75257fd989ed189072e4e3b189b65339.jpg" alt="" width="960" height="800" decoding="async" fetchpriority="high"><video class="h-vid h-vid-loop" src="./assets/44669a7b58ebc793aeb4dc5afe31f497.mp4" poster="./assets/75257fd989ed189072e4e3b189b65339.jpg" muted="" playsinline="" loop="" preload="auto" aria-hidden="true"></video><video class="h-vid h-vid-intro" src="./assets/386e3b6985c8ea527e3b0f6e247fb802.mp4" poster="./assets/aca60b66becb00ebf0295ed2674e0f85.jpg" muted="" playsinline="" preload="auto" aria-hidden="true"></video></span>
+<span class="h-par h-bpar" style="--z:4"><img class="h-base" src="./assets/p8cb-flaconi.webp" alt="" width="1680" height="1400" decoding="async" fetchpriority="high"></span>
 </div></div>
 <div class="wrap h-in">
 <div class="h-copy">
@@ -1590,7 +1703,7 @@ body{margin:0}
 </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6939}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5740}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);

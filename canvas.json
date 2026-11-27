@@ -5,7 +5,7 @@
       "x": 1520,
       "y": 0,
       "w": 1440,
-      "h": 7591,
+      "h": 6300,
       "title": "P9 · Luminosa — Homepage desktop",
       "expand": "fill",
       "is_interactive": true
@@ -33,7 +33,7 @@
       "x": 0,
       "y": 8540,
       "w": 1440,
-      "h": 7104,
+      "h": 5822,
       "title": "P8 · Bianco e blu in movimento — Homepage desktop",
       "expand": "fill",
       "is_interactive": true
@@ -43,7 +43,7 @@
       "x": 5730,
       "y": 8540,
       "w": 1440,
-      "h": 7104,
+      "h": 5823,
       "title": "P8 · Bianco e blu in movimento — Homepage desktop, versione bianca",
       "expand": "fill",
       "is_interactive": true
@@ -53,7 +53,7 @@
       "x": 7250,
       "y": 8540,
       "w": 1440,
-      "h": 7063,
+      "h": 5826,
       "title": "P8 · Versione 1.2 — Homepage desktop",
       "expand": "fill",
       "is_interactive": true
@@ -81,7 +81,7 @@
       "x": 9710,
       "y": 8540,
       "w": 1440,
-      "h": 7060,
+      "h": 5827,
       "title": "P8 · Versione 1.2 bianca — Homepage desktop",
       "expand": "fill",
       "is_interactive": true
@@ -109,7 +109,7 @@
       "x": 12170,
       "y": 12888,
       "w": 1440,
-      "h": 1040,
+      "h": 882,
       "title": "P8 · Versione 1.2 — Circolari e appuntamenti, proposta B (due card) — desktop",
       "expand": "fill",
       "is_interactive": true
@@ -128,7 +128,7 @@
       "x": 1520,
       "y": 8540,
       "w": 1440,
-      "h": 3674,
+      "h": 3121,
       "title": "P8 · Bianco e blu in movimento — Centro Studi desktop",
       "expand": "fill",
       "is_interactive": true
@@ -173,7 +173,257 @@
       "x": 14160,
       "y": 0,
       "w": 1440,
-      "h": 6939
+      "h": 5740
+    },
+    {
+      "file": "P10-Home.dc.html",
+      "x": 4460,
+      "y": 0,
+      "w": 1440,
+      "h": 6806,
+      "title": "P10 · Blu profondo — Homepage desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P10-Home-mobile.dc.html",
+      "x": 5980,
+      "y": 0,
+      "w": 390,
+      "h": 4034,
+      "title": "P10 · Homepage mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P10-Home-mobile-2.dc.html",
+      "x": 6450,
+      "y": 0,
+      "w": 390,
+      "h": 4046,
+      "title": "P10 · Homepage mobile 390 (2/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P10-Scheda.dc.html",
+      "x": 6920,
+      "y": 0,
+      "w": 1200,
+      "h": 2712,
+      "title": "P10 · Scheda di progetto"
+    },
+    {
+      "file": "P13-Home.dc.html",
+      "x": 0,
+      "y": 15400,
+      "w": 1440,
+      "h": 6859,
+      "title": "P13 · Luce mediterranea — Homepage desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P13-Home-mobile.dc.html",
+      "x": 1520,
+      "y": 15400,
+      "w": 390,
+      "h": 4500,
+      "title": "P13 · Homepage mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P13-Home-mobile-2.dc.html",
+      "x": 1990,
+      "y": 15400,
+      "w": 390,
+      "h": 4703,
+      "title": "P13 · Homepage mobile 390 (2/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P13-Scheda.dc.html",
+      "x": 2460,
+      "y": 15400,
+      "w": 1200,
+      "h": 3790,
+      "title": "P13 · Scheda di progetto"
+    },
+    {
+      "file": "P11-Home.dc.html",
+      "x": 8200,
+      "y": 0,
+      "w": 1440,
+      "h": 6782,
+      "title": "P11 · Riflessi — Homepage A · dal disegno al prodotto",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-scene.dc.html",
+      "x": 9720,
+      "y": 0,
+      "w": 1440,
+      "h": 6737,
+      "title": "P11 · Riflessi — Homepage B · cinque scene",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-orizzonte.dc.html",
+      "x": 11240,
+      "y": 0,
+      "w": 1440,
+      "h": 6782,
+      "title": "P11 · Riflessi — Homepage A · orizzonte",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-petrolio.dc.html",
+      "x": 8200,
+      "y": 15400,
+      "w": 1440,
+      "h": 6782,
+      "title": "P11 · Riflessi — Homepage A · petrolio",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-palco.dc.html",
+      "x": 9720,
+      "y": 15400,
+      "w": 1440,
+      "h": 6782,
+      "title": "P11 · Riflessi — Homepage A · palco",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-mobile.dc.html",
+      "x": 12760,
+      "y": 0,
+      "w": 390,
+      "h": 5038,
+      "title": "P11 · Homepage A mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-mobile-2.dc.html",
+      "x": 13230,
+      "y": 0,
+      "w": 390,
+      "h": 4379,
+      "title": "P11 · Homepage A mobile 390 (2/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Scheda.dc.html",
+      "x": 12760,
+      "y": 5202,
+      "w": 1200,
+      "h": 3170,
+      "title": "P11 · Scheda di progetto"
+    },
+    {
+      "file": "P12-Home-flacone.dc.html",
+      "x": 15680,
+      "y": 0,
+      "w": 1440,
+      "h": 6714,
+      "title": "P12 · Gel blu — Homepage desktop, variante flacone",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P12-Home-vasetto.dc.html",
+      "x": 17200,
+      "y": 0,
+      "w": 1440,
+      "h": 6714,
+      "title": "P12 · Gel blu — Homepage desktop, variante vasetto",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P12-Home-goccia.dc.html",
+      "x": 18720,
+      "y": 0,
+      "w": 1440,
+      "h": 6714,
+      "title": "P12 · Gel blu — Homepage desktop, variante goccia",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P12-Home-flacone-mobile.dc.html",
+      "x": 20240,
+      "y": 0,
+      "w": 390,
+      "h": 5897,
+      "title": "P12 · Homepage mobile 390, flacone (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P12-Home-vasetto-mobile.dc.html",
+      "x": 20710,
+      "y": 0,
+      "w": 390,
+      "h": 5897,
+      "title": "P12 · Homepage mobile 390, vasetto (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P12-Home-goccia-mobile.dc.html",
+      "x": 21180,
+      "y": 0,
+      "w": 390,
+      "h": 5897,
+      "title": "P12 · Homepage mobile 390, goccia (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P12-Home-mobile-2.dc.html",
+      "x": 21650,
+      "y": 0,
+      "w": 390,
+      "h": 4719,
+      "title": "P12 · Homepage mobile 390 (2/2, comune alle tre varianti)",
+      "is_interactive": true
+    },
+    {
+      "file": "P12-Scheda.dc.html",
+      "x": 22120,
+      "y": 0,
+      "w": 1200,
+      "h": 3269,
+      "title": "P12 · Scheda di progetto"
+    },
+    {
+      "file": "P11-Home-chiara.dc.html",
+      "x": 8200,
+      "y": 22600,
+      "w": 1440,
+      "h": 6782,
+      "title": "P11 · Riflessi — versione chiara (Orizzonte) · Homepage desktop",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-chiara-mobile.dc.html",
+      "x": 9720,
+      "y": 22600,
+      "w": 390,
+      "h": 5004,
+      "title": "P11 · Versione chiara — Homepage mobile 390 (1/2)",
+      "is_interactive": true
+    },
+    {
+      "file": "P11-Home-chiara-mobile-2.dc.html",
+      "x": 10190,
+      "y": 22600,
+      "w": 390,
+      "h": 4399,
+      "title": "P11 · Versione chiara — Homepage mobile 390 (2/2)",
+      "is_interactive": true
     }
   ],
   "annotations": [
@@ -211,6 +461,60 @@
       "w": 240,
       "maxW": 2380,
       "text": "Versione 1.2 bianca · stesso banner su fondo bianco, con la stessa foto realistica dei cosmetici e la stessa caduta; resto come la 1.2",
+      "kind": "title1"
+    },
+    {
+      "id": "tP10",
+      "x": 4460,
+      "y": -300,
+      "w": 240,
+      "maxW": 3660,
+      "text": "Proposta 10 · Blu profondo — ispirata a VAEL: goccia di siero in 3D sul blu notte, titoli sottili, etichette in vetro e luce prismatica",
+      "kind": "title1"
+    },
+    {
+      "id": "tP13",
+      "x": 0,
+      "y": 15100,
+      "w": 240,
+      "maxW": 3660,
+      "text": "Proposta 13 · Luce mediterranea — ispirata a NOVA: grandi riquadri foto arrotondati con persone vere al sole, card a incastro, titoli sottili e un solo blu deciso",
+      "kind": "title1"
+    },
+    {
+      "id": "tP11",
+      "x": 8200,
+      "y": -300,
+      "w": 240,
+      "maxW": 5420,
+      "text": "Proposta 11 · Riflessi — ispirata a Vortex FX: cosmetici in cristallo e cromo su un piano lucido, tabellone a palette. Cinque homepage: A still life dal disegno al render, B cinque scene, A con la luce all’orizzonte e, più in basso, A con il fondo petrolio della prima versione e A con il palco di «Questo spazio aspetta la tua impresa»",
+      "kind": "title1"
+    },
+    {
+      "id": "tP11p",
+      "x": 8200,
+      "y": 15100,
+      "w": 240,
+      "maxW": 2960,
+      "text": "Proposta 11 · Riflessi — altre due aperture di «Dal disegno»: petrolio (la prima versione) e palco (lo sfondo di «Questo spazio aspetta la tua impresa»)",
+      "kind": "title1"
+    },
+    {
+      "id": "tP12",
+      "x": 15680,
+      "y": -300,
+      "w": 240,
+      "maxW": 7640,
+      "text": "Proposta 12 · Gel blu — un oggetto cosmetico di cristallo su un gel blu notte, in tre varianti (flacone, vasetto, goccia) con le stesse sezioni",
+      "kind": "title1"
+    },
+    {
+      "id": "tP11c",
+      "x": 8200,
+      "y": 22300,
+      "w": 240,
+      "maxW": 2380,
+      "text": "Proposta 11 · Riflessi — versione chiara di «Orizzonte»: la stessa collezione in cristallo e cromo in uno studio bianco pieno di luce, con cielo azzurro, piano di porcellana lucida e ombre morbide; sezioni in vetro bianco, inchiostro blu notte e cobalto",
       "kind": "title1"
     }
   ],

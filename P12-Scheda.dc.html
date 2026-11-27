@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta 12 · Scheda di progetto</title>
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#040A1E}
+.p12s{width:1200px;box-sizing:border-box;background:#040A1E;color:rgba(255,255,255,.78);font-family:"Inter","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.p12s *{box-sizing:border-box}
+.p12s h1,.p12s h2,.p12s h3{margin:0;font-family:"Inter Tight","Inter",Arial,sans-serif;font-weight:600;letter-spacing:-.035em;line-height:1.04;color:#fff}
+.p12s p{margin:0}
+.p12s ul,.p12s ol{list-style:none;margin:0;padding:0}
+.p12s .lab{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.p12s .lab::before{content:"";width:18px;height:1px;background:linear-gradient(90deg,rgba(211,226,255,0),#D3E2FF)}
+.p12s .hd{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center;padding:52px;background:radial-gradient(60% 90% at 85% 30%,rgba(31,89,161,.45),rgba(31,89,161,0) 70%),#040A1E;border-bottom:1px solid rgba(255,255,255,.08)}
+.p12s .hd h1{margin-top:18px;font-size:58px}
+.p12s .hd p{margin-top:16px;font-size:17px}
+.p12s .hd p i{font-style:normal;color:#fff}
+.p12s .shot{position:relative;margin:0;aspect-ratio:16/9;overflow:hidden;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:#0B1A45}
+.p12s .shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.p12s .shot figcaption{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:rgba(8,16,44,.5);border:1px solid rgba(255,255,255,.24);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:13px;color:#fff}
+.p12s .bd{display:flex;flex-direction:column;gap:48px;padding:48px 52px 40px}
+.p12s h2{margin-top:12px;font-size:34px}
+.p12s .two{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px}
+.p12s .vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);margin-top:20px;border-top:1px solid rgba(255,255,255,.14)}
+.p12s .vs li{display:contents}
+.p12s .vs span{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15px;line-height:1.45}
+.p12s .vs span:first-child{padding-right:22px;color:rgba(255,255,255,.64)}
+.p12s .vs span:last-child{color:#fff}
+.p12s .vs .th{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#D3E2FF!important}
+.p12s .warm{display:grid;gap:8px;margin-top:20px}
+.p12s .warm li{display:grid;grid-template-columns:10px minmax(0,1fr);gap:12px;align-items:baseline;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:15px;line-height:1.45;color:#fff}
+.p12s .warm li::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 10px rgba(180,205,255,1);transform:translateY(-1px)}
+.p12s .var{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.p12s .var figure{margin:0}
+.p12s .var .im{display:block;aspect-ratio:16/10;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.14);background:#0B1A45}
+.p12s .var img{display:block;width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+.p12s .var figcaption{margin-top:10px;font-size:15px;line-height:1.45}
+.p12s .var b{display:block;font-family:"Inter Tight",Arial,sans-serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:#fff}
+.p12s .fx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.p12s .fx li{padding:18px 20px 20px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:15px;line-height:1.45}
+.p12s .fx b{display:block;margin-bottom:6px;font-family:"Inter Tight",Arial,sans-serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:#fff}
+.p12s .fx i{display:block;margin-bottom:12px;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;font-style:normal;letter-spacing:.06em;color:#6B98FF}
+.p12s .pal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 16px;margin-top:20px}
+.p12s .sw{display:flex;flex-direction:column;gap:4px}
+.p12s .sw i{display:flex;align-items:flex-end;height:84px;padding:10px 12px;border-radius:16px;border:1px solid rgba(255,255,255,.14);font-style:normal;font-size:13px}
+.p12s .sw b{margin-top:6px;font-size:15px;font-weight:500;color:#fff}
+.p12s .sw code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;color:rgba(255,255,255,.64)}
+.p12s .sw span{font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.64)}
+.p12s .ty{margin-top:20px;padding:24px 26px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.p12s .ty .t{font-family:"Inter Tight",Arial,sans-serif;font-size:42px;font-weight:600;line-height:1.03;letter-spacing:-.04em;color:#fff}
+.p12s .ty .m{margin-top:14px;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.64)}
+.p12s .sc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 18px;margin-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.p12s .sc span{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14.5px}
+.p12s .sc span:nth-child(odd){font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12.5px;color:#D3E2FF;white-space:nowrap}
+.p12s .ok{display:grid;gap:10px;margin-top:20px}
+.p12s .ok li{position:relative;padding:0 0 10px 24px;border-bottom:1px solid rgba(255,255,255,.12);font-size:15px;line-height:1.45}
+.p12s .ok li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:5px;border-left:1.6px solid #6B98FF;border-bottom:1.6px solid #6B98FF;transform:rotate(-45deg)}
+.p12s .note{margin-top:12px;font-size:13.5px;color:rgba(255,255,255,.64)}
+.p12s .ft{margin:0 52px;padding:18px 0 34px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px;color:rgba(255,255,255,.64)}
+</style>
+</helmet>
+<div class="p12s">
+<header class="hd">
+<div>
+<p class="lab">Proposta 12 · Gel blu</p>
+<h1>Scheda di progetto</h1>
+<p>Un’apertura costruita come un render da studio: un oggetto cosmetico di cristallo che si specchia in un gel blu notte, titolo semibold su tre righe e due pulsanti a pillola. Il riferimento è la slide 04 della raccolta «Hero Section of the week» di Averlo. La proposta lo traduce per un’associazione di imprese, in <i>tre varianti</i> con le stesse sezioni.</p>
+</div>
+<figure class="shot"><img src="./assets/p12-flacone.webp" alt="Il flacone di cristallo con il liquido azzurro, posato sul gel blu con anelli di luce bianca" width="2880" height="1620"><figcaption>Apertura · variante «Flacone»</figcaption></figure>
+</header>
+<div class="bd">
+<div class="two">
+<section aria-labelledby="s-ref">
+<p class="lab">Riferimento</p>
+<h2 id="s-ref">Dalla slide a Cosmetica Italia</h2>
+<ul class="vs">
+<li><span class="th">Nella slide</span><span class="th">Nella proposta</span></li>
+<li><span>Anello al neon con un disco di vetro, logo di una piattaforma di trading</span><span>Un oggetto cosmetico di cristallo con anelli di luce: flacone, vasetto o goccia di siero</span></li>
+<li><span>Paesaggio notturno viola, colline con foschia</span><span>Un gel blu notte con riflessi bianchi: la texture di un siero, senza luoghi</span></li>
+<li><span>Due frasi brevi, «Rise Above the Noise. Trade With Purpose.»</span><span>«La cosmetica italiana, una filiera che guarda al futuro»</span></li>
+<li><span>Pulsante bianco pieno e pulsante scuro</span><span>«Scopri i servizi» e «Il settore in numeri», in vetro scuro</span></li>
+<li><span>Navigazione con «Login» e «Get started»</span><span>Menu completo con «Area riservata» e «Diventa socio»</span></li>
+</ul>
+</section>
+<section aria-labelledby="s-warm">
+<p class="lab">Tono</p>
+<h2 id="s-warm">Perché non è fredda né ospedaliera</h2>
+<ul class="warm">
+<li>Il blu è una notte profonda e vellutata, non un azzurro da ambulatorio, e il bianco compare solo come luce.</li>
+<li>Il gel e il cristallo sono materiali cosmetici, morbidi e tattili: si riconoscono come siero, crema e profumo.</li>
+<li>La luce è diffusa e riflessa, come in uno studio fotografico: niente bianchi pieni o superfici asettiche.</li>
+<li>Nessun richiamo tecnologico da trading o da crypto: testi, oggetti e materiali parlano di cosmetica e di imprese.</li>
+<li>Titoli grandi in Inter Tight semibold e testi ariosi: un tono diretto, non istituzionale.</li>
+</ul>
+</section>
+</div>
+
+<section aria-labelledby="s-var">
+<p class="lab">Varianti</p>
+<h2 id="s-var">Tre aperture, una sola pagina</h2>
+<div class="var">
+<figure><span class="im"><img src="./assets/p12-flacone.webp" alt="" width="2880" height="1620"></span><figcaption><b>Flacone</b>Profumeria: cristallo con liquido azzurro, posato su un cerchio di luce.</figcaption></figure>
+<figure><span class="im"><img src="./assets/p12-vasetto.webp" alt="" width="2880" height="1620"></span><figcaption><b>Vasetto</b>Cura della pelle: cristallo con crema e coperchio luminoso sospeso.</figcaption></figure>
+<figure><span class="im"><img src="./assets/p12-goccia.webp" alt="" width="2880" height="1620"></span><figcaption><b>Goccia</b>La formula: una goccia di siero posata sul gel, con gli anelli che si allargano.</figcaption></figure>
+</div>
+<p class="note">Le sezioni sotto l’apertura sono identiche nelle tre varianti: servizi, filiera, numeri, iniziative e appuntamenti, circolari, associarsi e footer con la mappa del sito. Nessuna linea di divisione: le parti si separano con spazio, vetro e luce.</p>
+</section>
+
+<section aria-labelledby="s-fx">
+<p class="lab">Movimento</p>
+<h2 id="s-fx">Cosa si muove</h2>
+<ol class="fx">
+<li><i>01 · APERTURA</i><b>Luci e gel</b>Gli anelli si accendono con un breve sfarfallio, poi il gel ondeggia lentamente sotto l’oggetto.</li>
+<li><i>02 · SERVIZI</i><b>Icone e pannello di vetro</b>Sei aree, ognuna con la sua icona. Un anello segna il tempo della rotazione, che si ferma al passaggio del mouse, e il gel dietro il vetro si sposta a ogni servizio.</li>
+<li><i>03 · FILIERA</i><b>La linea di luce</b>Scorrendo, la linea si disegna e accende le cinque tappe, dalla materia prima all’export.</li>
+<li><i>04 · NUMERI</i><b>Quattro cifre, quattro disegni</b>Si riempiono gli anelli dell’export e dei lavoratori diretti e si accendono i punti, da 100 milioni o da dieci imprese ciascuno. Le cifre contano fino al valore.</li>
+<li><i>05 · AGENDA</i><b>Tre riquadri</b>«Oggi» si calcola sulla data reale: ultime uscite, prossimi appuntamenti con i giorni che mancano e circolari per gli associati, uno accanto all’altro. La data sta in un tassello, bianco per il prossimo appuntamento.</li>
+<li><i>06 · ASSOCIARSI</i><b>La seta liquida</b>Un riflesso di luce attraversa il gel dietro l’invito ad associarsi.</li>
+</ol>
+</section>
+
+<section aria-labelledby="s-pal">
+<p class="lab">Colore</p>
+<h2 id="s-pal">Palette e contrasti</h2>
+<div class="pal">
+<div class="sw"><i style="background:#040A1E;color:#fff">Aa 19,7:1</i><b>Blu notte</b><code>#040A1E</code><span>Fondo principale, testo bianco</span></div>
+<div class="sw"><i style="background:#0B1A45;color:#fff;border-color:#0B1A45">Aa 16,8:1</i><b>Blu profondo</b><code>#0B1A45</code><span>Sfumature e pannelli</span></div>
+<div class="sw"><i style="background:#1F59A1;color:#fff;border-color:#1F59A1">Aa 7,0:1</i><b>Blu Confindustria</b><code>#1F59A1</code><span>Bagliori, linee e superfici di accento</span></div>
+<div class="sw"><i style="background:#6B98FF;color:#040A1E;border-color:#6B98FF">7,1:1 su notte</i><b>Blu elettrico</b><code>#6B98FF</code><span>Luci, messa a fuoco e dettagli</span></div>
+<div class="sw"><i style="background:#D3E2FF;color:#040A1E;border-color:#D3E2FF">15,1:1 su notte</i><b>Ghiaccio</b><code>#D3E2FF</code><span>Etichette e date su scuro</span></div>
+<div class="sw"><i style="background:#FFFFFF;color:#08112E;border-color:#FFFFFF">Aa 18,6:1</i><b>Bianco</b><code>#FFFFFF</code><span>Titoli, pulsanti pieni e luce</span></div>
+<div class="sw"><i style="background:#C8C9CE;color:#040A1E;border-color:#C8C9CE">11,9:1 su notte</i><b>Bianco al 78%</b><code>rgba(255,255,255,.78)</code><span>Testi secondari</span></div>
+<div class="sw"><i style="background:#A5A7AE;color:#040A1E;border-color:#A5A7AE">8,2:1 su notte</i><b>Bianco al 64%</b><code>rgba(255,255,255,.64)</code><span>Fonti, date e note</span></div>
+</div>
+<p class="note">Contrasti calcolati con la formula WCAG 2.2: tutti i testi superano il livello AA (4,5:1). Nessun oro: il calore viene dalla luce e dai materiali.</p>
+</section>
+
+<div class="two">
+<section aria-labelledby="s-ty">
+<p class="lab">Tipografia</p>
+<h2 id="s-ty">Inter Tight, Inter e JetBrains Mono</h2>
+<div class="ty"><p class="t">La cosmetica italiana, una filiera che guarda al futuro</p><p class="m">JetBrains Mono · etichette, date e fonti</p></div>
+<div class="sc">
+<span>62 px · 600</span><span>Titolo dell’apertura (a 1440 px)</span>
+<span>49 px · 600</span><span>Titoli di sezione</span>
+<span>24 px · 500</span><span>Servizi, tappe e titoli dei pannelli</span>
+<span>16–17 px · 400</span><span>Testi da leggere</span>
+<span>12 px · mono</span><span>Etichette in maiuscolo, date e fonti</span>
+</div>
+<p class="note">Rispettate le soglie concordate: 16 px per il testo da leggere, 12 px per tutto il resto.</p>
+</section>
+<section aria-labelledby="s-ok">
+<p class="lab">Qualità</p>
+<h2 id="s-ok">Realismo, accessibilità e prestazioni</h2>
+<ul class="ok">
+<li>Oggetti e gel sono render calcolati in anticipo con luce fisica (path tracing): riflessi, rifrazioni e profondità di campo vere. Nessun 3D in tempo reale.</li>
+<li>Nella pagina si muove solo la luce: un piccolo shader WebGL compone l’immagine accesa e quella spenta e muove il gel. Si ferma quando l’apertura non è visibile.</li>
+<li>Apertura desktop tra 300 e 450 KB, mobile sotto i 200 KB, con un render verticale dedicato.</li>
+<li>Con «riduci movimento», senza WebGL e nel canvas la pagina resta ferma, con le immagini accese e i numeri al valore finale.</li>
+<li>Focus visibile su tutti i comandi, servizi navigabili da tastiera, agenda in tre elenchi con le date lette per esteso.</li>
+</ul>
+</section>
+</div>
+</div>
+<p class="ft">Comune a tutte le proposte: logo ufficiale nelle proporzioni originali, contenuti di esempio dal sito pubblico al 17/11/2026, ricerca e area riservata dimostrative.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":3269}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

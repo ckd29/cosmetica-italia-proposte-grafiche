@@ -1,0 +1,1232 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta 11 · Riflessi, palco — Homepage</title>
+<link rel="icon" href="data:,">
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..700&amp;family=Funnel+Sans:wght@300..700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#020A18}
+.p11{position:relative;overflow:clip;
+  --black:#030407;--night:#020A18;--black2:#07090F;--ink:#0B0F1C;--blue:#1F59A1;--electric:#5B8DFF;--electric2:#8DB0FF;--warm:#F2B27A;--warm2:#FFD9B0;
+  --fg:#FFFFFF;--fg2:rgba(255,255,255,.74);--fg3:rgba(255,255,255,.6);--line:rgba(255,255,255,.12);--line2:rgba(255,255,255,.2);
+  --display:"Funnel Display","Helvetica Neue",Arial,sans-serif;--sans:"Funnel Sans","Helvetica Neue",Arial,sans-serif;--mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --ease:cubic-bezier(.22,.8,.2,1);
+  font-family:var(--sans);font-size:16px;line-height:1.55;color:var(--fg);background:var(--night);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.p11c{container:site/inline-size;position:relative;--gut:clamp(20px,3.3cqi,56px)}
+.p11 *,.p11 *::before,.p11 *::after{box-sizing:border-box}
+.p11 a{color:inherit;text-underline-offset:3px}
+.p11 :focus-visible{outline:2px solid var(--electric2);outline-offset:3px;border-radius:8px}
+:where(.p11) :where(h1,h2,h3){margin:0;font-family:var(--display);font-weight:400;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+:where(.p11) p{margin:0}
+:where(.p11) :where(ul,ol,dl,dd){list-style:none;margin:0;padding:0}
+.p11 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.p11 .skip{position:absolute;left:12px;top:-80px;z-index:90;background:#fff;color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:500;text-decoration:none}
+.p11 .skip:focus{top:12px}
+.p11 .wrap{width:100%;max-width:1600px;margin-left:auto;margin-right:auto;padding-left:var(--gut);padding-right:var(--gut)}
+.p11 .ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.p11 .ic-s{width:15px;height:15px}
+.p11 .lab{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;font-weight:400;line-height:1.35;letter-spacing:.01em;color:var(--electric2)}
+.p11 .demo-tag{display:inline-flex;align-items:center;min-height:20px;margin-right:8px;padding:0 8px;border-radius:999px;background:rgba(255,255,255,.1);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+
+/* pulsanti */
+.p11 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;border:1px solid transparent;font:inherit;font-size:15px;font-weight:500;letter-spacing:-.005em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .3s,color .3s,border-color .3s,box-shadow .3s,transform .5s var(--ease)}
+.p11 .btn-blue{background:var(--electric);color:#050814;box-shadow:0 0 0 0 rgba(91,141,255,0)}
+.p11 .btn-blue:hover{background:#7BA3FF;box-shadow:0 10px 40px -8px rgba(91,141,255,.65)}
+.p11 .btn-white{background:#fff;color:var(--ink)}
+.p11 .btn-white:hover{background:#E8EEFF}
+.p11 .btn-line{background:rgba(255,255,255,.04);border-color:var(--line2);color:#fff}
+.p11 .btn-line:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+.p11 .btn .ar{transition:transform .5s var(--ease)}
+.p11 .btn:hover .ar{transform:translateX(3px)}
+.p11 .tlink{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap}
+.p11 .tlink::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;opacity:.45;transform-origin:0 50%;transition:transform .5s var(--ease),opacity .3s}
+.p11 .tlink:hover::after{opacity:1;animation:p11-line .7s var(--ease)}
+/* link singoli: testo con la freccia nel cerchio, come le capsule «In evidenza» (al posto della sottolineatura) */
+.p11 .lk{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap}
+.p11 .lk-c{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .3s,color .3s,transform .5s var(--ease)}
+.p11 .lk-c .ic{width:15px;height:15px}
+.p11 .lk:hover .lk-c{background:#fff;color:var(--ink);transform:rotate(-45deg)}
+@keyframes p11-line{0%{transform:scaleX(1);transform-origin:100% 50%}49%{transform:scaleX(0);transform-origin:100% 50%}50%{transform:scaleX(0);transform-origin:0 50%}100%{transform:scaleX(1);transform-origin:0 50%}}
+
+/* testata */
+.p11 .top{position:sticky;top:0;z-index:60;height:78px;margin-bottom:-78px}
+.p11 .top-bg{position:absolute;inset:0;background:rgba(2,10,24,.72);-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);opacity:0;transition:opacity .45s}
+.p11 .top.is-solid .top-bg{opacity:1}
+.p11 .top-led{position:absolute;left:0;right:0;bottom:0;height:1px;opacity:0;transition:opacity .45s;background:rgba(255,255,255,.1)}
+.p11 .top-led i{position:absolute;left:0;top:0;bottom:0;width:100%;transform-origin:0 50%;transform:scaleX(var(--sp,0));background:linear-gradient(90deg,rgba(141,176,255,.2),#CFDDFF)}
+.p11 .top.is-solid .top-led{opacity:1}
+.p11 .top-in{position:relative;display:flex;align-items:center;gap:14px;height:78px}
+.p11 .brand{display:block;flex:none}
+.p11 .brand img{display:block;height:31px;width:auto;filter:brightness(0) invert(1)}
+.p11 .nav{display:flex;justify-content:center;flex:1;min-width:0}
+.p11 .nav-ul{display:flex;gap:2px}
+.p11 .navbtn{display:flex;align-items:center;gap:5px;height:38px;padding:0 12px;border:0;border-radius:999px;background:none;font:inherit;font-size:14px;font-weight:450;color:rgba(255,255,255,.86);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background .2s,color .2s}
+.p11 .navbtn:hover{color:#fff;background:rgba(255,255,255,.07)}
+.p11 .navbtn.is-open{background:#fff;color:var(--ink)}
+.p11 .navbtn .ic{width:12px;height:12px;opacity:.7;transition:transform .3s}
+.p11 .navbtn.is-open .ic{transform:rotate(180deg)}
+.p11 .nav-m{display:none}
+.p11 .tools{display:flex;align-items:center;gap:8px;flex:none;margin-left:auto}
+.p11 .icbtn{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;transition:background .25s,border-color .25s}
+.p11 .icbtn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.36)}
+.p11 .top .btn{min-height:40px;padding:0 18px;font-size:14px}
+.p11 .burger{display:none}
+.p11 .mega{position:absolute;top:calc(100% + 8px);left:50%;translate:-50% 0;z-index:70;width:min(1320px,calc(100cqi - 2*var(--gut)));border-radius:24px;background:rgba(7,9,15,.96);border:1px solid var(--line);-webkit-backdrop-filter:blur(24px) saturate(1.5);backdrop-filter:blur(24px) saturate(1.5);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);animation:p11-drop .45s var(--ease)}
+.p11 .mega-in{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;padding:30px 30px 30px 34px}
+.p11 .mega h2{margin-top:14px;font-size:32px;color:#fff}
+.p11 .mega-p{margin-top:10px;max-width:320px;font-size:16px;color:var(--fg2)}
+.p11 .mlinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;align-content:start}
+.p11 .mlinks a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding:0 16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);font-size:15px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+.p11 .mlinks a:hover{background:rgba(91,141,255,.12);border-color:rgba(141,176,255,.35)}
+@keyframes p11-drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* apertura: il flacone */
+.p11 .hx{position:relative;height:var(--hv,880px);min-height:640px;max-height:1200px;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#010A18 0%,#010C1D 10%,#030E22 20%,#091026 30%,#09122B 40%,#081430 50%,#071736 60%,#0A193C 70%,#071D42 80%,#002149 90%,#01244F 100%)}
+.p11 .hx::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 70% at 12% 40%,rgba(0,2,10,.55),rgba(0,2,10,0) 70%)}
+.p11 .hx-obj{position:absolute;top:0;bottom:0;right:max(-2cqi,calc((100cqi - 1600px)/2 - 2cqi));aspect-ratio:1600/1800;z-index:0;transform-origin:50% 60%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 90%,transparent),linear-gradient(0deg,transparent 0,#000 14%,#000 94%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 90%,transparent),linear-gradient(0deg,transparent 0,#000 14%,#000 94%,transparent);mask-composite:intersect}
+.p11 .hx-img{position:absolute;inset:0;display:block;width:100%;height:100%}
+.p11 .hx-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:96px;padding-bottom:104px}
+.p11 .hx-h{max-width:min(800px,58cqi)}
+.p11 .h1{margin-top:22px;font-size:clamp(46px,5.5cqi,84px);line-height:.98;letter-spacing:-.04em;font-weight:400}
+.p11 .h1 .ln{display:block;overflow:hidden;padding:0 .05em .1em 0;margin-bottom:-.1em;white-space:nowrap}
+.p11 .h1 .ln>span{display:inline-block}
+.p11 .h1 .ln:nth-child(3)>span{color:transparent;background:linear-gradient(100deg,#fff 0%,#DCE7FF 38%,#FFE3C8 72%,#fff 100%);-webkit-background-clip:text;background-clip:text}
+.p11 .hx-p{max-width:440px;margin-top:26px;font-size:17px;line-height:1.55;color:var(--fg2)}
+.p11 .hx-cta{display:flex;align-items:center;gap:2px;width:fit-content;max-width:100%;margin-top:30px;padding:5px;border-radius:999px;background:rgba(91,141,255,.13);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 26px 50px -30px rgba(0,0,0,.85)}
+.p11 .hx-cta .btn{min-height:44px}
+.p11 .hx-so{display:inline-flex;align-items:center;min-height:44px;padding:0 22px 0 16px;border-radius:999px;font-size:15px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap;transition:background .3s}
+.p11 .hx-so:hover{background:rgba(255,255,255,.12)}
+.p11 .hx-obj{scale:1.06}
+/* striscia «In evidenza»: prossimo appuntamento e ultima circolare */
+.p11 .hx-ev{position:absolute;left:0;right:0;bottom:40px;z-index:3}
+.p11 .hx-bar{display:flex;flex-wrap:wrap;gap:10px;max-width:100%}
+.p11 .hx-it{display:grid;grid-template-columns:auto minmax(0,auto) auto;grid-template-areas:"i m g" "i t g";align-items:center;column-gap:14px;row-gap:3px;min-width:0;padding:11px 12px 11px 11px;border-radius:22px;background:rgba(6,14,32,.52);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 26px 50px -30px rgba(0,0,0,.85);color:#fff;text-decoration:none;font-size:16px;white-space:nowrap;transition:background .3s}
+.p11 .hx-it:hover{background:rgba(16,32,68,.68)}
+.p11 .hx-i{grid-area:i;display:grid;place-items:center;width:42px;height:42px;border-radius:15px;background:linear-gradient(150deg,rgba(91,141,255,.58),rgba(91,141,255,.16))}
+.p11 .hx-it+.hx-it .hx-i{background:linear-gradient(150deg,#A57772,#6F4D4B)}
+.p11 .hx-i .ic{width:19px;height:19px}
+.p11 .hx-m{grid-area:m;display:flex;align-items:baseline;gap:10px}
+.p11 .hx-k{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--electric2)}
+.p11 .hx-d{font-family:var(--mono);font-size:12px;color:var(--fg2)}
+.p11 .hx-t{grid-area:t;max-width:300px;overflow:hidden;text-overflow:ellipsis}
+.p11 .hx-go{grid-area:g;display:grid;place-items:center;width:34px;height:34px;margin-left:6px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .3s,color .3s,transform .5s var(--ease)}
+.p11 .hx-go .ic{width:15px;height:15px}
+.p11 .hx-it:hover .hx-go{background:#fff;color:var(--ink);transform:rotate(-45deg)}
+.p11 .hx[data-live] .hx-in,.p11 .hx[data-live] .hx-ev{opacity:calc(1 - var(--hs,0)*1.7)}
+.p11 .hx[data-live] .hx-in{transform:translate3d(0,calc(var(--hs,0)*-60px),0)}
+.p11 .hx[data-live] .hx-obj{transform:translate3d(0,calc(var(--hs,0)*70px),0) scale(calc(1 + var(--hs,0)*.05))}
+
+/* sezioni */
+.p11 .sec{position:relative;padding:clamp(80px,7.2cqi,118px) 0}
+.p11 .sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);align-items:end;gap:40px;margin-bottom:clamp(40px,4.2cqi,66px)}
+.p11 .h2{margin-top:18px;font-size:clamp(36px,3.9cqi,62px);line-height:1;letter-spacing:-.038em}
+.p11 .sh-p{font-size:16px;color:var(--fg2)}
+.p11 .sh-p .lk{margin-top:18px}
+
+/* servizi: fisarmonica orizzontale */
+.p11 .sv{background:linear-gradient(180deg,#010B1C 0%,var(--night) 30%)}
+.p11 .sv-row{display:flex;gap:12px;height:clamp(470px,40cqi,590px)}
+.p11 .sv-card{position:relative;flex:1 1 0;min-width:0;overflow:hidden;border-radius:26px;background:#0A1630;isolation:isolate;transition:flex-grow .9s var(--ease)}
+.p11 .sv-card.is-on{flex-grow:3.3}
+.p11 .sv-img{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;background-color:#0A1630;background-size:cover;background-repeat:no-repeat;transform:scale(1.07);transition:transform 1.4s var(--ease),filter .9s}
+.p11 .sv-card.is-on .sv-img{transform:scale(1)}
+.p11 .sv-card:not(.is-on) .sv-img{filter:saturate(.8) brightness(.6)}
+.p11 .sv-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,10,24,.45) 0%,rgba(2,10,24,0) 24%,rgba(2,10,24,.34) 48%,rgba(2,10,24,.92) 100%)}
+.p11 .sv-card .lab{color:rgba(255,255,255,.9);text-shadow:0 1px 10px rgba(2,10,24,.6)}
+.p11 .sv-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:24px 26px 28px}
+.p11 .sv-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.86)}
+.p11 .sv-k{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:rgba(6,14,32,.34);border:1px solid rgba(255,255,255,.26);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:12px;white-space:nowrap;opacity:0;transition:opacity .5s}
+.p11 .sv-card.is-on .sv-k{opacity:1;transition-delay:.35s}
+.p11 .sv-t{margin:0;font-family:var(--display);font-size:clamp(22px,1.75cqi,30px);font-weight:400;line-height:1.08;letter-spacing:-.02em}
+.p11 .sv-card.is-on .sv-t{font-size:clamp(28px,2.6cqi,42px)}
+.p11 .sv-btn{display:block;padding:0;border:0;background:none;color:#fff;font:inherit;text-align:left;cursor:pointer}
+.p11 .sv-btn::after{content:"";position:absolute;inset:0;z-index:0}
+.p11 .sv-btn:focus-visible{outline:none}
+.p11 .sv-btn:focus-visible::after{outline:2px solid var(--electric2);outline-offset:-4px;border-radius:26px}
+.p11 .sv-more{position:relative;z-index:1;display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .8s var(--ease),opacity .5s,visibility 0s .8s}
+.p11 .sv-card.is-on .sv-more{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .8s var(--ease),opacity .6s .3s,visibility 0s}
+.p11 .sv-more>div{min-height:0;overflow:hidden}
+.p11 .sv-p{max-width:440px;margin-top:14px;font-size:16px;line-height:1.5;color:rgba(255,255,255,.84)}
+.p11 .sv-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.p11 .sv-links .btn{min-height:42px;padding:0 18px;font-size:14px}
+.p11 .pill{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:rgba(6,14,32,.3);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:14px;color:#fff;text-decoration:none;transition:background .25s,border-color .25s}
+.p11 .pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+.p11 .pill .ic{width:13px;height:13px}
+
+/* filiera A: dal disegno al prodotto (la collezione si compone a ogni passaggio) */
+.p11 .fa{background:var(--night)}
+.p11 .fa-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);grid-template-areas:"h st" "l st" "c st";grid-template-rows:auto auto 1fr;column-gap:clamp(32px,4cqi,72px);align-items:start}
+.p11 .fa-h{grid-area:h}
+.p11 .fa-steps{grid-area:l;position:relative;max-width:520px;margin-top:clamp(32px,3.4cqi,52px);padding-left:32px}
+.p11 .fa-steps::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:1px;background:var(--line2)}
+.p11 .fa-steps::after{content:"";position:absolute;left:0;top:12px;width:1px;height:calc((100% - 24px)*var(--fp,.5));background:linear-gradient(#FFFFFF,#FFE4CC);transition:height .9s var(--ease)}
+.p11 .fa-st{position:relative}
+.p11 .fa-st::before{content:"";position:absolute;z-index:1;left:-36.5px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--night);border:1px solid rgba(255,255,255,.4);transition:background .4s,border-color .4s,box-shadow .4s,top .5s var(--ease)}
+.p11 .fa-st.is-done::before{background:rgba(255,255,255,.75);border-color:transparent}
+.p11 .fa-st.is-on::before{top:26px;background:#fff;border-color:#fff;box-shadow:0 0 14px 4px rgba(255,228,204,.5)}
+.p11 .fa-b{display:flex;align-items:baseline;gap:14px;width:100%;padding:9px 0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.p11 .fa-n{flex:none;width:22px;font-family:var(--mono);font-size:13px;color:var(--fg3);transition:color .4s}
+.p11 .fa-w{font-family:var(--display);font-size:clamp(22px,1.8cqi,26px);line-height:1.15;letter-spacing:-.02em;color:var(--fg3);transition:color .4s,font-size .5s var(--ease)}
+.p11 .fa-b:hover .fa-w{color:#fff}
+.p11 .fa-st.is-done .fa-w{color:rgba(255,255,255,.8)}
+.p11 .fa-st.is-on .fa-w{font-size:clamp(30px,2.6cqi,38px);color:#fff}
+.p11 .fa-st.is-on .fa-n{color:var(--electric2)}
+.p11 .fa-more{display:grid;grid-template-rows:1fr;transition:grid-template-rows .6s var(--ease)}
+.p11 .fa-more>div{min-height:0;overflow:hidden;padding-left:36px}
+.p11 .fa-k{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--electric2)}
+.p11 .fa-t{max-width:420px;margin-top:6px;padding-bottom:14px;font-size:16px;line-height:1.5;color:var(--fg2)}
+.p11[data-live] .fa-st:not(.is-on) .fa-more{grid-template-rows:0fr}
+.p11 .fa-cta{grid-area:c;display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:clamp(28px,3cqi,44px)}
+.p11 .fa-stage{grid-area:st;position:relative;justify-self:center;align-self:center;width:min(100%,820px);aspect-ratio:1280/1440;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9%,#000 84%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9%,#000 84%,transparent 100%);mask-composite:intersect}
+.p11 .fa .h2{font-size:clamp(34px,3.3cqi,50px)}
+.p11 .fa-ln{background-image:linear-gradient(rgba(141,176,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(141,176,255,.08) 1px,transparent 1px);background-size:6.25% 5.5556%;background-position:50% 50%;transition:opacity 1.3s var(--ease) .5s}
+.p11 .fa-stage img{position:absolute;inset:0;display:block;width:100%;height:100%}
+.p11 .fa-sc{position:absolute;inset:0;opacity:0;transition:opacity .8s var(--ease)}
+.p11 .fa-rd{opacity:0;transition:opacity 1.3s var(--ease) .5s}
+.p11 .fa[data-s="1"] .fa-c1,.p11 .fa[data-s="2"] .fa-c2,.p11 .fa[data-s="3"] .fa-c3,.p11 .fa[data-s="4"] .fa-c4,.p11 .fa[data-s="5"] .fa-c5{opacity:1}
+.p11 .fa[data-s="1"] .fa-c1 .fa-rd,.p11 .fa[data-s="2"] .fa-c2 .fa-rd,.p11 .fa[data-s="3"] .fa-c3 .fa-rd,.p11 .fa[data-s="4"] .fa-c4 .fa-rd,.p11 .fa[data-s="5"] .fa-c5 .fa-rd{opacity:1}
+.p11 .fa[data-s="1"] .fa-c1 .fa-ln,.p11 .fa[data-s="2"] .fa-c2 .fa-ln,.p11 .fa[data-s="3"] .fa-c3 .fa-ln,.p11 .fa[data-s="4"] .fa-c4 .fa-ln,.p11 .fa[data-s="5"] .fa-c5 .fa-ln{opacity:0}
+.p11 .fa-sweep{position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,236,214,0) 38%,rgba(255,236,214,.18) 50%,rgba(255,236,214,0) 62%);opacity:0;pointer-events:none}
+.p11 .fa-cap{position:absolute;left:50%;bottom:12%;translate:-50% 0;display:flex;align-items:center;gap:10px;padding:6px 14px 6px 8px;border-radius:999px;background:rgba(2,10,24,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:#D3E0FF;white-space:nowrap}
+.p11 .fa-cap::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.16)}
+/* scorrimento: la sezione resta ferma e i passaggi avanzano */
+.p11[data-live] .fa{height:calc(var(--hv,100vh)*3.4);padding:0}
+.p11[data-live] .fa-pin{position:sticky;top:0;display:flex;align-items:center;height:var(--hv,100vh);padding-top:78px;overflow:hidden}
+.p11[data-live] .fa-in{width:100%}
+.p11[data-live] .fa-stage{width:min(100%,820px,calc((var(--hv,100vh) - 128px)*.8889))}
+.p11 .fa-skip{display:none;position:relative;align-items:center;gap:10px;min-height:44px;padding:0 6px 0 16px;border:0;border-radius:999px;background:none;font:inherit;font-size:14px;font-weight:500;color:var(--fg2);white-space:nowrap;cursor:pointer;transition:background .3s,color .3s}
+.p11[data-live] .fa-skip{display:inline-flex}
+.p11 .fa-skip-c{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .3s,color .3s,transform .5s var(--ease)}
+.p11 .fa-skip-c .ic{width:14px;height:14px}
+.p11 .fa-skip:hover{color:#fff;background:rgba(255,255,255,.12)}
+.p11 .fa-skip:hover .fa-skip-c{background:#fff;color:var(--ink);transform:translateY(2px)}
+/* fra 1060 e 1320 px la scritta non sta nella capsula: resta la freccia e la scritta compare sopra */
+@container site (min-width:1060px) and (max-width:1320px){
+  .p11 .fa-skip{padding:0 6px}
+  .p11 .fa-skip-t{position:absolute;bottom:calc(100% + 12px);left:50%;translate:-50% 4px;padding:7px 12px;border-radius:999px;background:#fff;color:var(--ink);font-size:13px;line-height:1;opacity:0;pointer-events:none;transition:opacity .25s,translate .25s var(--ease)}
+  .p11 .fa-skip:hover .fa-skip-t,.p11 .fa-skip:focus-visible .fa-skip-t{opacity:1;translate:-50% 0}
+}
+/* filiera: le due azioni in una capsula di vetro, come nell'apertura */
+.p11 .cta-cap{display:flex;flex-wrap:wrap;align-items:center;gap:2px;width:fit-content;max-width:100%;padding:5px;border-radius:28px;background:rgba(91,141,255,.13);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 26px 50px -30px rgba(0,0,0,.85)}
+.p11 .cta-cap .btn{min-height:44px}
+.p11 .cta-l{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px 0 16px;border-radius:999px;font-size:15px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap;transition:background .3s}
+.p11 .cta-l:hover{background:rgba(255,255,255,.12)}
+
+/* numeri in vetrina */
+.p11 .nu{background:radial-gradient(60% 55% at 50% 38%,rgba(31,89,161,.30),rgba(31,89,161,0) 72%),var(--night)}
+.p11 .nu-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.p11 .nu-it{display:flex;flex-direction:column;min-width:0}
+.p11 .nu-v{position:relative;display:block;height:1em;font-family:var(--display);font-size:clamp(54px,6.4cqi,108px);font-weight:300;line-height:1;letter-spacing:-.055em;white-space:nowrap;font-variant-numeric:tabular-nums;color:transparent;background:linear-gradient(180deg,#FFFFFF 10%,#D4E0FA 44%,#7C93C4 53%,#EEF2FB 70%,#B6C6E6 100%);-webkit-background-clip:text;background-clip:text;-webkit-box-reflect:below -.25em linear-gradient(transparent 40%,rgba(255,255,255,.3))}
+.p11 .nu-v small{margin-left:.1em;font-size:.32em;letter-spacing:-.01em}
+.p11 .nu-dd{margin-top:calc(clamp(54px,6.4cqi,108px)*.5);font-size:16px;line-height:1.45;color:var(--fg2)}
+.p11 .nu-dd b{display:block;margin-bottom:6px;font-weight:500;color:#fff}
+.p11 .nu-src{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--fg3)}
+/* ultime pubblicazioni: copertine che si riflettono sul piano, come i numeri */
+.p11 .nu-pubs{position:relative;isolation:isolate;margin-top:clamp(96px,8.4cqi,136px)}
+.p11 .nu-pubs::after{content:"";position:absolute;z-index:-1;left:-4%;right:-4%;bottom:-10px;height:clamp(170px,15cqi,230px);background:radial-gradient(48% 46% at 50% 42%,rgba(91,141,255,.22),rgba(91,141,255,0) 72%);pointer-events:none}
+.p11 .nu-pubs-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:0 0 clamp(28px,2.6cqi,40px)}
+.p11 .nu-pubs-h h3{font-size:clamp(30px,2.7cqi,44px);font-weight:300}
+.p11 .cv-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,1.9cqi,30px);padding-bottom:clamp(64px,5.6cqi,84px)}
+.p11 .cv{--a:rgba(67,120,230,.62);--b:#0A1C46;position:relative;isolation:isolate;display:flex;flex-direction:column;height:clamp(320px,26.5cqi,400px);padding:clamp(24px,2.1cqi,32px);border-radius:22px;overflow:hidden;color:#fff;text-decoration:none;background:radial-gradient(150% 115% at 100% 0%,var(--a) 0%,color-mix(in srgb,var(--a) 62%,transparent) 22%,color-mix(in srgb,var(--a) 30%,transparent) 42%,color-mix(in srgb,var(--a) 10%,transparent) 60%,rgba(0,0,0,0) 80%),linear-gradient(175deg,var(--b) 0%,color-mix(in srgb,var(--b) 60%,#06122E) 40%,#06122E 70%,#050E24 100%);box-shadow:0 48px 80px -46px rgba(0,0,0,.95);-webkit-box-reflect:below 14px linear-gradient(transparent 72%,rgba(255,255,255,.13));transition:transform .8s var(--ease)}
+.p11 .cv::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(112deg,rgba(255,255,255,0) 38%,rgba(255,255,255,.10) 48%,rgba(255,255,255,0) 58%);background-size:260% 100%;background-position:100% 0;transition:background-position 1.4s var(--ease)}
+.p11 .cv-row li:nth-child(2) .cv{--a:rgba(120,110,235,.5);--b:#110F45}
+.p11 .cv-row li:nth-child(3) .cv{--a:rgba(242,178,122,.34);--b:#1B1633}
+.p11 .cv:hover{transform:translateY(-8px)}
+.p11 .cv:hover::before{background-position:0 0}
+.p11 .cv-k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#C9D8FF}
+.p11 .cv-t{margin-top:auto;font-family:var(--display);font-size:clamp(24px,2.05cqi,32px);font-weight:300;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.p11 .cv-f{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:clamp(20px,1.8cqi,28px)}
+.p11 .cv-d{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.78)}
+.p11 .cv-go{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.13);transition:background .3s,color .3s,transform .5s var(--ease)}
+.p11 .cv:hover .cv-go{background:#fff;color:var(--ink);transform:rotate(-45deg)}
+
+/* agenda: tre riquadri di vetro alla pari, senza linee */
+.p11 .bd{background:var(--night)}
+.p11 .ag{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.4cqi,22px)}
+.p11 .ag::before{content:"";position:absolute;z-index:-1;inset:-14% -4%;background:radial-gradient(30% 50% at 18% 42%,rgba(70,125,255,.34),rgba(70,125,255,0) 70%),radial-gradient(28% 46% at 52% 58%,rgba(120,105,240,.22),rgba(120,105,240,0) 70%),radial-gradient(28% 46% at 86% 42%,rgba(242,178,122,.18),rgba(242,178,122,0) 70%);filter:blur(30px);pointer-events:none}
+.p11 .lv{display:flex;flex-direction:column;min-width:0;padding:clamp(24px,2.2cqi,34px);border-radius:28px;background:rgba(10,22,52,.55);-webkit-backdrop-filter:blur(24px) saturate(1.3);backdrop-filter:blur(24px) saturate(1.3);box-shadow:0 50px 90px -60px rgba(0,0,0,.9)}
+.p11 .lv-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px}
+.p11 .lv-h h3{font-size:clamp(24px,2cqi,30px);font-weight:300}
+.p11 .lv-h span{font-family:var(--mono);font-size:12px;color:var(--fg3);white-space:nowrap}
+.p11 .lv-l{display:flex;flex-direction:column;gap:4px;flex:1}
+.p11 .lv-i{display:grid;grid-template-columns:84px minmax(0,1fr);gap:14px;align-items:start;padding:14px;margin:0 -14px;border-radius:18px;color:#fff;text-decoration:none;transition:background .3s}
+.p11 .lv-i:hover{background:rgba(255,255,255,.06)}
+.p11 .ad{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding-top:2px}
+.p11 .ad b{font-family:var(--display);font-size:30px;font-weight:300;letter-spacing:-.03em;white-space:nowrap}
+.p11 .ad i{margin-top:7px;font-family:var(--mono);font-size:12px;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--electric2)}
+.p11 .lv-m{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.p11 .pk{display:inline-flex;align-items:center;min-height:24px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.09);font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.p11 .lv-s{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:12px;color:var(--electric2);white-space:nowrap}
+.p11 .lv-s.is-warm{color:var(--warm2)}
+.p11 .lv-s .ic{width:13px;height:13px}
+.p11 .lv-n{font-family:var(--mono);font-size:12px;color:var(--fg2)}
+.p11 .lv-t{display:block;font-size:16px;line-height:1.4;color:#fff;text-wrap:pretty}
+.p11 .lv-f{margin-top:20px;align-self:flex-start}
+
+/* associarsi: lo spazio vuoto sotto la luce */
+.p11 .so{position:relative;overflow:hidden;isolation:isolate;padding:clamp(96px,8cqi,130px) 0 clamp(64px,5cqi,84px);background:linear-gradient(180deg,var(--night) 0%,#031533 40%,#05244F 70%,#03132E 86%,var(--night) 100%)}
+.p11 .so-beam{position:absolute;left:50%;top:0;z-index:-1;width:min(1200px,120cqi);height:calc(100% - 150px);translate:-50% 0;background:conic-gradient(from 180deg at 50% -8%,rgba(0,0,0,0) 166deg,rgba(214,228,255,.07) 171deg,rgba(255,240,224,.20) 180deg,rgba(214,228,255,.07) 189deg,rgba(0,0,0,0) 194deg);filter:blur(16px)}
+.p11 .so-stage{position:relative;height:clamp(150px,13cqi,200px);margin-top:10px}
+.p11 .so-floor{position:absolute;left:50%;bottom:44px;width:min(1400px,100cqi);height:1px;translate:-50% 0;background:linear-gradient(90deg,rgba(214,228,255,0),rgba(214,228,255,.32) 30%,rgba(255,236,218,.42) 50%,rgba(214,228,255,.32) 70%,rgba(214,228,255,0))}
+.p11 .so-pool{position:absolute;left:50%;bottom:0;width:min(640px,80cqi);height:88px;translate:-50% 0;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,246,236,.62),rgba(255,226,198,.26) 34%,rgba(170,198,255,.12) 58%,rgba(170,198,255,0) 74%);filter:blur(5px)}
+.p11 .so-pool::after{content:"";position:absolute;left:50%;top:50%;width:46%;height:30%;translate:-50% -50%;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,255,255,.55),rgba(255,255,255,0) 70%);filter:blur(4px)}
+.p11 .so-c{display:flex;flex-direction:column;align-items:center;text-align:center}
+.p11 .so-t{margin-top:22px;font-size:clamp(38px,4.2cqi,66px);max-width:19ch}
+.p11 .so-p{margin-top:20px;max-width:560px;font-size:17px;color:var(--fg2)}
+.p11 .so-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:32px}
+.p11 .so-perks{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;margin-top:clamp(36px,3.4cqi,52px)}
+.p11 .so-perks li{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--fg2)}
+.p11 .so-perks li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--warm)}
+
+/* footer: mappa del sito e newsletter in un pannello di vetro sopra tre luci, barra di vetro in fondo (2026-11-26) */
+.p11 .ft{position:relative;overflow:hidden;isolation:isolate;background:var(--night);padding:clamp(48px,4.4cqi,76px) 0 30px;color:var(--fg2)}
+.p11 .ft-lights{position:absolute;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(34% 40% at 16% 58%,rgba(70,125,255,.55),rgba(70,125,255,0) 72%),radial-gradient(34% 40% at 58% 30%,rgba(120,110,235,.34),rgba(120,110,235,0) 72%),radial-gradient(28% 36% at 88% 66%,rgba(242,178,122,.24),rgba(242,178,122,0) 72%);filter:blur(24px)}
+.p11 .ft-panel{position:relative;isolation:isolate;padding:clamp(32px,3.6cqi,60px) clamp(28px,3.6cqi,60px) clamp(16px,1.6cqi,24px);border-radius:36px;background:linear-gradient(165deg,rgba(30,56,116,.5),rgba(9,22,54,.6) 60%,rgba(7,18,46,.66));-webkit-backdrop-filter:blur(34px) saturate(1.5);backdrop-filter:blur(34px) saturate(1.5);box-shadow:0 80px 120px -80px rgba(0,0,0,.95)}
+.p11 .ft-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,5cqi,96px);align-items:end}
+.p11 .ft-brand img{display:block;height:40px;width:auto;filter:brightness(0) invert(1)}
+.p11 .ft-brand p{margin-top:20px;max-width:430px;font-size:15px;line-height:1.65}
+.p11 .ft-soc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.p11 .ft-soc a{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 15px;border-radius:999px;background:rgba(255,255,255,.09);font-size:13px;color:#fff;text-decoration:none;transition:background .25s,color .25s}
+.p11 .ft-soc a:hover{background:#fff;color:var(--ink)}
+.p11 .ft-h{margin-top:12px;font-size:clamp(28px,2.5cqi,40px);font-weight:300;line-height:1.08;color:#fff}
+.p11 .ft-form{display:flex;gap:6px;margin-top:22px;padding:6px;border-radius:999px;background:rgba(2,10,24,.42)}
+.p11 .ft-form:focus-within{box-shadow:0 0 0 2px rgba(255,255,255,.55)}
+.p11 .ft-form input{flex:1;min-width:0;height:46px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#fff;font:inherit;font-size:16px;outline:0}
+.p11 .ft-form input::placeholder{color:rgba(255,255,255,.6)}
+.p11 .ft-msg{margin-top:14px;font-size:14px}
+.p11 .ft-map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(20px,2.4cqi,40px);margin-top:clamp(48px,4.6cqi,76px)}
+.p11 .ft-mh{margin-bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--electric2)}
+.p11 .ft-map ul{display:flex;flex-direction:column;gap:11px}
+.p11 .ft-map a{font-size:15px;color:rgba(255,255,255,.9);text-decoration:none;transition:color .25s}
+.p11 .ft-map a:hover{color:#fff;text-decoration:underline}
+.p11 .ft-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;margin-top:clamp(44px,4.2cqi,68px);padding:8px 8px 8px 28px;border-radius:999px;background:rgba(2,10,24,.4);font-size:13px}
+.p11 .ft-addr{color:var(--fg2)}
+.p11 .ft-addr a{color:#fff}
+.p11 .ft-legal{display:flex;flex-wrap:wrap;gap:6px 22px}
+.p11 .ft-legal a{color:var(--fg2);text-decoration:none}
+.p11 .ft-legal a:hover{color:#fff;text-decoration:underline}
+.p11 .ft-up{display:inline-flex;align-items:center;gap:10px;border:0;background:none;color:#fff;font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.p11 .ft-up .go{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);transition:background .3s,color .3s,transform .4s var(--ease)}
+.p11 .ft-up:hover .go{background:#fff;color:var(--ink);transform:translateY(-3px)}
+.p11 .ft-note{margin-top:26px;font-size:13px;color:var(--fg3)}
+
+/* ===== ingressi allo scorrimento (2026-11-26) =====
+   Ogni sezione ha la sua entrata, che parte quando il suo blocco ([data-rv]) entra nella finestra: un solo IntersectionObserver,
+   una volta sola per blocco. Lo stato nascosto esiste solo con data-rv-on sulla radice, messo dallo script quando le animazioni
+   sono attive: senza script, nel canvas (finestra alta più di 1400) e con riduci movimento la pagina è completa dal primo fotogramma.
+   Finché il blocco non riceve data-in le animazioni restano ferme sul primo fotogramma (--play: paused).
+   Al caricamento ciò che è già nella finestra fa subito il suo ingresso: è nascosto dal primo disegno, mai mostrato e poi tolto.
+   Telefono: distanze (--rv-k) e cascate (--rv-s) ridotte con variabili, mai animazioni diverse dentro le container query.
+   Solo translate/scale, opacity, clip-path e filter; le lastre con backdrop-filter si animano da sole, mai un loro antenato.
+   (La media query di riduci movimento in fondo ha lo spazio dopo i due punti: build.py usa come ancora quella senza spazio.) */
+.p11{--rv-e:cubic-bezier(.2,.7,.2,1);--rv-k:1;--rv-s:1;--rv-lit:saturate(.8) brightness(.16);--rv-dev:brightness(.3)}
+@container site (max-width:860px){.p11 main,.p11 .ft{--rv-k:.6;--rv-s:.7}}
+.p11[data-rv-on] [data-rv]{--play:paused}
+.p11[data-rv-on] [data-rv][data-in]{--play:running}
+@keyframes p11rv-lab{from{opacity:0;translate:calc(var(--rv-k)*-18px) 0}}
+@keyframes p11rv-word{from{opacity:0;translate:0 .32em;filter:blur(8px)}}
+@keyframes p11rv-up{from{opacity:0;translate:0 calc(var(--rv-k)*18px)}}
+@keyframes p11rv-fade{from{opacity:0}}
+@keyframes p11rv-rise{from{opacity:0;translate:0 calc(var(--rv-k)*48px)}}
+@keyframes p11rv-lit{from{filter:var(--rv-lit);scale:1.14}}
+@keyframes p11rv-side{from{opacity:0;translate:calc(var(--rv-k)*-20px) 0}}
+@keyframes p11rv-trace{0%{opacity:1;clip-path:inset(0 100% 0 0)}55%{opacity:1;clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 0 0)}}
+@keyframes p11rv-dev{from{opacity:0;filter:var(--rv-dev)}}
+@keyframes p11rv-sweep{0%{opacity:0;translate:-55% 0}35%{opacity:1}100%{opacity:0;translate:55% 0}}
+@keyframes p11rv-glass{from{opacity:0;scale:.94;filter:blur(8px)}}
+@keyframes p11rv-slide{from{translate:calc(var(--rv-k)*260px) 0}}
+@keyframes p11rv-zoom{from{scale:1.16}}
+@keyframes p11rv-chrome{0%{opacity:0;scale:.94;filter:blur(9px) brightness(2.4)}40%{opacity:1}100%{filter:blur(0) brightness(1)}}
+@keyframes p11rv-cover{from{opacity:0;translate:0 calc(var(--rv-k)*56px)}}
+@keyframes p11rv-glint{0%{opacity:0;translate:-100% 0}30%{opacity:1}100%{opacity:0;translate:100% 0}}
+@keyframes p11rv-pane{from{opacity:0;translate:0 calc(var(--rv-k)*40px);scale:.97}}
+@keyframes p11rv-beam{from{opacity:0;scale:1 .3}}
+@keyframes p11rv-pool{from{opacity:0;scale:.3}}
+@keyframes p11rv-dot{from{scale:0}}
+@keyframes p11rv-bloom{from{opacity:0;scale:.85}}
+/* testate: l'occhiello scorre, il titolo sottile si mette a fuoco parola per parola, poi testo e pulsanti */
+.p11[data-rv-on] .h2 .w{display:inline-block}
+.p11[data-rv-on] :is([data-rv="h"],[data-rv="so-c"]) .lab{animation:p11rv-lab .7s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv] .h2 .w{animation:p11rv-word .95s var(--rv-e) calc(.08s + var(--wi,0)*.075s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="h"] :is(.sh-p,.fb-side){animation:p11rv-up .8s var(--rv-e) .32s backwards;animation-play-state:var(--play)}
+/* servizi: le quattro schede salgono dal piano e le foto si accendono una dopo l'altra, come le luci dello studio; poi i testi */
+.p11 .sv-card:nth-child(2){--i:1}.p11 .sv-card:nth-child(3){--i:2}.p11 .sv-card:nth-child(4){--i:3}
+.p11[data-rv-on] [data-rv="sv"] .sv-card{animation:p11rv-rise .95s var(--rv-e) calc(.05s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="sv"] .sv-img{animation:p11rv-lit 1.5s var(--rv-e) calc(.12s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="sv"] .sv-in{animation:p11rv-up .8s var(--rv-e) calc(.5s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+/* filiera A: i passaggi entrano in fila; il disegno del passaggio in corso si traccia, poi il render si accende come l'apertura,
+   un riflesso lo attraversa e compare la didascalia di vetro. Filiera A e B: la capsula delle azioni si forma, da sfocata a nitida */
+.p11 .fa-st:nth-child(2){--i:1}.p11 .fa-st:nth-child(3){--i:2}.p11 .fa-st:nth-child(4){--i:3}.p11 .fa-st:nth-child(5){--i:4}
+.p11[data-rv-on] [data-rv="fa-l"] .fa-st{animation:p11rv-side .8s var(--rv-e) calc(.06s + var(--i,0)*.08s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fa-l"]::before,.p11[data-rv-on] [data-rv="fa-l"]::after{animation:p11rv-fade 1s var(--rv-e) .1s backwards;animation-play-state:var(--play)}
+/* (solo la scena del primo passaggio, quella attiva quando il palco entra: le altre sono nascoste e non vanno animate) */
+.p11[data-rv-on] [data-rv="fa-st"] .fa-c1 .fa-ln{animation:p11rv-trace 1.7s cubic-bezier(.45,.05,.25,1) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fa-st"] .fa-c1 .fa-rd{animation:p11rv-dev 1.25s var(--rv-e) .8s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fa-st"] .fa-sweep{animation:p11rv-sweep 1.2s cubic-bezier(.22,.8,.2,1) .85s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fa-st"] .fa-c1 .fa-cap{animation:p11rv-glass .75s var(--rv-e) 1.25s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="cta"] .cta-cap{animation:p11rv-glass .9s var(--rv-e) .1s backwards;animation-play-state:var(--play)}
+/* filiera B: le cinque scene arrivano in fila da destra, la foto in primo piano si assesta e il numero si mette a fuoco; poi la barra */
+.p11 .fb-pn:nth-child(2),.p11 .fb-rb:nth-child(2){--i:1}.p11 .fb-pn:nth-child(3),.p11 .fb-rb:nth-child(3){--i:2}.p11 .fb-pn:nth-child(4),.p11 .fb-rb:nth-child(4){--i:3}.p11 .fb-pn:nth-child(5),.p11 .fb-rb:nth-child(5){--i:4}
+/* il carosello scorre con scroll-snap: si sposta il contenitore intero (spostare la lista dentro farebbe riallineare lo scorrimento a metà) */
+.p11[data-rv-on] [data-rv="fb"]{animation:p11rv-slide 1.3s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fb"] .fb-pn{animation:p11rv-fade .9s var(--rv-e) calc(var(--i,0)*.1s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fb"] .fb-ph{animation:p11rv-zoom 1.7s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fb"] .fb-num{animation:p11rv-word 1s var(--rv-e) .4s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fb"] .fb-txt>div{animation:p11rv-up .8s var(--rv-e) .55s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="fb-r"] .fb-rb{animation:p11rv-up .6s var(--rv-e) calc(var(--i,0)*.06s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+/* numeri: le cifre di cromo si accendono con un lampo e crescono dal piano insieme al riflesso mentre i contatori corrono; poi le didascalie */
+.p11 .nu-it:nth-child(2){--i:1}.p11 .nu-it:nth-child(3){--i:2}.p11 .nu-it:nth-child(4){--i:3}
+/* l'animazione va sul dt che contiene la cifra: sulle cifre col riflesso (-webkit-box-reflect) Chrome ridisegna il filtro a ogni fotogramma
+   e al primo passaggio si bloccava fino a 1,4 s; il dt diventa un livello composto e il riflesso, che sta dentro, segue lo stesso filtro */
+.p11[data-rv-on] .nu-it>dt{transform-origin:50% 100%}
+.p11[data-rv-on] [data-rv="nu"] .nu-it>dt{animation:p11rv-chrome 1.2s var(--rv-e) calc(var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="nu"] .nu-dd{animation:p11rv-up .8s var(--rv-e) calc(.32s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+/* ultime pubblicazioni: le copertine salgono sul piano lucido col loro riflesso, una dopo l'altra, e un riflesso le attraversa una volta */
+.p11 .cv-row>li:nth-child(2){--i:1}.p11 .cv-row>li:nth-child(3){--i:2}
+.p11[data-rv-on] [data-rv="pubs"] .nu-pubs-h{animation:p11rv-up .8s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="pubs"]::after{animation:p11rv-fade 1.4s var(--rv-e) .2s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="pubs"] .cv{animation:p11rv-cover 1.05s var(--rv-e) calc(.12s + var(--i,0)*.13s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .cv::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.16) 50%,rgba(255,255,255,0) 70%);opacity:0}
+.p11[data-rv-on] [data-rv="pubs"] .cv::after{animation:p11rv-glint 1.2s cubic-bezier(.4,0,.2,1) calc(.6s + var(--i,0)*.13s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+/* agenda: tre lastre di vetro si formano sopra le luci e un riflesso le attraversa una volta; poi le voci in fila */
+.p11 .lv:nth-child(2){--i:1}.p11 .lv:nth-child(3){--i:2}.p11 .lv-l>li:nth-child(2){--j:1}.p11 .lv-l>li:nth-child(3){--j:2}
+.p11[data-rv-on] [data-rv="ag"]::before{animation:p11rv-fade 1.5s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ag"] .lv{animation:p11rv-pane 1s var(--rv-e) calc(.06s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .lv{position:relative;overflow:clip}
+.p11[data-rv-on] .lv::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.1) 50%,rgba(255,255,255,0) 70%);opacity:0}
+.p11[data-rv-on] [data-rv="ag"] .lv::after{animation:p11rv-glint 1.3s cubic-bezier(.4,0,.2,1) calc(.5s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ag"] .lv-h{animation:p11rv-up .7s var(--rv-e) calc(.28s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ag"] .lv-l>li{animation:p11rv-up .7s var(--rv-e) calc(.38s + (var(--i,0)*.12s + var(--j,0)*.07s)*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ag"] .lv-f{animation:p11rv-up .7s var(--rv-e) calc(.62s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+/* associarsi: si accende la luce sul palco vuoto (il fascio scende dall'alto, la pozza si allarga sul piano), il titolo si mette a fuoco, i vantaggi spuntano uno a uno */
+.p11 .so-perks li:nth-child(2){--i:1}.p11 .so-perks li:nth-child(3){--i:2}.p11 .so-perks li:nth-child(4){--i:3}.p11 .so-perks li:nth-child(5){--i:4}
+.p11[data-rv-on] .so-beam{transform-origin:50% 0}
+.p11[data-rv-on] [data-rv="so"] .so-beam{animation:p11rv-beam 1.7s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="so-c"] .so-p{animation:p11rv-up .8s var(--rv-e) .36s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="so-c"] .so-cta{animation:p11rv-up .8s var(--rv-e) .48s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="so-c"] .so-pool{animation:p11rv-pool 1.4s var(--rv-e) .3s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="so-c"] .so-floor{animation:p11rv-fade 1.3s var(--rv-e) .4s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="so-c"] .so-perks li{animation:p11rv-up .7s var(--rv-e) calc(.8s + var(--i,0)*.08s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="so-c"] .so-perks li::before{animation:p11rv-dot .55s var(--rv-e) calc(.9s + var(--i,0)*.08s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+/* footer: le tre luci si accendono e la lastra di vetro si forma sopra, con un riflesso che la attraversa; poi la mappa del sito a cascata e la barra */
+.p11 .ft-col:nth-child(2){--i:1}.p11 .ft-col:nth-child(3){--i:2}.p11 .ft-col:nth-child(4){--i:3}.p11 .ft-col:nth-child(5){--i:4}
+.p11 .ft-bar>:nth-child(2){--i:1}.p11 .ft-bar>:nth-child(3){--i:2}
+.p11[data-rv-on] [data-rv="ft"] .ft-lights{animation:p11rv-bloom 1.6s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ft"] .ft-panel{animation:p11rv-pane 1.05s var(--rv-e) .12s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .ft-panel{overflow:clip}
+.p11[data-rv-on] .ft-panel::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 32%,rgba(255,255,255,.08) 50%,rgba(255,255,255,0) 68%);opacity:0}
+.p11[data-rv-on] [data-rv="ft"] .ft-panel::after{animation:p11rv-glint 1.5s cubic-bezier(.4,0,.2,1) .7s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ft"] :is(.ft-brand,.ft-news){animation:p11rv-up .8s var(--rv-e) .36s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ft"] .ft-news{animation-delay:.46s}
+.p11[data-rv-on] [data-rv="ft"] .ft-note{animation:p11rv-fade .8s var(--rv-e) .9s backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ft-map"] .ft-col{animation:p11rv-up .7s var(--rv-e) calc(.1s + var(--i,0)*.06s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ft-bar"]{animation:p11rv-fade .7s var(--rv-e) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] [data-rv="ft-bar"]>*{animation:p11rv-up .7s var(--rv-e) calc(.1s + var(--i,0)*.07s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+@media (prefers-reduced-motion: reduce){
+  .p11[data-rv-on] [data-rv],.p11[data-rv-on] [data-rv]::before,.p11[data-rv-on] [data-rv]::after,.p11[data-rv-on] [data-rv] *,.p11[data-rv-on] [data-rv] *::before,.p11[data-rv-on] [data-rv] *::after{animation:none!important}
+}
+
+/* ===== apertura: ingresso al caricamento «Passa la luce» (2026-11-26) =====
+   L'apertura parte al buio: un velo scuro con il bordo sfumato scorre via verso destra in 1,4 s e sul suo fronte una fascia di
+   luce in fusione overlay accende soprattutto i bordi chiari del cromo e del cristallo. Velo e fascia hanno la stessa animazione,
+   quindi restano allineati a ogni larghezza; l'immagine non si muove. Il titolo va a fuoco parola per parola, «Valore condiviso.»
+   arriva con un lampo di cromo, poi testo, capsula e striscia «In evidenza» (le capsule di vetro si animano da sole, non il loro
+   contenitore). Stesso impianto delle sezioni: stato nascosto solo con data-rv-on, fermo (--play: paused) finché lo script non
+   mette data-in sull'apertura, quando l'immagine è decodificata (al massimo dopo 900 ms); data-done toglie velo e fascia a fine
+   corsa. Senza script, nel canvas e con riduci movimento l'apertura è completa e ferma dal primo fotogramma.
+   Versione chiara: light.css cambia solo i colori di velo e fascia (ombra azzurra leggera e luce calda, mai buio). */
+.p11 :is(.hx-nt,.hx-bm){display:none}
+.p11 .hx-it+.hx-it{--i:1}
+.p11[data-rv-on] .hx{--play:paused;--hx-t:.25s}
+.p11[data-rv-on] .hx[data-in]{--play:running}
+.p11[data-rv-on] :is(.hx-nt,.hx-bm){display:block;position:absolute;top:0;bottom:0;left:-30%;width:140%;z-index:1;pointer-events:none;animation:p11hx-sweep 1.4s cubic-bezier(.25,.3,.3,1) both;animation-play-state:var(--play)}
+.p11[data-rv-on] .hx-nt{background:linear-gradient(90deg,rgba(2,6,16,0) 0,rgba(2,6,16,.94) 28.6%)}
+.p11[data-rv-on] .hx-bm{mix-blend-mode:overlay;background:linear-gradient(90deg,rgba(210,225,255,0) 2%,rgba(210,225,255,.8) 14%,rgba(210,225,255,0) 27%)}
+.p11[data-rv-on] .hx[data-done] :is(.hx-nt,.hx-bm){display:none}
+.p11[data-rv-on] .h1 .ln{overflow:visible}
+.p11[data-rv-on] .h1 .w{display:inline-block}
+.p11[data-rv-on] .hx .lab{animation:p11rv-lab .8s var(--rv-e) calc(var(--hx-t) - .12s) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .hx .h1 .w{animation:p11hx-word 1.05s var(--rv-e) calc(var(--hx-t) + var(--wi)*.09s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .hx .h1 .ln:nth-child(3)>span{transform-origin:0 80%;animation:p11hx-chrome 1.3s var(--rv-e) calc(var(--hx-t) + .4s) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .hx .hx-p{animation:p11rv-up .85s var(--rv-e) calc(var(--hx-t) + .62s) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .hx .hx-cta{animation:p11rv-glass .95s var(--rv-e) calc(var(--hx-t) + .74s) backwards;animation-play-state:var(--play)}
+.p11[data-rv-on] .hx .hx-it{animation:p11rv-pane .95s var(--rv-e) calc(var(--hx-t) + .9s + var(--i,0)*.12s*var(--rv-s)) backwards;animation-play-state:var(--play)}
+@keyframes p11hx-sweep{from{translate:0 0}to{translate:92.86% 0}}
+@keyframes p11hx-word{from{opacity:0;translate:0 .34em;filter:blur(12px)}}
+@keyframes p11hx-chrome{0%{opacity:0;scale:.97;filter:blur(12px) brightness(2.6)}45%{opacity:1}100%{filter:blur(0) brightness(1)}}
+@media (prefers-reduced-motion: reduce){
+  .p11[data-rv-on] .hx *{animation:none!important}
+  .p11[data-rv-on] :is(.hx-nt,.hx-bm){display:none}
+}
+
+/* ricerca e area riservata */
+.p11 .scrim{position:fixed;inset:0;z-index:80;margin:0;padding:0;border:0;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:default}
+.p11 .modal{position:fixed;top:96px;left:50%;z-index:85;width:min(680px,calc(100% - 32px));transform:translateX(-50%);overflow:hidden;border-radius:24px;background:rgba(9,11,18,.97);border:1px solid var(--line2);color:#fff;box-shadow:0 50px 100px -40px rgba(0,0,0,.9);animation:p11-pop .4s var(--ease)}
+@keyframes p11-pop{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
+.p11 .pal-top{display:flex;align-items:center;gap:12px;height:64px;padding:0 14px 0 20px;border-bottom:1px solid var(--line);color:var(--fg3)}
+.p11 .pal-top input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:17px;color:#fff}
+.p11 .pal-top input::placeholder{color:rgba(255,255,255,.55)}
+.p11 .mclose{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:#fff;cursor:pointer}
+.p11 .mclose:hover{background:rgba(255,255,255,.1)}
+.p11 .pal-body{max-height:min(440px,60vh);overflow:auto;padding:8px}
+.p11 .pal-h{padding:12px 12px 6px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--fg3)}
+.p11 .pal-chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 12px 8px}
+.p11 .pal-chip{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.04);font:inherit;font-size:14px;color:#fff;cursor:pointer}
+.p11 .pal-chip:hover{border-color:rgba(141,176,255,.6)}
+.p11 .pal-row{display:grid;grid-template-columns:104px minmax(0,1fr) auto;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;color:#fff;text-decoration:none}
+.p11 .pal-row:hover{background:rgba(255,255,255,.06)}
+.p11 .pal-type{justify-self:start;display:inline-flex;align-items:center;min-height:24px;padding:0 9px;border-radius:999px;background:rgba(91,141,255,.14);font-family:var(--mono);font-size:12px;color:var(--electric2)}
+.p11 .pal-t{line-height:1.35}
+.p11 .pal-d{font-family:var(--mono);font-size:12px;color:var(--fg3);white-space:nowrap}
+.p11 .pal-foot{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid var(--line);font-size:13px;color:var(--fg3)}
+.p11 .kbd{padding:1px 7px;border-radius:6px;border:1px solid var(--line2);font-family:var(--mono);font-size:12px}
+.p11 .login-b{padding:30px 32px 32px}
+.p11 .login-b h2{font-size:34px}
+.p11 .login-b p{margin-top:12px;color:var(--fg2)}
+.p11 .login-b .note{margin-top:16px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.06);font-size:14px}
+.p11 .login-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.p11 .login-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+
+/* adattamento */
+@container site (max-width:1400px){
+  .p11 .navbtn{padding:0 9px;font-size:13.5px}
+}
+@container site (max-width:1240px){
+  .p11 .burger{display:inline-grid}
+  .p11 .hide-s{display:none}
+  .p11 .nav{display:none}
+  .p11 .top.is-menu .top-bg{opacity:1}
+  .p11 .top.is-menu .nav{position:absolute;top:calc(100% + 8px);left:0;right:0;display:block;max-height:calc(100svh - 96px);overflow:auto;padding:14px 18px 24px;border-radius:24px;background:rgba(7,9,15,.98);border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+  .p11 .top.is-menu .nav-ul{flex-direction:column;gap:2px}
+  .p11 .top.is-menu .navbtn{width:100%;justify-content:space-between;height:56px;padding:0 8px;border-radius:14px;font-family:var(--display);font-size:24px;font-weight:400;letter-spacing:-.02em}
+  .p11 .top.is-menu .navbtn.is-open{background:rgba(255,255,255,.07);color:#fff}
+  .p11 .top.is-menu .mega{position:static;translate:none;width:auto;border:0;border-radius:0;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;animation:none}
+  .p11 .top.is-menu .mega-in{display:block;padding:4px 0 10px}
+  .p11 .top.is-menu .mega-in>div:first-child{display:none}
+  .p11 .top.is-menu .mlinks{grid-template-columns:1fr;gap:4px}
+  .p11 .top.is-menu .nav-m{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+}
+@container site (max-width:860px){
+  .p11 .hx{height:auto;min-height:0;max-height:none}
+  .p11 .hx-obj{position:relative;top:auto;bottom:auto;right:auto;width:min(112cqi,640px);height:auto;margin:0 auto -12%;translate:0 0;-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 34%);mask-image:linear-gradient(0deg,transparent 0,#000 34%)}
+  .p11 .hx-in{height:auto;padding-top:0;padding-bottom:28px}
+  .p11 .hx-obj{scale:1}
+  .p11 .hx-ev{position:static;padding-bottom:34px}
+  .p11 .hx-bar{flex-direction:column;width:100%}
+  .p11 .hx-it{grid-template-columns:auto minmax(0,1fr) auto;white-space:normal}
+  .p11 .hx-t{max-width:none}
+  .p11 .hx-h{max-width:none}
+  .p11 .h1{font-size:clamp(40px,11cqi,64px)}
+}
+@container site (max-width:640px){
+  .p11 .brand img{height:26px}
+  .p11 .top-in{gap:8px}
+  .p11 .hx-cta{width:100%}
+  .p11 .hx-cta .btn{flex:1;justify-content:space-between}
+  .p11 .hx-so{padding:0 18px 0 14px}
+  .p11 .pal-row{grid-template-columns:minmax(0,1fr)}
+  .p11 .pal-d{display:none}
+}
+@container site (max-width:1180px){
+  .p11 .nu-row{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:clamp(48px,6cqi,72px)}
+  .p11 .ft-map{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:36px}
+  .p11 .ft-bar{border-radius:26px;padding:12px 10px 16px 26px}
+  .p11 .ft-up{order:1}
+  .p11 .ft-addr{order:2;width:100%}
+}
+@container site (max-width:1024px){
+  .p11 .ag{grid-template-columns:1fr}
+}
+@container site (max-width:860px){
+  .p11 .sh{grid-template-columns:1fr;gap:16px}
+  .p11 .sv-row{height:auto;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--gut)*-1);padding:0 var(--gut);scroll-padding:0 var(--gut)}
+  .p11 .sv-row::-webkit-scrollbar{display:none}
+  .p11 .sv-card,.p11 .sv-card.is-on{flex:none;width:min(82cqi,420px);height:520px;scroll-snap-align:start}
+  .p11 .sv-more,.p11 .sv-card.is-on .sv-more{grid-template-rows:1fr;opacity:1;visibility:visible}
+  .p11 .sv-k{opacity:1}
+  .p11 .sv-card:not(.is-on) .sv-img{filter:none;transform:none}
+  .p11 .sv-t,.p11 .sv-card.is-on .sv-t{font-size:28px}
+  .p11 .lv-i{grid-template-columns:76px minmax(0,1fr)}
+  .p11 .cv-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(76cqi,340px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--gut)*-1);padding:0 var(--gut) 76px;scroll-padding:0 var(--gut)}
+  .p11 .cv-row::-webkit-scrollbar{display:none}
+  .p11 .cv-row>li{scroll-snap-align:start}
+  .p11 .cv{height:300px}
+  .p11 .ft-panel{padding:28px 22px 16px;border-radius:28px}
+  .p11 .ft-head{grid-template-columns:1fr;gap:36px}
+  .p11 .ft-map{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 18px;margin-top:44px}
+  .p11 .ft-bar{flex-direction:column;align-items:flex-start;padding:22px 18px 12px;border-radius:22px}
+  .p11 .ft-up{order:3}
+}
+@container site (max-width:640px){
+  .p11 .nu-row{gap:44px 18px}
+  .p11 .nu-v{font-size:clamp(40px,12.5cqi,60px)}
+  .p11 .nu-dd{margin-top:calc(clamp(40px,12.5cqi,60px)*.5)}
+  .p11 .so-cta .btn{width:100%}
+  .p11 .so-perks{flex-direction:column;align-items:center;gap:10px}
+  .p11 .ft-form{flex-direction:column;border-radius:24px}
+  .p11 .ft-form .btn{justify-content:space-between}
+}
+@container site (max-width:860px){
+  .p11 .fa-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"h" "st" "l" "c";grid-template-rows:auto}
+  .p11 .fa-stage{width:min(100%,520px);margin-top:20px}
+  .p11 .fa-steps{max-width:none;margin-top:8px}
+}
+@container site (max-width:640px){
+  .p11 .cta-cap{flex-direction:column;align-items:stretch;width:100%;border-radius:28px}
+  .p11 .cta-cap .btn{justify-content:space-between}
+  .p11 .cta-l{padding:0 16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .p11 *,.p11 *::before,.p11 *::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+}
+</style>
+</helmet>
+<div class="p11" ref="{{ setRootRef }}">
+<div class="p11c">
+<a class="skip" href="#p11-main">Vai al contenuto</a>
+
+<header class="{{ topCls }}" ref="{{ setTopRef }}">
+<span class="top-bg" aria-hidden="true"></span>
+<div class="wrap top-in">
+<a class="brand" href="P11-Home-palco.dc.html"><img src="./assets/36177f9c5a71babc9e46fe5220b0b522.png" alt="Cosmetica Italia — Associazione Nazionale Imprese Cosmetiche, vai alla homepage" width="1006" height="212"></a>
+<nav class="nav" id="p11-nav" aria-label="Navigazione principale">
+<ul class="nav-ul">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+<li>
+<sc-if value="{{ n.isLink }}" hint-placeholder-val="{{ false }}"><a class="navbtn" href="{{ n.href }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.hasMenu }}" hint-placeholder-val="{{ true }}"><button class="{{ n.cls }}" type="button" aria-expanded="{{ n.expanded }}" onClick="{{ n.toggle }}">{{ n.label }}<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></sc-if>
+<sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}">
+<div class="mega">
+<div class="mega-in">
+<div><p class="lab">Esplora</p><h2>{{ n.label }}</h2><p class="mega-p">{{ n.intro }}</p></div>
+<ul class="mlinks"><sc-for list="{{ n.links }}" as="l" hint-placeholder-count="6"><li><a href="{{ l.href }}"><span>{{ l.label }}<span class="sr">{{ l.srExt }}</span></span><sc-if value="{{ l.ext }}" hint-placeholder-val="{{ false }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></sc-if><sc-if value="{{ l.int }}" hint-placeholder-val="{{ true }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></sc-if></a></li></sc-for></ul>
+</div>
+</div>
+</sc-if>
+</li>
+</sc-for>
+</ul>
+<div class="nav-m">
+<button class="btn btn-white" type="button" onClick="{{ toggleLogin }}">Area riservata</button>
+<a class="btn btn-blue" href="#socio" onClick="{{ closeMenu }}">Diventa socio</a>
+</div>
+</nav>
+<div class="tools">
+<button class="icbtn" type="button" aria-haspopup="dialog" aria-expanded="{{ searchExp }}" onClick="{{ toggleSearch }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><span class="sr">Cerca nel sito</span></button>
+<button class="btn btn-white hide-s" type="button" aria-haspopup="dialog" aria-expanded="{{ loginExp }}" onClick="{{ toggleLogin }}">Area riservata</button>
+<button class="icbtn burger" type="button" aria-expanded="{{ menuExp }}" aria-controls="p11-nav" onClick="{{ toggleMenu }}"><sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></sc-if><sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></sc-if><span class="sr">Menu</span></button>
+</div>
+</div>
+<span class="top-led" aria-hidden="true"><i ref="{{ setLedRef }}"></i></span>
+</header>
+
+<main id="p11-main">
+<section class="hx" aria-labelledby="p11-h1" ref="{{ setHxRef }}">
+<div class="hx-obj" aria-hidden="true" ref="{{ setObjRef }}">
+<img class="hx-img" src="./assets/p11-collezione-palco.webp" alt="" width="1600" height="1800" fetchpriority="high" decoding="async">
+</div>
+<span class="hx-nt" aria-hidden="true"></span><span class="hx-bm" aria-hidden="true"></span>
+<div class="wrap hx-in">
+<div class="hx-h">
+<p class="lab">Benvenuti in Cosmetica Italia</p>
+<h1 id="p11-h1" class="h1"><span class="ln"><span style="--i:0"><span class="w" style="--wi:0">Bellezza</span> <span class="w" style="--wi:1">italiana.</span></span></span> <span class="ln"><span style="--i:1"><span class="w" style="--wi:2">Qualità</span> <span class="w" style="--wi:3">industriale.</span></span></span> <span class="ln"><span style="--i:2">Valore condiviso.</span></span></h1>
+<p class="hx-p">Circa 650 imprese, dalle multinazionali alle PMI: una filiera che ricerca, produce ed esporta la cosmetica italiana in tutto il mondo.</p>
+<div class="hx-cta">
+<a class="btn btn-blue" href="https://www.cosmeticaitalia.it/conoscere-lindustria-cosmetica/La-cosmetica-italiana/">Scopri il settore<svg class="ic ic-s ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="hx-so" href="#socio">Diventa socio</a>
+</div>
+</div>
+</div>
+<div class="wrap hx-ev">
+<div class="hx-bar" role="list" aria-label="In evidenza">
+<a class="hx-it" role="listitem" href="{{ evHref }}"><span class="hx-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="3.5"></rect><path d="M4 10.5h16M9 3.5v4M15 3.5v4"></path></svg></span><span class="hx-m"><span class="hx-k">In agenda</span><span class="hx-d">{{ evDate }}</span></span><span class="hx-t">{{ evTitle }}</span><span class="hx-go" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+<a class="hx-it" role="listitem" href="{{ ciHref }}"><span class="hx-i" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M14 3.5H8a2.5 2.5 0 0 0-2.5 2.5v12A2.5 2.5 0 0 0 8 20.5h8a2.5 2.5 0 0 0 2.5-2.5V8z"></path><path d="M14 3.5V8h4.5M9.5 12.5h5M9.5 16h5"></path></svg></span><span class="hx-m"><span class="hx-k">Ultima circolare</span><span class="hx-d">{{ ciDate }}</span></span><span class="hx-t">{{ ciTitle }}</span><span class="hx-go" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+</div>
+</section>
+
+<section class="sec sv" aria-labelledby="p11-sv">
+<div class="wrap">
+<div class="sh" data-rv="h">
+<div><p class="lab">Servizi agli associati</p><h2 id="p11-sv" class="h2"><span class="w" style="--wi:0">Quattro</span> <span class="w" style="--wi:1">servizi,</span><br><span class="w" style="--wi:2">un’unica</span> <span class="w" style="--wi:3">regia</span></h2></div>
+<p class="sh-p">Dall’assistenza normativa ai mercati esteri, dalla formazione alla sostenibilità: l’associazione lavora ogni giorno accanto alle imprese.</p>
+</div>
+<div class="sv-row" data-rv="sv">
+<sc-for list="{{ svcs }}" as="v" hint-placeholder-count="4">
+<article class="{{ v.cls }}" onMouseEnter="{{ v.on }}">
+<span class="sv-img" style="{{ v.bg }}"></span>
+<span class="sv-shade" aria-hidden="true"></span>
+<div class="sv-in">
+<p class="sv-top"><span>{{ v.num }}</span><span class="sv-k">{{ v.pill }}</span></p>
+<div>
+<p class="lab">{{ v.kicker }}</p>
+<h3 class="sv-t"><button class="sv-btn" type="button" aria-expanded="{{ v.exp }}" onClick="{{ v.on }}" onFocus="{{ v.on }}">{{ v.title }}</button></h3>
+<div class="sv-more"><div>
+<p class="sv-p">{{ v.desc }}</p>
+<div class="sv-links"><a class="btn btn-white" href="{{ v.href }}">Scopri il servizio<span class="sr"> {{ v.kicker }}</span><svg class="ic ic-s ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><sc-for list="{{ v.links }}" as="l" hint-placeholder-count="2"><a class="pill" href="{{ l.href }}">{{ l.label }}<span class="sr">{{ l.srExt }}</span></a></sc-for></div>
+</div></div>
+</div>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section class="sec fa" aria-labelledby="p11-fl" data-s="{{ faS }}" ref="{{ setFlRef }}">
+<div class="fa-pin">
+<div class="wrap fa-in">
+<div class="fa-h" data-rv="h"><p class="lab">La filiera</p><h2 id="p11-fl" class="h2"><span class="w" style="--wi:0">Dalla</span> <span class="w" style="--wi:1">formula</span> <span class="w" style="--wi:2">al</span> <span class="w" style="--wi:3">flacone,</span><br><span class="w" style="--wi:4">una</span> <span class="w" style="--wi:5">filiera</span> <span class="w" style="--wi:6">che</span> <span class="w" style="--wi:7">parla</span> <span class="w" style="--wi:8">italiano</span></h2></div>
+<ol class="fa-steps" style="{{ faStyle }}" data-rv="fa-l">
+<sc-for list="{{ filiera }}" as="f" hint-placeholder-count="5">
+<li class="{{ f.cls }}">
+<button type="button" class="fa-b" aria-current="{{ f.cur }}" onclick="{{ f.pick }}"><span class="fa-n">{{ f.num }}</span><span class="fa-w">{{ f.word }}</span></button>
+<div class="fa-more"><div><p class="fa-k">{{ f.kicker }}</p><p class="fa-t">{{ f.text }}</p></div></div>
+</li>
+</sc-for>
+</ol>
+<div class="fa-cta" data-rv="cta"><div class="cta-cap"><a class="btn btn-blue" href="https://www.cosmeticaitalia.it/conoscere-lindustria-cosmetica/La-cosmetica-italiana/">La cosmetica italiana<svg class="ic ic-s ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><a class="cta-l" href="P8-CentroStudi.dc.html">I numeri del settore</a><button type="button" class="fa-skip" onclick="{{ faSkip }}"><span class="fa-skip-t">Salta la filiera</span><span class="fa-skip-c" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></span></button></div></div>
+<div class="fa-stage" aria-hidden="true" data-rv="fa-st">
+<div class="fa-sc fa-c1"><img class="fa-ln" src="./assets/p11-filiera-s1-linee.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><img class="fa-rd" src="./assets/p11-filiera-s1.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><span class="fa-cap">01 · in laboratorio, la formula</span></div>
+<div class="fa-sc fa-c2"><img class="fa-ln" src="./assets/p11-filiera-s2-linee.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><img class="fa-rd" src="./assets/p11-filiera-s2.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><span class="fa-cap">02 · pigmenti, polveri e oli</span></div>
+<div class="fa-sc fa-c3"><img class="fa-ln" src="./assets/p11-filiera-s3-linee.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><img class="fa-rd" src="./assets/p11-filiera-s3.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><span class="fa-cap">03 · sulla linea di riempimento</span></div>
+<div class="fa-sc fa-c4"><img class="fa-ln" src="./assets/p11-filiera-s4-linee.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><img class="fa-rd" src="./assets/p11-filiera-s4.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><span class="fa-cap">04 · tappo e astuccio</span></div>
+<div class="fa-sc fa-c5"><img class="fa-ln" src="./assets/p11-filiera-s5-linee.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><img class="fa-rd" src="./assets/p11-filiera-s5.webp" alt="" width="1280" height="1440" loading="lazy" decoding="async"><span class="fa-cap">05 · pronti per l’export</span></div>
+<span class="fa-sweep" ref="{{ setFaSweep }}"></span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec nu" aria-labelledby="p11-nu">
+<div class="wrap">
+<div class="sh" data-rv="h">
+<div><p class="lab">Centro Studi</p><h2 id="p11-nu" class="h2"><span class="w" style="--wi:0">Il</span> <span class="w" style="--wi:1">settore</span><br><span class="w" style="--wi:2">in</span> <span class="w" style="--wi:3">quattro</span> <span class="w" style="--wi:4">numeri</span></h2></div>
+<p class="sh-p">Stime e dati del Centro Studi sull’industria cosmetica italiana, aggiornati con i report di marzo e settembre.<br><a class="lk" href="P8-CentroStudi.dc.html">Tutti i numeri del settore<span class="lk-c" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></p>
+</div>
+<dl class="nu-row" data-rv="nu" ref="{{ setStatsRef }}">
+<div class="nu-it"><dt><span class="sr">18,1 miliardi di euro</span><span class="nu-v" aria-hidden="true"><span class="cnt" ref="{{ cntRef0 }}">18</span>,<span class="cnt" ref="{{ cntRef4 }}">1</span><small>mld €</small></span></dt><dd class="nu-dd"><b>Fatturato dell’industria</b>Stima per il 2026<span class="nu-src">Fonte: Scenario economico 2026</span></dd></div>
+<div class="nu-it"><dt><span class="sr">48 per cento</span><span class="nu-v" aria-hidden="true"><span class="cnt" ref="{{ cntRef1 }}">48</span>%</span></dt><dd class="nu-dd"><b>Quota dell’export</b>Sul fatturato, 2025<span class="nu-src">Fonte: Outlook 2025</span></dd></div>
+<div class="nu-it"><dt><span class="sr">500mila</span><span class="nu-v" aria-hidden="true"><span class="cnt" ref="{{ cntRef2 }}">500</span><small>mila</small></span></dt><dd class="nu-dd"><b>Lavoratori lungo la filiera</b>Di cui 105mila diretti<span class="nu-src">Fonte: Osservatorio TEHA 2026</span></dd></div>
+<div class="nu-it"><dt><span class="sr">circa 650</span><span class="nu-v" aria-hidden="true">~<span class="cnt" ref="{{ cntRef3 }}">650</span></span></dt><dd class="nu-dd"><b>Imprese associate</b>Dalle multinazionali alle PMI<span class="nu-src">Fonte: cosmeticaitalia.it</span></dd></div>
+</dl>
+<div class="nu-pubs" data-rv="pubs">
+<div class="nu-pubs-h"><h3>Ultime pubblicazioni</h3><a class="lk" href="P8-CentroStudi.dc.html">Tutte le pubblicazioni<span class="lk-c" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div>
+<ul class="cv-row"><sc-for list="{{ pubs }}" as="p" hint-placeholder-count="3"><li><a class="cv" href="{{ p.href }}"><span class="cv-k">{{ p.kind }}</span><span class="cv-t">{{ p.title }}</span><span class="cv-f"><span class="cv-d">{{ p.date }}</span><span class="cv-go" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span></a></li></sc-for></ul>
+</div>
+</div>
+</section>
+
+<section class="sec bd" aria-labelledby="p11-bd">
+<div class="wrap">
+<div class="sh" data-rv="h">
+<div><p class="lab">In agenda</p><h2 id="p11-bd" class="h2"><span class="w" style="--wi:0">Appuntamenti,</span> <span class="w" style="--wi:1">circolari</span><br><span class="w" style="--wi:2">e</span> <span class="w" style="--wi:3">iniziative</span></h2></div>
+<p class="sh-p">I prossimi eventi, le ultime circolari per gli associati e i progetti in evidenza.</p>
+</div>
+<div class="ag" data-rv="ag">
+<div class="lv">
+<div class="lv-h"><h3>Appuntamenti</h3><span>{{ agNote }}</span></div>
+<ol class="lv-l"><sc-for list="{{ agItems }}" as="a" hint-placeholder-count="3"><li><a class="lv-i" href="{{ a.href }}"><span class="ad"><b>{{ a.d }}</b><i>{{ a.m }}</i></span><span class="lv-c"><span class="lv-m"><span class="pk">{{ a.type }}</span><span class="{{ a.scls }}">{{ a.st }}</span></span><span class="lv-t">{{ a.title }}<span class="sr">{{ a.sr }}</span></span></span></a></li></sc-for></ol>
+<a class="lk lv-f" href="https://www.cosmeticaitalia.it/appuntamenti/elenco-completo/">Calendario completo<span class="lk-c" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+<div class="lv">
+<div class="lv-h"><h3>Circolari</h3><span>Testi per gli associati</span></div>
+<ol class="lv-l"><sc-for list="{{ ciItems }}" as="c" hint-placeholder-count="3"><li><a class="lv-i" href="{{ c.href }}"><span class="ad"><b>{{ c.d }}</b><i>{{ c.m }}</i></span><span class="lv-c"><span class="lv-m"><span class="lv-n">N. {{ c.num }}</span><span class="lv-s is-warm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Riservata</span></span><span class="lv-t">{{ c.title }}</span></span></a></li></sc-for></ol>
+<a class="lk lv-f" href="https://www.cosmeticaitalia.it/circolari/">Tutte le circolari<span class="lk-c" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+<div class="lv">
+<div class="lv-h"><h3>Iniziative</h3></div>
+<ol class="lv-l"><sc-for list="{{ inItems }}" as="c" hint-placeholder-count="3"><li><a class="lv-i" href="{{ c.href }}"><span class="ad"><b>{{ c.d }}</b><i>{{ c.m }}</i></span><span class="lv-c"><span class="lv-m"><span class="pk">{{ c.kind }}</span></span><span class="lv-t">{{ c.title }}<span class="sr">{{ c.sr }}</span></span></span></a></li></sc-for></ol>
+<a class="lk lv-f" href="https://www.cosmeticaitalia.it/elenco-notizie/">Tutte le notizie<span class="lk-c" aria-hidden="true"><svg class="ic ic-s" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="so" id="socio" aria-labelledby="p11-so" data-rv="so">
+<span class="so-beam" aria-hidden="true"></span>
+<div class="wrap so-c" data-rv="so-c">
+<p class="lab">Associarsi</p>
+<h2 id="p11-so" class="h2 so-t"><span class="w" style="--wi:0">Questo</span> <span class="w" style="--wi:1">spazio</span> <span class="w" style="--wi:2">aspetta</span> <span class="w" style="--wi:3">la</span> <span class="w" style="--wi:4">tua</span> <span class="w" style="--wi:5">impresa</span></h2>
+<p class="so-p">Rappresentanza, informazione e servizi per le imprese di tutta la filiera cosmetica: scopri i requisiti e i vantaggi dell’adesione.</p>
+<div class="so-cta"><a class="btn btn-blue" href="https://www.cosmeticaitalia.it/diventa-socio/per-quali-ragioni-conviene-associarsi-a-cosmetica-italia/">Diventa socio<svg class="ic ic-s ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><a class="btn btn-line" href="https://www.cosmeticaitalia.it/associazione/Organismi-associativi/imprese-associate/">Le imprese associate</a></div>
+<div class="so-stage" aria-hidden="true"><span class="so-floor"></span><span class="so-pool"></span></div>
+<ul class="so-perks"><sc-for list="{{ perks }}" as="k" hint-placeholder-count="5"><li>{{ k }}</li></sc-for></ul>
+</div>
+</section>
+</main>
+
+<footer class="ft" data-rv="ft">
+<div class="ft-lights" aria-hidden="true"></div>
+<div class="wrap">
+<div class="ft-panel">
+<div class="ft-head">
+<div class="ft-brand"><img src="./assets/36177f9c5a71babc9e46fe5220b0b522.png" alt="Cosmetica Italia — Associazione Nazionale Imprese Cosmetiche" width="1006" height="212"><p>Cosmetica Italia rappresenta le imprese cosmetiche in Italia e in Europa. Aderisce a Federchimica e a Confindustria.</p><ul class="ft-soc"><li><a href="https://www.linkedin.com/company/cosmetica-italia">LinkedIn<span class="sr"> (sito esterno)</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li><li><a href="https://www.instagram.com/associazionecosmeticaitalia/">Instagram<span class="sr"> (sito esterno)</span><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></li></ul></div>
+<div class="ft-news"><p class="lab">Newsletter</p><h2 class="ft-h">Resta aggiornato con la newsletter</h2><form class="ft-form" onSubmit="{{ onNews }}"><label class="sr" for="p11-mail">Email per la newsletter</label><input id="p11-mail" type="email" autocomplete="email" placeholder="La tua email"><button class="btn btn-white" type="submit">Iscriviti<svg class="ic ic-s ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></form><sc-if value="{{ newsSent }}" hint-placeholder-val="{{ false }}"><p class="ft-msg" role="status"><span class="demo-tag">Demo</span>Nessuna iscrizione è stata inviata.</p></sc-if></div>
+</div>
+<nav class="ft-map" aria-label="Mappa del sito" data-rv="ft-map"><sc-for list="{{ ftMap }}" as="c" hint-placeholder-count="5"><div class="ft-col"><p class="ft-mh">{{ c.label }}</p><ul><sc-for list="{{ c.links }}" as="l" hint-placeholder-count="4"><li><a href="{{ l.href }}">{{ l.label }}</a></li></sc-for></ul></div></sc-for></nav>
+<div class="ft-bar" data-rv="ft-bar">
+<ul class="ft-legal"><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/index.html">Privacy policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/privacy/cookie/index.html">Cookie policy</a></li><li><a href="https://www.cosmeticaitalia.it/associazione/credits/index.html">Credits</a></li><li><a href="https://www.cosmeticaitalia.it/press-area-r.html">Press Area</a></li></ul>
+<p class="ft-addr">Via Accademia, 33 – 20131 Milano · C.F. 05901970151 · PEC <a href="mailto:cosmetica_italia@pec.it">cosmetica_italia@pec.it</a></p>
+<button class="ft-up" type="button" onClick="{{ toTop }}">Torna su<span class="go"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></span></button>
+</div>
+</div>
+<p class="ft-note">Prototipo di restyling — Proposta 11 · direzione non definitiva · contenuti dal sito pubblico al 17/11/2026</p>
+</div>
+</footer>
+</div>
+
+<sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+<button class="scrim" type="button" aria-label="Chiudi la ricerca" onClick="{{ toggleSearch }}"></button>
+<div class="modal" role="dialog" aria-modal="true" aria-label="Cerca nel sito">
+<div class="pal-top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg><label class="sr" for="p11-q">Cerca circolari, studi, appuntamenti</label><input id="p11-q" type="search" autocomplete="off" placeholder="Cerca circolari, studi, appuntamenti…" value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onPalKey }}" ref="{{ setQRef }}"><button class="mclose" type="button" onClick="{{ toggleSearch }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr">Chiudi</span></button></div>
+<div class="pal-body">
+<sc-if value="{{ showChips }}" hint-placeholder-val="{{ true }}">
+<p class="pal-h">Ricerche frequenti</p>
+<div class="pal-chips"><sc-for list="{{ chips }}" as="c" hint-placeholder-count="5"><button class="pal-chip" type="button" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for></div>
+<p class="pal-h">Suggeriti</p>
+<sc-for list="{{ suggested }}" as="r" hint-placeholder-count="4"><a class="pal-row" href="{{ r.href }}"><span class="pal-type">{{ r.type }}</span><span class="pal-t">{{ r.title }}</span><span class="pal-d">{{ r.date }}</span></a></sc-for>
+</sc-if>
+<sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
+<p class="pal-h" aria-live="polite">{{ resultsLabel }}</p>
+<sc-for list="{{ results }}" as="r" hint-placeholder-count="4"><a class="pal-row" href="{{ r.href }}"><span class="pal-type">{{ r.type }}</span><span class="pal-t">{{ r.title }}</span><span class="pal-d">{{ r.date }}</span></a></sc-for>
+</sc-if>
+<sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}"><p class="pal-h" aria-live="polite">Nessun risultato per «{{ q }}»</p></sc-if>
+</div>
+<div class="pal-foot"><span><span class="demo-tag">Demo</span>{{ indexCount }} contenuti di esempio tratti dal sito attuale</span><span class="kbd">esc</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}">
+<button class="scrim" type="button" aria-label="Chiudi" onClick="{{ toggleLogin }}"></button>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="p11-login-t">
+<div class="login-b">
+<div class="login-hd"><h2 id="p11-login-t">Area riservata</h2><button class="mclose" type="button" onClick="{{ toggleLogin }}"><svg class="ic ic-s" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr">Chiudi</span></button></div>
+<p>Circolari, report integrali del Centro Studi e documenti dedicati sono consultabili dopo l’accesso.</p>
+<p class="note"><span class="demo-tag">Prototipo</span>L’accesso non è attivo in questa demo: nessuna credenziale viene richiesta o verificata.</p>
+<div class="login-row"><a class="btn btn-white" href="https://www.cosmeticaitalia.it/associazione/area-riservata/">Area riservata del sito attuale</a><a class="btn btn-line" href="https://www.cosmeticaitalia.it/associazione/area-riservata/registrazione/">Registrazione</a></div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6782}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: null, menu: false, search: false, login: false, q: '', scrolled: false, sv: 0, newsSent: false, fa: 3 };
+    this.qEl = null;
+  }
+  data() {
+    if (this._d) return this._d;
+    const S = 'https://www.cosmeticaitalia.it';
+    const CS = 'P8-CentroStudi.dc.html';
+    this._d = {
+      nav: [
+        { id: 'ass', label: 'L’associazione', intro: 'Chi siamo, come siamo organizzati, notizie e appuntamenti.', links: [['Chi siamo', S + '/associazione/chi-siamo/storia/'], ['Organismi associativi', S + '/associazione/Organismi-associativi/governance/'], ['Imprese associate', S + '/associazione/Organismi-associativi/imprese-associate/'], ['Gruppi', S + '/Gruppi/'], ['Struttura organizzativa', S + '/associazione/struttura-organizzativa-e-operativa/struttura-organizzativa/'], ['Enti correlati', S + '/associazione/enti-correlati/cosmetica-italia-servizi-srl/'], ['Notizie', S + '/elenco-notizie/'], ['Appuntamenti', S + '/appuntamenti/elenco-completo/'], ['Press Area', S + '/press-area-r.html']] },
+        { id: 'set', label: 'Il settore', intro: 'L’industria cosmetica italiana: numeri, filiera e cultura del prodotto.', links: [['La cosmetica italiana', S + '/conoscere-lindustria-cosmetica/La-cosmetica-italiana/'], ['I numeri della cosmetica', CS], ['ABC Cosmetici', S + '/abc-cosmetici/Conoscere-i-cosmetici/cose-un-cosmetico/'], ['Domande e risposte', S + '/abc-cosmetici/qa/'], ['Education', S + '/education/progetto/'], ['Milano Beauty Week', S + '/appuntamenti/milano-beauty-week/']] },
+        { id: 'serv', label: 'Servizi agli associati', intro: 'Assistenza, informazione e strumenti per le imprese associate.', links: [['Tecnico regolatorio', S + '/tecnico-regolatorio/'], ['Circolari', S + '/circolari/'], ['Attività internazionali', S + '/servizi-per-linternazionalizzazione/'], ['Corsi di Cosmetica Italia Servizi', 'https://www.cosmeticaitaliaservizi.it/corsi/'], ['Webinar', S + '/pubblicazioni/webinar/'], ['Information Day', S + '/appuntamenti/information-day/'], ['Cosmoprof', S + '/appuntamenti/cosmoprof/'], ['Newsletter', S + '/newsletter/iscrizione/']] },
+        { id: 'temi', label: 'Temi e posizioni', intro: 'Le priorità dell’associazione e la documentazione di riferimento.', links: [['Sostenibilità', S + '/sostenibilita/cosmetica-italia-per-la-sostenibilita/'], ['Osservatorio sulla sostenibilità', S + '/sostenibilita/osservatorio-sulla-sostenibilita/'], ['Regolamento 1223/2009', S + '/pubblicazioni/documentazione-su-regolamento-1223-2009/'], ['Linee guida', S + '/pubblicazioni/linee-guida/'], ['Quaderni', S + '/pubblicazioni/quaderni/'], ['Statuto e normativa', S + '/associazione/chi-siamo/statuto-e-normativa/']] },
+        { id: 'cs', label: 'Centro Studi', intro: 'Analisi economiche, scenari e studi sul settore.', links: [['Tutte le pubblicazioni', CS], ['Scenario economico 2026', S + '/centro-studi/Scenario-economico-della-cosmetica-2026/'], ['Outlook 2025', S + '/centro-studi/Outlook-2025/'], ['Studi dei partner', CS]] },
+        { id: 'tib', label: 'This is Bellezza', intro: '', href: S + '/thisisbellezza/', links: [] }
+      ],
+      suggested: [
+        { type: 'Circolare', title: '2026/100 · Ultime novità sul PPWR', date: '10/11/2026', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { type: 'Studio', title: 'Scenario economico della cosmetica 2026', date: '16/09/2026', href: CS },
+        { type: 'Webinar', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna', date: '19/11/2026', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Servizio', title: 'Certificati di libera vendita', date: '', href: S + '/tecnico-regolatorio/clv/' }
+      ],
+      index: [
+        { type: 'Circolare', title: '2026/100 Ultime novità sul PPWR', date: '10/11/2026', k: 'imballaggi packaging', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { type: 'Circolare', title: '2026/99 Normativa Cybersecurity: registrazione e verifiche di coerenza', date: '05/11/2026', k: 'nis', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/98 Cosmoprof North America Miami 2027: modalità di partecipazione', date: '28/10/2026', k: 'fiera usa', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/97 Cosmoprof India 2026: modalità di partecipazione', date: '22/10/2026', k: 'fiera mumbai', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/96 Indonesia: proroga per la certificazione Halal dei cosmetici', date: '19/10/2026', k: 'export', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/95 Criticità nell’esportazione verso l’Arabia Saudita', date: '08/10/2026', k: 'export', href: S + '/circolari/' },
+        { type: 'Circolare', title: '2026/94 Greenwashing: FAQ MIMIT sul D.Lgs. 30/2026', date: '07/10/2026', k: 'green claim ambientali', href: S + '/circolari/' },
+        { type: 'Notizia', title: 'Regolamento imballaggi e rifiuti di imballaggio (PPWR): Q&A', date: '11/11/2026', k: 'packaging webinar', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Corsi di formazione IAP', date: '12/11/2026', k: 'autodisciplina pubblicitaria', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Cosmoprof North America Miami: le opportunità del mercato beauty negli Stati Uniti', date: '06/11/2026', k: 'usa export', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Information Day 2026: disponibili i materiali', date: '22/10/2026', k: 'tecnico regolatorio', href: S + '/elenco-notizie/' },
+        { type: 'Notizia', title: 'Webinar EUDR: regolamento prodotti a deforestazione zero', date: '28/10/2026', k: 'deforestazione', href: S + '/elenco-notizie/' },
+        { type: 'Studio', title: 'Scenario economico della cosmetica 2026', date: '16/09/2026', k: 'centro studi report fatturato', href: CS },
+        { type: 'Studio', title: 'Outlook 2025', date: '26/03/2026', k: 'centro studi export', href: CS },
+        { type: 'Studio', title: 'Mappe del beauty contemporaneo', date: '31/03/2026', k: 'consumi trend', href: CS },
+        { type: 'Studio', title: 'L’e-commerce di cosmetica in Italia nel 2025', date: 'marzo 2026', k: 'online consumi', href: CS },
+        { type: 'Studio', title: 'I trend della cosmetica online', date: 'luglio 2026', k: 'e-commerce', href: CS },
+        { type: 'Appuntamento', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna con gli incentivi', date: '19/11/2026', k: 'fiera webinar', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Appuntamento', title: 'Osservatorio sulla sostenibilità del settore cosmetico in Italia 2026', date: '24/11/2026', k: 'sostenibilita', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Appuntamento', title: 'L’economia circolare e la sua declinazione per le aziende cosmetiche', date: '17/12/2026', k: 'sostenibilita circolare', href: S + '/appuntamenti/elenco-completo/' },
+        { type: 'Pagina', title: 'Certificati di libera vendita', date: '', k: 'clv export tecnico regolatorio', href: S + '/tecnico-regolatorio/clv/' },
+        { type: 'Pagina', title: 'Etichettatura ambientale degli imballaggi', date: '', k: 'packaging sostenibilita', href: S + '/etichettatura-ambientale/etichettatura2023/index.html' },
+        { type: 'Pagina', title: 'Perché associarsi a Cosmetica Italia', date: '', k: 'diventa socio adesione', href: S + '/diventa-socio/per-quali-ragioni-conviene-associarsi-a-cosmetica-italia/' },
+        { type: 'Pagina', title: 'Schede Paesi per l’internazionalizzazione', date: '', k: 'export mercati esteri', href: S + '/servizi-per-linternazionalizzazione/paesi/' }
+      ],
+      chips: ['PPWR', 'Greenwashing', 'Cosmoprof', 'Scenario economico', 'Export'],
+      services: [
+        { pill: 'Regolamento 1223/2009', kicker: 'Tecnico regolatorio', title: 'Norme chiare, prodotti sicuri', desc: 'Linee guida, documenti e assistenza per applicare le regole sul prodotto cosmetico, dalla formula all’etichetta.', img: './assets/388ec58efc25ad62b8caa828a9e2ac87.jpg', pos: '56% 50%', href: S + '/tecnico-regolatorio/', links: [['Linee guida', S + '/pubblicazioni/linee-guida/'], ['Certificati di libera vendita', S + '/tecnico-regolatorio/clv/']] },
+        { pill: 'Cosmoprof nel mondo', kicker: 'Attività internazionali', title: 'Il made in Italy sui mercati esteri', desc: 'Fiere, missioni e schede Paese per accompagnare le imprese che esportano.', img: './assets/c21793f07f8069e5528cc15c14352b06.webp', pos: '50% 55%', href: S + '/servizi-per-linternazionalizzazione/', links: [['Schede Paesi', S + '/servizi-per-linternazionalizzazione/paesi/'], ['Cosmoprof', S + '/appuntamenti/cosmoprof/']] },
+        { pill: 'Corsi e webinar', kicker: 'Formazione', title: 'Competenze che crescono', desc: 'Corsi, webinar e Information Day, anche con Cosmetica Italia Servizi.', img: './assets/0e39439d5ed77c5fe777abb98b410081.webp', pos: '56% 28%', href: 'https://www.cosmeticaitaliaservizi.it/corsi/', links: [['Webinar', S + '/pubblicazioni/webinar/'], ['Information Day', S + '/appuntamenti/information-day/']] },
+        { pill: 'Osservatorio 2026', kicker: 'Sostenibilità', title: 'Una filiera più sostenibile', desc: 'L’Osservatorio di settore, percorsi e strumenti per misurare e migliorare.', img: './assets/845ea73da12aae0c8818fa7fb81dcd4a.webp', pos: '56% 42%', href: S + '/sostenibilita/osservatorio-sulla-sostenibilita/', links: [['Cosmetica Italia per la sostenibilità', S + '/sostenibilita/cosmetica-italia-per-la-sostenibilita/']] }
+      ],
+      filiera: [
+        { word: 'Formula', kicker: 'Ricerca e sviluppo', text: 'Nei laboratori delle imprese e dei terzisti nascono le formule, tra sicurezza ed efficacia.', img: './assets/65683df1f1317b0bd63b731fec7bdf25.jpg', pos: '58% 46%', tag: 'la formula: succo e crema', hx: 54.0, hy: 67.3, call: 'La crema e il succo: formule nate in laboratorio', side: 'r' },
+        { word: 'Ingredienti', kicker: 'Materie prime', text: 'Principi attivi e materie prime scelti e controllati secondo il Regolamento 1223/2009.', img: './assets/0d03e1556dedac7467ac16ef21405e42.jpg', pos: '50% 70%', tag: 'pigmenti e materie prime', hx: 82.6, hy: 76.2, call: 'Pigmenti e materie prime che danno colore e consistenza', side: 'l' },
+        { word: 'Produzione', kicker: 'Stabilimenti e conto terzi', text: 'Impianti e aziende in conto terzi che producono anche per i marchi internazionali.', img: './assets/df7f61e314ac312827901b6180396595.jpg', pos: '50% 40%', tag: 'vetro e riempimento', hx: 58.0, hy: 46.7, call: 'Flaconi e vasetti riempiti negli stabilimenti e dai terzisti', side: 'r' },
+        { word: 'Packaging', kicker: 'Confezionamento', text: 'Flaconi, astucci e macchinari: la parte della filiera che dà forma al prodotto.', img: './assets/0e8be11a28915a17c47be899f6184cdb.jpg', pos: '30% 62%', tag: 'tappi, astucci e finiture', hx: 57.4, hy: 23.8, call: 'Tappi, astucci e finiture che danno forma al prodotto', side: 'r' },
+        { word: 'Mondo', kicker: 'Distribuzione ed export', text: 'Profumerie, farmacie, grande distribuzione, online e mercati esteri: nel 2025 l’export vale il 48% del fatturato.', img: './assets/f3dd526a42e53908a2374d00e39291be.webp', pos: '50% 50%', tag: 'sullo scaffale, in Italia e all’estero', hx: 76.3, hy: 36.7, call: 'Pronto per profumerie, farmacie, online e mercati esteri', side: 'l' }
+      ],
+      pubs: [
+        { kind: 'Confindustria', date: 'Ottobre 2026', title: 'Fronteggiare gli shock internazionali e rafforzare le imprese', href: S + '/centro-studi/Per-far-crescere-lItalia-fronteggiare-gli-shock-internazionali-e-rafforzare-le-imprese-ottobre-2026/' },
+        { kind: 'Gi Group', date: 'Ottobre 2026', title: 'Evoluzioni del settore e nuove leve per attrarre i talenti di oggi e di domani', href: S + '/centro-studi/Gi-Group-La-cosmetica-italiana-evoluzioni-del-settore-e-nuove-leve-per-attrarre-i-talenti-di-oggi-e-di-domani/' },
+        { kind: 'Centro Studi', date: '16 settembre 2026', title: 'Scenario economico della cosmetica 2026', href: S + '/centro-studi/Scenario-economico-della-cosmetica-2026/' }
+      ],
+      agenda: [
+        { s: '2026-11-19', e: '2026-11-19', type: 'WEBINAR', title: 'Finanza agevolata: partecipa a Cosmoprof Worldwide Bologna e al suo network internazionale con il sostegno degli incentivi', flag: '', href: S + '/appuntamenti/elenco-completo/' },
+        { s: '2026-11-24', e: '2026-11-24', type: 'SOSTENIBILITÀ', title: 'Dalle iniziative alle scelte d’impresa – Osservatorio sulla sostenibilità del settore cosmetico in Italia 2026', flag: '', href: S + '/appuntamenti/elenco-completo/' },
+        { s: '2026-12-10', e: '2026-12-12', type: 'FIERA', title: 'Cosmoprof India, Mumbai', flag: '', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-INDIA-2026-iniziative-e-modalita-di-partecipazione/' },
+        { s: '2026-12-17', e: '2026-12-17', type: 'PROGETTO', title: 'L’economia circolare e la sua declinazione per le aziende cosmetiche', flag: 'POSTICIPATO', href: S + '/appuntamenti/elenco-completo/' },
+        { s: '2027-01-18', e: '2027-01-18', type: 'CORSO', title: 'AI@Beauty: come orientarsi in modo pratico tra nuovi strumenti e prompt', flag: '', href: 'https://www.cosmeticaitaliaservizi.it/corsi/' },
+        { s: '2027-01-21', e: '2027-01-21', type: 'CORSO', title: 'Basi teoriche della formulazione cosmetica', flag: '', href: 'https://www.cosmeticaitaliaservizi.it/corsi/' },
+        { s: '2027-03-18', e: '2027-03-21', type: 'FIERA', title: 'Cosmoprof Worldwide Bologna 2027', flag: '', href: 'https://www.cosmoprof.com/' }
+      ],
+      circolari: [
+        { num: '2026/100', date: '10/11/2026', title: 'Ultime novità sul PPWR', href: S + '/circolari/dettaglio/Ultime-novita-sul-PPWR/' },
+        { num: '2026/99', date: '05/11/2026', title: 'Normativa Cybersecurity: aggiornamenti su registrazione e verifiche di coerenza', href: S + '/circolari/dettaglio/Normativa-Cybersecurity-aggiornamenti-su-registrazione-e-verifiche-di-coerenza/' },
+        { num: '2026/98', date: '28/10/2026', title: 'Fiera Cosmoprof North America Miami 2027: iniziative e modalità di partecipazione', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-NORTH-AMERICA-MIAMI-2027-iniziative-e-modalita-di-partecipazione/' },
+        { num: '2026/97', date: '22/10/2026', title: 'Fiera Cosmoprof India 2026: iniziative e modalità di partecipazione', href: S + '/circolari/dettaglio/Fiera-COSMOPROF-INDIA-2026-iniziative-e-modalita-di-partecipazione/' },
+        { num: '2026/96', date: '19/10/2026', title: 'Indonesia: proroga per la certificazione Halal dei cosmetici', href: S + '/circolari/' }
+      ],
+      iniziative: [
+        { kind: 'SOSTENIBILITÀ', date: '24 NOV 2026', title: 'Osservatorio sulla sostenibilità del settore cosmetico 2026', href: S + '/sostenibilita/osservatorio-sulla-sostenibilita/' },
+        { kind: 'CENTRO STUDI', date: '16 SET 2026', title: 'Scenario economico della cosmetica 2026', href: S + '/centro-studi/Scenario-economico-della-cosmetica-2026/' },
+        { kind: 'PROGETTO', date: 'IN CORSO', title: 'This is Bellezza: il movimento che racconta il valore del sistema cosmetico italiano', href: S + '/thisisbellezza/' },
+        { kind: 'NOTIZIA', date: '11 NOV 2026', title: 'Regolamento imballaggi e rifiuti di imballaggio (PPWR): Q&A', href: S + '/elenco-notizie/Regolamento-imballaggi-e-rifiuti-di-imballaggio-PPWR-QA-00001/' },
+        { kind: 'FIERA', date: '18-21 MAR 27', title: 'Cosmoprof Worldwide Bologna 2027', href: 'https://www.cosmoprof.com/' }
+      ],
+      perks: ['Rappresentanza in Italia e in Europa', 'Informazione normativa tempestiva', 'Consulenza tecnica ed economica', 'Supporto all’export', 'Servizi a condizioni dedicate']
+    };
+    return this._d;
+  }
+  _anim() {
+    if (typeof window === 'undefined' || this._rm) return false;
+    const h = window.innerHeight;
+    return h >= 360 && h <= 1400;
+  }
+  _live() {
+    if (typeof window === 'undefined') return;
+    const w = this.rootEl ? this.rootEl.getBoundingClientRect().width : window.innerWidth;
+    const h = window.innerHeight;
+    this._liveOn = !this._rm && h >= 560 && h <= 1400 && w > 860;
+    const hx = this.hxEl;
+    if (hx) { if (this._liveOn) hx.setAttribute('data-live', ''); else { hx.removeAttribute('data-live'); hx.style.removeProperty('--hs'); } }
+    if (this.rootEl && !this._liveSet) { this._liveSet = true; if (this._liveOn) this.rootEl.setAttribute('data-live', ''); }
+  }
+  _frame() {
+    this._fr = 0;
+    const cl = (x) => Math.min(1, Math.max(0, x));
+    const v = window.scrollY > 24;
+    if (v !== this.state.scrolled) this.setState({ scrolled: v });
+    const doc = document.documentElement;
+    const sp = cl(window.scrollY / Math.max(1, doc.scrollHeight - window.innerHeight));
+    if (this.ledEl) this.ledEl.style.setProperty('--sp', sp.toFixed(4));
+    if (!this._liveOn) return;
+    this._faFrame();
+    const hx = this.hxEl;
+    if (hx) {
+      const r = hx.getBoundingClientRect();
+      const s = cl(-r.top / Math.max(1, r.height));
+      hx.style.setProperty('--hs', s.toFixed(4));
+    }
+  }
+  // filiera A: passaggio attivo (scorrimento sul desktop, ciclo lento altrove)
+  _faGo(k, user) {
+    k = Math.max(1, Math.min(5, k));
+    if (user) this._faUser = true;
+    if (user && this._liveOn && this.flEl) {
+      const r = this.flEl.getBoundingClientRect();
+      const span = Math.max(1, r.height - window.innerHeight);
+      const top = window.scrollY + r.top + ((k - .5) / 5) * span;
+      window.scrollTo({ top, behavior: this._rm ? 'auto' : 'smooth' });
+    }
+    if (k === this.state.fa) return;
+    this.setState({ fa: k });
+    const sw = this.faSweep;
+    if (sw && sw.animate && this._anim()) sw.animate([{ opacity: 0, transform: 'translateX(-55%)' }, { opacity: 1, offset: .35 }, { opacity: 0, transform: 'translateX(55%)' }], { duration: 1300, easing: 'cubic-bezier(.22,.8,.2,1)' });
+  }
+  _faFrame() {
+    const el = this.flEl;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const span = Math.max(1, r.height - window.innerHeight);
+    const p = Math.min(1, Math.max(0, -r.top / span));
+    const k = Math.min(5, 1 + Math.floor(p * 5));
+    if (k !== this.state.fa) this._faGo(k, false);
+  }
+  _faInit() {
+    if (this._liveOn) { this._faFrame(); return; }
+    if (!this._anim() || typeof IntersectionObserver === 'undefined' || !this.flEl) return;
+    // senza scorrimento bloccato: i passaggi avanzano da soli quando la sezione è visibile (e il palco ha fatto il suo ingresso)
+    this.setState({ fa: 1 });
+    this._faio = new IntersectionObserver((list) => {
+      list.forEach((x) => {
+        this._faVis = x.isIntersecting;
+        if (x.isIntersecting) this._faTick();
+        else if (this._fat) { clearInterval(this._fat); this._fat = 0; }
+      });
+    }, { threshold: .35 });
+    this._faio.observe(this.flEl);
+  }
+  // ingresso del palco (ingressi allo scorrimento): la rotazione parte quando il render del primo passaggio si è acceso
+  _faEnter() {
+    this._faRvT = setTimeout(() => { this._faOk = true; this._faTick(); }, 1900);
+  }
+  _faTick() {
+    if (this._fat || this._faUser || !this._faVis || (this._rv && !this._faOk)) return;
+    this._fat = setInterval(() => { if (this._faUser) { clearInterval(this._fat); this._fat = 0; return; } this._faGo(this.state.fa >= 5 ? 1 : this.state.fa + 1, false); }, 2800);
+  }
+  // sezioni: comparsa, filiera, contatori, tabellone
+  _sections() {
+    const root = this.rootEl;
+    if (!root || typeof window === 'undefined') return;
+    const live = this._anim();
+    const IO = typeof IntersectionObserver !== 'undefined';
+    if (live && IO) {
+      // ingressi: un solo osservatore sui blocchi delle sezioni, ognuno entra una volta sola (vedi «ingressi allo scorrimento» nel CSS).
+      // threshold 0 con il margine in basso: scatta anche per i blocchi più alti della finestra (filiera, footer sul telefono)
+      this._rvBl = Array.prototype.slice.call(root.querySelectorAll('[data-rv]'));
+      root.setAttribute('data-rv-on', '');
+      this._hxGo();
+      this._rv = new IntersectionObserver((list) => {
+        list.forEach((x) => { if (x.isIntersecting) this._rvIn(x.target); });
+        // dopo un salto (ancore, «Salta la filiera», «Torna su») i blocchi scavalcati, ormai sopra la finestra, sono già pronti
+        this._rvBl.forEach((b) => { if (!b.hasAttribute('data-in') && b.getBoundingClientRect().bottom <= 0) this._rvIn(b); });
+      }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+      this._rvBl.forEach((el) => this._rv.observe(el));
+    }
+    this._faInit();
+    const els = this.cnt || [];
+    if (this._rv) {
+      // contatori a zero (le cifre sono ancora nascoste): corrono quando entra la riga dei numeri
+      if (els[0]) els[0].textContent = '0';
+      if (els[4]) els[4].textContent = '0';
+      for (let i = 1; i < 4; i++) if (els[i]) els[i].textContent = '0';
+    } else this._count();
+  }
+  // apertura: l'ingresso parte quando l'immagine è decodificata (al massimo dopo 900 ms), così la luce non passa su un riquadro
+  // vuoto; a fine corsa (1,4 s) data-done toglie velo e fascia di luce
+  _hxGo() {
+    const hx = this.hxEl;
+    if (!hx) return;
+    const img = hx.querySelector('.hx-img');
+    let started = false;
+    const go = () => {
+      if (started) return;
+      started = true;
+      clearTimeout(this._hxT);
+      this._hxR = requestAnimationFrame(() => {
+        hx.setAttribute('data-in', '');
+        this._hxT = setTimeout(() => hx.setAttribute('data-done', ''), 1500);
+      });
+    };
+    this._hxT = setTimeout(go, 900);
+    if (img && img.decode) img.decode().then(go, go); else go();
+  }
+  _rvIn(el) {
+    if (el.hasAttribute('data-in')) return;
+    el.setAttribute('data-in', '');
+    if (this._rv) this._rv.unobserve(el);
+    const t = el.getAttribute('data-rv');
+    // i contatori corrono mentre le cifre si accendono
+    if (t === 'nu') this._rvc = setTimeout(() => this._count(), 150);
+    // filiera A: la rotazione automatica dei passaggi aspetta l'ingresso del palco
+    if (t === 'fa-st' && this._faEnter) this._faEnter();
+  }
+  // finestra diventata molto alta (modalità statica) o riduci movimento attivato dopo il caricamento: tutto visibile e fermo
+  _rvOff() {
+    const root = this.rootEl;
+    if (!this._rv || !root) return;
+    this._rv.disconnect();
+    this._rv = null;
+    root.removeAttribute('data-rv-on');
+    this._count();
+  }
+  _count() {
+    if (this._counted) return;
+    this._counted = true;
+    const els = this.cnt || [];
+    const tg = [181, 48, 500, 650];
+    const put = (k) => {
+      const v = tg.map((x) => Math.round(x * k));
+      if (els[0]) els[0].textContent = String(Math.floor(v[0] / 10));
+      if (els[4]) els[4].textContent = String(v[0] % 10);
+      for (let i = 1; i < 4; i++) if (els[i]) els[i].textContent = String(v[i]);
+    };
+    if (!this._anim()) { put(1); return; }
+    put(0);
+    const t0 = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / 1900);
+      put(1 - Math.pow(1 - p, 3));
+      if (p < 1) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+  componentDidMount() {
+    if (typeof window === 'undefined') return;
+    this._rm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    this._rmq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    this._rmc = () => { if (this._rmq && this._rmq.matches) { this._rm = true; this._rvOff(); } };
+    if (this._rmq && this._rmq.addEventListener) this._rmq.addEventListener('change', this._rmc);
+    this._fit = () => {
+      const h = window.innerHeight;
+      [this.hxEl, this.rootEl].forEach((el) => { if (!el) return; if (h >= 560 && h <= 1400) el.style.setProperty('--hv', h + 'px'); else el.style.removeProperty('--hv'); });
+      this._live();
+      this._frame();
+      if (this._rv && !this._anim()) this._rvOff();
+    };
+    this._fit();
+    window.addEventListener('resize', this._fit);
+    this._sc = () => { if (!this._fr) this._fr = requestAnimationFrame(() => this._frame()); };
+    window.addEventListener('scroll', this._sc, { passive: true });
+    this._key = (e) => {
+      if (e.key !== 'Escape') return;
+      const s = this.state;
+      if (s.search || s.login || s.open || s.menu) this.setState({ search: false, login: false, open: null, menu: false });
+    };
+    document.addEventListener('keydown', this._key);
+    this._down = (e) => {
+      if (!this.state.open || !this.topEl) return;
+      if (!this.topEl.contains(e.target)) this.setState({ open: null });
+    };
+    document.addEventListener('pointerdown', this._down);
+    this._sections();
+  }
+  componentWillUnmount() {
+    if (this._sc) window.removeEventListener('scroll', this._sc);
+    if (this._fit) window.removeEventListener('resize', this._fit);
+    if (this._key) document.removeEventListener('keydown', this._key);
+    if (this._down) document.removeEventListener('pointerdown', this._down);
+    if (this._fr) cancelAnimationFrame(this._fr);
+    [this._rv, this._fio, this._faio].forEach((o) => { if (o) o.disconnect(); });
+    if (this._fat) clearInterval(this._fat);
+    if (this._faRvT) clearTimeout(this._faRvT);
+    if (this._rvc) clearTimeout(this._rvc);
+    if (this._hxT) clearTimeout(this._hxT);
+    if (this._hxR) cancelAnimationFrame(this._hxR);
+    if (this._rmq && this._rmq.removeEventListener) this._rmq.removeEventListener('change', this._rmc);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  renderVals() {
+    const s = this.state;
+    const d = this.data();
+    const isExt = (h) => /^https?:/.test(h) && h.indexOf('https://www.cosmeticaitalia.it') !== 0;
+    const lk = (l) => ({ label: l[0], href: l[1], ext: isExt(l[1]), int: !isExt(l[1]), srExt: isExt(l[1]) ? ' (sito esterno)' : '' });
+    const nav = d.nav.map((n) => ({
+      label: n.label, intro: n.intro, href: n.href || '', isLink: !!n.href, hasMenu: !n.href,
+      open: s.open === n.id,
+      expanded: s.open === n.id ? 'true' : 'false',
+      cls: 'navbtn' + (s.open === n.id ? ' is-open' : ''),
+      toggle: () => this.setState({ open: s.open === n.id ? null : n.id, search: false, login: false }),
+      links: n.links.map(lk)
+    }));
+    const norm = (t) => (t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const words = norm(s.q).split(/\s+/).filter(Boolean);
+    const results = words.length ? d.index.filter((it) => { const h = norm(it.title + ' ' + it.type + ' ' + it.k); return words.every((w) => h.indexOf(w) !== -1); }) : [];
+    const MS = ['GEN', 'FEB', 'MAR', 'APR', 'MAG', 'GIU', 'LUG', 'AGO', 'SET', 'OTT', 'NOV', 'DIC'];
+    const t0 = new Date(); t0.setHours(0, 0, 0, 0);
+    const pd = (x) => { const m = x.split('-'); return new Date(+m[0], +m[1] - 1, +m[2]); };
+    // striscia «In evidenza»: il primo appuntamento non ancora finito
+    const evUp = d.agenda.find((a) => pd(a.e) >= t0) || d.agenda[d.agenda.length - 1];
+    const evDate = (() => { const a = pd(evUp.s), b = pd(evUp.e), m = (x) => MS[x.getMonth()].toLowerCase(); if (+a === +b) return a.getDate() + ' ' + m(a); return a.getMonth() === b.getMonth() ? a.getDate() + '–' + b.getDate() + ' ' + m(b) : a.getDate() + ' ' + m(a) + ' – ' + b.getDate() + ' ' + m(b); })();
+    // agenda: tre riquadri alla pari (prossimi appuntamenti, ultime circolari, iniziative recenti)
+    const two = (n) => String(n).padStart(2, '0');
+    const agItems = d.agenda.map((a) => {
+      const st = pd(a.s), en = pd(a.e);
+      const dd = Math.round((st - t0) / 864e5);
+      let rel = st <= t0 && en >= t0 ? 'In corso' : (dd === 1 ? 'Domani' : (dd < 60 ? 'Tra ' + dd + ' giorni' : 'Tra ' + Math.round(dd / 30) + ' mesi'));
+      if (a.flag) rel = a.flag.charAt(0) + a.flag.slice(1).toLowerCase();
+      const one = +st === +en, sm = st.getMonth() === en.getMonth();
+      return { end: en, d: one ? two(st.getDate()) : two(st.getDate()) + '–' + two(en.getDate()), m: one || sm ? MS[st.getMonth()] : MS[st.getMonth()] + '–' + MS[en.getMonth()], type: a.type, st: rel, scls: 'lv-s' + (a.flag ? ' is-warm' : ''), title: a.title, href: a.href, sr: isExt(a.href) ? ' (sito esterno)' : '' };
+    }).filter((a) => a.end >= t0).slice(0, 3);
+    const ciItems = d.circolari.slice(0, 3).map((c) => { const p = c.date.split('/'); return { d: p[0], m: MS[+p[1] - 1], num: c.num, title: c.title, href: c.href }; });
+    const inItems = d.iniziative.map((c) => {
+      const p = c.date.split(' '), mi = MS.indexOf(p[1]);
+      if (p.length !== 3 || mi < 0 || !/^\d+$/.test(p[0]) || !/^\d{4}$/.test(p[2])) return null;
+      return { t: new Date(+p[2], mi, +p[0]), d: two(p[0]), m: p[1], kind: c.kind, title: c.title, href: c.href, sr: isExt(c.href) ? ' (sito esterno)' : '' };
+    }).filter((c) => c && c.t <= t0).sort((a, b) => b.t - a.t).slice(0, 3);
+    return {
+      svcs: d.services.map((v, i) => ({
+        cls: 'sv-card' + (i === s.sv ? ' is-on' : ''), exp: i === s.sv ? 'true' : 'false',
+        on: () => { if (this.state.sv !== i) this.setState({ sv: i }); },
+        num: String(i + 1).padStart(2, '0'), pill: v.pill, kicker: v.kicker, title: v.title, desc: v.desc, bg: 'background-image:url(' + v.img + ');background-position:' + v.pos, href: v.href,
+        links: v.links.map((l) => ({ label: l[0], href: l[1], srExt: isExt(l[1]) ? ' (sito esterno)' : '' }))
+      })),
+      filiera: d.filiera.map((f, i) => ({ word: f.word, kicker: f.kicker, text: f.text, num: String(i + 1).padStart(2, '0'), cls: 'fa-st' + (i + 1 === s.fa ? ' is-on' : '') + (i + 1 < s.fa ? ' is-done' : ''), cur: i + 1 === s.fa ? 'step' : 'false', pick: () => this._faGo(i + 1, true) })),
+      faS: String(s.fa),
+      faStyle: '--fp:' + ((s.fa - 1) / 4).toFixed(3),
+      faSkip: () => { const n = this.flEl && this.flEl.nextElementSibling; if (n) n.scrollIntoView({ behavior: this._rm ? 'auto' : 'smooth', block: 'start' }); },
+      setFaSweep: (el) => { this.faSweep = el; },
+      pubs: d.pubs,
+      agItems, ciItems, inItems, agNote: 'Aggiornato al ' + t0.getDate() + ' ' + MS[t0.getMonth()].toLowerCase(),
+      evHref: evUp.href, evTitle: evUp.title, evDate: evDate,
+      ciHref: d.circolari[0].href, ciTitle: d.circolari[0].title, ciDate: (() => { const c = d.circolari[0].date.split('/'); return (+c[0]) + ' ' + MS[+c[1] - 1].toLowerCase(); })(),
+      perks: d.perks,
+      // mappa del sito nel footer: quattro voci per sezione, prese dal menu della testata
+      ftMap: d.nav.filter((n) => !n.href).map((n) => { const pick = { ass: [0, 1, 2, 6], set: [0, 1, 2, 4], serv: [0, 1, 2, 4], temi: [0, 2, 3, 4], cs: [0, 1, 2, 3] }[n.id] || [0, 1, 2, 3]; return { label: n.label, links: pick.map((i) => n.links[i]).filter(Boolean).map((l) => ({ label: l[0], href: l[1] })) }; }),
+      newsSent: s.newsSent,
+      onNews: (e) => { e.preventDefault(); this.setState({ newsSent: true }); },
+      toTop: () => { const r = this.rootEl; if (r) r.scrollIntoView({ behavior: this._rm ? 'auto' : 'smooth', block: 'start' }); },
+      setFlRef: (el) => { this.flEl = el; },
+      setStatsRef: (el) => { this.statsEl = el; },
+      cntRef0: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[0] = el; },
+      cntRef1: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[1] = el; },
+      cntRef2: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[2] = el; },
+      cntRef3: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[3] = el; },
+      cntRef4: (el) => { this.cnt = this.cnt || []; if (el) this.cnt[4] = el; },
+      setRootRef: (el) => { this.rootEl = el; },
+      setTopRef: (el) => { this.topEl = el; },
+      setLedRef: (el) => { this.ledEl = el; },
+      setHxRef: (el) => { this.hxEl = el; },
+      setObjRef: (el) => { this.objEl = el; },
+      setQRef: (el) => { this.qEl = el; },
+      nav,
+      topCls: 'top' + (s.scrolled || s.open || s.menu ? ' is-solid' : '') + (s.menu ? ' is-menu' : ''),
+      menuExp: s.menu ? 'true' : 'false',
+      menuOpen: s.menu,
+      menuClosed: !s.menu,
+      searchExp: s.search ? 'true' : 'false',
+      loginExp: s.login ? 'true' : 'false',
+      searchOpen: s.search,
+      loginOpen: s.login,
+      toggleMenu: () => this.setState({ menu: !s.menu, open: null }),
+      closeMenu: () => this.setState({ menu: false, open: null }),
+      toggleSearch: () => this.setState({ search: !s.search, login: false, open: null, menu: false }, () => { if (this.state.search && this.qEl) this.qEl.focus(); }),
+      toggleLogin: () => this.setState({ login: !s.login, search: false, open: null, menu: false }),
+      q: s.q,
+      onQ: (e) => this.setState({ q: e.target.value }),
+      onPalKey: (e) => { if (e.key === 'Escape') this.setState({ search: false }); },
+      indexCount: d.index.length,
+      showChips: words.length === 0,
+      chips: d.chips.map((c) => ({ label: c, pick: () => this.setState({ q: c }) })),
+      suggested: d.suggested,
+      results: results.slice(0, 8),
+      hasResults: results.length > 0,
+      noResults: words.length > 0 && results.length === 0,
+      resultsLabel: results.length === 1 ? '1 risultato' : results.length + ' risultati' + (results.length > 8 ? ' (mostrati i primi 8)' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

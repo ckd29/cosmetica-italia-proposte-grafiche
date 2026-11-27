@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta 11 · Scheda di progetto</title>
+<link rel="icon" href="data:,">
+<script src="./_runtime/react.js"></script>
+<script src="./_runtime/react-dom.js"></script>
+<script src="./_runtime/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..700&amp;family=Funnel+Sans:wght@300..700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F1EC}
+.p11s{width:1200px;box-sizing:border-box;background:#F4F1EC;color:#0B0F1C;font-family:"Funnel Sans","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.p11s *{box-sizing:border-box}
+.p11s h1,.p11s h2,.p11s h3{margin:0;font-family:"Funnel Display","Helvetica Neue",Arial,sans-serif;font-weight:400;letter-spacing:-.035em;line-height:1.04}
+.p11s p{margin:0}
+.p11s ul,.p11s ol{list-style:none;margin:0;padding:0}
+.p11s .lab{display:inline-flex;align-items:center;gap:10px;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:13px;color:#1F59A1}
+.p11s .hd{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:44px;align-items:center;padding:52px;background:linear-gradient(180deg,#03264A 0%,#021631 60%,#020A18 100%);color:rgba(255,255,255,.76)}
+.p11s .hd .lab{color:#8DB0FF}
+.p11s .hd h1{margin-top:18px;font-size:62px;color:#fff}
+.p11s .hd p{margin-top:16px;font-size:17px;line-height:1.55}
+.p11s .hd p i{font-style:normal;color:#fff}
+.p11s .shot{position:relative;margin:0;aspect-ratio:1600/1500;overflow:hidden;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:#03264A}
+.p11s .shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.p11s .shot figcaption{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:rgba(2,10,24,.45);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:13px;color:#fff}
+.p11s .bd{display:flex;flex-direction:column;gap:46px;padding:46px 52px 40px}
+.p11s h2{margin-top:12px;font-size:36px}
+.p11s .two{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px}
+.p11s .vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);margin-top:20px;border-top:1px solid #D9D3C8}
+.p11s .vs li{display:contents}
+.p11s .vs span{padding:12px 0;border-bottom:1px solid #D9D3C8;font-size:16px;line-height:1.45}
+.p11s .vs span:first-child{padding-right:22px;color:#545A6E}
+.p11s .vs .th{font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em;color:#1F59A1}
+.p11s .warm{display:grid;gap:8px;margin-top:20px}
+.p11s .warm li{display:grid;grid-template-columns:10px minmax(0,1fr);gap:12px;align-items:baseline;padding:12px 16px;border-radius:14px;background:#fff;border:1px solid #D9D3C8;font-size:16px;line-height:1.45}
+.p11s .warm li::before{content:"";width:8px;height:8px;border-radius:50%;background:#F2B27A;box-shadow:0 0 0 3px rgba(242,178,122,.25);transform:translateY(-1px)}
+.p11s .fx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.p11s .fx li{padding:18px 20px 20px;border-radius:18px;background:#020A18;color:rgba(255,255,255,.78);font-size:16px;line-height:1.45}
+.p11s .fx b{display:block;margin-bottom:6px;font-family:"Funnel Display","Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:400;letter-spacing:-.02em;color:#fff}
+.p11s .fx i{display:block;margin-bottom:12px;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:12px;font-style:normal;letter-spacing:.04em;color:#8DB0FF}
+.p11s .pal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 16px;margin-top:20px}
+.p11s .sw{display:flex;flex-direction:column;gap:4px}
+.p11s .sw i{display:flex;align-items:flex-end;height:84px;padding:10px 12px;border-radius:16px;border:1px solid #D9D3C8;font-style:normal;font-size:13px}
+.p11s .sw b{margin-top:6px;font-size:15px;font-weight:500}
+.p11s .sw code{font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:12px;color:#545A6E}
+.p11s .sw span{font-size:14px;line-height:1.4;color:#545A6E}
+.p11s .ty{margin-top:20px;padding:24px 26px;border-radius:20px;background:#020A18;color:#fff}
+.p11s .ty .t{font-family:"Funnel Display","Helvetica Neue",Arial,sans-serif;font-size:42px;font-weight:400;line-height:1.02;letter-spacing:-.04em}
+.p11s .ty .m{margin-top:14px;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:13px;color:#8DB0FF}
+.p11s .sc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 18px;margin-top:16px;border-top:1px solid #D9D3C8}
+.p11s .sc span{padding:9px 0;border-bottom:1px solid #D9D3C8;font-size:16px}
+.p11s .sc span:nth-child(odd){font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:12.5px;color:#1F59A1;white-space:nowrap}
+.p11s .ok{display:grid;gap:10px;margin-top:20px}
+.p11s .ok li{position:relative;padding:0 0 10px 24px;border-bottom:1px solid #D9D3C8;font-size:16px;line-height:1.45}
+.p11s .ok li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:5px;border-left:1.6px solid #1F59A1;border-bottom:1.6px solid #1F59A1;transform:rotate(-45deg)}
+.p11s .note{margin-top:12px;font-size:14px;color:#545A6E}
+.p11s .ft{margin:0 52px;padding:18px 0 34px;border-top:1px solid #D9D3C8;font-size:14px;color:#545A6E}
+</style>
+</helmet>
+<div class="p11s">
+<header class="hd">
+<div>
+<p class="lab">Proposta 11 · Riflessi</p>
+<h1>Scheda di progetto</h1>
+<p>Una homepage costruita come uno still life da studio: i cosmetici del settore su un piano lucido, titoli larghi e poco testo. Il riferimento è <i>Vortex FX</i>, segnalato nella raccolta «Hero Section of the week» di Averlo; la proposta lo traduce per un’associazione nazionale di imprese. Le homepage sono cinque: «Dal disegno» e «Cinque scene» cambiano la filiera; «Orizzonte» è «Dal disegno» con la luce all’orizzonte, «Petrolio» con il fondo della prima versione, «Palco» con lo sfondo di «Questo spazio aspetta la tua impresa».</p>
+</div>
+<figure class="shot"><img src="./assets/p11-collezione.webp" alt="Profumo, rossetto, vasetto di crema e portacipria in cristallo e cromo su un piano lucido, con un alone blu alle spalle" width="1600" height="1800"><figcaption>Apertura · render fisico, immagine ferma come una foto da studio</figcaption></figure>
+</header>
+<div class="bd">
+<div class="two">
+<section aria-labelledby="s-ref">
+<p class="lab">Riferimento</p>
+<h2 id="s-ref">Da Vortex FX a Cosmetica Italia</h2>
+<ul class="vs">
+<li><span class="th">In Vortex FX</span><span class="th">Nella proposta</span></li>
+<li><span>Il marchio in cromo e vetro, da solo, su un piedistallo</span><span>Una collezione di cosmetici (profumo, rossetto, crema, cipria): parla di tutto il settore, non di un singolo marchio</span></li>
+<li><span>Fondo nero, luci al neon e trattini LED</span><span>Fondo blu notte con alone blu Confindustria e piano lucido: niente neon né lucine</span></li>
+<li><span>Monete che girano intorno al piedistallo</span><span>Tolte perché richiamano il trading: l’apertura resta un’immagine ferma, da still life</span></li>
+<li><span>Titolo bianco su tre righe brevi, etichetta mono colorata</span><span>«Bellezza italiana. Qualità industriale. Valore condiviso.» con «Benvenuti in Cosmetica Italia» in mono blu</span></li>
+<li><span>Pulsante a pillola e «Login» a pillola</span><span>«Scopri il settore» in blu elettrico e «Area riservata» bianco</span></li>
+<li><span>Testo piccolo in mono in basso a sinistra</span><span>Al suo posto due capsule di vetro «In evidenza»: prossimo appuntamento e ultima circolare, leggibili e cliccabili</span></li>
+</ul>
+</section>
+<section aria-labelledby="s-warm">
+<p class="lab">Calore</p>
+<h2 id="s-warm">Perché non è fredda</h2>
+<ul class="warm">
+<li>Il blu è una notte profonda con un alone caldo sul piano, non l’azzurro di un ambulatorio.</li>
+<li>Luce di contorno ambrata sugli oggetti e riflessi caldi nel piano lucido.</li>
+<li>Rossetto nude, cipria rosata, carta avorio e cartone: i colori caldi stanno negli oggetti. L’icona dell’ultima circolare riprende il rossetto.</li>
+<li>Nell’agenda gli avvisi, come «posticipato» e «riservata», sono color pesca, #FFD9B0.</li>
+<li>Caratteri larghi e morbidi, Funnel Display e DM Mono, invece del grassetto istituzionale.</li>
+<li>Foto al naturale nei servizi; nella filiera «Cinque scene» le foto sono virate in blu notte con una luce calda dall’alto.</li>
+</ul>
+</section>
+</div>
+
+<section aria-labelledby="s-fx">
+<p class="lab">Movimento</p>
+<h2 id="s-fx">Cosa si muove</h2>
+<ol class="fx">
+<li><i>01 · APERTURA</i><b>L’ingresso</b>Il render compare con una dissolvenza dal buio e il titolo sale riga per riga; poi l’immagine resta ferma, come una foto da studio.</li>
+<li><i>02 · SERVIZI</i><b>La fisarmonica</b>I quattro servizi sono pannelli fotografici: quello attivo si allarga e mostra descrizione e collegamenti.</li>
+<li><i>03 · FILIERA, DUE VARIANTI</i><b>Disegno o scene</b>A: scorrendo, a ogni passaggio compare uno still life (becher, pigmenti, riempimento, astuccio, scatoloni), prima come disegno tecnico e poi come render. B: cinque grandi foto della filiera da scorrere.</li>
+<li><i>04 · CENTRO STUDI</i><b>I numeri in vetrina</b>Fatturato, export, lavoratori e imprese contano fino al valore e si riflettono sul piano, come gli oggetti dell’apertura; sotto, le ultime pubblicazioni sono copertine riflesse.</li>
+<li><i>05 · AGENDA</i><b>Tre riquadri di vetro</b>Appuntamenti, circolari e iniziative affiancati alla pari: per ogni voce data grande, categoria e titolo.</li>
+<li><i>06 · CHIUSURA</i><b>Lo spazio vuoto</b>Una pozza di luce aspetta la prossima impresa associata; sotto, la mappa del sito e la newsletter stanno in un pannello di vetro sopra tre luci.</li>
+</ol>
+</section>
+
+<section aria-labelledby="s-pal">
+<p class="lab">Colore</p>
+<h2 id="s-pal">Palette e contrasti</h2>
+<div class="pal">
+<div class="sw"><i style="background:#020A18;color:#fff;border-color:#020A18">Aa 19,8:1</i><b>Blu notte</b><code>#020A18</code><span>Fondo della pagina, testo bianco</span></div>
+<div class="sw"><i style="background:linear-gradient(180deg,#031941 0%,#214888 30%,#002D65 50%,#020610 100%);color:#fff;border-color:#0B1A45">Aa 9,3:1</i><b>Fondale dell’apertura</b><code>#031941 → #214888 → #020610</code><span>Una sola sfumatura verticale, senza orizzonte: dietro gli oggetti continua quella del lato del titolo</span></div>
+<div class="sw"><i style="background:#1F59A1;color:#fff;border-color:#1F59A1">Aa 7,0:1</i><b>Blu Confindustria</b><code>#1F59A1</code><span>Aloni e fondali: mai testo su notte (2,8:1)</span></div>
+<div class="sw"><i style="background:#5B8DFF;color:#050814;border-color:#5B8DFF">Aa 6,4:1</i><b>Blu elettrico</b><code>#5B8DFF</code><span>Pulsanti principali, testo #050814</span></div>
+<div class="sw"><i style="background:#8DB0FF;color:#020A18;border-color:#8DB0FF">9,2:1 su notte</i><b>Blu luce</b><code>#8DB0FF</code><span>Etichette in mono e messa a fuoco</span></div>
+<div class="sw"><i style="background:#BDBFC3;color:#020A18;border-color:#BDBFC3">10,8:1 su notte</i><b>Bianco al 74%</b><code>rgba(255,255,255,.74)</code><span>Testi secondari su scuro</span></div>
+<div class="sw"><i style="background:#FFD9B0;color:#0C1019">13,1:1 sul vetro</i><b>Pesca</b><code>#FFD9B0</code><span>Avvisi dell’agenda</span></div>
+<div class="sw"><i style="background:#F2B27A;color:#0C1019;border-color:#F2B27A">10,8:1 su notte</i><b>Ambra</b><code>#F2B27A</code><span>Punti dei vantaggi e aloni caldi</span></div>
+</div>
+<p class="note">Contrasti calcolati con la formula WCAG 2.2: tutti i testi superano il livello AA (4,5:1).</p>
+</section>
+
+<div class="two">
+<section aria-labelledby="s-ty">
+<p class="lab">Tipografia</p>
+<h2 id="s-ty">Funnel Display, Funnel Sans e DM Mono</h2>
+<div class="ty"><p class="t">Bellezza italiana. Qualità industriale. Valore condiviso.</p><p class="m">DM Mono · etichette, date e fonti</p></div>
+<div class="sc">
+<span>84 px · 400</span><span>Titolo dell’apertura (a 1440 px)</span>
+<span>56 px · 400</span><span>Titoli di sezione</span>
+<span>108–132 px · 300</span><span>Numeri del Centro Studi e delle scene</span>
+<span>16–17 px · 400</span><span>Testi da leggere, in Funnel Sans</span>
+<span>12–15 px · mono</span><span>Etichette, date e fonti</span>
+</div>
+<p class="note">Le soglie concordate sono rispettate: almeno 16 px per i testi da leggere, 12 px per tutto il resto.</p>
+</section>
+<section aria-labelledby="s-ok">
+<p class="lab">Qualità</p>
+<h2 id="s-ok">Realismo, accessibilità e prestazioni</h2>
+<ul class="ok">
+<li>L’apertura è un render fisico (path tracing a 1024 campioni) con vetro, succo, cromo e riflessi calcolati, non un 3D in tempo reale.</li>
+<li>L’apertura è una sola immagine WebP di circa 160 KB: nessun WebGL e nessun calcolo nella pagina.</li>
+<li>Con «riduci movimento» e nel canvas la pagina resta ferma: filiera su un passaggio, numeri al valore finale.</li>
+<li>Nella filiera A ogni still life è un render fisico; il suo disegno tecnico è ricavato dalle normali e dalla profondità calcolate dal path tracer.</li>
+<li>Fisarmonica e passaggi della filiera si usano anche da tastiera (frecce sulle scene), con il focus sempre visibile.</li>
+<li>Su mobile servizi e pubblicazioni scorrono in orizzontale e i riquadri dell’agenda si mettono uno sotto l’altro.</li>
+</ul>
+</section>
+</div>
+</div>
+<p class="ft">Comune a tutte le proposte: logo ufficiale nelle proporzioni originali, contenuti di esempio dal sito pubblico al 17/11/2026, ricerca e area riservata dimostrative. Gli oggetti dell’apertura sono un render originale, senza marchi.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":3170}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -367,8 +367,9 @@ body{margin:0}
 .h-in{position:relative;display:flex;align-items:center;width:100%;padding-top:40px;padding-bottom:0}
 .h-copy{max-width:720px;translate:0 calc(var(--sc,0) * -14px);opacity:calc(1 - var(--sc,0) * .09)}
 .h-eye{display:flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#FFFFFF}
-.pulse{position:relative;width:8px;height:8px;border-radius:50%;background:#95C1DE;flex:none}
-.pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #95C1DE;animation:p8pulse 2.4s ease-out infinite}
+/* punto e anello disegnati nello stesso riquadro: restano concentrici anche con lo zoom all'80% */
+.pulse{--pc:#95C1DE;position:relative;box-sizing:border-box;width:16px;height:16px;margin:-4px;border-radius:50%;background:radial-gradient(circle closest-side,var(--pc) 47%,transparent 53%);flex:none}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--pc);animation:p8pulse 2.4s ease-out infinite}
 @keyframes p8pulse{from{transform:scale(.6);opacity:1}to{transform:scale(1.8);opacity:0}}
 .h-title{margin-top:22px;max-width:9.8em;font-size:60px;line-height:1.04;font-weight:800;letter-spacing:-.042em;color:#fff}
 .h-title .w{display:inline-block;animation:p8word .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms + 150ms)}
@@ -877,7 +878,7 @@ body{margin:0}
 .hero{margin-top:-64px;padding-top:64px}
 .h-in{padding-top:36px}
 .h-eye{font-size:11.5px;letter-spacing:.09em;align-items:flex-start;line-height:1.5}
-.h-eye .pulse{margin-top:4px}
+.h-eye .pulse{margin-top:0}
 .h-title{margin-top:18px;max-width:none;font-size:40px;letter-spacing:-.04em}
 .h-lead{font-size:17px}
 .h-vis{margin-top:4px;aspect-ratio:780/640}
@@ -1200,17 +1201,18 @@ body{margin:0}
 
 
 /* ===== v1.2 (24/11): Circolari e appuntamenti ridisegnata. Stesso fondo di "Capire dove va la cosmetica italiana"; gli appuntamenti diventano card in fila:
-   quello in corso è la tessera blu (il colore principale), gli altri hanno la data in un blocco neutro, scritta in rosa
-   (il colore dell'agenda, uguale per tutti). Le circolari: numeri e "riservate" in oro chiaro. Un solo colore caldo per
-   gruppo e solo su elementi piccoli, mai su superfici grandi; il blu ai pulsanti, ai link e al titolo ===== */
+   quello in corso è la tessera blu (il colore principale), gli altri hanno la data in un blocco neutro, scritta in blu.
+   26/11: l'agenda non è più rosa (punti, filo e icona azzurri, date in blu, puntino "in corso" blu) e l'unico colore
+   caldo della sezione sono i numeri delle circolari, in rosa chiaro (prima in oro); "riservate" torna grigia con il
+   lucchetto blu. Solo elementi piccoli, mai superfici grandi; il blu ai pulsanti, ai link e al titolo ===== */
 .p8n .upd8{background:#F7F6F6}
 .p8n .upd8-bg{display:none}
 .p8n .upd8-hl{background:none;color:#1F59A1;animation:none}   /* titolo: parola evidenziata in blu pieno, senza riflesso che scorre */
 .p8n .upd8-bg::after,.p8n .upd8-bg .au{display:none}
 .p8n .upd8 .evh{margin-bottom:44px}
 .p8n .upd8-grid.u9{display:flex;flex-direction:column;gap:28px}
-.p8n .u9-ag{--ac:var(--c-a1);--aw:#F8EAEE;--at:#A04F66}   /* agenda: rosa */
-.p8n .u9-ci{--ac:var(--c-a2);--aw:#F5EFE2;--at:#86621D}   /* circolari: oro */
+.p8n .u9-ag{--ac:#95C1DE;--aw:#F2F2F1;--at:#1F59A1}   /* agenda: azzurro e blu (26/11, prima rosa) */
+.p8n .u9-ci{--ac:var(--c-a1);--aw:#F8EAEE;--at:#A04F66}   /* circolari: rosa chiaro sui numeri (26/11, prima oro) */
 .p8n .u9-h .gx-count{background:var(--aw);color:var(--at)}
 .p8n .u9-h{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .p8n .u9-h h3{font-size:22px;letter-spacing:-.02em;color:#0E1440}
@@ -1231,8 +1233,6 @@ body{margin:0}
 .p8n .u9f-t{max-width:24em;padding-right:52px;font-size:19px;font-weight:700;line-height:1.36;letter-spacing:-.01em;color:#fff;text-wrap:pretty}
 .p8n .u9f-when{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-size:13.5px;color:#C9D6E8}
 .p8n .u9f-when .ic{color:var(--ac)}
-.p8n .upd8 .agf-dot{background:var(--c-a1);animation-name:upd8pingr}   /* "in corso": puntino rosa che pulsa */
-@keyframes upd8pingr{0%{box-shadow:0 0 0 0 rgba(204,107,133,.6)}80%,100%{box-shadow:0 0 0 6px rgba(204,107,133,0)}}
 .p8n .u9f .u9-go{position:absolute;right:24px;bottom:24px;background:#fff;color:#203262}
 .p8n .u9f:hover .u9-go{transform:translateX(3px)}
 
@@ -1252,7 +1252,6 @@ body{margin:0}
 /* circolari: titolo e accesso a sinistra (senza fondo), le ultime quattro circolari accanto; numeri in oro chiaro */
 .p8n .u9-ci{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,2fr);gap:12px;padding:12px;border-radius:30px;background:#fff}
 .p8n .u9-cil{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:26px 26px 28px;border-radius:22px;overflow:hidden;isolation:isolate;background:#fff}
-.p8n .u9-cil .gx-lock{background:var(--aw);color:var(--at)}
 .p8n .u9-cil h3{margin-top:4px;font-size:26px;line-height:1.15;letter-spacing:-.025em;color:#0E1440}
 .p8n .u9-cil p{max-width:22em;font-size:14.5px;line-height:1.55;color:#4C4B4B}
 .p8n .u9-cil .cir-btn{margin-top:auto}
@@ -1325,27 +1324,15 @@ body{margin:0}
 }
 
 /* ===== v1.2 (24/11): il rosa come colore di accento, usato qua e là e mai per riempire. Il blu resta il colore
-   dell'identità; il rosa #CC6B85 (lo stesso dei grafici e dell'agenda) è un punto di calore e di contrasto, uno o al
-   massimo due tocchi per sezione, a colore pieno. Sui pulsanti con testo bianco si usa #B45672, appena più scuro, per
-   la leggibilità (4,65:1). Niente rosa chiaro.
-   Banner: parte evidenziata del titolo e "Diventa socio". In evidenza: l'etichetta "In agenda". Servizi: l'icona del
-   servizio aperto. Circolari e appuntamenti: "Archivio circolari" (e i quadratini dell'agenda). Associarsi: "Imprese
-   associate". I pulsanti principali restano blu. Footer tutto blu ===== */
-.p8n{--rosa:#CC6B85;--rosa-t:#B45672;--rosa-th:#A04F66}
-/* banner, in entrambe le versioni */
+   dell'identità; il rosa #CC6B85 (lo stesso dei grafici) è un punto di calore e di contrasto.
+   26/11: con le foto e i fondi più caldi il rosa resta solo in quattro punti, dove serve ancora: la parte evidenziata
+   del titolo nel banner, i grafici del Centro Studi (distingue i dati), i numeri delle circolari (sezione senza foto) e
+   gli impulsi dell'orbita di "Associarsi". Niente rosa sui pulsanti: "Diventa socio" torna il pulsante secondario della
+   hero (di vetro sul blu, bianco sulle versioni chiare), "Archivio circolari" e "Imprese associate" sono pillole bianche
+   come le altre, "In agenda" è bianca e l'icona del servizio aperto è come le altre. Footer tutto blu ===== */
+.p8n{--rosa:#CC6B85}
+/* banner, in entrambe le versioni: solo la parte evidenziata del titolo */
 .p8n .h-title .hl,.p8n.p8l .h-title .hl{background:none;color:var(--rosa);-webkit-text-fill-color:currentColor;animation:none}
-.p8n .h-ctas .btn-glass,.p8n.p8l .h-ctas .btn-glass{background:var(--rosa-t);border-color:var(--rosa-t);color:#fff!important;-webkit-backdrop-filter:none;backdrop-filter:none}
-.p8n .h-ctas .btn-glass:hover,.p8n.p8l .h-ctas .btn-glass:hover{background:var(--rosa-th);border-color:var(--rosa-th)}
-/* in evidenza: l'etichetta "In agenda" sulla card dell'Osservatorio */
-.p8n .evd-badge{background:var(--rosa-t);border-color:var(--rosa-t);color:#fff}
-.p8n .evd-badge .evd-dot{background:#fff}
-/* servizi: l'icona del servizio aperto */
-.p8n.p8t .sx-p.has-img.is-on .sx-ic,.p8n.p8w .sx-p.has-img.is-on .sx-ic,.p8n .sx-p.is-on .sx-ic{background:var(--rosa);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-/* pulsanti secondari a pillola: "Archivio circolari" e "Imprese associate", pieni come "Calendario completo" ma in rosa */
-.p8n .upd8-links .gpill,.p8n .so8-cta .gpill{background:var(--rosa-t);border-color:var(--rosa-t);color:#fff!important}
-.p8n .upd8-links .gpill .go,.p8n .so8-cta .gpill .go{background:#fff;color:var(--rosa-t)}
-.p8n .upd8-links .gpill:hover,.p8n .so8-cta .gpill:hover{background:var(--rosa-th);border-color:var(--rosa-th);color:#fff!important}
-.p8n .upd8-links .gpill:hover .go,.p8n .so8-cta .gpill:hover .go{background:#fff;color:var(--rosa-th)}
 /* 25/11 "Cresci con l'associazione": torna lo sfondo della Proposta 8 dietro l'orbita, l'azzurrino che sfuma nel bianco e la griglia che svanisce (niente riquadro) */
 .p8n .so8-bg{background:radial-gradient(640px 560px at 72% 50%,rgba(149,193,222,.42),rgba(149,193,222,.12) 45%,transparent 72%),radial-gradient(500px 400px at 92% 10%,rgba(234,242,250,.9),transparent 70%)}
 .p8n .so8-bg::after{display:block;background-image:linear-gradient(rgba(31,89,161,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(31,89,161,.06) 1px,transparent 1px)}
@@ -1364,6 +1351,125 @@ body{margin:0}
 .p8n .so8-n{background:#E8F1FA}
 }
 .p8n{--c-a1:#CC6B85;--c-a1b:#DE8FA3;--c-a2:#B98A2E;--c-a2b:#CFA455;--w-a1:rgba(204,107,133,.09);--w-a1h:rgba(204,107,133,.14);--w-a2:rgba(185,138,46,.1);--l-a1:rgba(255,168,196,.42);--l-a2:rgba(255,208,128,.40);--glow:rgba(222,146,160,.15);--glow2:rgba(205,160,80,.11);--p1:#F7DFE6;--p2:#F7ECD9;--c-a1t:#B0516B;--c-a2t:#8F6A1C;--l1:#F0A7BB;--l2:#E6C47D}
+/* ===== Scala desktop all'80% con testo leggibile (25/11/2026) =====
+   Da 1081 px di finestra in su la tavola è ridotta all'80%, come con lo zoom di Chrome
+   all'80%: spazi, colonna, immagini, pulsanti e titoli. Il testo non scende sotto le soglie
+   di leggibilità: 16 px a schermo per il testo da leggere (paragrafi, titoli di notizie e
+   circolari), 12 px per tutto il resto; menu, pulsanti e campi restano all'80% (almeno 12,8 px).
+   Le regole qui sotto ripetono i selettori originali con 20px (che all'80% fa 16) o 15px
+   (che all'80% fa 12). Sotto 1081 px (tablet e mobile) non cambia nulla. */
+@media (min-width: 1081px){
+.p8{zoom:.8}
+.p8{font-size:20px}
+.mono{font-size:15px}
+.tag{font-size:15px}
+.sfake{font-size:15px}
+.mega p{font-size:15px}
+.pal-h{font-size:15px}
+.pal-row .d{font-size:15px}
+.pal-chip{font-size:15px}
+.pal-foot{font-size:15px}
+.demo-tag{font-size:15px}
+.demo-note{font-size:15px}
+.foot{font-size:15px}
+.fgrid h2{font-size:15px}
+.nlf input{font-size:15px}
+.nlf .msg{font-size:15px}
+.fbase{font-size:15px}
+.navbtn{font-size:15px}
+.top .btn{font-size:15px}
+.eyebrow{font-size:15px}
+.f8-soc a{font-size:15px}
+.f8-msg{font-size:15px}
+.f8-grid h2{font-size:15px}
+.f8-base{font-size:15px}
+.f8-base .mono{font-size:15px}
+.f8-up{font-size:15px}
+.k{font-size:15px}
+.src{font-size:15px}
+.tag{font-size:15px}
+.h-eye{font-size:15px}
+.h-lead{font-size:20px}
+.in-c dd{font-size:15px}
+.in-src{font-size:15px}
+.evh-r p{font-size:20px}
+.evd-chip,.evd-badge{font-size:15px}
+.evd-date{font-size:15px}
+.evd-d{font-size:20px}
+.c8-k{font-size:15px}
+.vb-g i{font-size:15px}
+.vb-lab small{font-size:15px}
+.c8-txt{font-size:20px}
+.dl-t{font-size:15px}
+.dial-c span{font-size:15px}
+.rep8-m{font-size:15px}
+.rep8-d{font-size:15px}
+.rep8-now{font-size:15px}
+.pc8-k{font-size:15px}
+.pc8-d{font-size:15px}
+.pc8-t{font-size:20px}
+.pc8-f{font-size:15px}
+.sx-tag{font-size:15px}
+.sx-d{font-size:20px}
+.so8-lead{font-size:20px}
+.so8-n{font-size:15px}
+.gx-count{font-size:15px}
+.gx-lock{font-size:15px}
+.agf-mon{font-size:15px}
+.agf-rel{font-size:15px}
+.agf-type{font-size:15px}
+.agf-t{font-size:20px}
+.agf-when{font-size:15px}
+.agl-k{font-size:15px}
+.agl-d{font-size:15px}
+.agl-k2{font-size:15px}
+.agl-flag{font-size:15px}
+.agl-t{font-size:20px}
+.agl-w{font-size:15px}
+.cir-m{font-size:15px}
+.cir-m b{font-size:15px}
+.cir-t{font-size:20px}
+.cir-cta p{font-size:15px}
+.p8n .gb-ax{font-size:15px}
+.p8n .gb-n small{font-size:15px}
+.p8n .yr-c{font-size:15px}
+.p8n .yr-c em{font-size:15px}
+.p8n .yr-now b{font-size:15px}
+.p8n .u9-ty{font-size:15px}
+.p8n .u9f-t{font-size:20px}
+.p8n .u9f-when{font-size:15px}
+.p8n .u9c-date>span{font-size:15px}
+.p8n .u9-flag{font-size:15px}
+.p8n .u9c-t{font-size:20px}
+.p8n .u9-cil p{font-size:15px}
+.p8n .u9-cm{font-size:15px}
+.p8n .u9-cm b{font-size:15px}
+.p8n .u9-ct{font-size:20px}
+.p8n .u9-empty{font-size:20px}
+/* hero: la fascia resta alta quanto la finestra; titolo (6% della fascia) e immagine (80-88%) la seguono */
+.p8 .hero{min-height:calc(var(--hv,0px) / .8)}
+.p8 .h-title{font-size:clamp(55px,calc(var(--hv,900px) * .075),85px)}
+.p8 .h-copy{max-width:840px}
+.p8 .h-stage{height:min(88cqh,1200px)}
+.p8.p8t .h-stage{height:min(80cqh,1125px)}
+/* lettere dei mesi nel grafico circolare: il disegno le rimpicciolisce, qui arrivano a 12 px a schermo */
+.p8 .dl-t{font-size:24px}
+}
+/* ===== hero più larga (26/11/2026) =====
+   Sul desktop la hero esce dalla colonna delle sezioni (1280px, cioè 1024 a schermo con la scala all'80%): la sua colonna
+   arriva a 1800px (1440 a schermo), lascia almeno 150px (120 a schermo) per lato e non è mai più stretta delle sezioni.
+   Testo e card dei numeri seguono la colonna; --hc è metà della colonna senza il padding della .wrap (608px nelle sezioni).
+   Sezioni sotto, testata, tablet e mobile non cambiano. */
+@media (min-width:1081px){
+.p8 .hero{--hw:max(1280px, min(1800px, 100cqw - 300px));--hc:calc(var(--hw) / 2 - 32px)}
+.p8 .hero .h-main{max-width:none}
+.p8 .hero .wrap{max-width:var(--hw)}
+/* video del piedistallo: il disco va dal 23% al 77% della larghezza (= 1,2 × altezza) e i prodotti girano sopra, dentro il disco.
+   Il disco sta al centro dello spazio fra la fine del testo + 48px (titolo largo 8,9 volte il suo corpo, paragrafo 612,5px)
+   e il bordo della colonna + 36px, così i prodotti non toccano mai il titolo; l'immagine è alta fino al 92% della fascia
+   (prima 80%) e se lo spazio manca si rimpicciolisce (--S) */
+.p8.p8t .hero .h-stage{--tw:max(calc(8.9 * clamp(55px, calc(var(--hv, 900px) * .075), 85px)), 612.5px);--x0:calc(50cqw - var(--hc) + var(--tw) + 48px);--x1:calc(50cqw + var(--hc) + 36px);--S:min(92cqh, 1300px, calc((var(--x1) - var(--x0)) / .648));height:var(--S);right:auto;left:calc((var(--x0) + var(--x1)) / 2 - .6 * var(--S));transform:translateY(-50%)}
+}
 </style>
 </helmet>
 <div class="p8 p8n p8t">
@@ -1635,7 +1741,7 @@ body{margin:0}
 </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7063}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5826}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
