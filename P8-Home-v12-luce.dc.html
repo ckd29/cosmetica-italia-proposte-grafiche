@@ -1456,14 +1456,9 @@ body{margin:0}
 .p8 .dl-t{font-size:24px}
 }
 
-/* ===== Hero chiaro con la luce di una finestra (25/11/2026)
-   Al posto del video del piedistallo: un'immagine ferma molto realistica (la stessa della P9), prolungata tutto
-   intorno, in cui si muove solo la luce. È divisa in tre strati: la stanza senza sole, il sole sul muro e il sole sul
-   pavimento (base + sole = immagine originale, pixel per pixel). Il sole sul muro scivola piano e non passa mai sui
-   prodotti (maschera); ogni tanto una nuvola attenua il sole, e con lui le ombre dei prodotti. Circa 200 KB contro i
-   7,5 MB del video; si muovono solo trasformazioni e opacità sul compositor, e tutto si ferma quando l'hero
-   non si vede.
-   Testata, testi, pulsanti e numeri: le regole della versione bianca (classe p8l). ===== */
+/* ===== Hero chiara (versione bianca, classe p8l): testata, testi, pulsanti e numeri. Dal 27/11/2026 al posto della foto con la
+   luce della finestra (livelli .lx, immagini p8-luce-*, nel commit 04edb5c) c'è la collezione della P11 in versione chiara,
+   vedi il blocco qui sotto ===== */
 /* ===== P8 versione bianca: apertura chiara, dettagli blu ===== */
 .p8l .hero{background:#fff;color:#203262;border-bottom:1px solid transparent}
 .p8l .h-bg{background:radial-gradient(900px 620px at 82% 28%,#F1F1F0 0%,rgba(241,241,240,0) 70%),linear-gradient(180deg,#FFFFFF 0%,#FAFAF9 100%)}
@@ -1506,40 +1501,45 @@ body{margin:0}
 .p8l .top.is-sc .btn-ghost:not(.hide-m){border-color:transparent;background:rgba(17,19,24,.04)}
 .p8l .h-prod{filter:drop-shadow(0 0 .8px rgba(17,19,24,.33)) drop-shadow(0 14px 20px rgba(17,19,24,.12))}
 .p8l .h-beam{background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,0) 40%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 60%,transparent 62%);background-size:260% 100%;background-repeat:no-repeat;mix-blend-mode:soft-light}
-/* fondo e card sopra la foto */
+/* fondo e card sopra l'immagine */
 .p8.p8l .hero{background:#C9D1DC}
 .p8.p8l .h-bg{display:none}
 .p8.p8l .h-lead{color:#3B4150}
-.p8.p8l .h-eye{color:#203262}   /* sul muro il blu #1F59A1 resta sotto 4,5:1; il puntino resta blu */
+.p8.p8l .h-eye{color:#203262}   /* occhiello blu notte come nella versione con la finestra; il puntino resta blu */
 .p8.p8l .in-c{background:rgba(255,255,255,.66);border-color:transparent}
 .p8.p8l .in-c:hover{background:rgba(255,255,255,.86)}
-/* la scena: i prodotti stanno a destra del testo, come nella versione bianca. Il gruppo dal flacone con pompetta (x 2366)
-   alla fine del tubetto (x 3098) sta al centro dello spazio fra la fine del titolo + 84px e il bordo della colonna della
-   hero + 30px (la hero è più larga delle sezioni, vedi «hero più larga» in fondo); il vasetto resta sotto la fine del
-   paragrafo. Le misure seguono quelle del testo (sono fisse in larghezza; il titolo cresce con l'altezza della finestra,
-   --F come in .h-title): i prodotti si rimpiccioliscono quando a destra del titolo manca spazio o quando sotto il
-   paragrafo manca spazio.
-   --s = pixel CSS per pixel dell'immagine; i numeri sono coordinate nella lastra 3900×1822 (originale a 1200,300;
-   prodotti tra x 2119-3098 e y 766-1350, vasetto da y 1138) */
-.lx{position:absolute;--F:clamp(55px,calc(var(--hv,900px) * .075),85px);--x0:calc(50cqw - var(--hc, 608px) + 8.9 * var(--F) + 84px);--x1:calc(50cqw + var(--hc, 608px) + 30px);--s:min(.94px,calc((var(--x1) - var(--x0)) / 732),calc((50cqh - 237px - 1.585 * var(--F)) / 212));width:calc(var(--s) * 3900);height:calc(var(--s) * 1822);left:calc((var(--x0) + var(--x1)) / 2 - var(--s) * 2732);top:calc(50cqh - 4.45px + 1.585 * var(--F) - var(--s) * 1138)}
-.lx img{position:absolute;inset:0;width:100%;height:100%;max-width:none;display:block}
-/* oltre la lastra: i suoi bordi sfumano in due profili verticali (sinistra e destra) che qui continuano all'infinito */
-.lx-f{position:absolute;left:-500%;right:-500%;top:-400%;bottom:-400%;background:linear-gradient(180deg,rgb(134,140,147) 44.4475%,rgb(134,140,147) 44.8917%,rgb(134,140,148) 45.3359%,rgb(136,142,151) 45.7801%,rgb(139,144,155) 46.2243%,rgb(142,148,161) 46.6685%,rgb(146,151,165) 47.1127%,rgb(149,155,168) 47.5569%,rgb(152,159,172) 48.0011%,rgb(155,162,174) 48.4453%,rgb(157,165,176) 48.8895%,rgb(160,167,178) 49.3337%,rgb(162,170,180) 49.7779%,rgb(164,171,181) 50.2221%,rgb(165,171,181) 50.6663%,rgb(168,174,184) 51.1105%,rgb(173,180,190) 51.5547%,rgb(180,186,196) 51.9989%,rgb(184,191,201) 52.4431%,rgb(188,194,204) 52.8873%,rgb(189,196,205) 53.3315%,rgb(190,197,206) 53.7757%,rgb(190,198,205) 54.2199%,rgb(190,198,205) 54.6641%,rgb(190,198,204) 55.1083%,rgb(190,198,204) 55.5525%)}
-.lx-fr{background:linear-gradient(180deg,rgb(164,170,186) 44.4475%,rgb(164,170,186) 44.8917%,rgb(165,171,186) 45.3359%,rgb(167,173,187) 45.7801%,rgb(170,176,188) 46.2243%,rgb(174,181,191) 46.6685%,rgb(179,186,195) 47.1127%,rgb(185,192,200) 47.5569%,rgb(191,198,205) 48.0011%,rgb(197,204,212) 48.4453%,rgb(203,210,218) 48.8895%,rgb(207,214,223) 49.3337%,rgb(210,217,227) 49.7779%,rgb(212,219,229) 50.2221%,rgb(213,220,230) 50.6663%,rgb(214,221,231) 51.1105%,rgb(214,221,230) 51.5547%,rgb(213,220,230) 51.9989%,rgb(212,219,229) 52.4431%,rgb(212,219,228) 52.8873%,rgb(211,218,227) 53.3315%,rgb(211,218,225) 53.7757%,rgb(212,219,223) 54.2199%,rgb(212,219,221) 54.6641%,rgb(212,219,221) 55.1083%,rgb(212,219,220) 55.5525%);-webkit-mask:linear-gradient(90deg,transparent 48.2517%,#000 53.38%);mask:linear-gradient(90deg,transparent 48.2517%,#000 53.38%)}
-/* il sole, in due strati ritagliati dove c'è: il muro scivola piano (la maschera esclude i prodotti e sfuma attorno),
-   il fisso tiene il pavimento e la luce vicino ai prodotti. Ogni tanto passa una nuvola: come in una stanza vera, tutta
-   la luce della finestra si attenua insieme, prodotti compresi (opacità dei due strati, sul compositor) */
-.lx-sun{position:absolute;overflow:hidden;mix-blend-mode:plus-lighter;animation:lxCloud 34s ease-in-out infinite}
-@supports not (mix-blend-mode:plus-lighter){.lx-sun{mix-blend-mode:screen}}
-.lx-fix{left:32.7179%;top:40.5049%;width:64.359%;height:42.0417%}
-.lx-wall{left:30.2051%;top:16.4654%;width:57.7949%;height:52.5796%;-webkit-mask:url(./assets/p8-luce-maschera.png?v=4) 0 0/100% 100% no-repeat;mask:url(./assets/p8-luce-maschera.png?v=4) 0 0/100% 100% no-repeat}
-.lx-wall img{inset:auto;left:-2.1295%;top:-5.0104%;width:104.2591%;height:110.0209%;animation:lxDrift 26s ease-in-out infinite alternate}   /* 48 px di margine nero: scivolando non scopre mai un bordo */
-@keyframes lxDrift{from{transform:translate(0.868%,-0.304%)}to{transform:translate(-1.302%,0.531%)}}
-@keyframes lxCloud{0%,50%{opacity:1}58%{opacity:.52}64%{opacity:.6}71%{opacity:.48}82%,100%{opacity:1}}
-.lx.is-off img,.lx.is-off .lx-sun{animation-play-state:paused}
-/* tablet e mobile: l'immagine sta sotto il testo, con i prodotti al centro */
-@container site (max-width: 1080px){.lx{--s:calc(80cqh / 577);left:calc(50cqw - var(--s) * 2610);top:calc(54cqh - var(--s) * 1058.5)}}
-@media (prefers-reduced-motion: reduce){.lx img,.lx-sun{animation:none!important}}
+/* ===== hero chiara con la collezione della P11 in versione chiara (27/11/2026): profumo, rossetto, vasetto e cipria in cristallo e
+   cromo nello studio bianco con il cielo azzurro della P11 chiara (assets/p11-chiara-collezione.webp, 1600x1800, stessa camera di
+   «Orizzonte»: oggetti fra il 15,8% e l'82,2% della larghezza e fra il 17,2% e il 72,7% dell'altezza).
+   Il fondo della hero è il fondo dell'immagine, prolungato in tutte le direzioni con due sfumature prese riga per riga: a sinistra
+   quella dello studio vuoto (sul bordo sinistro dell'immagine arriva l'ombra azzurra del vasetto, che prolungata diventerebbe una
+   striscia), a destra quella del bordo destro, più luminoso perché la luce viene da destra. Il passaggio fra le due sta dietro
+   l'immagine. Testata, testi, pulsanti e card sono quelli della versione chiara (p8l, qui sopra); dietro il testo una luce
+   bianca morbida, come nella P11 chiara.
+   Desktop: l'immagine è alta quanto la fascia, con gli oggetti al centro dello spazio fra la fine del testo + 64px e il bordo
+   della colonna + 40px; se lo spazio manca si rimpicciolisce (--S). Tablet e telefono: gli oggetti stanno nel riquadro sotto il
+   testo, che non cambia misura (altezze della pagina invariate) ===== */
+.p8.p8l .hero{background:#E4EBF8;box-shadow:0 -2px 0 #CCDEF9}   /* la testata è alta 77,25px e la hero risale di 76: il pixel in cima mostrava il bianco della pagina */
+.p8.p8l .h-ox{position:absolute;left:-200%;right:-100%;top:-300%;bottom:-300%;display:block;background:linear-gradient(180deg,#CCDEFA 42.8571%,#CEDFF9 43.2103%,#D1E1F9 43.7103%,#D7E4F9 44.4723%,#DCE7FA 45.0516%,#E4EDFA 46.3849%,#E6EDFB 46.6389%,#E8F0FB 47.0833%,#EBF0FB 47.4643%,#EAEFF9 48.5357%,#EAEFFB 49.0437%,#EEF3FC 49.5516%,#F0F3FB 50.0040%,#EFF4FC 50.5674%,#EEF3FC 50.7659%,#E6EDFA 52.8611%,#E3EBF9 54.2817%,#E1E9F8 55.4960%,#E2E9F7 57.1429%,#E6ECF8 65.7143%)}
+.p8.p8l .h-oxr{background:linear-gradient(180deg,#CBDDF9 42.8571%,#D0E1F9 43.8453%,#D8E4F9 44.9563%,#DAE7FA 45.6151%,#DCE8FB 45.8690%,#DEE9FA 46.2817%,#E1EAFA 46.7024%,#E3ECFA 47.2024%,#E5EDFA 47.4643%,#EAEFFA 48.5357%,#ECF2FB 48.9167%,#F5F7FD 49.5596%,#F6F8FD 49.7500%,#F6F7FD 50.5674%,#F2F6FC 51.1469%,#F1F5FD 51.4563%,#EFF3FB 51.8373%,#EDF3FC 52.1627%,#EBF0FA 52.7976%,#E9EFFB 53.4326%,#E8EEFA 53.6866%,#E6EDF8 54.1944%,#E6EDF8 54.6944%,#E8EEFA 55.0833%,#E6EDF8 55.4643%,#E9EEF9 55.8453%,#EAF0F9 56.6627%,#EEF1F9 57.1429%,#E6ECF8 65.7143%);-webkit-mask-image:linear-gradient(90deg,transparent 55%,#000 70%);mask-image:linear-gradient(90deg,transparent 55%,#000 70%)}
+.p8.p8l .h-stage{transform-origin:49% 62%}   /* l'avvicinamento lento (p8push) parte dal centro della collezione */
+.p8.p8l .h-stage .h-bpar{background:none}
+.p8.p8l .h-bpar{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 3%,#000 26%,#000 94%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 3%,#000 26%,#000 94%,transparent);mask-composite:intersect}
+@media (min-width:1081px){
+.p8.p8l .h-stage{--tw:max(calc(8.9 * clamp(55px, calc(var(--hv, 900px) * .075), 85px)), 612.5px);--x0:calc(50cqw - var(--hc, 608px) + var(--tw) + 64px);--x1:calc(50cqw + var(--hc, 608px) + 40px);--S:min(100cqh, calc((var(--x1) - var(--x0)) / .62));aspect-ratio:auto;height:var(--S);width:calc(var(--S) * .8889);left:calc((var(--x0) + var(--x1)) / 2 - .4356 * var(--S));right:auto;top:calc(45cqh - 0.4500 * var(--S));transform:none}
+.p8.p8l .h-vis::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 46% 62% at 18% 44%,rgba(255,255,255,.5),rgba(255,255,255,0) 72%)}
+}
+@container site (max-width: 1080px){
+.p8.p8l .hero{box-shadow:0 -2px 0 #CCDEF9}
+.p8.p8l .h-main .h-in{z-index:1}
+.p8.p8l .h-vis{overflow:visible;-webkit-mask-image:none;mask-image:none}
+.p8.p8l .h-stage{--S:118cqh;aspect-ratio:auto;height:var(--S);width:calc(var(--S) * .8889);left:calc(57cqw - .4356 * var(--S));right:auto;top:calc(100cqh - 90px - .727 * var(--S));transform:none;-webkit-mask-image:none;mask-image:none}
+.p8.p8l .h-bpar{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 10%,#000 25%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 10%,#000 25%,#000 94%,transparent)}
+}
+@container site (max-width: 640px){
+.p8.p8l .h-stage{--S:min(138cqh, 560px);left:calc(50cqw - .4356 * var(--S));top:calc(100cqh - 48px - .727 * var(--S))}
+}
+@media (prefers-reduced-motion: reduce){.p8.p8l .h-stage{animation:none}}
 /* ===== hero più larga (26/11/2026) =====
    Sul desktop la hero esce dalla colonna delle sezioni (1280px, cioè 1024 a schermo con la scala all'80%): la sua colonna
    arriva a 1800px (1440 a schermo), lascia almeno 150px (120 a schermo) per lato e non è mai più stretta delle sezioni.
@@ -1625,7 +1625,9 @@ body{margin:0}
 <section class="hero" aria-labelledby="p8-h1" ref="{{ setHeroRef }}">
 <div class="h-bg" aria-hidden="true"><span class="h-grid"></span><span class="h-glow g1"></span><span class="h-glow g2"></span><span class="h-spot"></span></div>
 <div class="h-main">
-<div class="h-vis" aria-hidden="true"><div class="lx"><i class="lx-f"></i><i class="lx-f lx-fr"></i><img class="lx-base" src="./assets/p8-luce-base.jpg?v=4" alt="" width="3900" height="1822" decoding="async" fetchpriority="high"><span class="lx-sun lx-fix"><img src="./assets/p8-luce-sole-pavimento.jpg?v=4" alt="" width="2510" height="766" decoding="async"></span><span class="lx-sun lx-wall"><img src="./assets/p8-luce-sole-muro.jpg?v=4" alt="" width="2350" height="1054" decoding="async"></span></div></div>
+<div class="h-vis" aria-hidden="true"><div class="h-stage"><i class="h-ox"></i><i class="h-ox h-oxr"></i>
+<span class="h-par h-bpar" style="--z:4"><img class="h-base" src="./assets/p11-chiara-collezione.webp" alt="" width="1600" height="1800" decoding="async" fetchpriority="high"></span>
+</div></div>
 <div class="wrap h-in">
 <div class="h-copy">
 <p class="h-eye"><span class="pulse"></span>Associazione Nazionale Imprese Cosmetiche · Federchimica – Confindustria</p>
@@ -1860,14 +1862,6 @@ class Component extends DCLogic {
     box.addEventListener('pointerleave', () => { ev = null; cards.forEach((c) => { c.style.setProperty('--x', '-999px'); c.style.setProperty('--y', '-999px'); c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); }); });
   }
   componentDidMount() {
-    setTimeout(() => {
-      const _h = this.heroEl;
-      const _lx = _h && _h.querySelector ? _h.querySelector('.lx') : null;
-      if (!_lx || typeof IntersectionObserver === 'undefined') return;
-      // la luce si muove solo quando l'hero è sullo schermo
-      this._lxio = new IntersectionObserver((es) => { const e = es[es.length - 1]; _lx.classList.toggle('is-off', !e.isIntersecting); });
-      this._lxio.observe(_lx);
-    }, 0);
     if (typeof window !== 'undefined') {
       this._rm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       this._sc = () => {
@@ -1950,7 +1944,6 @@ class Component extends DCLogic {
     }, 1000);
   }
   componentWillUnmount() {
-    if (this._lxio) this._lxio.disconnect();
     if (this._sc) window.removeEventListener('scroll', this._sc);
     if (this._fit) window.removeEventListener('resize', this._fit);
     if (this._rvstop) this._rvstop();

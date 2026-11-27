@@ -1053,7 +1053,7 @@ body{margin:0}
 .p8n .cs8-bg,.p8n .so8-bg{background:none}
 .p8n .cs8-bg::after,.p8n .so8-bg::after,.p8n .upd8-bg::after,.p8n .upd8-bg .au2,.p8n .upd8-bg .au3{display:none}
 
-/* === versione scura: in questa tavola la hero ha una foto ferma (flaconi su vassoio di gres, vedi in fondo); le regole dei video restano per le altre versioni === */
+/* === versione scura: in questa tavola la hero ha la collezione della P11 «Orizzonte» (vedi in fondo); le regole dei video restano per le altre versioni === */
 .p8n.p8t .h-bg{background:linear-gradient(180deg,#11286A 0%,#0F2459 38%,#0C1A45 70%,#0A1233 100%)}
 .p8n.p8t .g1{opacity:.22}
 .p8n.p8t .h-bpar{background:#0E2152}
@@ -1413,16 +1413,39 @@ body{margin:0}
 /* lettere dei mesi nel grafico circolare: il disegno le rimpicciolisce, qui arrivano a 12 px a schermo */
 .p8 .dl-t{font-size:24px}
 }
-/* ===== hero con la foto dei flaconi (26/11): flacone con pompetta, contagocce con ghiera dorata e vasetto smerigliato
-   su un vassoio di gres, render fotografico su fondo blu notte (assets/p8cb-flaconi.webp, 1680x1400, prodotti tra il 23% e l'85% della larghezza).
-   Sul desktop il gruppo dei prodotti (dal flacone con pompetta, al 36% della larghezza, alla fine del vassoio, all'85%) sta al centro
-   dello spazio fra la fine del testo + 84px (il titolo è largo 8,9 volte il suo corpo, il paragrafo 612,5px) e il bordo della colonna
-   della hero + 36px (vedi «hero più larga» qui sotto). Così i prodotti non coprono mai titolo e paragrafo (prima a 1920x1080 il flacone
-   finiva sotto il titolo); l'immagine è alta fino al 92% della fascia e se lo spazio manca si rimpicciolisce (--S) ===== */
+/* ===== hero con la collezione della P11 «Orizzonte» (27/11/2026): profumo, rossetto, vasetto e cipria in cristallo e cromo
+   sul piano lucido, lo stesso render dell'apertura della P11 (assets/p11-collezione-orizzonte.webp, 1600x1800; oggetti fra il
+   15,8% e l'82,2% della larghezza e fra il 17,2% e il 72,7% dell'altezza, riflessi sotto).
+   Il fondo della hero è il fondo dell'immagine: .h-ox lo prolunga in tutte le direzioni con la sfumatura presa riga per riga
+   dai suoi bordi, quindi non c'è nessuna cucitura a nessuna misura. Sotto l'immagine (si vede solo su tablet e telefono, dietro
+   le card dei numeri) torna piano al blu notte invece di restare quasi nero.
+   Desktop: l'immagine è alta quanto la fascia, come nella P11, con gli oggetti al centro dello spazio fra la fine del testo + 64px
+   e il bordo della colonna + 40px; se lo spazio manca si rimpicciolisce (--S) e resta all'altezza del testo. Un'ombra morbida
+   dietro il testo (come nella P11) fa emergere la luce cobalto da dietro gli oggetti; le card dei numeri hanno un vetro più scuro,
+   così i riflessi che ci passano sotto non le schiariscono.
+   Tablet e telefono: gli oggetti stanno nel riquadro sotto il testo, che non cambia misura (altezze della pagina invariate) ===== */
+.p8.p8t .h-ox{position:absolute;left:-200%;right:-100%;top:-300%;bottom:-300%;display:block;background:linear-gradient(180deg,#0A1D4E 27.1429%,#061841 36.4286%,#031438 42.8571%,#02153A 43.1547%,#04173E 43.4484%,#03183F 43.6230%,#041F4E 44.8294%,#082152 45.0516%,#16285D 45.7103%,#1B2A62 46.0277%,#193775 46.9167%,#183977 47.1071%,#1A3977 47.3453%,#1C3372 48.1310%,#1C326F 48.3531%,#0D2861 49.1469%,#032256 49.5833%,#001F51 49.7739%,#011C4A 50.0277%,#001842 50.5754%,#080E2F 51.6786%,#080E2C 51.9167%,#06091D 53.6469%,#050819 54.3453%,#030614 55.4246%,#010510 57.1429%,#060D27 65.0000%,#0A1536 77.1429%)}
+.p8.p8t .hero{box-shadow:0 -2px 0 #031438}   /* la testata è alta 77,25px e la hero risale di 76: il pixel in cima mostrava il bianco della pagina */
+.p8.p8t .h-stage{transform-origin:49% 62%}   /* l'avvicinamento lento (p8push) parte dal centro della collezione */
+.p8.p8t .h-stage .h-bpar{background:none}
+.p8.p8t .h-bpar{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 13%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 3%,#000 26%,#000 94%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 13%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 3%,#000 26%,#000 94%,transparent);mask-composite:intersect}
 @media (min-width:1081px){
-.p8.p8t .h-stage{--tw:max(calc(8.9 * clamp(55px, calc(var(--hv, 900px) * .075), 85px)), 612.5px);--x0:calc(50cqw - var(--hc, 608px) + var(--tw) + 84px);--x1:calc(50cqw + var(--hc, 608px) + 36px);--S:min(92cqh, 1300px, calc((var(--x1) - var(--x0)) / .588));height:var(--S);right:auto;left:calc((var(--x0) + var(--x1)) / 2 - .726 * var(--S));transform:translateY(-50%)}
-.p8.p8t .h-bpar{-webkit-mask-image:radial-gradient(ellipse 52% 54% at 55% 50%,#000 0%,#000 74%,transparent 100%),linear-gradient(90deg,#000 0%,#000 92%,transparent 100%);mask-image:radial-gradient(ellipse 52% 54% at 55% 50%,#000 0%,#000 74%,transparent 100%),linear-gradient(90deg,#000 0%,#000 92%,transparent 100%)}
+.p8.p8t .h-stage{--tw:max(calc(8.9 * clamp(55px, calc(var(--hv, 900px) * .075), 85px)), 612.5px);--x0:calc(50cqw - var(--hc, 608px) + var(--tw) + 64px);--x1:calc(50cqw + var(--hc, 608px) + 40px);--S:min(100cqh, calc((var(--x1) - var(--x0)) / .62));aspect-ratio:auto;height:var(--S);width:calc(var(--S) * .8889);left:calc((var(--x0) + var(--x1)) / 2 - .4356 * var(--S));right:auto;top:calc(45cqh - .45 * var(--S));transform:none}
+.p8.p8t .h-vis::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 46% 62% at 18% 44%,rgba(1,4,16,.5),rgba(1,4,16,0) 72%)}
+.p8.p8t .in-c{background:linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.08)),rgba(2,6,20,.55)}
+.p8.p8t .in-c:hover{background:linear-gradient(rgba(255,255,255,.13),rgba(255,255,255,.13)),rgba(2,6,20,.55)}
 }
+@container site (max-width: 1080px){
+.p8.p8t .hero{box-shadow:0 -2px 0 #0A1D4E}
+.p8.p8t .h-main .h-in{z-index:1}
+.p8.p8t .h-vis{overflow:visible;-webkit-mask-image:none;mask-image:none}
+.p8.p8t .h-stage{--S:118cqh;aspect-ratio:auto;height:var(--S);width:calc(var(--S) * .8889);left:calc(57cqw - .4356 * var(--S));right:auto;top:calc(100cqh - 90px - .727 * var(--S));transform:none;-webkit-mask-image:none;mask-image:none}
+.p8.p8t .h-bpar{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 13%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 10%,#000 25%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent 0,#000 13%,#000 88%,transparent),linear-gradient(0deg,transparent 0,transparent 10%,#000 25%,#000 94%,transparent)}
+}
+@container site (max-width: 640px){
+.p8.p8t .h-stage{--S:min(138cqh, 560px);left:calc(50cqw - .4356 * var(--S));top:calc(100cqh - 48px - .727 * var(--S))}
+}
+@media (prefers-reduced-motion: reduce){.p8.p8t .h-stage{animation:none}}
 /* ===== hero più larga (26/11/2026) =====
    Sul desktop la hero esce dalla colonna delle sezioni (1280px, cioè 1024 a schermo con la scala all'80%): la sua colonna
    arriva a 1800px (1440 a schermo), lascia almeno 150px (120 a schermo) per lato e non è mai più stretta delle sezioni.
@@ -1508,8 +1531,8 @@ body{margin:0}
 <section class="hero" aria-labelledby="p8-h1" ref="{{ setHeroRef }}">
 <div class="h-bg" aria-hidden="true"><span class="h-grid"></span><span class="h-glow g1"></span><span class="h-glow g2"></span><span class="h-spot"></span></div>
 <div class="h-main">
-<div class="h-vis" aria-hidden="true"><div class="h-stage">
-<span class="h-par h-bpar" style="--z:4"><img class="h-base" src="./assets/p8cb-flaconi.webp" alt="" width="1680" height="1400" decoding="async" fetchpriority="high"></span>
+<div class="h-vis" aria-hidden="true"><div class="h-stage"><i class="h-ox"></i>
+<span class="h-par h-bpar" style="--z:4"><img class="h-base" src="./assets/p11-collezione-orizzonte.webp" alt="" width="1600" height="1800" decoding="async" fetchpriority="high"></span>
 </div></div>
 <div class="wrap h-in">
 <div class="h-copy">

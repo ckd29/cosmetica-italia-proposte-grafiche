@@ -87,25 +87,33 @@ body{margin:0;background:#040A1E}
 .p12 .hx{position:relative;height:var(--hv,880px);min-height:640px;overflow:hidden;background:#081536}
 .p12 .hx-media{position:absolute;inset:0;transform-origin:76.6% 51.6%}
 .p12 .hx-media img,.p12 .hx-gl{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
-.p12 .hx-off{opacity:0;transition:opacity 1.2s}
 .p12 .hx-gl{opacity:0;transition:opacity .6s}
-.p12 .hx[data-anim] .hx-off{opacity:1}
-.p12 .hx[data-anim] .hx-on{opacity:0}
+.p12 .hx[data-hx] .hx-gl{transition:none}
 .p12 .hx[data-gl] .hx-gl{opacity:1}
+/* fuori dalla modalità viva la tela non viene più ridisegnata (un ridimensionamento la svuota): resta l'immagine */
+.p12:not([data-live]) .hx-gl{display:none}
+/* ingresso dell'apertura: luci basse (velo in moltiplicazione, lo stesso valore usato dal gel), poi l'onda accende la scena.
+   Senza gel pronto entro 1 s la luce sale col velo. Esiste solo con data-hx, messo dallo script in modalità viva. */
+.p12 .hx-nt{position:absolute;inset:0;display:none;background:rgb(87,97,128);mix-blend-mode:multiply;pointer-events:none}
+.p12 .hx[data-hx="pre"] .hx-nt{display:block}
+.p12 .hx[data-hx="go"]:not([data-gl]) .hx-nt{display:block;animation:p12-ntout 1.5s var(--rv-e) .15s both}
+@keyframes p12-ntout{to{opacity:0}}
 .p12 .hx-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,8,26,.55) 0%,rgba(3,8,26,.25) 36%,rgba(3,8,26,0) 58%),linear-gradient(180deg,rgba(3,8,26,.55) 0%,rgba(3,8,26,0) 18%),linear-gradient(0deg,rgba(4,10,30,1) 0%,rgba(4,10,30,0) 24%)}
 .p12 .hx-in{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:96px;padding-bottom:64px}
 .p12 .hx-txt{max-width:640px}
 .p12 .h1{font-size:clamp(40px,4.3cqi,70px);line-height:1.03;letter-spacing:-.04em}
 .p12 .h1 .ln{display:block;overflow:hidden;padding:0 .04em .1em 0;margin-bottom:-.1em}
 .p12 .h1 .ln>span{display:inline-block}
-.p12[data-live] .h1 .ln>span{animation:p12-up 1.3s var(--ease) both;animation-delay:calc(.2s + var(--i)*.1s)}
+.p12 .hx{--hx-t0:.5s;--rv-blur:12px}
+.p12 .hx[data-hx] .h1 .ln{overflow:visible}
+.p12 .hx[data-hx="pre"] :is(.h1 .ln>span,.hx-p,.hx-cta){opacity:0}
+.p12 .hx[data-hx="go"] .h1 .ln>span{animation:p12r-focus 1.15s var(--rv-g) calc(var(--hx-t0) + var(--i) * .12s) backwards}
 .p12 .hx-p{margin-top:22px;max-width:480px;font-size:17px;line-height:1.6;color:var(--fg2)}
 .p12 .hx-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.p12[data-live] .hx-p,.p12[data-live] .hx-cta{animation:p12-fade 1.2s .7s var(--ease) both}
+.p12 .hx[data-hx="go"] .hx-p{animation:p12r-up .9s var(--rv-e) calc(var(--hx-t0) + .5s) backwards}
+.p12 .hx[data-hx="go"] .hx-cta{animation:p12r-up .9s var(--rv-e) calc(var(--hx-t0) + .64s) backwards}
 .p12 .hx[data-live] .hx-in{opacity:calc(1 - var(--hs,0)*1.5);transform:translate3d(0,calc(var(--hs,0)*-60px),0)}
 .p12 .hx[data-live] .hx-media{transform:scale(calc(1 + var(--hs,0)*.06))}
-@keyframes p12-up{from{transform:translateY(110%)}to{transform:none}}
-@keyframes p12-fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 /* sezioni */
 .p12 .sec{position:relative;padding:clamp(88px,8.6cqi,136px) 0}
@@ -536,6 +544,7 @@ body{margin:0;background:#040A1E}
   /* ingressi più leggeri sul telefono: cambiano solo le misure, mai le animazioni */
   .p12 main,.p12 .ft{--rv-y:14px;--rv-blur:6px;--rv-stag:.06s}
   .p12 .sv-stage{--rv-ox:40px;--rv-oy:40px}
+  .p12 .hx{--hx-t0:.7s;--rv-blur:7px}
 }
 @media (prefers-reduced-motion:reduce){
   .p12 *,.p12 *::before,.p12 *::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
@@ -584,7 +593,7 @@ body{margin:0;background:#040A1E}
 <section class="hx" aria-labelledby="p12-h1" ref="{{ setHxRef }}">
 <div class="hx-media" aria-hidden="true">
 <picture><source media="(max-width: 640px)" srcset="./assets/p12-flacone-m.webp"><img class="hx-on" src="./assets/p12-flacone.webp" alt="" width="2880" height="1620" fetchpriority="high"></picture>
-<sc-if value="{{ anim }}" hint-placeholder-val="{{ false }}"><picture><source media="(max-width: 640px)" srcset="./assets/p12-flacone-m-spento.webp"><img class="hx-off" src="./assets/p12-flacone-spento.webp" alt="" width="2880" height="1620"></picture></sc-if>
+<div class="hx-nt"></div>
 <canvas class="hx-gl" ref="{{ setGlRef }}"></canvas>
 </div>
 <div class="hx-shade"></div>
@@ -794,7 +803,7 @@ class Component extends DCLogic {
     this.qEl = null;
   }
   variant() {
-    return {"d": {"on": "./assets/p12-flacone.webp", "off": "./assets/p12-flacone-spento.webp", "mask": "./assets/p12-flacone-maschera.png", "w": 2880, "h": 1620, "cx": 0.7656, "cy": 0.5163, "hz": 0.5765}, "m": {"on": "./assets/p12-flacone-m.webp", "off": "./assets/p12-flacone-m-spento.webp", "mask": "./assets/p12-flacone-m-maschera.png", "w": 1080, "h": 1920, "cx": 0.4995, "cy": 0.3769, "hz": 0.4135}};
+    return {"d": {"on": "./assets/p12-flacone.webp", "off": "./assets/p12-flacone-spento.webp", "mask": "./assets/p12-flacone-maschera.png", "w": 2880, "h": 1620, "cx": 0.7656, "cy": 0.5163, "hz": 0.5765, "ox": 0.7706, "oy": 0.712, "ot": 0.2481}, "m": {"on": "./assets/p12-flacone-m.webp", "off": "./assets/p12-flacone-m-spento.webp", "mask": "./assets/p12-flacone-m-maschera.png", "w": 1080, "h": 1920, "cx": 0.4995, "cy": 0.3769, "hz": 0.4135, "ox": 0.4987, "oy": 0.494, "ot": 0.2198}};
   }
   data() {
     if (this._d) return this._d;
@@ -1023,11 +1032,33 @@ class Component extends DCLogic {
     };
     this._craf[i] = requestAnimationFrame(step);
   }
-  // apertura: compone acceso, spento e maschera; le luci si accendono con uno sfarfallio, il gel si muove
+  // ingresso dell'apertura: luci basse finché il gel non è pronto (al massimo 1 s), poi l'onda;
+  // senza gel la luce sale col velo. Dopo 3,4 s lo stato finale, così un ridimensionamento non lo ripete
+  _hxPre() {
+    const hx = this.hxEl;
+    if (!hx) return;
+    hx.setAttribute('data-hx', 'pre');
+    this._hxT = setTimeout(() => this._hxGo(), 1000);
+  }
+  _hxGo() {
+    const hx = this.hxEl;
+    if (!hx || hx.getAttribute('data-hx') !== 'pre') return false;
+    clearTimeout(this._hxT);
+    hx.setAttribute('data-hx', 'go');
+    this._hxT = setTimeout(() => { if (hx.getAttribute('data-hx') === 'go') hx.setAttribute('data-hx', 'done'); }, 3400);
+    return true;
+  }
+  _hxStatic() {
+    if (this._hxT) { clearTimeout(this._hxT); this._hxT = 0; }
+    if (this.hxEl) this.hxEl.removeAttribute('data-hx');
+    const st = this._hg;
+    if (st && st.ready && st.s0) { st.s0 = 0; st.tb = 0; st.draw(performance.now()); }
+  }
+  // apertura: compone acceso, spento e maschera; l'oggetto si accende dalla base, un'onda attraversa il gel e accende la scena
   _hero() {
     const cv = this.glEl, host = this.hxEl;
     if (!cv || !host || typeof window === 'undefined') return;
-    const fail = () => { host.removeAttribute('data-anim'); host.removeAttribute('data-gl'); };
+    const fail = () => { host.removeAttribute('data-gl'); this._hxGo(); };
     let gl = null;
     try { gl = cv.getContext('webgl', { antialias: false, alpha: false, depth: false, stencil: false, premultipliedAlpha: false, preserveDrawingBuffer: false }); } catch (e) { gl = null; }
     if (!gl) { fail(); return; }
@@ -1037,6 +1068,7 @@ class Component extends DCLogic {
       'uniform sampler2D uOn;',
       'uniform sampler2D uOff;',
       'uniform sampler2D uMask;',
+      'uniform sampler2D uMaskL;',
       'uniform vec2 uRes;',
       'uniform vec2 uImg;',
       'uniform vec2 uPos;',
@@ -1046,6 +1078,12 @@ class Component extends DCLogic {
       'uniform float uLit;',
       'uniform float uZoom;',
       'uniform vec3 uRip;',
+      'uniform float uS;',
+      'uniform vec3 uO;',
+      'uniform vec4 uW;',
+      'uniform vec4 uK;',
+      'uniform vec3 uDim;',
+      'uniform vec4 uQ;',
       'float hash(vec2 p){ vec3 q = fract(vec3(p.xyx) * 0.1031); q += dot(q, q.yzx + 33.33); return fract((q.x + q.y) * q.z); }',
       'float noise(vec2 p){',
       '  vec2 i = floor(p); vec2 f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);',
@@ -1063,6 +1101,8 @@ class Component extends DCLogic {
       'void main(){',
       '  vec2 uv = cover(gl_FragCoord.xy);',
       '  vec2 suv = uv;',
+      '  float asp = uImg.x / uImg.y;',
+      '  float rise = 0.0;',
       '  vec4 m = texture2D(uMask, uv);',
       '  if (m.r > 0.5){',
       '    float depth = clamp((uv.y - uHz) / (1.0 - uHz), 0.0, 1.0);',
@@ -1076,12 +1116,37 @@ class Component extends DCLogic {
       '      float r = length(dv);',
       '      d += dv / max(r, 1e-4) * sin(r * 70.0 - uT * 2.4) * exp(-r * 4.0) * uRip.z;',
       '    }',
+      '    float pw = clamp((uS - uK.x) / uK.y, 0.0, 1.0);',
+      '    if (pw > 0.0 && pw < 1.0){',
+      '      vec2 dw = (uv - uO.xy) * vec2(asp, uv.y < uO.y ? uW.z : uW.w);',
+      '      float r = length(dw);',
+      '      float R = uW.x * (1.0 - pow(1.0 - pw, 1.7));',
+      '      float x = (r - R) / uK.z;',
+      '      float x2 = x + 1.9;',
+      '      float sl = -x * exp(-x * x) + 0.45 * x2 * exp(-x2 * x2);',
+      '      float a = uK.w * pow(1.0 - pw, uQ.z) * smoothstep(0.0, 0.05, pw) * smoothstep(0.08, 0.22, r) * (0.12 + 0.88 * pow(depth, 1.4));',
+      '      vec2 n = dw / max(r, 1e-4);',
+      '      d += vec2(n.x * uQ.x / asp, n.y) * sl * a;',
+      '      rise = sl * a;',
+      '    }',
       '    vec2 cand = uv + d;',
       '    if (texture2D(uMask, cand).r > 0.5) suv = cand;',
+      '    else { cand = uv + d * 0.5; if (texture2D(uMask, cand).r > 0.5) suv = cand; }',
       '  }',
       '  vec3 on = texture2D(uOn, suv).rgb;',
       '  vec3 off = texture2D(uOff, suv).rgb;',
       '  vec3 col = off + (on - off) * uLit;',
+      '  if (uS < 9.0){',
+      '    float ob = texture2D(uMaskL, uv).g;',
+      '    float to = 0.05 + 0.35 * clamp((uO.y - uv.y) / max(uO.y - uO.z, 0.001), 0.0, 1.0);',
+      '    float lo = smoothstep(0.0, 1.0, (uS - to) / 0.5);',
+      '    float rl = length((uv - uO.xy) * vec2(asp, 1.25));',
+      '    float pl = clamp((uS - uK.x) / (uK.y * 0.88), 0.0, 1.0);',
+      '    float Rl = uW.y * (1.0 - pow(1.0 - pl, 1.6));',
+      '    float lg = 1.0 - smoothstep(Rl - 0.5, Rl, rl);',
+      '    float L = mix(lg, max(lg, lo), ob);',
+      '    col = mix(col * uDim, col, L) * (1.0 + rise * uQ.y * L);',
+      '  }',
       '  float gr = hash(gl_FragCoord.xy + fract(uT * 13.7) * 97.0) - 0.5;',
       '  col += gr * 0.02 * (0.35 + 0.65 * (1.0 - dot(col, vec3(0.33))));',
       '  gl_FragColor = vec4(col, 1.0);',
@@ -1101,9 +1166,15 @@ class Component extends DCLogic {
     gl.enableVertexAttribArray(al);
     gl.vertexAttribPointer(al, 2, gl.FLOAT, false, 0, 0);
     const U = {};
-    ['uOn', 'uOff', 'uMask', 'uRes', 'uImg', 'uPos', 'uC', 'uHz', 'uT', 'uLit', 'uZoom', 'uRip'].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
-    const st = this._hg = { raf: 0, vis: true, on: !document.hidden, t0: 0, ratio: Math.min(window.devicePixelRatio || 1, 1.5), w: 0, h: 0, zoom: 1, ready: false, kick: () => {} };
+    ['uOn', 'uOff', 'uMask', 'uMaskL', 'uRes', 'uImg', 'uPos', 'uC', 'uHz', 'uT', 'uLit', 'uZoom', 'uRip', 'uS', 'uO', 'uW', 'uK', 'uDim', 'uQ'].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
+    const st = this._hg = { raf: 0, vis: true, on: !document.hidden, t0: 0, s0: 0, tb: 0, ratio: Math.min(window.devicePixelRatio || 1, 1.5), w: 0, h: 0, zoom: 1, ready: false, kick: () => {} };
     const A = this._art();
+    // l'onda corre sul piano del gel: più schiacciata verso l'orizzonte, più larga verso di noi; la luce si allarga dalla base dell'oggetto
+    const asp = A.w / A.h, SF = 7, SN = 3;
+    const mw = (x, y) => Math.hypot((x - A.ox) * asp, (y - A.oy) * (y < A.oy ? SF : SN));
+    const ml = (x, y) => Math.hypot((x - A.ox) * asp, (y - A.oy) * 1.25);
+    const RW = Math.max(mw(0, A.hz), mw(1, A.hz), mw(0, 1), mw(1, 1)) + 0.1;
+    const RL = Math.max(ml(0, 0), ml(1, 0), ml(0, 1), ml(1, 1)) + 0.5;
     const tex = (img, unit, nearest) => {
       const t = gl.createTexture();
       gl.activeTexture(gl.TEXTURE0 + unit);
@@ -1123,11 +1194,10 @@ class Component extends DCLogic {
       if (w !== st.w || h !== st.h) { st.w = w; st.h = h; cv.width = w; cv.height = h; }
     };
     const pos = () => { const cs = getComputedStyle(cv).objectPosition.split(' '); return [parseFloat(cs[0]) / 100 || 0.7, parseFloat(cs[1]) / 100 || 0.5]; };
-    // accensione: breve sfarfallio delle luci, poi un respiro lento
-    const flick = (x) => (x < 0 ? 0 : x < 0.07 ? 1.1 : x < 0.13 ? 0.08 : x < 0.2 ? 0.9 : x < 0.26 ? 0.35 : Math.min(1, 0.35 + (x - 0.26) / 0.4 * 0.65));
-    const draw = (now) => {
+    const draw = st.draw = (now) => {
       const t = (now - st.t0) / 1000;
-      const lit = t < 1.6 ? flick(t - 0.55) : 0.95 + 0.05 * Math.cos((t - 1.6) * 0.9);
+      const s = st.s0 ? (now - st.s0) / 1000 : 99;
+      const lit = 0.95 + 0.05 * Math.cos(Math.max(0, t - st.tb) * 0.9);
       gl.viewport(0, 0, cv.width, cv.height);
       gl.uniform2f(U.uRes, cv.width, cv.height);
       gl.uniform2f(U.uImg, A.w, A.h);
@@ -1138,25 +1208,41 @@ class Component extends DCLogic {
       gl.uniform1f(U.uLit, lit);
       gl.uniform1f(U.uZoom, st.zoom);
       gl.uniform3f(U.uRip, A.rx || 0, A.ry || 0, A.ra || 0);
+      gl.uniform1f(U.uS, s < 2.6 ? s : 99);
+      gl.uniform3f(U.uO, A.ox, A.oy, A.ot);
+      gl.uniform4f(U.uW, RW, RL, SF, SN);
+      // onda: partenza 0,2 s, durata 2,2 s, cresta larga (gel denso, i riflessi non si ripiegano), ampiezza;
+      // poi peso dello spostamento laterale, chiaroscuro della cresta, smorzamento
+      gl.uniform4f(U.uK, 0.2, 2.2, 0.2, 0.06);
+      gl.uniform4f(U.uQ, 1, 7, 0.8, 0);
+      gl.uniform3f(U.uDim, 87 / 255, 97 / 255, 128 / 255);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
-    const loop = (now) => {
+    // orologio della pagina (come i contatori), non quello del fotogramma: stessi tempi delle animazioni CSS
+    const loop = () => {
       st.raf = 0;
       if (!st.on || !st.vis || !this._anim()) return;
-      draw(now);
+      draw(performance.now());
       st.raf = requestAnimationFrame(loop);
     };
     st.kick = () => { if (st.ready && !st.raf && st.on && st.vis && this._anim()) st.raf = requestAnimationFrame(loop); };
-    host.setAttribute('data-anim', '');
     Promise.all([load(A.on), load(A.off), load(A.mask)]).then((ims) => {
       if (this._dead) return;
-      tex(ims[0], 0, false); tex(ims[1], 1, false); tex(ims[2], 2, true);
-      gl.uniform1i(U.uOn, 0); gl.uniform1i(U.uOff, 1); gl.uniform1i(U.uMask, 2);
+      tex(ims[0], 0, false); tex(ims[1], 1, false); tex(ims[2], 2, true); tex(ims[2], 3, false);
+      gl.uniform1i(U.uOn, 0); gl.uniform1i(U.uOff, 1); gl.uniform1i(U.uMask, 2); gl.uniform1i(U.uMaskL, 3);
       size();
       st.t0 = performance.now(); st.ready = true;
+      if (this._hxGo()) { st.s0 = st.t0; st.tb = 2.6; }
       draw(st.t0);
-      host.setAttribute('data-gl', '');
-      st.kick();
+      // arrivato tardi, mentre la luce sale col velo: la tela compare a ingresso finito
+      const show = () => {
+        st.shT = 0;
+        if (this._dead) return;
+        if (!st.s0 && host.getAttribute('data-hx') === 'go') { st.shT = setTimeout(show, 250); return; }
+        host.setAttribute('data-gl', '');
+        st.kick();
+      };
+      show();
     }).catch(fail);
     if (typeof IntersectionObserver !== 'undefined') {
       st.io = new IntersectionObserver((l) => { st.vis = l[0].isIntersecting; st.kick(); }, { threshold: 0 });
@@ -1192,7 +1278,7 @@ class Component extends DCLogic {
       const h = window.innerHeight;
       if (this.hxEl) { if (h >= 560 && h <= 1400) this.hxEl.style.setProperty('--hv', h + 'px'); else this.hxEl.style.removeProperty('--hv'); }
       if (this.rootEl) { if (this._anim()) this.rootEl.setAttribute('data-live', ''); else this.rootEl.removeAttribute('data-live'); }
-      if (!this._anim()) this._rvStatic();
+      if (!this._anim()) { this._rvStatic(); this._hxStatic(); }
       this._frame();
     };
     this._fit();
@@ -1215,6 +1301,7 @@ class Component extends DCLogic {
     this._craf = [];
     this._rvDone = [];
     if (this._anim()) {
+      this._hxPre();
       this._hero();
       if (typeof IntersectionObserver !== 'undefined' && this.rootEl) {
         // stato nascosto e contatori a zero solo se l'osservatore c'è: senza, la pagina resta completa
@@ -1239,6 +1326,7 @@ class Component extends DCLogic {
     if (this._fr) cancelAnimationFrame(this._fr);
     if (this._svT) clearInterval(this._svT);
     if (this._svGt) clearTimeout(this._svGt);
+    if (this._hxT) clearTimeout(this._hxT);
     if (this._rvio) this._rvio.disconnect();
     (this._cntT || []).forEach((t) => clearTimeout(t));
     (this._rvDone || []).forEach((t) => clearTimeout(t));
@@ -1246,6 +1334,7 @@ class Component extends DCLogic {
     const hg = this._hg;
     if (hg) {
       if (hg.raf) cancelAnimationFrame(hg.raf);
+      if (hg.shT) clearTimeout(hg.shT);
       if (hg.io) hg.io.disconnect();
       if (hg.onVis) document.removeEventListener('visibilitychange', hg.onVis);
       if (hg.onRs) window.removeEventListener('resize', hg.onRs);
