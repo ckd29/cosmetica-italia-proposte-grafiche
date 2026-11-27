@@ -1060,14 +1060,16 @@ class Component extends DCLogic {
     if (!cv || !host || typeof window === 'undefined') return;
     const fail = () => { host.removeAttribute('data-gl'); this._hxGo(); };
     let gl = null;
-    try { gl = cv.getContext('webgl', { antialias: false, alpha: false, depth: false, stencil: false, premultipliedAlpha: false, preserveDrawingBuffer: false }); } catch (e) { gl = null; }
+    // WebGL2 dove c'è (mipmap anche su immagini non quadrate di potenza 2): senza, il gel che si sposta fa scintillare la grana del render
+    const gopt = { antialias: false, alpha: false, depth: false, stencil: false, premultipliedAlpha: false, preserveDrawingBuffer: false };
+    try { gl = cv.getContext('webgl2', gopt) || cv.getContext('webgl', gopt); } catch (e) { gl = null; }
+    const mip = !!gl && typeof WebGL2RenderingContext !== 'undefined' && gl instanceof WebGL2RenderingContext;
     if (!gl) { fail(); return; }
     const vs = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
     const fs = [
       'precision highp float;',
       'uniform sampler2D uOn;',
       'uniform sampler2D uOff;',
-      'uniform sampler2D uMask;',
       'uniform sampler2D uMaskL;',
       'uniform vec2 uRes;',
       'uniform vec2 uImg;',
@@ -1103,8 +1105,9 @@ class Component extends DCLogic {
       '  vec2 suv = uv;',
       '  float asp = uImg.x / uImg.y;',
       '  float rise = 0.0;',
-      '  vec4 m = texture2D(uMask, uv);',
-      '  if (m.r > 0.5){',
+      '  float gm = texture2D(uMaskL, uv).r;',
+      '  if (gm > 0.02){',
+      '    float gw = smoothstep(0.5, 0.92, gm);',
       '    float depth = clamp((uv.y - uHz) / (1.0 - uHz), 0.0, 1.0);',
       '    float amp = mix(0.0008, 0.0062, depth);',
       '    vec2 q = vec2(uv.x * 9.0, uv.y * 40.0 / (0.15 + depth));',
@@ -1118,7 +1121,7 @@ class Component extends DCLogic {
       '    }',
       '    float pw = clamp((uS - uK.x) / uK.y, 0.0, 1.0);',
       '    if (pw > 0.0 && pw < 1.0){',
-      '      vec2 dw = (uv - uO.xy) * vec2(asp, uv.y < uO.y ? uW.z : uW.w);',
+      '      vec2 dw = (uv - uO.xy) * vec2(asp, mix(uW.w, uW.z, smoothstep(-0.02, 0.05, uO.y - uv.y)));',
       '      float r = length(dw);',
       '      float R = uW.x * (1.0 - pow(1.0 - pw, 1.7));',
       '      float x = (r - R) / uK.z;',
@@ -1127,11 +1130,10 @@ class Component extends DCLogic {
       '      float a = uK.w * pow(1.0 - pw, uQ.z) * smoothstep(0.0, 0.05, pw) * smoothstep(0.08, 0.22, r) * (0.12 + 0.88 * pow(depth, 1.4));',
       '      vec2 n = dw / max(r, 1e-4);',
       '      d += vec2(n.x * uQ.x / asp, n.y) * sl * a;',
-      '      rise = sl * a;',
+      '      rise = sl * a * gw;',
       '    }',
-      '    vec2 cand = uv + d;',
-      '    if (texture2D(uMask, cand).r > 0.5) suv = cand;',
-      '    else { cand = uv + d * 0.5; if (texture2D(uMask, cand).r > 0.5) suv = cand; }',
+      '    d *= gw;',
+      '    suv = uv + d * smoothstep(0.35, 0.75, texture2D(uMaskL, uv + d).r);',
       '  }',
       '  vec3 on = texture2D(uOn, suv).rgb;',
       '  vec3 off = texture2D(uOff, suv).rgb;',
@@ -1147,7 +1149,7 @@ class Component extends DCLogic {
       '    float L = mix(lg, max(lg, lo), ob);',
       '    col = mix(col * uDim, col, L) * (1.0 + rise * uQ.y * L);',
       '  }',
-      '  float gr = hash(gl_FragCoord.xy + fract(uT * 13.7) * 97.0) - 0.5;',
+      '  float gr = hash(gl_FragCoord.xy) - 0.5;',
       '  col += gr * 0.02 * (0.35 + 0.65 * (1.0 - dot(col, vec3(0.33))));',
       '  gl_FragColor = vec4(col, 1.0);',
       '}'
@@ -1166,7 +1168,7 @@ class Component extends DCLogic {
     gl.enableVertexAttribArray(al);
     gl.vertexAttribPointer(al, 2, gl.FLOAT, false, 0, 0);
     const U = {};
-    ['uOn', 'uOff', 'uMask', 'uMaskL', 'uRes', 'uImg', 'uPos', 'uC', 'uHz', 'uT', 'uLit', 'uZoom', 'uRip', 'uS', 'uO', 'uW', 'uK', 'uDim', 'uQ'].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
+    ['uOn', 'uOff', 'uMaskL', 'uRes', 'uImg', 'uPos', 'uC', 'uHz', 'uT', 'uLit', 'uZoom', 'uRip', 'uS', 'uO', 'uW', 'uK', 'uDim', 'uQ'].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
     const st = this._hg = { raf: 0, vis: true, on: !document.hidden, t0: 0, s0: 0, tb: 0, ratio: Math.min(window.devicePixelRatio || 1, 1.5), w: 0, h: 0, zoom: 1, ready: false, kick: () => {} };
     const A = this._art();
     // l'onda corre sul piano del gel: più schiacciata verso l'orizzonte, più larga verso di noi; la luce si allarga dalla base dell'oggetto
@@ -1182,8 +1184,53 @@ class Component extends DCLogic {
       gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
       const fl = nearest ? gl.NEAREST : gl.LINEAR;
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, fl);
+      if (!nearest && mip) gl.generateMipmap(gl.TEXTURE_2D);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, !nearest && mip ? gl.LINEAR_MIPMAP_LINEAR : fl);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, fl);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    };
+    // maschera morbida (gel in rosso, oggetto in verde), sfocata qui una volta sola: vicino ai bordi del gel lo spostamento
+    // si spegne in modo continuo e la luce dell'oggetto sfuma, senza i gradini della maschera a mezza risoluzione
+    const softTex = (img, unit) => {
+      const w = Math.max(2, Math.round(img.width / 2.8)), h = Math.max(2, Math.round(img.height / 2.8)), n = w * h;
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      const x = c.getContext('2d', { willReadFrequently: true });
+      x.drawImage(img, 0, 0, w, h);
+      const px = x.getImageData(0, 0, w, h).data;
+      const R = new Float32Array(n), G = new Float32Array(n), T = new Float32Array(n);
+      for (let i = 0; i < n; i++) { R[i] = px[i * 4]; G[i] = px[i * 4 + 1]; }
+      const at = (v, lo, hi) => (v < lo ? lo : v > hi ? hi : v);
+      const pass = (a, r) => {
+        const k = 1 / (2 * r + 1);
+        for (let y = 0; y < h; y++) {
+          const o = y * w; let s = 0;
+          for (let i = -r; i <= r; i++) s += a[o + at(i, 0, w - 1)];
+          for (let i = 0; i < w; i++) { T[o + i] = s * k; s += a[o + at(i + r + 1, 0, w - 1)] - a[o + at(i - r, 0, w - 1)]; }
+        }
+        for (let i = 0; i < w; i++) {
+          let s = 0;
+          for (let j = -r; j <= r; j++) s += T[at(j, 0, h - 1) * w + i];
+          for (let y = 0; y < h; y++) { a[y * w + i] = s * k; s += T[at(y + r + 1, 0, h - 1) * w + i] - T[at(y - r, 0, h - 1) * w + i]; }
+        }
+      };
+      // chiusura del gel (massimo poi minimo, raggio 2): le pieghe sottili fra le creste che il render segna come sfondo
+      // tornano gel, così l'onda le attraversa senza aprire crepe; i bordi veri (cielo, oggetto) restano dove sono
+      const ext = (a, r, mx) => {
+        for (let y = 0; y < h; y++) { const o = y * w; for (let i = 0; i < w; i++) { let v = a[o + i]; for (let j = -r; j <= r; j++) { const u = a[o + at(i + j, 0, w - 1)]; v = mx ? (u > v ? u : v) : (u < v ? u : v); } T[o + i] = v; } }
+        for (let i = 0; i < w; i++) for (let y = 0; y < h; y++) { let v = T[y * w + i]; for (let j = -r; j <= r; j++) { const u = T[at(y + j, 0, h - 1) * w + i]; v = mx ? (u > v ? u : v) : (u < v ? u : v); } a[y * w + i] = v; }
+      };
+      ext(R, 2, true); ext(R, 2, false);
+      for (let p = 0; p < 3; p++) { pass(R, 2); pass(G, 2); }
+      const out = new Uint8Array(n * 4);
+      for (let i = 0; i < n; i++) { out[i * 4] = Math.round(R[i]); out[i * 4 + 1] = Math.round(G[i]); out[i * 4 + 3] = 255; }
+      const t = gl.createTexture();
+      gl.activeTexture(gl.TEXTURE0 + unit);
+      gl.bindTexture(gl.TEXTURE_2D, t);
+      gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, out);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     };
@@ -1228,8 +1275,8 @@ class Component extends DCLogic {
     st.kick = () => { if (st.ready && !st.raf && st.on && st.vis && this._anim()) st.raf = requestAnimationFrame(loop); };
     Promise.all([load(A.on), load(A.off), load(A.mask)]).then((ims) => {
       if (this._dead) return;
-      tex(ims[0], 0, false); tex(ims[1], 1, false); tex(ims[2], 2, true); tex(ims[2], 3, false);
-      gl.uniform1i(U.uOn, 0); gl.uniform1i(U.uOff, 1); gl.uniform1i(U.uMask, 2); gl.uniform1i(U.uMaskL, 3);
+      tex(ims[0], 0, false); tex(ims[1], 1, false); softTex(ims[2], 3);
+      gl.uniform1i(U.uOn, 0); gl.uniform1i(U.uOff, 1); gl.uniform1i(U.uMaskL, 3);
       size();
       st.t0 = performance.now(); st.ready = true;
       if (this._hxGo()) { st.s0 = st.t0; st.tb = 2.6; }
